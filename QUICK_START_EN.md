@@ -1,6 +1,6 @@
 # Quick start
 
-A one-page summary to get going. The details of each function (bridges, recipes, boards, machine and tool profiles, hold-down, time estimate…) are in the **user manual**, `Manual_cnc_app.docx`.
+A one-page summary to get going. The details of each function (bridges, recipes, boards, machine and tool profiles, hold-down, time estimate…) are in the **user manual**, [`Manual_cnc_app_EN.pdf`](docs/Manual_cnc_app_EN.pdf).
 
 ## What you need
 

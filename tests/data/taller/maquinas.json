@@ -1,0 +1,19 @@
+{
+  "_ayuda": "Ficha de prueba: una maquina de taller de 651 x 1011 x 100 mm con homing. Las pruebas de la linea de comandos que comparan G-code la usan en lugar del maquinas.json que se entrega (que trae solo el emulador).",
+  "maquinas": {
+    "real": {
+      "nombre": "Taller",
+      "recorrido": [651, 1011, 100],
+      "avance_max": 3600,
+      "avance_max_z": 3600,
+      "aceleracion": [200, 200, 100],
+      "limites_blandos": true,
+      "limites_duros": true,
+      "homing": true,
+      "husillo_max": 10000,
+      "laser": false,
+      "firmware": "Grbl 1.1",
+      "origen": "$$ de una maquina de taller (UGS)"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest
+pytest-qt
+matplotlib
+pyinstaller>=6.0
+babel

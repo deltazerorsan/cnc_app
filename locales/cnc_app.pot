@@ -1,0 +1,5773 @@
+# Textos de cnc_app (español, idioma base). Generado por i18n_tool.py extract.
+msgid ""
+msgstr ""
+"Project-Id-Version: cnc_app VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-31 20:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: boards.py:129
+msgid "No se ha encontrado ningun tablero (rectangulo que contenga formas)."
+msgstr ""
+
+#: boards.py:131 boards.py:135
+msgid "tamano (mm)"
+msgstr ""
+
+#: boards.py:131 boards.py:135
+msgid "posicion X,Y (mm)"
+msgstr ""
+
+#: boards.py:139
+#, python-brace-format
+msgid "{width:.0f} x {height:.0f}"
+msgstr ""
+
+#: boards.py:149
+#, python-brace-format
+msgid ""
+"\n"
+"{len} elipse(s) de agrupacion descartada(s)."
+msgstr ""
+
+#: boards.py:151
+#, python-brace-format
+msgid "{len} forma(s) fuera de todo tablero (no se cortan)."
+msgstr ""
+
+#: bridge_tools.py:66
+msgid "el extremo de un puente es -1 o +1."
+msgstr ""
+
+#: bridge_tools.py:77
+#, python-brace-format
+msgid "una forma admite a lo sumo {MAX_TABS} puentes."
+msgstr ""
+
+#: bridge_tools.py:84 bridge_tools.py:91
+msgid "ese puente no existe."
+msgstr ""
+
+#: bridge_tools.py:108
+msgid "La posición"
+msgstr ""
+
+#: bridge_tools.py:108 drawing_edit.py:142 drawing_edit.py:206
+#: drawing_edit.py:673
+msgid "El ancho"
+msgstr ""
+
+#: bridge_tools.py:108 drawing_edit.py:142 drawing_edit.py:673
+msgid "El alto"
+msgstr ""
+
+#: bridge_tools.py:110
+#, python-brace-format
+msgid "{what} del puente tiene que ser un número."
+msgstr ""
+
+#: bridge_tools.py:112
+msgid "el ancho y el alto del puente tienen que ser mayores que cero."
+msgstr ""
+
+#: bridge_tools.py:114
+#, python-brace-format
+msgid "un puente de {width:g} mm no cabe en un contorno de {length:g} mm."
+msgstr ""
+
+#: checklist.py:35
+msgid "Lo he mirado y sigo adelante."
+msgstr ""
+
+#: checklist.py:67 gui/canvas.py:209
+#, python-brace-format
+msgid "Tablero {number}"
+msgstr ""
+
+#: checklist.py:73
+msgid "la esquina inferior izquierda del tablero"
+msgstr ""
+
+#: checklist.py:75
+msgid "el centro de lo que se corta"
+msgstr ""
+
+#: checklist.py:77
+msgid "la esquina inferior izquierda de la pagina del dibujo"
+msgstr ""
+
+#: checklist.py:79
+msgid "la esquina inferior izquierda de lo que se corta"
+msgstr ""
+
+#: checklist.py:80
+#, python-brace-format
+msgid "la esquina inferior izquierda de lo que se corta, {n} mm por fuera"
+msgstr ""
+
+#: checklist.py:85
+msgid "hace Home ($H, hace falta $22=1)"
+msgstr ""
+
+#: checklist.py:87
+msgid "vuelve al cero (X0 Y0) a la Z segura"
+msgstr ""
+
+#: checklist.py:88
+msgid "sube a la Z segura y se queda donde acaba"
+msgstr ""
+
+#: checklist.py:92
+msgid "sobre la linea"
+msgstr ""
+
+#: checklist.py:104
+#, python-brace-format
+msgid "{pockets} vaciado(s)"
+msgstr ""
+
+#: checklist.py:106
+#, python-brace-format
+msgid "{drills} taladro(s)"
+msgstr ""
+
+#: checklist.py:112
+#, python-brace-format
+msgid "{n} a {n2}"
+msgstr ""
+
+#: checklist.py:126
+#, python-brace-format
+msgid "corte {range}"
+msgstr ""
+
+#: checklist.py:128
+#, python-brace-format
+msgid "bajada {range}"
+msgstr ""
+
+#: checklist.py:129
+msgid " mm/min"
+msgstr ""
+
+#: checklist.py:129 gui/machines_dialog.py:208 gui/machines_dialog.py:210
+#: machinebook.py:25 machines.py:199 machines.py:203 machines.py:207
+msgid "sin dato"
+msgstr ""
+
+#: checklist.py:133
+#, python-brace-format
+msgid "{v}, recorrido {n} x {n2} x {n3} mm"
+msgstr ""
+
+#: checklist.py:144
+#, python-brace-format
+msgid " · {n} RPM aconsejadas"
+msgstr ""
+
+#: checklist.py:145
+#, python-brace-format
+msgid "lo arranca la aplicación (M3 S{n})"
+msgstr ""
+
+#: checklist.py:146
+msgid "NO lo arranca la aplicación: se arranca a mano"
+msgstr ""
+
+#: checklist.py:148
+msgid "Maquina"
+msgstr ""
+
+#: checklist.py:149
+#, python-brace-format
+msgid "{tool_label}, diametro {n} mm{rpm}"
+msgstr ""
+
+#: checklist.py:149 gui/job_panel.py:103
+msgid "Fresa"
+msgstr ""
+
+#: checklist.py:150
+msgid "Material"
+msgstr ""
+
+#: checklist.py:150
+#, python-brace-format
+msgid "{n} mm de grosor + {n2} mm en el sufridor = {n3} mm de profundidad"
+msgstr ""
+
+#: checklist.py:151
+msgid "Pasadas"
+msgstr ""
+
+#: checklist.py:151
+#, python-brace-format
+msgid "hasta {n} mm cada una (maximo {n2} mm)"
+msgstr ""
+
+#: checklist.py:153
+msgid "Avances"
+msgstr ""
+
+#: checklist.py:154
+msgid "Cortes"
+msgstr ""
+
+#: checklist.py:155
+msgid "Trayectoria"
+msgstr ""
+
+#: checklist.py:155
+#, python-brace-format
+msgid "{n1} x {n12} mm, de {n} x {n2} mm de recorrido"
+msgstr ""
+
+#: checklist.py:156 checklist.py:186
+msgid "Tiempo"
+msgstr ""
+
+#: checklist.py:157
+#, python-brace-format
+msgid "{n} grados antihorario"
+msgstr ""
+
+#: checklist.py:157 gui/job_panel.py:109 gui/job_panel.py:176
+msgid "Giro"
+msgstr ""
+
+#: checklist.py:157 pipeline.py:171 pipeline.py:190
+msgid "sin giro"
+msgstr ""
+
+#: checklist.py:158
+msgid "Cero"
+msgstr ""
+
+#: checklist.py:159
+msgid "Z segura"
+msgstr ""
+
+#: checklist.py:159
+#, python-brace-format
+msgid "{n} mm sobre la superficie"
+msgstr ""
+
+#: checklist.py:160
+msgid "Husillo"
+msgstr ""
+
+#: checklist.py:161
+msgid "Al terminar"
+msgstr ""
+
+#: checklist.py:171
+#, python-brace-format
+msgid "El material mide {n} mm de grosor."
+msgstr ""
+
+#: checklist.py:172
+#, python-brace-format
+msgid "{join}: {n} mm"
+msgstr ""
+
+#: checklist.py:173
+msgid "El grosor del material es el indicado ("
+msgstr ""
+
+#: checklist.py:185
+msgid "Todos los tableros"
+msgstr ""
+
+#: checklist.py:186
+#, python-brace-format
+msgid "unos {format_duration} de maquina en total"
+msgstr ""
+
+#: checklist.py:190
+#, python-brace-format
+msgid "La maquina conectada a UGS es «{v}» (recorrido {n} x {n2} x {n3} mm): este G-code es para ella."
+msgstr ""
+
+#: checklist.py:191
+#, python-brace-format
+msgid "La fresa montada es {tool_label} (diametro {n} mm) y esta bien apretada."
+msgstr ""
+
+#: checklist.py:193
+#, python-brace-format
+msgid "El cero (X0 Y0) esta en {origin_text}; Z0, en la cara superior del material."
+msgstr ""
+
+#: checklist.py:195
+#, python-brace-format
+msgid "El material esta sujeto (con los puntos de Sujecion, si los usas), y nada sobresale por encima de la Z segura ({n} mm) ni queda en la trayectoria."
+msgstr ""
+
+#: checklist.py:197
+msgid "el variador esta ajustado para esta fresa y este material"
+msgstr ""
+
+#: checklist.py:199
+#, python-brace-format
+msgid "El husillo esta parado (lo arranca la aplicación) y {adjust}"
+msgstr ""
+
+#: checklist.py:200
+#, python-brace-format
+msgid " ({n} RPM aconsejadas)."
+msgstr ""
+
+#: checklist.py:202
+#, python-brace-format
+msgid "El husillo NO lo arranca la aplicación: lo arranco yo antes de empezar, y {adjust}."
+msgstr ""
+
+#: config.py:36
+msgid "archivo de configuracion"
+msgstr ""
+
+#: config.py:40
+#, python-brace-format
+msgid "No se puede leer {name}: hace falta Python 3.11 o superior, o `pip install tomli`."
+msgstr ""
+
+#: config.py:45
+#, python-brace-format
+msgid "No existe el {what} {path}."
+msgstr ""
+
+#: config.py:49
+#, python-brace-format
+msgid "{name}: TOML invalido: {e}"
+msgstr ""
+
+#: draw_tools.py:26 drawing_edit.py:181 gui/draw_actions.py:546
+#: gui/props_bar.py:22
+msgid "Elipse"
+msgstr ""
+
+#: draw_tools.py:26 gui/draw_actions.py:528 gui/props_bar.py:22
+msgid "Rectángulo"
+msgstr ""
+
+#: draw_tools.py:26 gui/draw_actions.py:538 gui/props_bar.py:22
+msgid "Círculo"
+msgstr ""
+
+#: draw_tools.py:26 gui/ops_panel.py:74
+msgid "Elegir"
+msgstr ""
+
+#: draw_tools.py:27 drawing_edit.py:210 drawing_edit.py:211
+#: gui/draw_actions.py:570
+msgid "Ranura"
+msgstr ""
+
+#: draw_tools.py:27 drawing_edit.py:785 gui/draw_actions.py:592
+msgid "Mover"
+msgstr ""
+
+#: draw_tools.py:27 gui/bridge_bar.py:91
+msgid "Puente"
+msgstr ""
+
+#: draw_tools.py:27 gui/props_bar.py:22
+msgid "Polígono"
+msgstr ""
+
+#: draw_tools.py:27 gui/props_bar.py:22 gui/theme.py:26
+msgid "Línea"
+msgstr ""
+
+#: draw_tools.py:39
+msgid "Rectángulo: clic en una esquina (o arrastra hasta la opuesta)."
+msgstr ""
+
+#: draw_tools.py:40
+msgid "Rectángulo: clic en la esquina opuesta · Mayús: cuadrado."
+msgstr ""
+
+#: draw_tools.py:41
+msgid "Círculo: clic en el centro (o arrastra hasta el borde)."
+msgstr ""
+
+#: draw_tools.py:41
+msgid "Círculo: clic donde acaba el radio."
+msgstr ""
+
+#: draw_tools.py:42
+msgid "Elipse: clic en una esquina de su caja (o arrastra hasta la opuesta)."
+msgstr ""
+
+#: draw_tools.py:43
+msgid "Elipse: clic en la esquina opuesta · Mayús: círculo."
+msgstr ""
+
+#: draw_tools.py:44
+msgid "Polígono: clic en el centro (o arrastra hasta un vértice)."
+msgstr ""
+
+#: draw_tools.py:45
+msgid "Polígono: clic en un vértice (da el tamaño y el giro) · Mayús: giro de 15 en 15°."
+msgstr ""
+
+#: draw_tools.py:46
+msgid "Ranura: clic en el centro de un extremo (o arrastra hasta el otro)."
+msgstr ""
+
+#: draw_tools.py:47
+msgid "Ranura: clic en el centro del otro extremo · Mayús: 0°, 45°, 90°…"
+msgstr ""
+
+#: draw_tools.py:48
+msgid "Línea: clic en el primer punto."
+msgstr ""
+
+#: draw_tools.py:49
+msgid "Línea: clic en cada punto; doble clic o Intro acaba, clic en el inicio cierra el contorno · Retroceso quita el último · Mayús: 0°, 45°, 90°…"
+msgstr ""
+
+#: draw_tools.py:51
+msgid "Puente: clic en un contorno para poner un puente; arrastra uno para deslizarlo o tira de sus extremos para cambiar su ancho · Supr lo quita."
+msgstr ""
+
+#: draw_tools.py:53
+msgid "Puente: suelta donde quieras el puente."
+msgstr ""
+
+#: draw_tools.py:54
+msgid "Mover: clic en el punto de partida (una esquina o el centro de lo elegido; con varias formas, de su rectángulo circunscrito), o arrastra desde él."
+msgstr ""
+
+#: draw_tools.py:56
+msgid "Mover: clic en el punto de llegada (se pega a esquinas y centros de otras formas) · Mayús: 0°, 45°, 90°…"
+msgstr ""
+
+#: draw_tools.py:71
+msgid "el radio y la cuadrícula no pueden ser negativos y el ancho de la ranura tiene que ser positivo."
+msgstr ""
+
+#: draw_tools.py:73
+msgid "un polígono necesita al menos 3 lados."
+msgstr ""
+
+#: draw_tools.py:128
+#, python-brace-format
+msgid "X {fmt}  Y {fmt2}"
+msgstr ""
+
+#: draw_tools.py:309
+#, python-brace-format
+msgid "herramienta desconocida: {tool!r}"
+msgstr ""
+
+#: draw_tools.py:331
+msgid " · Esc: cancelar"
+msgstr ""
+
+#: draw_tools.py:332
+msgid " · Ctrl: sin imán · Esc: salir"
+msgstr ""
+
+#: draw_tools.py:354
+msgid "los dos puntos coinciden: el segundo clic tiene que estar en otro sitio."
+msgstr ""
+
+#: draw_tools.py:376
+msgid "una línea necesita al menos dos puntos."
+msgstr ""
+
+#: draw_tools.py:411
+#, python-brace-format
+msgid "ΔX {fmt} · ΔY {fmt2} mm"
+msgstr ""
+
+#: draw_tools.py:424
+#, python-brace-format
+msgid "{fmt} mm · {fmt2}°"
+msgstr ""
+
+#: draw_tools.py:426
+#, python-brace-format
+msgid " · total {fmt} mm"
+msgstr ""
+
+#: draw_tools.py:427
+msgid " · cerrar"
+msgstr ""
+
+#: draw_tools.py:433
+#, python-brace-format
+msgid "{fmt} × {fmt2} mm"
+msgstr ""
+
+#: draw_tools.py:433
+#, python-brace-format
+msgid " · esquinas R{fmt}"
+msgstr ""
+
+#: draw_tools.py:436
+#, python-brace-format
+msgid "Ø {fmt} mm · radio {fmt2}"
+msgstr ""
+
+#: draw_tools.py:438
+#, python-brace-format
+msgid "{sides} lados · radio {fmt} mm · entre caras {fmt2} mm · giro {fmt3}°"
+msgstr ""
+
+#: draw_tools.py:439
+#, python-brace-format
+msgid "largo total {fmt} mm · ancho {fmt2} · {fmt3}°"
+msgstr ""
+
+#: drawing_edit.py:35
+msgid "Alinear a la izquierda"
+msgstr ""
+
+#: drawing_edit.py:35
+msgid "Centrar en horizontal"
+msgstr ""
+
+#: drawing_edit.py:35
+msgid "Alinear a la derecha"
+msgstr ""
+
+#: drawing_edit.py:36
+msgid "Alinear arriba"
+msgstr ""
+
+#: drawing_edit.py:36
+msgid "Centrar en vertical"
+msgstr ""
+
+#: drawing_edit.py:36
+msgid "Alinear abajo"
+msgstr ""
+
+#: drawing_edit.py:62
+#, python-brace-format
+msgid "{what}: no es un numero valido (hay {value!r})."
+msgstr ""
+
+#: drawing_edit.py:65
+#, python-brace-format
+msgid "{what} tiene que ser mayor que cero (hay {value:g})."
+msgstr ""
+
+#: drawing_edit.py:67
+#, python-brace-format
+msgid "{what} no puede ser cero."
+msgstr ""
+
+#: drawing_edit.py:73
+#, python-brace-format
+msgid "{what} tiene que ser un numero entero de {minimum} a {MAX_NEW} (hay {value!r})."
+msgstr ""
+
+#: drawing_edit.py:80 project.py:340
+msgid "no hay ninguna forma elegida."
+msgstr ""
+
+#: drawing_edit.py:84
+#, python-brace-format
+msgid "la forma {i!r} no existe."
+msgstr ""
+
+#: drawing_edit.py:95
+#, python-brace-format
+msgid "{what}: el color tiene que ser #rrggbb (hay {value!r})."
+msgstr ""
+
+#: drawing_edit.py:126
+#, python-brace-format
+msgid "{what}: hacen falta al menos tres puntos distintos."
+msgstr ""
+
+#: drawing_edit.py:131 drawing_edit.py:134
+#, python-brace-format
+msgid "{what}: el contorno no encierra nada (area de menos de 0,01 mm2)."
+msgstr ""
+
+#: drawing_edit.py:132
+#, python-brace-format
+msgid "{what}: el contorno se cruza consigo mismo."
+msgstr ""
+
+#: drawing_edit.py:143
+msgid "El radio de las esquinas"
+msgstr ""
+
+#: drawing_edit.py:145
+msgid "el radio de las esquinas no puede ser negativo."
+msgstr ""
+
+#: drawing_edit.py:147
+#, python-brace-format
+msgid "el radio de las esquinas ({radius:g} mm) no puede pasar de la mitad del lado menor ({v:g} mm)."
+msgstr ""
+
+#: drawing_edit.py:158
+msgid "El rectangulo"
+msgstr ""
+
+#: drawing_edit.py:158
+msgid "Rectangulo"
+msgstr ""
+
+#: drawing_edit.py:163 drawing_edit.py:173 drawing_edit.py:189
+#: drawing_edit.py:434 drawing_edit.py:490
+msgid "X del centro"
+msgstr ""
+
+#: drawing_edit.py:163 drawing_edit.py:173 drawing_edit.py:189
+#: drawing_edit.py:434 drawing_edit.py:490
+msgid "Y del centro"
+msgstr ""
+
+#: drawing_edit.py:164
+msgid "El radio"
+msgstr ""
+
+#: drawing_edit.py:167
+msgid "El circulo"
+msgstr ""
+
+#: drawing_edit.py:167
+msgid "Circulo"
+msgstr ""
+
+#: drawing_edit.py:174
+msgid "El semieje horizontal"
+msgstr ""
+
+#: drawing_edit.py:174
+msgid "El semieje vertical"
+msgstr ""
+
+#: drawing_edit.py:175 drawing_edit.py:192 drawing_edit.py:424
+msgid "El giro"
+msgstr ""
+
+#: drawing_edit.py:178
+msgid "La elipse"
+msgstr ""
+
+#: drawing_edit.py:190
+msgid "El numero de lados"
+msgstr ""
+
+#: drawing_edit.py:191
+msgid "El tamano"
+msgstr ""
+
+#: drawing_edit.py:194
+msgid "el tamano se mide como radio o como apotema."
+msgstr ""
+
+#: drawing_edit.py:198
+msgid "El poligono"
+msgstr ""
+
+#: drawing_edit.py:198
+msgid "Poligono"
+msgstr ""
+
+#: drawing_edit.py:208
+msgid "los dos extremos de la ranura coinciden: para eso hace falta un circulo."
+msgstr ""
+
+#: drawing_edit.py:210
+msgid "La ranura"
+msgstr ""
+
+#: drawing_edit.py:222
+#, python-brace-format
+msgid "punto mal escrito: {p!r}."
+msgstr ""
+
+#: drawing_edit.py:225
+msgid "Linea"
+msgstr ""
+
+#: drawing_edit.py:227 drawing_edit.py:623
+msgid "El contorno"
+msgstr ""
+
+#: drawing_edit.py:230
+msgid "la linea necesita dos puntos distintos."
+msgstr ""
+
+#: drawing_edit.py:245 gui/props_bar.py:23 gui/props_bar.py:160
+msgid "Forma"
+msgstr ""
+
+#: drawing_edit.py:249
+msgid "una forma guardada no se puede leer."
+msgstr ""
+
+#: drawing_edit.py:251
+msgid "una forma cerrada guardada no es un poligono valido."
+msgstr ""
+
+#: drawing_edit.py:253
+msgid "una forma abierta guardada no es una linea."
+msgstr ""
+
+#: drawing_edit.py:355
+#, python-brace-format
+msgid "el punto de la caja tiene que estar entre 0 y 1 (hay {f!r})."
+msgstr ""
+
+#: drawing_edit.py:400
+msgid "no hay ninguna forma que anadir."
+msgstr ""
+
+#: drawing_edit.py:402
+#, python-brace-format
+msgid "demasiadas formas de una vez (mas de {MAX_NEW})."
+msgstr ""
+
+#: drawing_edit.py:416
+msgid "El desplazamiento en X"
+msgstr ""
+
+#: drawing_edit.py:416
+msgid "El desplazamiento en Y"
+msgstr ""
+
+#: drawing_edit.py:418
+msgid "el desplazamiento es cero: no se mueve nada."
+msgstr ""
+
+#: drawing_edit.py:425
+msgid "X del centro de giro"
+msgstr ""
+
+#: drawing_edit.py:425
+msgid "Y del centro de giro"
+msgstr ""
+
+#: drawing_edit.py:427
+msgid "un giro de 0 grados (o de una vuelta entera) no cambia nada."
+msgstr ""
+
+#: drawing_edit.py:433
+msgid "El factor en X"
+msgstr ""
+
+#: drawing_edit.py:433
+msgid "El factor en Y"
+msgstr ""
+
+#: drawing_edit.py:436
+msgid "un factor de 1 no cambia nada."
+msgstr ""
+
+#: drawing_edit.py:447
+msgid "La posicion del eje"
+msgstr ""
+
+#: drawing_edit.py:449
+msgid "el eje del reflejo es vertical u horizontal."
+msgstr ""
+
+#: drawing_edit.py:464
+#, python-brace-format
+msgid "serian {v} copias; el maximo de una vez es {MAX_NEW}."
+msgstr ""
+
+#: drawing_edit.py:475
+msgid "El numero de columnas"
+msgstr ""
+
+#: drawing_edit.py:475
+msgid "El numero de filas"
+msgstr ""
+
+#: drawing_edit.py:476
+msgid "La separacion en X"
+msgstr ""
+
+#: drawing_edit.py:476
+msgid "La separacion en Y"
+msgstr ""
+
+#: drawing_edit.py:478
+msgid "con una columna y una fila no hay ninguna copia que hacer."
+msgstr ""
+
+#: drawing_edit.py:481
+msgid "con esa separacion las copias caerian unas encima de otras."
+msgstr ""
+
+#: drawing_edit.py:488
+msgid "El numero de formas"
+msgstr ""
+
+#: drawing_edit.py:489
+msgid "El angulo total"
+msgstr ""
+
+#: drawing_edit.py:492
+msgid "el angulo total no puede pasar de 360 grados."
+msgstr ""
+
+#: drawing_edit.py:537
+msgid "La distancia"
+msgstr ""
+
+#: drawing_edit.py:540
+msgid "las esquinas del desfase son redondas o vivas."
+msgstr ""
+
+#: drawing_edit.py:547
+msgid "una linea abierta solo se puede desfasar hacia fuera (positivo): queda un contorno alrededor."
+msgstr ""
+
+#: drawing_edit.py:557
+#, python-brace-format
+msgid "el desfase de {d:g} mm no deja nada: las formas son mas pequenas que eso."
+msgstr ""
+
+#: drawing_edit.py:560
+#, python-brace-format
+msgid "{empty} forma(s) desaparecen con un desfase de {d:g} mm (son mas pequenas) y no salen."
+msgstr ""
+
+#: drawing_edit.py:569
+#, python-brace-format
+msgid "{what} solo vale con formas cerradas: entre las elegidas hay una linea abierta (se puede cerrar con Dibujo > Cerrar contorno)."
+msgstr ""
+
+#: drawing_edit.py:579
+#, python-brace-format
+msgid "para {what} hacen falta al menos dos formas elegidas."
+msgstr ""
+
+#: drawing_edit.py:585
+msgid "el resultado esta vacio: no queda nada de las formas elegidas."
+msgstr ""
+
+#: drawing_edit.py:605
+msgid "la forma de la que se resta es la primera o la ultima de las elegidas."
+msgstr ""
+
+#: drawing_edit.py:630
+msgid "ninguna de las formas elegidas es una linea abierta que se pueda cerrar"
+msgstr ""
+
+#: drawing_edit.py:631
+msgid " (las que hay se cruzan o no encierran nada)."
+msgstr ""
+
+#: drawing_edit.py:634
+#, python-brace-format
+msgid "{bad} linea(s) no se pueden cerrar (se cruzan o no encierran nada) y se quedan abiertas."
+msgstr ""
+
+#: drawing_edit.py:675
+msgid "el ancho y el alto no pueden ser negativos."
+msgstr ""
+
+#: drawing_edit.py:680
+msgid "lo elegido no tiene ancho (es una linea vertical): no se le puede dar un ancho."
+msgstr ""
+
+#: drawing_edit.py:682
+msgid "lo elegido no tiene alto (es una linea horizontal): no se le puede dar un alto."
+msgstr ""
+
+#: drawing_edit.py:684
+msgid "el ancho y el alto tienen que ser mayores que cero."
+msgstr ""
+
+#: drawing_edit.py:688
+msgid "esas medidas son las que ya tiene: no cambia nada."
+msgstr ""
+
+#: drawing_edit.py:703
+#, python-brace-format
+msgid "El radio de las esquinas baja de {r:g} a {kept:g} mm: con ese tamano no cabe."
+msgstr ""
+
+#: drawing_edit.py:734 gui/bridge_layer.py:158 project.py:632
+msgid "los puentes solo se ponen en formas cerradas."
+msgstr ""
+
+#: drawing_edit.py:739
+msgid "esos puentes son los que ya tiene: no cambia nada."
+msgstr ""
+
+#: drawing_edit.py:747
+#, python-brace-format
+msgid "no se puede alinear por {side!r}."
+msgstr ""
+
+#: drawing_edit.py:749
+msgid "para alinear hacen falta al menos dos formas elegidas."
+msgstr ""
+
+#: drawing_edit.py:770
+msgid "esas formas ya estan alineadas: no cambia nada."
+msgstr ""
+
+#: drawing_edit.py:785
+msgid "Borrar"
+msgstr ""
+
+#: drawing_edit.py:785
+msgid "Cambiar tamano"
+msgstr ""
+
+#: drawing_edit.py:785 gui/draw_actions.py:201 gui/draw_actions.py:520
+msgid "Dibujar forma"
+msgstr ""
+
+#: drawing_edit.py:785 gui/draw_actions.py:613
+msgid "Girar"
+msgstr ""
+
+#: drawing_edit.py:786
+msgid "Copiar en circulo"
+msgstr ""
+
+#: drawing_edit.py:786
+msgid "Desfase"
+msgstr ""
+
+#: drawing_edit.py:786 gui/draw_actions.py:664
+msgid "Reflejar"
+msgstr ""
+
+#: drawing_edit.py:786 gui/draw_actions.py:678
+msgid "Copiar en matriz"
+msgstr ""
+
+#: drawing_edit.py:787
+msgid "Interseccion"
+msgstr ""
+
+#: drawing_edit.py:787 gui/draw_actions.py:230
+msgid "Unir formas"
+msgstr ""
+
+#: drawing_edit.py:787 gui/draw_actions.py:233
+msgid "Cerrar contorno"
+msgstr ""
+
+#: drawing_edit.py:787 gui/draw_actions.py:731
+msgid "Restar formas"
+msgstr ""
+
+#: drawing_edit.py:788
+msgid "Cambiar medidas"
+msgstr ""
+
+#: drawing_edit.py:788 gui/draw_actions.py:216
+msgid "Alinear"
+msgstr ""
+
+#: drawing_edit.py:788 gui/ops_panel.py:18
+msgid "Puentes"
+msgstr ""
+
+#: drawing_edit.py:795
+#, python-brace-format
+msgid "operacion de dibujo desconocida: {alt!r}."
+msgstr ""
+
+#: drawing_edit.py:801
+msgid "Edicion"
+msgstr ""
+
+#: drill.py:28
+msgid "La operacion de taladrado no tiene puntos."
+msgstr ""
+
+#: folders.py:19
+msgid "Trabajos (.cncjob)"
+msgstr ""
+
+#: folders.py:19
+msgid "G-code (.nc)"
+msgstr ""
+
+#: folders.py:20
+msgid "Donde se abren y se guardan los trabajos."
+msgstr ""
+
+#: folders.py:21
+msgid "Donde se guardan los G-code generados y los G-code de marcas de la sujeción."
+msgstr ""
+
+#: folders.py:44
+msgid "tiene caracteres que Windows no admite en una ruta."
+msgstr ""
+
+#: folders.py:46
+msgid "no es una ruta completa: tiene que empezar por la unidad, por ejemplo D:\\Trabajos."
+msgstr ""
+
+#: folders.py:49
+msgid "no existe (¿está conectada la unidad?)."
+msgstr ""
+
+#: folders.py:51
+msgid "no es una carpeta."
+msgstr ""
+
+#: folders.py:56
+msgid "no se puede escribir en ella."
+msgstr ""
+
+#: folders.py:80
+#, python-brace-format
+msgid "La carpeta de trabajos ({s}) {why}"
+msgstr ""
+
+#: folders.py:81
+#, python-brace-format
+msgid "La carpeta de G-code ({s}) {why}"
+msgstr ""
+
+#: generate.py:36 preview.py:39
+#, python-brace-format
+msgid "Tipo de operacion desconocido: {name}"
+msgstr ""
+
+#: generate.py:56
+#, python-brace-format
+msgid "Operacion {i}: unos {area:.0f} mm2 de la forma no se pueden cortar con una fresa de {tool_diameter:g} mm (zonas mas estrechas que la fresa o esquinas muy agudas)."
+msgstr ""
+
+#: generate.py:80
+#, python-brace-format
+msgid "Operaciones {i} y {j}: las piezas estan a {gap:.1f} mm y una fresa de {d_tool:g} mm no cabe entre ellas (cortaria parte de la otra pieza)."
+msgstr ""
+
+#: generate.py:86
+msgid "de bola (ball)"
+msgstr ""
+
+#: generate.py:86
+msgid "en V"
+msgstr ""
+
+#: generate.py:92
+#, python-brace-format
+msgid "de {diameter:g} mm"
+msgstr ""
+
+#: generate.py:95
+#, python-brace-format
+msgid "{name} ({diameter:g} mm)"
+msgstr ""
+
+#: generate.py:100
+msgid "El diametro de la fresa debe ser > 0."
+msgstr ""
+
+#: generate.py:103
+#, python-brace-format
+msgid "La fresa {tool_label} es {get}: de momento solo las end mill generan trayectorias (las demas se guardan como datos). El diametro de corte de una fresa en V cambia con la profundidad, y eso aun no esta estudiado."
+msgstr ""
+
+#: generate.py:113 safety.py:110
+msgid "sin nombre"
+msgstr ""
+
+#: generate.py:115
+#, python-brace-format
+msgid "Maquina: {name} | recorrido {size} mm"
+msgstr ""
+
+#: generate.py:125
+msgid "El trabajo no tiene operaciones."
+msgstr ""
+
+#: generate.py:133
+#, python-brace-format
+msgid "Codigo final, linea {n}: mas de 79 caracteres; GRBL estandar la rechazaria (error:11)."
+msgstr ""
+
+#: generate.py:146
+#, python-brace-format
+msgid "Operacion {i}: la profundidad {depth:g} mm supera la longitud util de la fresa {tool_label} ({flute:g} mm): el vastago rozaria el material y el corte no llegaria a atravesarlo."
+msgstr ""
+
+#: generate.py:153
+#, python-brace-format
+msgid "Operacion {i}: {name} {f:g} mm/min supera el maximo de la maquina ({limit:g}); el firmware lo limitara."
+msgstr ""
+
+#: generate.py:174
+#, python-brace-format
+msgid "El trabajo ocupa {width:.1f} x {height:.1f} mm y el recorrido es {travel:g} x {travel2:g} mm."
+msgstr ""
+
+#: generate.py:179
+msgid "Generado por cnc_app"
+msgstr ""
+
+#: generate.py:181
+#, python-brace-format
+msgid "Material {thickness:g} mm | extra sufridor {spoilboard_extra:g} mm | Z min {min_z:.3f} mm"
+msgstr ""
+
+#: generate.py:182
+#, python-brace-format
+msgid "Fresa {tool_label} | {len} operacion(es)"
+msgstr ""
+
+#: generate.py:185 pipeline.py:440
+#, python-brace-format
+msgid "RPM aconsejadas (variador): {rpm:g}"
+msgstr ""
+
+#: generate.py:187
+#, python-brace-format
+msgid "XY de la trayectoria: X[{min:.3f}, {max:.3f}] Y[{min2:.3f}, {max2:.3f}] mm"
+msgstr ""
+
+#: grid.py:32
+msgid "el paso minimo tiene que ser un numero positivo."
+msgstr ""
+
+#: grid.py:46
+msgid "el zoom tiene que ser positivo."
+msgstr ""
+
+#: grid.py:103
+msgid "la zona a rayar no es un rectangulo valido."
+msgstr ""
+
+#: gui/align_icons.py:22
+msgid "Alinear a la izquierda: las caras izquierdas de las formas elegidas pasan a la misma X (la de la que está más a la izquierda)."
+msgstr ""
+
+#: gui/align_icons.py:23
+msgid "Centrar en horizontal: los centros de las formas elegidas pasan a la misma X (el centro de todas juntas)."
+msgstr ""
+
+#: gui/align_icons.py:24
+msgid "Alinear a la derecha: las caras derechas de las formas elegidas pasan a la misma X (la de la que está más a la derecha)."
+msgstr ""
+
+#: gui/align_icons.py:25
+msgid "Alinear arriba: las caras de arriba de las formas elegidas pasan a la misma Y (la de la que está más arriba)."
+msgstr ""
+
+#: gui/align_icons.py:26
+msgid "Centrar en vertical: los centros de las formas elegidas pasan a la misma Y (el centro de todas juntas)."
+msgstr ""
+
+#: gui/align_icons.py:27
+msgid "Alinear abajo: las caras de abajo de las formas elegidas pasan a la misma Y (la de la que está más abajo)."
+msgstr ""
+
+#: gui/anchor_picker.py:15
+msgid "la esquina inferior izquierda"
+msgstr ""
+
+#: gui/anchor_picker.py:15
+msgid "la mitad del lado inferior"
+msgstr ""
+
+#: gui/anchor_picker.py:16
+msgid "la esquina inferior derecha"
+msgstr ""
+
+#: gui/anchor_picker.py:16
+msgid "la mitad del lado izquierdo"
+msgstr ""
+
+#: gui/anchor_picker.py:16
+msgid "el centro"
+msgstr ""
+
+#: gui/anchor_picker.py:17
+msgid "la mitad del lado derecho"
+msgstr ""
+
+#: gui/anchor_picker.py:17
+msgid "la esquina superior izquierda"
+msgstr ""
+
+#: gui/anchor_picker.py:18
+msgid "la mitad del lado superior"
+msgstr ""
+
+#: gui/anchor_picker.py:18
+msgid "la esquina superior derecha"
+msgstr ""
+
+#: gui/anchor_picker.py:23
+msgid "un punto de la caja"
+msgstr ""
+
+#: gui/anchor_picker.py:40
+msgid "Punto de referencia de las medidas"
+msgstr ""
+
+#: gui/anchor_picker.py:65
+#, python-brace-format
+msgid "Punto de la forma al que se refieren X e Y: {point_name}. Pulsa otro punto para cambiarlo (la forma se mide y se coloca por ese punto)."
+msgstr ""
+
+#: gui/app.py:32
+msgid "Error inesperado de la aplicación"
+msgstr ""
+
+#: gui/app.py:33
+#, python-brace-format
+msgid "Ha ocurrido un error que no debería pasar. El trabajo abierto sigue en la ventana; guarda el trabajo y envíame el archivo {log_name}."
+msgstr ""
+
+#: gui/bridge_bar.py:14
+#, python-brace-format
+msgid "Clic en un contorno para poner un puente (los nuevos miden {width:g} × {height:g} mm, como dicen los ajustes del trabajo). Clic en un puente para elegirlo: arrástralo para deslizarlo o tira de un extremo para cambiar su ancho."
+msgstr ""
+
+#: gui/bridge_bar.py:32 gui/bridge_bar.py:74 gui/bridge_bar.py:81
+msgid "Sin puente"
+msgstr ""
+
+#: gui/bridge_bar.py:36
+msgid "Dónde está el centro del puente: mm a lo largo del contorno desde su primer vértice."
+msgstr ""
+
+#: gui/bridge_bar.py:37
+msgid "Ancho del puente que queda (mm): lo que se deja sin cortar a lo largo del contorno."
+msgstr ""
+
+#: gui/bridge_bar.py:38
+msgid "Material que queda sobre el fondo del tablero en el puente (mm)."
+msgstr ""
+
+#: gui/bridge_bar.py:40
+msgid "Posición"
+msgstr ""
+
+#: gui/bridge_bar.py:40 gui/props_bar.py:27
+msgid "Ancho"
+msgstr ""
+
+#: gui/bridge_bar.py:40 gui/props_bar.py:27
+msgid "Alto"
+msgstr ""
+
+#: gui/bridge_bar.py:57
+msgid "Quitar puente"
+msgstr ""
+
+#: gui/bridge_bar.py:58
+msgid "Quita el puente elegido (Supr)."
+msgstr ""
+
+#: gui/bridge_bar.py:61
+msgid "Forma en automático"
+msgstr ""
+
+#: gui/bridge_bar.py:62
+msgid "Deshace los puentes puestos a mano en la forma del puente elegido: vuelve a llevar los que propone la aplicación."
+msgstr ""
+
+#: gui/bridge_bar.py:100
+#, python-brace-format
+msgid "Centro en X {x}, Y {y} · el contorno mide {length} mm"
+msgstr ""
+
+#: gui/bridge_bar.py:101
+msgid " · propuesto por la aplicación: al tocarlo pasa a mano"
+msgstr ""
+
+#: gui/bridge_bar.py:114 gui/props_bar.py:184
+msgid "Falta una medida: escribe un número en cada casilla."
+msgstr ""
+
+#: gui/bridge_layer.py:267
+msgid "Clic para poner un puente aquí"
+msgstr ""
+
+#: gui/bridge_layer.py:321
+#, python-brace-format
+msgid "Puente: posición {position:g} de {length:g} mm · ancho {width:g} · alto {height:g} mm"
+msgstr ""
+
+#: gui/canvas.py:206
+#, python-brace-format
+msgid "Tablero {number}: {width:.0f} x {height:.0f} mm"
+msgstr ""
+
+#: gui/canvas.py:234
+#, python-brace-format
+msgid "{v} (forma {i})"
+msgstr ""
+
+#: gui/canvas.py:265
+#, python-brace-format
+msgid "{count} puente(s), {how}"
+msgstr ""
+
+#: gui/canvas.py:265
+msgid "puestos a mano"
+msgstr ""
+
+#: gui/canvas.py:265
+msgid "automáticos"
+msgstr ""
+
+#: gui/canvas.py:313
+msgid "Cero del dibujo (X0 Y0)"
+msgstr ""
+
+#: gui/canvas.py:315
+msgid "Dibujo vacío: usa el menú Dibujo para añadir formas"
+msgstr ""
+
+#: gui/canvas.py:335
+#, python-brace-format
+msgid "Recorrido de la máquina {travel:g} x {travel2:g} mm desde el cero"
+msgstr ""
+
+#: gui/canvas.py:346
+msgid "Tablero supuesto: del cero a lo que se corta más el mismo margen (el dibujo no trae recuadro)"
+msgstr ""
+
+#: gui/canvas.py:371
+#, python-brace-format
+msgid "Operación {index}: {lower}, hasta Z {z_min:.2f} mm"
+msgstr ""
+
+#: gui/canvas.py:379
+#, python-brace-format
+msgid "Operación {index}: {count} puente(s). La fresa pasa por encima y deja ese tramo sin cortar."
+msgstr ""
+
+#: gui/canvas.py:387
+#, python-brace-format
+msgid "Operación {index}: taladro hasta Z {z_min:.2f} mm"
+msgstr ""
+
+#: gui/canvas.py:396
+msgid "Cero de la pieza (X0 Y0)"
+msgstr ""
+
+#: gui/canvas.py:404
+#, python-brace-format
+msgid "{travel:g} x {travel2:g} mm"
+msgstr ""
+
+#: gui/canvas.py:405
+#, python-brace-format
+msgid "Máquina {name} · {size}"
+msgstr ""
+
+#: gui/canvas.py:405
+#, python-brace-format
+msgid "Máquina · {size}"
+msgstr ""
+
+#: gui/canvas.py:436
+#, python-brace-format
+msgid "{v}: hasta donde llega la fresa desde el cero (cruz roja) con el giro y la colocación que tendrá el G-code"
+msgstr ""
+
+#: gui/canvas.py:437
+msgid "Recorrido de la máquina"
+msgstr ""
+
+#: gui/canvas.py:449
+msgid "Cero de la máquina (X0 Y0) para este tablero"
+msgstr ""
+
+#: gui/canvas.py:506
+#, python-brace-format
+msgid "rejilla {label} mm"
+msgstr ""
+
+#: gui/canvas.py:541
+msgid "Zona donde se puede sujetar"
+msgstr ""
+
+#: gui/canvas.py:554
+#, python-brace-format
+msgid "Punto {v}: X{x:.1f} Y{y:.1f}"
+msgstr ""
+
+#: gui/canvas.py:554
+msgid " (no es seguro)"
+msgstr ""
+
+#: gui/checklist_dialog.py:22
+msgid "Lista de comprobación antes de generar"
+msgstr ""
+
+#: gui/checklist_dialog.py:25
+msgid "Este G-code da por hecho lo que sigue. Mira los datos y marca cada casilla cuando lo hayas comprobado: Generar se activa con todas marcadas."
+msgstr ""
+
+#: gui/checklist_dialog.py:71
+msgid "Generar"
+msgstr ""
+
+#: gui/checklist_dialog.py:72 gui/draw_dialogs.py:119 gui/folder_actions.py:97
+#: gui/machines_dialog.py:103 gui/record_dialog.py:80
+msgid "Cancelar"
+msgstr ""
+
+#: gui/checklist_dialog.py:86
+#, python-brace-format
+msgid "Marcadas {done} de {count}"
+msgstr ""
+
+#: gui/draw_actions.py:27
+msgid "Elegir formas: clic, Ctrl+clic o recuadro con Mayús. Arrastrar desplaza la vista."
+msgstr ""
+
+#: gui/draw_actions.py:28
+msgid "Dibujar un rectángulo con el ratón (dos esquinas). Mayús: cuadrado."
+msgstr ""
+
+#: gui/draw_actions.py:29
+msgid "Dibujar un círculo con el ratón (centro y radio)."
+msgstr ""
+
+#: gui/draw_actions.py:30
+msgid "Dibujar una elipse con el ratón (las dos esquinas de su caja). Mayús: círculo."
+msgstr ""
+
+#: gui/draw_actions.py:31
+msgid "Dibujar un polígono regular con el ratón (centro y un vértice). Los lados se dan en las opciones."
+msgstr ""
+
+#: gui/draw_actions.py:32
+msgid "Dibujar una ranura con el ratón (los centros de sus dos extremos). El ancho se da en las opciones."
+msgstr ""
+
+#: gui/draw_actions.py:33
+msgid "Dibujar una línea o polilínea con el ratón. Doble clic o Intro acaba; clic en el inicio cierra el contorno."
+msgstr ""
+
+#: gui/draw_actions.py:34
+msgid "Mover lo elegido con el ratón: punto de partida y punto de llegada (se pega a esquinas y centros)."
+msgstr ""
+
+#: gui/draw_actions.py:35
+msgid "Poner puentes con el ratón: clic en un contorno; arrastra un puente para deslizarlo o tira de un extremo para cambiar su ancho; Supr lo quita."
+msgstr ""
+
+#: gui/draw_actions.py:61
+msgid "Con el ratón:"
+msgstr ""
+
+#: gui/draw_actions.py:76
+msgid "Opciones…"
+msgstr ""
+
+#: gui/draw_actions.py:77
+msgid "Radio de las esquinas, lados del polígono, ancho de la ranura, cuadrícula, imán y color"
+msgstr ""
+
+#: gui/draw_actions.py:134
+msgid "Ninguna de las formas tiene puentes puestos a mano: ya llevan los automáticos."
+msgstr ""
+
+#: gui/draw_actions.py:138
+#, python-brace-format
+msgid "{count} forma(s) vuelven a los puentes automáticos."
+msgstr ""
+
+#: gui/draw_actions.py:145
+msgid "Elige formas cerradas de una fila de corte pasante para quitarles los puentes."
+msgstr ""
+
+#: gui/draw_actions.py:148
+#, python-brace-format
+msgid "{count} forma(s) se cortan sin puentes."
+msgstr ""
+
+#: gui/draw_actions.py:164 gui/draw_actions.py:177
+msgid "Opciones del ratón"
+msgstr ""
+
+#: gui/draw_actions.py:165
+msgid "Radio de las esquinas del rectángulo (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:166
+msgid "Lados del polígono"
+msgstr ""
+
+#: gui/draw_actions.py:167 gui/draw_actions.py:573
+msgid "Ancho de la ranura (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:168
+msgid "Cuadrícula (mm; 0 = sin cuadrícula)"
+msgstr ""
+
+#: gui/draw_actions.py:169
+msgid "Imán a esquinas, centros y puntos medios"
+msgstr ""
+
+#: gui/draw_actions.py:170
+msgid "Lo que no se da con el ratón. La cuadrícula redondea los puntos libres; el imán pega el cursor a las esquinas, centros y puntos medios de las formas (Ctrl lo apaga un momento)."
+msgstr ""
+
+#: gui/draw_actions.py:184
+msgid "&Dibujo"
+msgstr ""
+
+#: gui/draw_actions.py:194
+msgid "Nuevo dibujo vacío"
+msgstr ""
+
+#: gui/draw_actions.py:195
+msgid "Dibujar con el ratón"
+msgstr ""
+
+#: gui/draw_actions.py:199
+msgid "Opciones del ratón…"
+msgstr ""
+
+#: gui/draw_actions.py:202
+msgid "Rectángulo…"
+msgstr ""
+
+#: gui/draw_actions.py:203
+msgid "Círculo…"
+msgstr ""
+
+#: gui/draw_actions.py:204
+msgid "Elipse…"
+msgstr ""
+
+#: gui/draw_actions.py:205
+msgid "Polígono regular…"
+msgstr ""
+
+#: gui/draw_actions.py:206
+msgid "Ranura…"
+msgstr ""
+
+#: gui/draw_actions.py:207
+msgid "Línea o polilínea…"
+msgstr ""
+
+#: gui/draw_actions.py:209
+msgid "Mover…"
+msgstr ""
+
+#: gui/draw_actions.py:210 gui/draw_actions.py:602
+msgid "Colocar en…"
+msgstr ""
+
+#: gui/draw_actions.py:211
+msgid "Girar…"
+msgstr ""
+
+#: gui/draw_actions.py:212
+msgid "Cambiar tamaño…"
+msgstr ""
+
+#: gui/draw_actions.py:213
+msgid "Reflejar…"
+msgstr ""
+
+#: gui/draw_actions.py:214
+msgid "Copiar en matriz…"
+msgstr ""
+
+#: gui/draw_actions.py:215
+msgid "Copiar en círculo…"
+msgstr ""
+
+#: gui/draw_actions.py:229
+msgid "Desfase (offset)…"
+msgstr ""
+
+#: gui/draw_actions.py:231
+msgid "Restar formas…"
+msgstr ""
+
+#: gui/draw_actions.py:232
+msgid "Intersección de formas"
+msgstr ""
+
+#: gui/draw_actions.py:235
+msgid "Puentes de lo elegido"
+msgstr ""
+
+#: gui/draw_actions.py:236
+msgid "Automáticos (los propone la aplicación)"
+msgstr ""
+
+#: gui/draw_actions.py:237
+msgid "Quitar todos (cortar sin puentes)"
+msgstr ""
+
+#: gui/draw_actions.py:260
+#, python-brace-format
+msgid "Deshacer: {undo_label}"
+msgstr ""
+
+#: gui/draw_actions.py:260 gui/main_window.py:319
+msgid "Deshacer"
+msgstr ""
+
+#: gui/draw_actions.py:261
+#, python-brace-format
+msgid "Rehacer: {redo_label}"
+msgstr ""
+
+#: gui/draw_actions.py:261 gui/main_window.py:320
+msgid "Rehacer"
+msgstr ""
+
+#: gui/draw_actions.py:279
+msgid "Las medidas de las formas se ven y se cambian en la vista Dibujo."
+msgstr ""
+
+#: gui/draw_actions.py:328 gui/draw_dialogs.py:88
+msgid "Aceptar"
+msgstr ""
+
+#: gui/draw_actions.py:339
+msgid "Elige primero alguna forma (clic, Ctrl+clic o recuadro con Mayús)."
+msgstr ""
+
+#: gui/draw_actions.py:340
+#, python-brace-format
+msgid "Elige primero al menos {minimum} formas (clic, Ctrl+clic o recuadro con Mayús)."
+msgstr ""
+
+#: gui/draw_actions.py:348
+#, python-brace-format
+msgid "Lo elegido mide {v:.1f} x {v2:.1f} mm y empieza en X {b:.1f}, Y {b2:.1f}."
+msgstr ""
+
+#: gui/draw_actions.py:370
+#, python-brace-format
+msgid ": {count} forma(s)"
+msgstr ""
+
+#: gui/draw_actions.py:391
+msgid "Tablero llevado al 0,0: Deshacer lo devuelve a donde estaba."
+msgstr ""
+
+#: gui/draw_actions.py:397
+msgid "Tablero nuevo"
+msgstr ""
+
+#: gui/draw_actions.py:398
+#, python-brace-format
+msgid "Ese rectángulo se toma como tablero (el material) y su esquina inferior izquierda está en X {x:.1f}, Y {y:.1f}. ¿Lo llevo al 0,0? Todo el dibujo se mueve con él; si no, se queda donde lo dibujaste."
+msgstr ""
+
+#: gui/draw_actions.py:412
+#, python-brace-format
+msgid "{count} forma(s) nueva(s) quedan fuera de todo tablero: no se cortan hasta que estén dentro de uno."
+msgstr ""
+
+#: gui/draw_actions.py:415
+msgid "Un rectángulo con formas dentro se toma como tablero (el material): no se corta y el cero va a su esquina inferior izquierda. Si es una pieza, desmarca «Detectar tableros»."
+msgstr ""
+
+#: gui/draw_actions.py:443
+msgid "Deshecho"
+msgstr ""
+
+#: gui/draw_actions.py:446
+msgid "Rehecho"
+msgstr ""
+
+#: gui/draw_actions.py:469
+msgid "Hay cambios de dibujo que no están en el trabajo guardado. ¿Descartarlos?"
+msgstr ""
+
+#: gui/draw_actions.py:469 gui/draw_actions.py:477
+msgid "Cambios sin guardar"
+msgstr ""
+
+#: gui/draw_actions.py:477
+msgid "Hay cambios de dibujo que no están en el trabajo guardado. ¿Guardarlos antes de salir?"
+msgstr ""
+
+#: gui/draw_actions.py:497
+msgid "Dibujo nuevo y vacío: usa el menú Dibujo para añadir formas."
+msgstr ""
+
+#: gui/draw_actions.py:510
+#, python-brace-format
+msgid "Tablero {number} elegido con su recuadro: {count} forma(s)."
+msgstr ""
+
+#: gui/draw_actions.py:514 gui/draw_dialogs.py:173
+msgid "Color del trazo"
+msgstr ""
+
+#: gui/draw_actions.py:529 gui/draw_actions.py:602
+msgid "Esquina inferior izquierda, X (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:529 gui/draw_actions.py:603
+msgid "Esquina inferior izquierda, Y (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:530 gui/job_panel.py:134
+msgid "Ancho (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:530 gui/job_panel.py:135
+msgid "Alto (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:531
+msgid "Radio de las esquinas (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:532 gui/draw_actions.py:540
+msgid "Medidas en mm sobre el dibujo (X hacia la derecha, Y hacia arriba)."
+msgstr ""
+
+#: gui/draw_actions.py:538 gui/draw_actions.py:546 gui/draw_actions.py:556
+#: gui/draw_actions.py:695
+msgid "Centro, X (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:538 gui/draw_actions.py:546 gui/draw_actions.py:556
+#: gui/draw_actions.py:695
+msgid "Centro, Y (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:539 gui/tools_dialog.py:16
+msgid "Diámetro (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:547
+msgid "Ancho total (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:547
+msgid "Alto total (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:548
+msgid "Giro (grados, antihorario)"
+msgstr ""
+
+#: gui/draw_actions.py:555
+msgid "Polígono regular"
+msgstr ""
+
+#: gui/draw_actions.py:556
+msgid "Número de lados"
+msgstr ""
+
+#: gui/draw_actions.py:557
+msgid "Tamaño (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:558
+msgid "El tamaño es"
+msgstr ""
+
+#: gui/draw_actions.py:558
+msgid "el radio hasta los vértices"
+msgstr ""
+
+#: gui/draw_actions.py:559
+msgid "la medida entre caras opuestas"
+msgstr ""
+
+#: gui/draw_actions.py:560
+msgid "Para una tuerca o un hueco hexagonal suele darse la medida entre caras (la de la llave)."
+msgstr ""
+
+#: gui/draw_actions.py:561
+msgid "Giro (grados): el primer vértice a…"
+msgstr ""
+
+#: gui/draw_actions.py:571
+msgid "Centro del extremo 1, X (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:571
+msgid "Centro del extremo 1, Y (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:572
+msgid "Centro del extremo 2, X (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:572
+msgid "Centro del extremo 2, Y (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:574
+msgid "Una ranura es un rectángulo con los extremos redondos. Los puntos son los centros de los dos extremos."
+msgstr ""
+
+#: gui/draw_actions.py:579
+msgid "Línea o polilínea"
+msgstr ""
+
+#: gui/draw_actions.py:580
+msgid "Puntos"
+msgstr ""
+
+#: gui/draw_actions.py:580
+msgid "Un punto por línea."
+msgstr ""
+
+#: gui/draw_actions.py:580
+msgid "Cerrar el contorno (es una pieza o un hueco)"
+msgstr ""
+
+#: gui/draw_actions.py:582
+msgid "Un punto por línea, «X Y» o «X; Y» (mm). Dos puntos son una línea; con «Cerrar» el último se une con el primero y sale un contorno que se puede cortar por fuera o por dentro."
+msgstr ""
+
+#: gui/draw_actions.py:592
+msgid "Hacia la derecha (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:592
+msgid "Hacia arriba (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:593
+#, python-brace-format
+msgid "Se mueven {count} forma(s). Negativo: hacia la izquierda / hacia abajo.\n"
+msgstr ""
+
+#: gui/draw_actions.py:604
+msgid "Pone la esquina inferior izquierda de lo elegido en ese punto.\n"
+msgstr ""
+
+#: gui/draw_actions.py:613
+msgid "Ángulo (grados)"
+msgstr ""
+
+#: gui/draw_actions.py:613
+msgid "Girar alrededor de X (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:614
+msgid "Girar alrededor de Y (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:615
+msgid "Positivo gira en sentido antihorario; negativo, horario. Por defecto gira sobre el centro de lo elegido."
+msgstr ""
+
+#: gui/draw_actions.py:637 gui/draw_actions.py:646
+msgid "Cambiar tamaño"
+msgstr ""
+
+#: gui/draw_actions.py:638
+msgid "Ancho final (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:638
+msgid "Alto final (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:639
+msgid "Mantener las proporciones"
+msgstr ""
+
+#: gui/draw_actions.py:640
+msgid "Cambiar desde"
+msgstr ""
+
+#: gui/draw_actions.py:640
+msgid "el centro de lo elegido"
+msgstr ""
+
+#: gui/draw_actions.py:641
+msgid "su esquina inferior izquierda"
+msgstr ""
+
+#: gui/draw_actions.py:642
+#, python-brace-format
+msgid "Ahora mide {w0:.2f} x {h0:.2f} mm. Escribe la medida final."
+msgstr ""
+
+#: gui/draw_actions.py:646
+msgid "Lo elegido no tiene ancho o alto (es una línea recta): no se puede dar esa medida."
+msgstr ""
+
+#: gui/draw_actions.py:665
+msgid "Voltear"
+msgstr ""
+
+#: gui/draw_actions.py:665
+msgid "de izquierda a derecha (eje vertical)"
+msgstr ""
+
+#: gui/draw_actions.py:666
+msgid "de arriba abajo (eje horizontal)"
+msgstr ""
+
+#: gui/draw_actions.py:667
+msgid "Posición del eje (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:668
+msgid "El eje pasa por el centro de lo elegido (la forma se da la vuelta en su sitio). Cambia la posición para reflejarla al otro lado de una línea."
+msgstr ""
+
+#: gui/draw_actions.py:679
+msgid "Columnas (con la original)"
+msgstr ""
+
+#: gui/draw_actions.py:680
+msgid "Filas (con la original)"
+msgstr ""
+
+#: gui/draw_actions.py:681
+msgid "Separación entre columnas (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:682
+msgid "Separación entre filas (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:683
+msgid "La separación va de una copia a la siguiente, medida entre puntos equivalentes: positiva hacia la derecha y hacia arriba. Con una separación mayor que lo elegido las copias no se tocan.\n"
+msgstr ""
+
+#: gui/draw_actions.py:693
+msgid "Copiar en círculo"
+msgstr ""
+
+#: gui/draw_actions.py:694
+msgid "Número de formas (con la original)"
+msgstr ""
+
+#: gui/draw_actions.py:695
+msgid "Ángulo total (grados)"
+msgstr ""
+
+#: gui/draw_actions.py:696
+msgid "Reparte las copias alrededor del centro y las gira con ellas. Con 360 grados quedan repartidas por todo el círculo; con menos, la última queda a ese ángulo de la original (negativo: en sentido horario)."
+msgstr ""
+
+#: gui/draw_actions.py:706
+msgid "Desfase (offset)"
+msgstr ""
+
+#: gui/draw_actions.py:707
+msgid "Hacia"
+msgstr ""
+
+#: gui/draw_actions.py:707
+msgid "fuera (la forma crece)"
+msgstr ""
+
+#: gui/draw_actions.py:707
+msgid "dentro (la forma se encoge)"
+msgstr ""
+
+#: gui/draw_actions.py:708
+msgid "Distancia (mm)"
+msgstr ""
+
+#: gui/draw_actions.py:709
+msgid "Esquinas"
+msgstr ""
+
+#: gui/draw_actions.py:709
+msgid "redondeadas"
+msgstr ""
+
+#: gui/draw_actions.py:709
+msgid "en punta"
+msgstr ""
+
+#: gui/draw_actions.py:710 gui/draw_actions.py:734
+msgid "Conservar las originales"
+msgstr ""
+
+#: gui/draw_actions.py:711
+#, python-brace-format
+msgid "Crea el contorno paralelo de {count} forma(s) a esa distancia. Una línea abierta sale rodeada. Elige solo lo que quieras desfasar: un hueco dentro de una pieza crece si lo desfasas «hacia fuera»."
+msgstr ""
+
+#: gui/draw_actions.py:732
+msgid "Se resta de"
+msgstr ""
+
+#: gui/draw_actions.py:732
+msgid "la primera (la más antigua del dibujo): se le quitan las demás"
+msgstr ""
+
+#: gui/draw_actions.py:733
+msgid "la última (la más reciente): se le quitan las demás"
+msgstr ""
+
+#: gui/draw_actions.py:735
+#, python-brace-format
+msgid "De {count} formas elegidas, una es el material y las demás son lo que se le quita (un agujero, un corte). Las formas más antiguas son las del SVG; las que dibujas ahora son las más recientes."
+msgstr ""
+
+#: gui/draw_dialogs.py:154
+#, python-brace-format
+msgid "campo desconocido: {f!r}"
+msgstr ""
+
+#: gui/draw_dialogs.py:164
+msgid "Otro color…"
+msgstr ""
+
+#: gui/draw_dialogs.py:241 gui/draw_dialogs.py:249
+#, python-brace-format
+msgid "Falta «{label}»."
+msgstr ""
+
+#: gui/draw_dialogs.py:243
+#, python-brace-format
+msgid "«{label}» tiene que ser un número entero."
+msgstr ""
+
+#: gui/draw_dialogs.py:247
+msgid "Hay una línea mal escrita: pon un punto por línea, «X Y» o «X; Y»."
+msgstr ""
+
+#: gui/draw_layer.py:81
+#, python-brace-format
+msgid "herramienta desconocida: {name!r}"
+msgstr ""
+
+#: gui/draw_layer.py:86
+msgid "Mover: elige primero lo que quieres mover (clic, Ctrl+clic o recuadro con Mayús)."
+msgstr ""
+
+#: gui/draw_layer.py:162
+msgid "Mover: ya no hay nada elegido."
+msgstr ""
+
+#: gui/draw_layer.py:166
+msgid "Mover: lo elegido ha cambiado; empieza otra vez."
+msgstr ""
+
+#: gui/folder_actions.py:57
+msgid "sin configurar"
+msgstr ""
+
+#: gui/folder_actions.py:58
+#, python-brace-format
+msgid "Carpetas guardadas. {text}"
+msgstr ""
+
+#: gui/folder_actions.py:67
+#, python-brace-format
+msgid "{why} Corrígela en Archivo → Carpetas de trabajos y G-code…; mientras tanto, la aplicación preguntará antes de usar otra."
+msgstr ""
+
+#: gui/folder_actions.py:94
+msgid "Carpeta no disponible"
+msgstr ""
+
+#: gui/folder_actions.py:94
+#, python-brace-format
+msgid ""
+"{text}\n"
+"\n"
+"¿Qué quieres hacer?"
+msgstr ""
+
+#: gui/folder_actions.py:95
+msgid "Configurar…"
+msgstr ""
+
+#: gui/folder_actions.py:96
+msgid "Usar la carpeta del dibujo esta vez"
+msgstr ""
+
+#: gui/folders_dialog.py:22
+msgid "Carpetas de trabajos y G-code"
+msgstr ""
+
+#: gui/folders_dialog.py:31
+msgid "Sin configurar: la carpeta del dibujo"
+msgstr ""
+
+#: gui/folders_dialog.py:33
+msgid "Examinar…"
+msgstr ""
+
+#: gui/folders_dialog.py:49
+msgid "Las ventanas de abrir y guardar empiezan en estas carpetas. Escribe la ruta completa (por ejemplo D:\\Trabajos) o búscala con Examinar. Una carpeta tiene que existir y poder escribirse en ella; si no, la aplicación no la cambia por otra sin preguntar."
+msgstr ""
+
+#: gui/folders_dialog.py:63
+#, python-brace-format
+msgid "Carpeta de {LABELS}"
+msgstr ""
+
+#: gui/folders_dialog.py:78
+msgid "Vale."
+msgstr ""
+
+#: gui/group_dialog.py:12
+msgid "Vaciado (pozo)"
+msgstr ""
+
+#: gui/group_dialog.py:12
+msgid "Pozo"
+msgstr ""
+
+#: gui/group_dialog.py:12
+msgid "Taladros"
+msgstr ""
+
+#: gui/group_dialog.py:13
+msgid "Ignorados"
+msgstr ""
+
+#: gui/group_dialog.py:41
+msgid "Qué es"
+msgstr ""
+
+#: gui/group_dialog.py:42 gui/machines_dialog.py:76 gui/record_dialog.py:98
+msgid "Nombre"
+msgstr ""
+
+#: gui/group_dialog.py:47
+#, python-brace-format
+msgid "{count} forma(s) pasan a una fila propia de la tabla, donde se pone su profundidad y sus avances."
+msgstr ""
+
+#: gui/hold_panel.py:17
+msgid "clavo"
+msgstr ""
+
+#: gui/hold_panel.py:17
+msgid "tirafondo"
+msgstr ""
+
+#: gui/hold_panel.py:37
+msgid "Ningún sitio de la plancha a más de esta distancia de un punto"
+msgstr ""
+
+#: gui/hold_panel.py:39
+msgid "La propuesta no pone dos puntos a menos de esta distancia: una plancha rígida no necesita sujeciones tan juntas"
+msgstr ""
+
+#: gui/hold_panel.py:42
+msgid "La propuesta no pone puntos a menos de esta distancia de una esquina de la plancha: en la bancada serían siempre el mismo sitio y acabaría machacado"
+msgstr ""
+
+#: gui/hold_panel.py:45
+msgid "La propuesta pone los puntos a esta distancia o más del borde de corte, si hay sitio: un error pequeño al clavar no debe dar en el corte. Solo cede si no hay otra manera de llegar a toda la plancha. El margen al corte es lo mínimo absoluto; esto, lo cómodo"
+msgstr ""
+
+#: gui/hold_panel.py:48
+msgid "En filas y columnas"
+msgstr ""
+
+#: gui/hold_panel.py:49
+msgid "En una plancha grande, los puntos propuestos van en filas y columnas regulares en vez de repartidos al tresbolillo"
+msgstr ""
+
+#: gui/hold_panel.py:52
+msgid "Distancia del borde inferior de la plancha a la fila de abajo. 0 = sin fila pegada al borde: las filas van en el centro de sus celdas"
+msgstr ""
+
+#: gui/hold_panel.py:55
+msgid "Lo mínimo que propone en una plancha grande (más de 4 veces el alcance al cuadrado: 600 × 600 mm con alcance 300); en una pequeña, como mucho 3. Un número entero"
+msgstr ""
+
+#: gui/hold_panel.py:58
+msgid "Distancia mínima del borde de corte hasta el punto (vacío = la del tipo)"
+msgstr ""
+
+#: gui/hold_panel.py:60
+msgid "Distancia mínima del borde de la plancha hasta el punto (vacío = la del tipo)"
+msgstr ""
+
+#: gui/hold_panel.py:62
+msgid "Altura de la punta sobre la plancha en la pausa en la que se marca cada punto"
+msgstr ""
+
+#: gui/hold_panel.py:63 gui/main_window.py:271
+msgid "Sujeción"
+msgstr ""
+
+#: gui/hold_panel.py:66
+msgid "Se usa"
+msgstr ""
+
+#: gui/hold_panel.py:67
+msgid "Margen al corte (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:68
+msgid "Margen al borde (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:69
+msgid "Altura de marca (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:71
+msgid "Propuesta de puntos"
+msgstr ""
+
+#: gui/hold_panel.py:74
+msgid "Alcance (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:75
+msgid "Mínimo de puntos"
+msgstr ""
+
+#: gui/hold_panel.py:76
+msgid "Separación mínima (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:77
+msgid "Distancia a esquinas (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:78
+msgid "Distancia a los cortes (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:80
+msgid "Fila de abajo a (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:88
+msgid "N.º"
+msgstr ""
+
+#: gui/hold_panel.py:88
+msgid "X (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:88
+msgid "Y (mm)"
+msgstr ""
+
+#: gui/hold_panel.py:88
+msgid "Estado"
+msgstr ""
+
+#: gui/hold_panel.py:96
+msgid "Proponer de nuevo"
+msgstr ""
+
+#: gui/hold_panel.py:97
+msgid "Descarta lo editado a mano en este tablero y vuelve a la propuesta"
+msgstr ""
+
+#: gui/hold_panel.py:98
+msgid "Quitar"
+msgstr ""
+
+#: gui/hold_panel.py:99
+msgid "Generar marcas…"
+msgstr ""
+
+#: gui/hold_panel.py:101
+msgid ""
+"G-code corto que lleva la máquina a cada punto, de lejos a cerca (Y mayor primero), con una pausa\n"
+"para marcarlo"
+msgstr ""
+
+#: gui/hold_panel.py:129 gui/main_window.py:1298
+msgid "Abre un dibujo con tableros para calcular la sujeción."
+msgstr ""
+
+#: gui/hold_panel.py:186
+#, python-brace-format
+msgid "<span style='color:{MUTED}'>{reason}</span>"
+msgstr ""
+
+#: gui/hold_panel.py:214
+#, python-brace-format
+msgid "⚠ libre, {warn}"
+msgstr ""
+
+#: gui/hold_panel.py:216
+msgid "✔ libre"
+msgstr ""
+
+#: gui/job_panel.py:17
+msgid "Automático"
+msgstr ""
+
+#: gui/job_panel.py:17
+msgid "Sin girar"
+msgstr ""
+
+#: gui/job_panel.py:17
+msgid "90° antihorario"
+msgstr ""
+
+#: gui/job_panel.py:18
+msgid "270° (90° horario)"
+msgstr ""
+
+#: gui/job_panel.py:18
+msgid "Vertical"
+msgstr ""
+
+#: gui/job_panel.py:19
+msgid ""
+"Automático: gira 90° antihorario solo si no cabe tal cual en la máquina y sí girado.\n"
+"Vertical: pone el lado largo del dibujo a lo largo de Y."
+msgstr ""
+
+#: gui/job_panel.py:21
+msgid ""
+"Solo si el dibujo no tiene tablero: el cero de la máquina queda a estos mm, por fuera, de la esquina\n"
+"inferior izquierda de lo que se corta (se estima ahí el borde del material). 0 la pone justo en el cero.\n"
+"Con el mismo margen arriba y a la derecha se supone el tablero que usa la pestaña Sujeción."
+msgstr ""
+
+#: gui/job_panel.py:24
+msgid "Interruptor general de los puentes. Apagado, el G-code sale sin ninguno: ni los que proponen las filas ni los puestos a mano (quedan guardados y vuelven al encenderlo). Se recuerda en este PC."
+msgstr ""
+
+#: gui/job_panel.py:74
+msgid "elige una ficha o escribe el diámetro en mm"
+msgstr ""
+
+#: gui/job_panel.py:75
+msgid "Fichas…"
+msgstr ""
+
+#: gui/job_panel.py:76
+msgid "Crear, duplicar y editar las fichas de fresas (herramientas.json)  Ctrl+T"
+msgstr ""
+
+#: gui/job_panel.py:82
+msgid "La máquina para la que es este trabajo: de su ficha salen el recorrido y los topes"
+msgstr ""
+
+#: gui/job_panel.py:83
+msgid "elige la máquina"
+msgstr ""
+
+#: gui/job_panel.py:84 gui/main_window.py:311
+msgid "Máquinas…"
+msgstr ""
+
+#: gui/job_panel.py:85
+msgid "Crear y editar las fichas de máquina; se rellenan pegando el log de UGS  Ctrl+M"
+msgstr ""
+
+#: gui/job_panel.py:93 gui/machines_dialog.py:202 gui/tools_dialog.py:16
+msgid "obligatorio"
+msgstr ""
+
+#: gui/job_panel.py:99
+msgid "Fresa y material"
+msgstr ""
+
+#: gui/job_panel.py:101 gui/main_window.py:194 gui/main_window.py:341
+msgid "Máquina"
+msgstr ""
+
+#: gui/job_panel.py:104 gui/job_panel.py:173
+msgid "Grosor (mm)"
+msgstr ""
+
+#: gui/job_panel.py:105
+msgid "Margen sufridor (mm)"
+msgstr ""
+
+#: gui/job_panel.py:106
+msgid "Cero a (mm) del dibujo"
+msgstr ""
+
+#: gui/job_panel.py:115
+msgid "Avances (vacío = el de la ficha)"
+msgstr ""
+
+#: gui/job_panel.py:117
+msgid "Corte (mm/min)"
+msgstr ""
+
+#: gui/job_panel.py:118
+msgid "Bajada (mm/min)"
+msgstr ""
+
+#: gui/job_panel.py:119 gui/ops_panel.py:18
+msgid "Pasada (mm)"
+msgstr ""
+
+#: gui/job_panel.py:123
+msgid "Poner puentes"
+msgstr ""
+
+#: gui/job_panel.py:128
+msgid "Ancho del puente que queda, a lo largo del contorno. La fresa se levanta además su diámetro."
+msgstr ""
+
+#: gui/job_panel.py:129
+msgid "Material que queda del puente, sobre el fondo del tablero."
+msgstr ""
+
+#: gui/job_panel.py:130
+msgid "Un puente por cada tantos mm de perímetro de la pieza (mínimo dos si caben)."
+msgstr ""
+
+#: gui/job_panel.py:131
+msgid "Puentes (las filas con «Puentes» marcado)"
+msgstr ""
+
+#: gui/job_panel.py:136
+msgid "Uno cada (mm de perímetro)"
+msgstr ""
+
+#: gui/job_panel.py:141
+msgid "Encender y apagar el husillo (M3 / M5)"
+msgstr ""
+
+#: gui/job_panel.py:142
+msgid "Pausa (M0) antes de arrancar el husillo"
+msgstr ""
+
+#: gui/job_panel.py:143
+msgid "Home ($H) al terminar"
+msgstr ""
+
+#: gui/job_panel.py:144
+msgid "Volver al origen al terminar"
+msgstr ""
+
+#: gui/job_panel.py:146
+msgid "G-code propio para el final, una orden por línea"
+msgstr ""
+
+#: gui/job_panel.py:148
+msgid "G-code"
+msgstr ""
+
+#: gui/job_panel.py:150
+msgid "Z segura (mm)"
+msgstr ""
+
+#: gui/job_panel.py:151
+msgid "Z de aproximación (mm)"
+msgstr ""
+
+#: gui/job_panel.py:156
+msgid "Código final"
+msgstr ""
+
+#: gui/job_panel.py:159
+msgid "Tablero"
+msgstr ""
+
+#: gui/job_panel.py:160
+msgid "Generar este tablero"
+msgstr ""
+
+#: gui/job_panel.py:165
+msgid "(el general)"
+msgstr ""
+
+#: gui/job_panel.py:174
+msgid "Margen (mm)"
+msgstr ""
+
+#: gui/job_panel.py:175
+msgid "Desplazar dibujo (mm)"
+msgstr ""
+
+#: gui/job_panel.py:177
+msgid "Solo si este tablero es distinto de los demás (otro material, o hay que mover el dibujo para que quepa en el tablero)."
+msgstr ""
+
+#: gui/job_panel.py:274
+#, python-brace-format
+msgid "Tablero {n}"
+msgstr ""
+
+#: gui/job_panel.py:274
+msgid "Tablero (el dibujo no tiene tableros)"
+msgstr ""
+
+#: gui/job_panel.py:308
+msgid "sin homing"
+msgstr ""
+
+#: gui/job_panel.py:309
+#, python-brace-format
+msgid "Recorrido {travel_text}"
+msgstr ""
+
+#: gui/machines_dialog.py:19
+msgid "Límites blandos ($20)"
+msgstr ""
+
+#: gui/machines_dialog.py:19
+msgid "Con ellos, GRBL da alarma si el G-code sale del recorrido."
+msgstr ""
+
+#: gui/machines_dialog.py:20
+msgid "Límites duros ($21)"
+msgstr ""
+
+#: gui/machines_dialog.py:20
+msgid "Finales de carrera: paran la máquina al tocarlos."
+msgstr ""
+
+#: gui/machines_dialog.py:21
+msgid "Homing ($22)"
+msgstr ""
+
+#: gui/machines_dialog.py:21
+msgid "Sin homing, la orden $H da error: no se puede terminar un trabajo con Home."
+msgstr ""
+
+#: gui/machines_dialog.py:22
+msgid "Modo láser ($32)"
+msgstr ""
+
+#: gui/machines_dialog.py:22
+msgid "Con $32=1, GRBL apaga el husillo en cada G0: no vale para una fresadora."
+msgstr ""
+
+#: gui/machines_dialog.py:26
+#, python-brace-format
+msgid "log pegado el {strftime}"
+msgstr ""
+
+#: gui/machines_dialog.py:55
+msgid "Actualizar la ficha desde un log"
+msgstr ""
+
+#: gui/machines_dialog.py:55
+msgid "Máquina nueva desde un log"
+msgstr ""
+
+#: gui/machines_dialog.py:60
+#, python-format
+msgid "Pega el log de la máquina para actualizar la ficha «%s»."
+msgstr ""
+
+#: gui/machines_dialog.py:61
+msgid "Pega el log de arranque de la máquina."
+msgstr ""
+
+#: gui/machines_dialog.py:62
+msgid " Es lo que UGS escribe en su consola al conectar, y lo que contesta a la orden $$ (y $I). Si no lo tienes copiado, escribe los valores que ves, uno por línea (por ejemplo $130=651)."
+msgstr ""
+
+#: gui/machines_dialog.py:71
+msgid "El nombre corto de la ficha: el que se elige en el trabajo."
+msgstr ""
+
+#: gui/machines_dialog.py:73 gui/record_dialog.py:57 gui/record_dialog.py:222
+#: gui/record_dialog.py:238
+msgid "opcional (si no, el identificador)"
+msgstr ""
+
+#: gui/machines_dialog.py:75 gui/record_dialog.py:97
+msgid "Identificador"
+msgstr ""
+
+#: gui/machines_dialog.py:82
+msgid "Lo que se ha entendido"
+msgstr ""
+
+#: gui/machines_dialog.py:100
+msgid "Actualizar la ficha"
+msgstr ""
+
+#: gui/machines_dialog.py:100
+msgid "Añadir la máquina"
+msgstr ""
+
+#: gui/machines_dialog.py:145
+msgid "(nada todavía)"
+msgstr ""
+
+#: gui/machines_dialog.py:153
+msgid "Pega el log o escribe los valores."
+msgstr ""
+
+#: gui/machines_dialog.py:162
+#, python-brace-format
+msgid "ya hay una ficha con el identificador '{machine_ident}'."
+msgstr ""
+
+#: gui/machines_dialog.py:172
+msgid "Cambiaría:\n"
+msgstr ""
+
+#: gui/machines_dialog.py:174
+msgid "El log no cambia ningún dato de la ficha."
+msgstr ""
+
+#: gui/machines_dialog.py:185 gui/machines_dialog.py:289
+#: gui/machines_dialog.py:308
+msgid "Máquinas"
+msgstr ""
+
+#: gui/machines_dialog.py:187
+msgid "No hay máquinas. Pulsa «Nueva desde un log…» y pega lo que UGS muestra al conectar."
+msgstr ""
+
+#: gui/machines_dialog.py:194
+msgid "Nueva desde un log…"
+msgstr ""
+
+#: gui/machines_dialog.py:196
+msgid "Pega lo que UGS muestra al conectar con la máquina (el $$ y el $I): la ficha se rellena sola"
+msgstr ""
+
+#: gui/machines_dialog.py:197
+msgid "Una ficha en blanco, para escribir los valores a mano"
+msgstr ""
+
+#: gui/machines_dialog.py:198
+msgid "p. ej. taller"
+msgstr ""
+
+#: gui/machines_dialog.py:199
+msgid "El nombre corto de la ficha: el que se elige en el trabajo. Empieza por una letra; letras, números, _ - ."
+msgstr ""
+
+#: gui/machines_dialog.py:201
+msgid "Sale en la lista de comprobación y en la cabecera del .nc"
+msgstr ""
+
+#: gui/machines_dialog.py:204
+#, python-brace-format
+msgid "Recorrido en {axis} en mm (${v}): lo que cabe en la máquina"
+msgstr ""
+
+#: gui/machines_dialog.py:207
+#, python-brace-format
+msgid "Aceleración en {axis} en mm/s² (${v}): informativo"
+msgstr ""
+
+#: gui/machines_dialog.py:209
+msgid "Avance máximo en XY en mm/min ($110 y $111: el menor de los dos)"
+msgstr ""
+
+#: gui/machines_dialog.py:211
+msgid "Avance máximo en Z en mm/min ($112)"
+msgstr ""
+
+#: gui/machines_dialog.py:212 gui/tools_dialog.py:20
+msgid "informativo"
+msgstr ""
+
+#: gui/machines_dialog.py:213
+msgid "RPM máximas ($30): informativo, el husillo de aquí es on/off"
+msgstr ""
+
+#: gui/machines_dialog.py:219
+msgid "p. ej. Grbl 1.1h"
+msgstr ""
+
+#: gui/machines_dialog.py:221
+msgid "de dónde salieron los datos"
+msgstr ""
+
+#: gui/machines_dialog.py:222
+msgid "Actualizar esta ficha desde un log…"
+msgstr ""
+
+#: gui/machines_dialog.py:223
+msgid "Cambia solo lo que el log trae (p. ej. si has cambiado $130 en la máquina)"
+msgstr ""
+
+#: gui/machines_dialog.py:231
+msgid "Recorrido X Y Z (mm)"
+msgstr ""
+
+#: gui/machines_dialog.py:232
+msgid "Avance máx. XY (mm/min)"
+msgstr ""
+
+#: gui/machines_dialog.py:233
+msgid "Avance máx. Z (mm/min)"
+msgstr ""
+
+#: gui/machines_dialog.py:234
+msgid "Aceleración X Y Z (mm/s²)"
+msgstr ""
+
+#: gui/machines_dialog.py:237
+msgid "Husillo máx. (RPM)"
+msgstr ""
+
+#: gui/machines_dialog.py:238
+msgid "Firmware"
+msgstr ""
+
+#: gui/machines_dialog.py:239
+msgid "Origen de los datos"
+msgstr ""
+
+#: gui/main_window.py:163
+msgid "Detectar tableros"
+msgstr ""
+
+#: gui/main_window.py:164
+msgid "Un rectángulo con dibujo dentro es un tablero y sale en su propio .nc; las elipses agrupan y se descartan"
+msgstr ""
+
+#: gui/main_window.py:166
+msgid "Tableros"
+msgstr ""
+
+#: gui/main_window.py:193 gui/main_window.py:340
+msgid "Dibujo"
+msgstr ""
+
+#: gui/main_window.py:199
+msgid "Rápidos"
+msgstr ""
+
+#: gui/main_window.py:201
+msgid "Mostrar los desplazamientos en rápido (G0) entre cortes"
+msgstr ""
+
+#: gui/main_window.py:202
+msgid "Ajustar"
+msgstr ""
+
+#: gui/main_window.py:203
+msgid "Ajustar la vista (doble clic en el dibujo)"
+msgstr ""
+
+#: gui/main_window.py:204
+msgid "Rejilla"
+msgstr ""
+
+#: gui/main_window.py:206
+msgid "Rejilla con medidas en mm; su paso se adapta al zoom o es el de la cuadrícula del ratón (Dibujo → Dibujar con el ratón → Opciones)"
+msgstr ""
+
+#: gui/main_window.py:208
+msgid "Recorrido"
+msgstr ""
+
+#: gui/main_window.py:210
+msgid "En el dibujo, el contorno de puntos del recorrido de la máquina elegida, colocado sobre el tablero que se ve con el giro y el cero que tendrá el G-code"
+msgstr ""
+
+#: gui/main_window.py:215
+msgid "Rueda del ratón invertida"
+msgstr ""
+
+#: gui/main_window.py:217
+msgid "Marcada: girar la rueda hacia delante aleja el dibujo y hacia atrás lo acerca. Sin marcar: al revés."
+msgstr ""
+
+#: gui/main_window.py:238 gui/main_window.py:315
+msgid "Generar G-code…"
+msgstr ""
+
+#: gui/main_window.py:269
+msgid "Operaciones"
+msgstr ""
+
+#: gui/main_window.py:270 gui/main_window.py:1195
+msgid "Mensajes"
+msgstr ""
+
+#: gui/main_window.py:292
+msgid "Abre un dibujo SVG para empezar (Archivo → Abrir, o arrástralo aquí)."
+msgstr ""
+
+#: gui/main_window.py:305
+msgid "&Archivo"
+msgstr ""
+
+#: gui/main_window.py:306
+msgid "Abrir dibujo SVG…"
+msgstr ""
+
+#: gui/main_window.py:307
+msgid "Abrir trabajo guardado…"
+msgstr ""
+
+#: gui/main_window.py:308
+msgid "Guardar trabajo…"
+msgstr ""
+
+#: gui/main_window.py:309
+msgid "Fichas de fresas…"
+msgstr ""
+
+#: gui/main_window.py:310
+msgid "Recargar fichas de fresas"
+msgstr ""
+
+#: gui/main_window.py:312
+msgid "Recargar máquinas"
+msgstr ""
+
+#: gui/main_window.py:313
+msgid "Carpetas de trabajos y G-code…"
+msgstr ""
+
+#: gui/main_window.py:317
+msgid "Salir"
+msgstr ""
+
+#: gui/main_window.py:318
+msgid "&Edición"
+msgstr ""
+
+#: gui/main_window.py:322
+msgid "Elegir todos"
+msgstr ""
+
+#: gui/main_window.py:323
+msgid "Elegir el tablero actual (con su recuadro)"
+msgstr ""
+
+#: gui/main_window.py:324
+msgid "Quitar la elección"
+msgstr ""
+
+#: gui/main_window.py:326
+msgid "Borrar lo elegido"
+msgstr ""
+
+#: gui/main_window.py:327
+msgid "&Receta"
+msgstr ""
+
+#: gui/main_window.py:328 gui/ops_panel.py:111
+msgid "Abrir receta…"
+msgstr ""
+
+#: gui/main_window.py:329
+msgid "Guardar receta como…"
+msgstr ""
+
+#: gui/main_window.py:330
+msgid "Restablecer tabla"
+msgstr ""
+
+#: gui/main_window.py:331
+msgid "&Formas"
+msgstr ""
+
+#: gui/main_window.py:332
+msgid "Grupo nuevo con lo elegido…"
+msgstr ""
+
+#: gui/main_window.py:336
+msgid "Ordenar las filas (taladros, pozos, interiores, exteriores)"
+msgstr ""
+
+#: gui/main_window.py:338
+msgid "&Ver"
+msgstr ""
+
+#: gui/main_window.py:345
+msgid "Ajustar vista"
+msgstr ""
+
+#: gui/main_window.py:351
+msgid "A&yuda"
+msgstr ""
+
+#: gui/main_window.py:353
+msgid "Acerca de…"
+msgstr ""
+
+#: gui/main_window.py:357
+msgid "Idioma"
+msgstr ""
+
+#: gui/main_window.py:361
+msgid "Automático (el del sistema)"
+msgstr ""
+
+#: gui/main_window.py:375
+msgid "Idioma guardado."
+msgstr ""
+
+#: gui/main_window.py:455
+msgid "Abrir dibujo"
+msgstr ""
+
+#: gui/main_window.py:455 gui/main_window.py:545
+msgid "Dibujo SVG (*.svg);;Todos (*)"
+msgstr ""
+
+#: gui/main_window.py:463
+msgid "No se pudo abrir el dibujo"
+msgstr ""
+
+#: gui/main_window.py:474
+msgid "dibujo nuevo"
+msgstr ""
+
+#: gui/main_window.py:480
+#, python-brace-format
+msgid "cnc_app — {drawing_name}"
+msgstr ""
+
+#: gui/main_window.py:491
+#, python-brace-format
+msgid "{drawing_name}: {count} combinacion(es) de color, {count2} unidad(es) de trabajo."
+msgstr ""
+
+#: gui/main_window.py:499
+msgid "Abrir trabajo"
+msgstr ""
+
+#: gui/main_window.py:500
+#, python-brace-format
+msgid "Trabajo cnc_app (*{JOB_SUFFIX});;Todos (*)"
+msgstr ""
+
+#: gui/main_window.py:509
+msgid "el archivo de trabajo no tiene el formato esperado."
+msgstr ""
+
+#: gui/main_window.py:511
+msgid "No se pudo abrir el trabajo"
+msgstr ""
+
+#: gui/main_window.py:532
+msgid "No se pudo aplicar el trabajo"
+msgstr ""
+
+#: gui/main_window.py:536
+#, python-brace-format
+msgid "Trabajo {name} abierto."
+msgstr ""
+
+#: gui/main_window.py:544
+#, python-brace-format
+msgid "¿Dónde está el dibujo {v}?"
+msgstr ""
+
+#: gui/main_window.py:544
+msgid "del trabajo"
+msgstr ""
+
+#: gui/main_window.py:557
+msgid "Guardar trabajo"
+msgstr ""
+
+#: gui/main_window.py:557
+#, python-brace-format
+msgid "Trabajo cnc_app (*{JOB_SUFFIX})"
+msgstr ""
+
+#: gui/main_window.py:568
+msgid "No se pudo guardar el trabajo"
+msgstr ""
+
+#: gui/main_window.py:574
+#, python-brace-format
+msgid "cnc_app — {name}"
+msgstr ""
+
+#: gui/main_window.py:575
+#, python-brace-format
+msgid "Trabajo guardado en {path}"
+msgstr ""
+
+#: gui/main_window.py:583
+msgid "No hay fichas de fresas que cargar."
+msgstr ""
+
+#: gui/main_window.py:585
+#, python-brace-format
+msgid "No se recargaron las fichas: {why}"
+msgstr ""
+
+#: gui/main_window.py:591
+#, python-brace-format
+msgid "Fichas recargadas: {join}"
+msgstr ""
+
+#: gui/main_window.py:604
+#, python-brace-format
+msgid ""
+"{e}\n"
+"\n"
+"Arregla el archivo a mano (o bórralo) antes de abrir el editor: así no se pisa lo que contiene."
+msgstr ""
+
+#: gui/main_window.py:604 gui/tools_dialog.py:32
+msgid "Fichas de fresas"
+msgstr ""
+
+#: gui/main_window.py:625
+#, python-brace-format
+msgid "La fresa elegida pasa a llamarse {renames}."
+msgstr ""
+
+#: gui/main_window.py:627
+#, python-brace-format
+msgid "La ficha {tool} ya no existe: elige otra fresa."
+msgstr ""
+
+#: gui/main_window.py:630
+#, python-brace-format
+msgid "Fichas guardadas en {path} ({count}).{note}"
+msgstr ""
+
+#: gui/main_window.py:660
+msgid "No hay fichas de maquina que cargar."
+msgstr ""
+
+#: gui/main_window.py:662
+#, python-brace-format
+msgid "No se recargaron las maquinas: {why}"
+msgstr ""
+
+#: gui/main_window.py:667
+#, python-brace-format
+msgid "Maquinas recargadas: {join}"
+msgstr ""
+
+#: gui/main_window.py:680
+msgid "Maquinas"
+msgstr ""
+
+#: gui/main_window.py:680
+#, python-brace-format
+msgid ""
+"{e}\n"
+"\n"
+"Arregla el archivo a mano (o borralo) antes de abrir el editor: asi no se pisa lo que contiene."
+msgstr ""
+
+#: gui/main_window.py:703
+#, python-brace-format
+msgid "La máquina elegida pasa a llamarse {renames}."
+msgstr ""
+
+#: gui/main_window.py:705
+#, python-brace-format
+msgid "La máquina {machine} ya no existe: elige otra."
+msgstr ""
+
+#: gui/main_window.py:707
+#, python-brace-format
+msgid "Maquinas guardadas en {path} ({count}).{note}"
+msgstr ""
+
+#: gui/main_window.py:713
+msgid "Receta"
+msgstr ""
+
+#: gui/main_window.py:713
+msgid "Abre primero un dibujo."
+msgstr ""
+
+#: gui/main_window.py:715
+msgid "Abrir receta"
+msgstr ""
+
+#: gui/main_window.py:715
+msgid "Receta (*.toml);;Todos (*)"
+msgstr ""
+
+#: gui/main_window.py:723
+msgid "No se pudo abrir la receta"
+msgstr ""
+
+#: gui/main_window.py:727
+#, python-brace-format
+msgid "Receta {name} aplicada a la tabla."
+msgstr ""
+
+#: gui/main_window.py:733
+msgid "Guardar receta"
+msgstr ""
+
+#: gui/main_window.py:734
+msgid "Receta (*.toml)"
+msgstr ""
+
+#: gui/main_window.py:743
+msgid "No se pudo guardar la receta"
+msgstr ""
+
+#: gui/main_window.py:745
+#, python-brace-format
+msgid "Receta guardada en {path}."
+msgstr ""
+
+#: gui/main_window.py:771
+msgid "Tableros (marca los que se generan)"
+msgstr ""
+
+#: gui/main_window.py:771
+msgid "Dibujo sin tableros"
+msgstr ""
+
+#: gui/main_window.py:867
+#, python-brace-format
+msgid "Líneas abiertas ({count})"
+msgstr ""
+
+#: gui/main_window.py:869
+#, python-brace-format
+msgid "Nivel 0: exteriores ({count})"
+msgstr ""
+
+#: gui/main_window.py:871
+#, python-brace-format
+msgid "Nivel {level}: dentro de otro ({count})"
+msgstr ""
+
+#: gui/main_window.py:871
+#, python-brace-format
+msgid "Nivel {level} ({count})"
+msgstr ""
+
+#: gui/main_window.py:885
+#, python-brace-format
+msgid "{n} forma"
+msgid_plural "{n} formas"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gui/main_window.py:887
+#, python-brace-format
+msgid "{n} recuadro de tablero"
+msgid_plural "{n} recuadros de tablero"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gui/main_window.py:890
+#, python-brace-format
+msgid "nivel {levels}"
+msgid_plural "niveles {levels}"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gui/main_window.py:892
+msgid "con líneas abiertas"
+msgstr ""
+
+#: gui/main_window.py:900
+#, python-brace-format
+msgid "ahora en: {where}"
+msgstr ""
+
+#: gui/main_window.py:941
+#, python-brace-format
+msgid "{count} forma(s) en el grupo «{name}»: pon su operación y su profundidad en la tabla."
+msgstr ""
+
+#: gui/main_window.py:953
+#, python-brace-format
+msgid "{count} forma(s) movidas al grupo «{name}»."
+msgstr ""
+
+#: gui/main_window.py:964
+#, python-brace-format
+msgid "{count} forma(s) vuelven a su color."
+msgstr ""
+
+#: gui/main_window.py:982
+#, python-brace-format
+msgid "Separado en una fila por clase, en el orden de corte: {parts}. Al elegir una fila se marcan sus formas en el dibujo."
+msgstr ""
+
+#: gui/main_window.py:998
+msgid "Filas ordenadas: taladros, pozos, interiores, líneas y exteriores."
+msgstr ""
+
+#: gui/main_window.py:999
+msgid "Las filas ya estaban en el orden correcto."
+msgstr ""
+
+#: gui/main_window.py:1025
+msgid "No se pudo volver a leer el dibujo"
+msgstr ""
+
+#: gui/main_window.py:1072
+msgid "Todo son cortes pasantes normales: se corta todo junto, como sin receta."
+msgstr ""
+
+#: gui/main_window.py:1075
+#, python-brace-format
+msgid "Receta de {n} operación(es), en el orden de la tabla. Lo que está en Ignorar no se corta."
+msgstr ""
+
+#: gui/main_window.py:1090
+#, python-brace-format
+msgid "<span style='color:{MUTED}'>Calculando…</span>"
+msgstr ""
+
+#: gui/main_window.py:1125
+#, python-brace-format
+msgid "<span style='color:{ERROR}'>✖ Fallo interno al calcular</span>"
+msgstr ""
+
+#: gui/main_window.py:1126
+msgid "Fallo interno de la aplicación al calcular (copia este texto si hay que arreglarlo):\n"
+msgstr ""
+
+#: gui/main_window.py:1173
+#, python-brace-format
+msgid "<span style='color:{ERROR}'>✖ {error}</span>"
+msgstr ""
+
+#: gui/main_window.py:1177
+#, python-brace-format
+msgid "{label}: {count} líneas"
+msgstr ""
+
+#: gui/main_window.py:1177
+#, python-brace-format
+msgid "Z mín {min_z:.1f} mm"
+msgstr ""
+
+#: gui/main_window.py:1178
+#, python-brace-format
+msgid "trayectoria {v:.0f} × {v2:.0f} mm"
+msgstr ""
+
+#: gui/main_window.py:1180
+#, python-brace-format
+msgid "≈ {text} de máquina"
+msgstr ""
+
+#: gui/main_window.py:1184
+#, python-brace-format
+msgid "(y {count} más)"
+msgstr ""
+
+#: gui/main_window.py:1185
+#, python-brace-format
+msgid "No se puede generar: {blockers}"
+msgstr ""
+
+#: gui/main_window.py:1187
+msgid "se confirman al generar"
+msgstr ""
+
+#: gui/main_window.py:1187
+msgid "mira Mensajes"
+msgstr ""
+
+#: gui/main_window.py:1188
+#, python-brace-format
+msgid "{count} alarma(s): {what}"
+msgstr ""
+
+#: gui/main_window.py:1190
+#, python-brace-format
+msgid "{warn} aviso(s)"
+msgstr ""
+
+#: gui/main_window.py:1205
+msgid ""
+"Abre un dibujo SVG\n"
+"(Archivo → Abrir, o arrástralo aquí)"
+msgstr ""
+
+#: gui/main_window.py:1217
+#, python-brace-format
+msgid "<span style='color:{KIND_COLORS}'>■</span> {KIND_LABELS}"
+msgstr ""
+
+#: gui/main_window.py:1219
+#, python-brace-format
+msgid "<span style='color:{MACHINE}'>● ● ●</span> {frame_text} <span style='color:{ERROR}'>+</span> cero"
+msgstr ""
+
+#: gui/main_window.py:1236 gui/main_window.py:1300
+msgid "Calculando la trayectoria…"
+msgstr ""
+
+#: gui/main_window.py:1238
+#, python-brace-format
+msgid ""
+"Sin trayectoria:\n"
+"{error}"
+msgstr ""
+
+#: gui/main_window.py:1302
+#, python-brace-format
+msgid "No hay trayectoria que respetar: {error}"
+msgstr ""
+
+#: gui/main_window.py:1302
+msgid "sin detalle"
+msgstr ""
+
+#: gui/main_window.py:1304
+msgid "Este dibujo no tiene tablero (un rectángulo con el dibujo dentro) y el cero no está en la esquina inferior izquierda de lo que se corta: sin eso no se sabe dónde está el borde de la plancha."
+msgstr ""
+
+#: gui/main_window.py:1311
+#, python-brace-format
+msgid "Ajuste de sujeción que no vale: {e}"
+msgstr ""
+
+#: gui/main_window.py:1327
+#, python-brace-format
+msgid "<span style='color:{WARN}'>ℹ Sin recuadro: se supone una plancha de {b:.0f} x {b2:.0f} mm, del cero a lo que se corta más {origin_margin:g} mm. Si la tuya es mayor, sube «Cero a (mm) del dibujo» (en Fresa y material).</span>"
+msgstr ""
+
+#: gui/main_window.py:1333
+#, python-brace-format
+msgid "<b>{n} punto(s)</b> editados a mano"
+msgstr ""
+
+#: gui/main_window.py:1333
+#, python-brace-format
+msgid "<b>{n} punto(s)</b> propuestos"
+msgstr ""
+
+#: gui/main_window.py:1335
+#, python-brace-format
+msgid "{bad} no es(son) seguro(s)"
+msgstr ""
+
+#: gui/main_window.py:1339
+#, python-brace-format
+msgid "<span style='color:{ERROR}'>✖ Con estos márgenes no queda sitio libre en la plancha.</span>"
+msgstr ""
+
+#: gui/main_window.py:1341
+#, python-brace-format
+msgid "<span style='color:{WARN}'>⚠ Sin puntos: la plancha queda sin sujetar.</span>"
+msgstr ""
+
+#: gui/main_window.py:1346
+#, python-brace-format
+msgid "<span style='color:{OK}'>✔ Ningún sitio de la plancha a más de {reach:g} mm de un punto (el más lejos: {gap:.0f} mm).</span>"
+msgstr ""
+
+#: gui/main_window.py:1349
+#, python-brace-format
+msgid "<span style='color:{WARN}'>⚠ Hay sitios a {gap:.0f} mm de un punto (alcance {reach:g} mm).</span>"
+msgstr ""
+
+#: gui/main_window.py:1354
+#, python-brace-format
+msgid "Punto {join} más cerca del corte de lo cómodo ({cut_clear:g} mm): un error pequeño al clavar podría dar en el corte."
+msgid_plural "Puntos {join} más cerca del corte de lo cómodo ({cut_clear:g} mm): un error pequeño al clavar podría dar en el corte."
+msgstr[0] ""
+msgstr[1] ""
+
+#: gui/main_window.py:1360
+#, python-brace-format
+msgid "<span style='color:{WARN}'>⚠ Hay {count} punto(s) seguro(s) y el mínimo para una plancha de este tamaño es {need}.</span>"
+msgstr ""
+
+#: gui/main_window.py:1363
+#, python-brace-format
+msgid "<span style='color:{WARN}'>⚠ Solo se han podido proponer {count} punto(s) (el mínimo para una plancha de este tamaño es {need}): no cabe otro a {min_gap:g} mm o más de los demás.</span>"
+msgstr ""
+
+#: gui/main_window.py:1367
+#, python-brace-format
+msgid "<span style='color:{WARN}'>⚠ Hay {count} trozo(s) de desecho grande(s) ({join} cm²) donde no cabe ningún punto con estos márgenes.</span>"
+msgstr ""
+
+#: gui/main_window.py:1392
+#, python-brace-format
+msgid "X{x:g} Y{y:g}: no se puede sujetar ahí, {reason}."
+msgstr ""
+
+#: gui/main_window.py:1396
+#, python-brace-format
+msgid "Punto {v} añadido en X{x:g} Y{y:g}."
+msgstr ""
+
+#: gui/main_window.py:1406
+#, python-brace-format
+msgid "Punto quitado (X{gone:g} Y{gone2:g})."
+msgstr ""
+
+#: gui/main_window.py:1422
+msgid "Vuelven los puntos propuestos para este tablero."
+msgstr ""
+
+#: gui/main_window.py:1429
+#, python-brace-format
+msgid "<span style='color:{ERROR}'>✖ {e}</span>"
+msgstr ""
+
+#: gui/main_window.py:1440
+#, python-brace-format
+msgid "se puede sujetar aquí, pero {warn} (clic para añadir un punto)"
+msgstr ""
+
+#: gui/main_window.py:1441
+msgid "se puede sujetar aquí (clic para añadir un punto)"
+msgstr ""
+
+#: gui/main_window.py:1444
+#, python-brace-format
+msgid "X{x:.1f} Y{y:.1f}: {text}"
+msgstr ""
+
+#: gui/main_window.py:1450
+msgid "Abre la pestaña Sujeción con un dibujo calculado."
+msgstr ""
+
+#: gui/main_window.py:1450 gui/main_window.py:1454
+msgid "Marcas de sujeción"
+msgstr ""
+
+#: gui/main_window.py:1454
+msgid "No hay puntos que marcar."
+msgstr ""
+
+#: gui/main_window.py:1458
+msgid "Puntos que no son seguros"
+msgstr ""
+
+#: gui/main_window.py:1459
+#, python-brace-format
+msgid ""
+"Estos puntos caen donde no se debe sujetar: {points}.\n"
+"\n"
+"¿Generar las marcas igualmente?"
+msgstr ""
+
+#: gui/main_window.py:1468
+msgid "Guardar G-code de marcas"
+msgstr ""
+
+#: gui/main_window.py:1469 gui/main_window.py:1570
+msgid "G-code (*.nc *.gcode *.ngc);;Todos (*)"
+msgstr ""
+
+#: gui/main_window.py:1476
+msgid "Sustituir archivo"
+msgstr ""
+
+#: gui/main_window.py:1476
+#, python-brace-format
+msgid ""
+"Ya existe:\n"
+"{path}\n"
+"\n"
+"¿Sustituirlo?"
+msgstr ""
+
+#: gui/main_window.py:1483
+msgid "No se pudo escribir las marcas"
+msgstr ""
+
+#: gui/main_window.py:1487
+#, python-brace-format
+msgid "Marcas guardadas en {path}: {count} punto(s), de lejos a cerca (de Y mayor a menor)."
+msgstr ""
+
+#: gui/main_window.py:1488
+msgid "En UGS: abre el archivo con el husillo PARADO y ejecútalo; en cada pausa (M0) marca el punto bajo la punta y pulsa Reanudar. Al acabar, retira el puente y clava o atornilla en las marcas."
+msgstr ""
+
+#: gui/main_window.py:1490
+#, python-brace-format
+msgid "Los puntos {join} no son seguros."
+msgstr ""
+
+#: gui/main_window.py:1492
+#, python-brace-format
+msgid "Marcas guardadas en {path}"
+msgstr ""
+
+#: gui/main_window.py:1507 gui/main_window.py:1513 gui/main_window.py:1518
+msgid "No se puede generar"
+msgstr ""
+
+#: gui/main_window.py:1531
+msgid "Sustituir archivos"
+msgstr ""
+
+#: gui/main_window.py:1532
+#, python-brace-format
+msgid ""
+"Ya existe:\n"
+"{files}\n"
+"\n"
+"¿Sustituirlo?"
+msgstr ""
+
+#: gui/main_window.py:1539
+msgid "No se pudo escribir el G-code"
+msgstr ""
+
+#: gui/main_window.py:1542
+#, python-brace-format
+msgid "{path}: {count} líneas, Z mínima {min_z:.3f} mm, ≈ {text} de máquina"
+msgstr ""
+
+#: gui/main_window.py:1544
+#, python-brace-format
+msgid "Tablero {n}: {text}"
+msgstr ""
+
+#: gui/main_window.py:1546
+msgid "G-code generado:"
+msgstr ""
+
+#: gui/main_window.py:1548
+#, python-brace-format
+msgid "G-code generado: {join}"
+msgstr ""
+
+#: gui/main_window.py:1552
+msgid "Avisos:"
+msgstr ""
+
+#: gui/main_window.py:1553
+msgid "G-code generado"
+msgstr ""
+
+#: gui/main_window.py:1553
+msgid "Abre el archivo en UGS para enviarlo."
+msgstr ""
+
+#: gui/main_window.py:1569
+msgid "Guardar G-code (se añade _tablero1, _tablero2… a cada uno)"
+msgstr ""
+
+#: gui/main_window.py:1569
+msgid "Guardar G-code"
+msgstr ""
+
+#: gui/main_window.py:1597
+#, python-brace-format
+msgid ""
+"cnc_app {version}\n"
+"\n"
+"De SVG a G-code para GRBL 1.1 (fresadora de 2D).\n"
+"Los envíos a la máquina se hacen con UGS."
+msgstr ""
+
+#: gui/main_window.py:1657
+#, python-brace-format
+msgid "No se abrió {name}: solo se abren dibujos .svg y trabajos {JOB_SUFFIX}."
+msgstr ""
+
+#: gui/messages_panel.py:26
+msgid "Aplicar desplazamiento sugerido"
+msgstr ""
+
+#: gui/messages_panel.py:66
+#, python-brace-format
+msgid "Aplicar desplazamiento sugerido (X {offset:g}, Y {offset2:g} mm)"
+msgstr ""
+
+#: gui/messages_panel.py:67
+msgid "Mover el dibujo hacia dentro del tablero:"
+msgstr ""
+
+#: gui/ops_panel.py:17
+msgid "Auto"
+msgstr ""
+
+#: gui/ops_panel.py:17
+msgid "Por fuera"
+msgstr ""
+
+#: gui/ops_panel.py:17
+msgid "Por dentro"
+msgstr ""
+
+#: gui/ops_panel.py:17
+msgid "Sobre la línea"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Color"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Formas"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Operación"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Lado"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Pasante"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Prof. (mm)"
+msgstr ""
+
+#: gui/ops_panel.py:18
+msgid "Avance"
+msgstr ""
+
+#: gui/ops_panel.py:19
+msgid "Bajada"
+msgstr ""
+
+#: gui/ops_panel.py:19
+msgid "Stepover %"
+msgstr ""
+
+#: gui/ops_panel.py:21
+msgid "Puentes: deja sin cortar unos trozos de cada pieza o hueco (corte pasante) para que no se mueva al soltarse del tablero. El ancho, el alto y la separación se ponen en el panel «Puentes» de los ajustes. Los puentes puestos a mano con la herramienta Puente mandan sobre esta casilla."
+msgstr ""
+
+#: gui/ops_panel.py:24
+msgid "Los puentes están desactivados: marca «Poner puentes» en los ajustes del trabajo para usar esta casilla."
+msgstr ""
+
+#: gui/ops_panel.py:25
+msgid "Elige formas en el dibujo: clic; Ctrl o Mayús para varios; Mayús + arrastrar, un recuadro."
+msgstr ""
+
+#: gui/ops_panel.py:26
+msgid "Profundidad total en mm (solo si no es pasante), desde la cara superior"
+msgstr ""
+
+#: gui/ops_panel.py:27
+msgid "Profundidad de cada pasada en mm (en un taladro, el picoteo)"
+msgstr ""
+
+#: gui/ops_panel.py:28
+msgid "Avance de corte en mm/min"
+msgstr ""
+
+#: gui/ops_panel.py:29
+msgid "Avance de bajada en mm/min"
+msgstr ""
+
+#: gui/ops_panel.py:30
+#, python-format
+msgid "Solape entre pasadas del vaciado, en % del diámetro de la fresa"
+msgstr ""
+
+#: gui/ops_panel.py:76
+msgid "Elegir formas por su nivel de anidamiento (0 es el exterior, 1 el que va dentro...)"
+msgstr ""
+
+#: gui/ops_panel.py:84
+msgid "Lo elegido pasa a una fila propia de la tabla, con su operación, profundidad y avances"
+msgstr ""
+
+#: gui/ops_panel.py:89
+msgid "Separar interior/exterior"
+msgstr ""
+
+#: gui/ops_panel.py:90
+msgid "La fila elegida (de Corte en Auto) pasa a una fila por cada clase de forma: interiores (por dentro), líneas abiertas y exteriores (por fuera), en el orden en que se cortan y con los mismos ajustes. Así se ven y se ajustan por separado."
+msgstr ""
+
+#: gui/ops_panel.py:103
+msgid "Ordenar"
+msgstr ""
+
+#: gui/ops_panel.py:104
+msgid "Pone las filas en el orden correcto: taladros, pozos, interiores, líneas y exteriores"
+msgstr ""
+
+#: gui/ops_panel.py:108
+msgid "Subir: se corta antes"
+msgstr ""
+
+#: gui/ops_panel.py:108
+msgid "Bajar: se corta después"
+msgstr ""
+
+#: gui/ops_panel.py:112
+msgid "Guardar receta…"
+msgstr ""
+
+#: gui/ops_panel.py:113
+msgid "Restablecer"
+msgstr ""
+
+#: gui/ops_panel.py:114
+msgid "Todas las filas vuelven a corte pasante normal (las formas siguen en sus grupos)"
+msgstr ""
+
+#: gui/ops_panel.py:173
+msgid "Todos"
+msgstr ""
+
+#: gui/ops_panel.py:173
+msgid "Ninguno"
+msgstr ""
+
+#: gui/ops_panel.py:188
+msgid "Grupo"
+msgstr ""
+
+#: gui/ops_panel.py:192
+msgid "Grupo nuevo…"
+msgstr ""
+
+#: gui/ops_panel.py:194
+msgid "Quitar del grupo (vuelve a su color)"
+msgstr ""
+
+#: gui/ops_panel.py:229 gui/ops_panel.py:353
+#, python-brace-format
+msgid "Grupo de formas «{name}» (color de trabajo {stroke}). Doble clic para cambiar el nombre."
+msgstr ""
+
+#: gui/ops_panel.py:249
+msgid "Pasante: corta todo el grosor del material más el margen del sufridor"
+msgstr ""
+
+#: gui/props_bar.py:23
+msgid "Polilínea"
+msgstr ""
+
+#: gui/props_bar.py:25
+msgid "Elige una forma (clic, Ctrl+clic o recuadro con Mayús) para ver y cambiar sus medidas."
+msgstr ""
+
+#: gui/props_bar.py:28
+msgid "Diámetro"
+msgstr ""
+
+#: gui/props_bar.py:28
+msgid "Radio"
+msgstr ""
+
+#: gui/props_bar.py:34
+#, python-brace-format
+msgid "El punto elegido ({point}) no se mueve."
+msgstr ""
+
+#: gui/props_bar.py:36
+#, python-brace-format
+msgid "Posición X de {point} del círculo (mm)"
+msgstr ""
+
+#: gui/props_bar.py:36
+#, python-brace-format
+msgid "Posición Y de {point} del círculo (mm)"
+msgstr ""
+
+#: gui/props_bar.py:37
+#, python-brace-format
+msgid "Diámetro del círculo (mm): crece o se encoge sin mover {point}. "
+msgstr ""
+
+#: gui/props_bar.py:38
+#, python-brace-format
+msgid "Radio del círculo (mm): crece o se encoge sin mover {point}. "
+msgstr ""
+
+#: gui/props_bar.py:39
+#, python-brace-format
+msgid "Posición X de {point} de la forma (mm)"
+msgstr ""
+
+#: gui/props_bar.py:39
+#, python-brace-format
+msgid "Posición Y de {point} de la forma (mm)"
+msgstr ""
+
+#: gui/props_bar.py:40
+msgid "Ancho de la forma (mm). "
+msgstr ""
+
+#: gui/props_bar.py:40 gui/props_bar.py:41
+msgid " Si es un rectángulo con esquinas redondas, conservan su radio."
+msgstr ""
+
+#: gui/props_bar.py:41
+msgid "Alto de la forma (mm). "
+msgstr ""
+
+#: gui/props_bar.py:143
+msgid "Sin forma"
+msgstr ""
+
+#: gui/props_bar.py:155
+#, python-brace-format
+msgid "Esquina: {x}, {y}"
+msgstr ""
+
+#: gui/props_bar.py:156
+#, python-brace-format
+msgid "Esquina inferior izquierda: {x}, {y}"
+msgstr ""
+
+#: gui/props_bar.py:158
+#, python-brace-format
+msgid "Centro: {x}, {y}"
+msgstr ""
+
+#: gui/props_bar.py:160
+#, python-brace-format
+msgid "{count} formas"
+msgstr ""
+
+#: gui/props_bar.py:202
+msgid "El diámetro y el radio tienen que ser mayores que cero."
+msgstr ""
+
+#: gui/props_bar.py:209
+msgid "El ancho y el alto tienen que ser mayores que cero."
+msgstr ""
+
+#: gui/record_dialog.py:49
+msgid "Nueva"
+msgstr ""
+
+#: gui/record_dialog.py:50
+msgid "Duplicar"
+msgstr ""
+
+#: gui/record_dialog.py:51
+msgid "Eliminar"
+msgstr ""
+
+#: gui/record_dialog.py:60
+msgid "opcional"
+msgstr ""
+
+#: gui/record_dialog.py:73
+msgid "(sin ruta: no se podrá guardar)"
+msgstr ""
+
+#: gui/record_dialog.py:74
+#, python-brace-format
+msgid "Se guarda en {where}; la copia anterior queda como «{BACKUP_SUFFIX}»."
+msgstr ""
+
+#: gui/record_dialog.py:78
+msgid "Guardar"
+msgstr ""
+
+#: gui/record_dialog.py:100
+msgid "Notas"
+msgstr ""
+
+#: gui/record_dialog.py:250
+msgid "Hay fichas que no valen:\n"
+msgstr ""
+
+#: gui/record_dialog.py:252
+msgid "No hay ninguna ficha que guardar."
+msgstr ""
+
+#: gui/record_dialog.py:254
+msgid "No hay ruta donde guardar el archivo."
+msgstr ""
+
+#: gui/record_dialog.py:292
+msgid "No se pudo guardar"
+msgstr ""
+
+#: gui/record_dialog.py:299
+msgid "Hay cambios sin guardar. ¿Cerrar y descartarlos?"
+msgstr ""
+
+#: gui/theme.py:26
+msgid "Hueco"
+msgstr ""
+
+#: gui/theme.py:26
+msgid "Pieza"
+msgstr ""
+
+#: gui/tools_dialog.py:17
+msgid "Ángulo de la V (°)"
+msgstr ""
+
+#: gui/tools_dialog.py:17
+msgid "solo en una V"
+msgstr ""
+
+#: gui/tools_dialog.py:18
+msgid "Flautas"
+msgstr ""
+
+#: gui/tools_dialog.py:19
+msgid "Longitud útil (mm)"
+msgstr ""
+
+#: gui/tools_dialog.py:19
+msgid "mm de filo"
+msgstr ""
+
+#: gui/tools_dialog.py:20
+msgid "RPM"
+msgstr ""
+
+#: gui/tools_dialog.py:21
+msgid "Profundidad de pasada (mm)"
+msgstr ""
+
+#: gui/tools_dialog.py:22
+msgid "Avance de corte (mm/min)"
+msgstr ""
+
+#: gui/tools_dialog.py:23
+msgid "Avance de bajada (mm/min)"
+msgstr ""
+
+#: gui/tools_dialog.py:24
+#, python-format
+msgid "Stepover (% del diámetro)"
+msgstr ""
+
+#: gui/tools_dialog.py:24
+msgid "p. ej. 40"
+msgstr ""
+
+#: gui/tools_dialog.py:33
+msgid "No hay fichas. Pulsa Nueva para crear la primera."
+msgstr ""
+
+#: gui/tools_dialog.py:40
+msgid "Copia la ficha elegida con otro identificador (p. ej. el mismo diámetro para otro material)"
+msgstr ""
+
+#: gui/tools_dialog.py:42
+msgid "p. ej. em4_mdf"
+msgstr ""
+
+#: gui/tools_dialog.py:43
+msgid "El nombre corto de la ficha, el que se ve en la lista. Empieza por una letra; letras, números, _ - ."
+msgstr ""
+
+#: gui/tools_dialog.py:53
+msgid "Tipo"
+msgstr ""
+
+#: holddown.py:68
+msgid "Clavo de clavadora (cabeza 2 mm)"
+msgstr ""
+
+#: holddown.py:69
+msgid "Tirafondo (hasta 6 mm)"
+msgstr ""
+
+#: holddown.py:89
+#, python-brace-format
+msgid "tipo de sujecion desconocido '{kind}' (hay: {join})."
+msgstr ""
+
+#: holddown.py:91
+msgid "el alcance debe ser mayor que 0."
+msgstr ""
+
+#: holddown.py:92
+msgid "la separacion minima"
+msgstr ""
+
+#: holddown.py:92
+msgid "la distancia a las esquinas"
+msgstr ""
+
+#: holddown.py:93
+msgid "la distancia a los cortes"
+msgstr ""
+
+#: holddown.py:93
+msgid "la fila del borde inferior"
+msgstr ""
+
+#: holddown.py:95
+#, python-brace-format
+msgid "{name} no puede ser negativa."
+msgstr ""
+
+#: holddown.py:97
+msgid "repartir en filas y columnas es si o no."
+msgstr ""
+
+#: holddown.py:99
+msgid "el minimo de puntos debe ser un numero entero, 0 o mas."
+msgstr ""
+
+#: holddown.py:100
+msgid "margen al corte"
+msgstr ""
+
+#: holddown.py:100
+msgid "margen al borde"
+msgstr ""
+
+#: holddown.py:102
+#, python-brace-format
+msgid "el {name} no puede ser negativo."
+msgstr ""
+
+#: holddown.py:104
+msgid "la altura de marcado no puede ser negativa."
+msgstr ""
+
+#: holddown.py:386
+#, python-brace-format
+msgid "a {d_cut:.1f} mm del corte (lo comodo es {cut_clear:g} o mas)"
+msgstr ""
+
+#: holddown.py:389
+msgid "fuera de la plancha"
+msgstr ""
+
+#: holddown.py:392
+#, python-brace-format
+msgid "a {d_edge:.1f} mm del borde de la plancha (minimo {edge:g})"
+msgstr ""
+
+#: holddown.py:395
+msgid "encima del recorrido de la fresa"
+msgstr ""
+
+#: holddown.py:398
+msgid "dentro de una pieza (las piezas no se clavan)"
+msgstr ""
+
+#: holddown.py:401
+msgid "en un desecho que se suelta al cortar: no sujeta nada"
+msgstr ""
+
+#: holddown.py:403
+#, python-brace-format
+msgid "a {d_cut:.1f} mm del corte (minimo {kerf:g})"
+msgstr ""
+
+#: holddown.py:404
+msgid "demasiado cerca del corte"
+msgstr ""
+
+#: holddown.py:633
+msgid "no hay puntos que marcar."
+msgstr ""
+
+#: holddown.py:636
+msgid "Marcas de sujecion"
+msgstr ""
+
+#: holddown.py:637
+#, python-brace-format
+msgid "{n} puntos"
+msgstr ""
+
+#: holddown.py:637
+msgid "; el husillo no arranca"
+msgstr ""
+
+#: holddown.py:638
+msgid "Orden: de lejos a cerca (Y mayor primero), cada fila de izquierda a derecha"
+msgstr ""
+
+#: holddown.py:639
+msgid "En cada pausa (M0) marca el punto bajo la punta y pulsa Reanudar en UGS"
+msgstr ""
+
+#: holddown.py:644
+#, python-brace-format
+msgid "Punto {i} de {n} - es el {v} de la ventana"
+msgstr ""
+
+#: holddown.py:645
+#, python-brace-format
+msgid "Punto {i} de {n}"
+msgstr ""
+
+#: machinebook.py:25 machines.py:199
+msgid "sí"
+msgstr ""
+
+#: machinebook.py:25 machines.py:199
+msgid "no"
+msgstr ""
+
+#: machinebook.py:34
+msgid "el identificador debe empezar por una letra y usar solo letras, números, '_', '-' o '.'."
+msgstr ""
+
+#: machinebook.py:65 toolbook.py:53
+#, python-brace-format
+msgid "'{key}' debe ser un número (hay {text!r})."
+msgstr ""
+
+#: machinebook.py:75
+#, python-brace-format
+msgid "'{key}' debe ser sí, no o sin dato (hay {text!r})."
+msgstr ""
+
+#: machinebook.py:82
+#, python-brace-format
+msgid "falta {article} {label} (X, Y y Z: $130, $131, $132). Sin él no se sabe lo que cabe."
+msgstr ""
+
+#: machinebook.py:86
+#, python-brace-format
+msgid "{article} {label} tiene que tener las tres casillas (X, Y y Z); falta {missing}."
+msgstr ""
+
+#: machinebook.py:97
+msgid "recorrido"
+msgstr ""
+
+#: machinebook.py:98
+msgid "aceleración"
+msgstr ""
+
+#: machinebook.py:127
+msgid "Sin avance máximo (XY o Z): la aplicación no avisa si un trabajo pide más de lo que la máquina da."
+msgstr ""
+
+#: machinebook.py:129
+msgid "Sin dato de homing: no se puede avisar de que «Home» fallaría en una máquina sin él."
+msgstr ""
+
+#: machinebook.py:131
+msgid "Sin homing: la lista de comprobación no manda hacer Home y el cero se marca a mano."
+msgstr ""
+
+#: machinebook.py:133
+msgid "Sin dato del modo láser ($32): no se puede avisar de que M3 no arrancaría el husillo."
+msgstr ""
+
+#: machinebook.py:150
+#, python-brace-format
+msgid "{ident} — {name} ({size} mm)"
+msgstr ""
+
+#: machinebook.py:151
+#, python-brace-format
+msgid "{ident} ({size} mm)"
+msgstr ""
+
+#: machinebook.py:166 machinebook.py:189 machinebook.py:194 machinebook.py:214
+#: machines.py:315
+msgid "log pegado"
+msgstr ""
+
+#: machinebook.py:173
+#, python-brace-format
+msgid "ya hay una ficha con el identificador '{ident}'."
+msgstr ""
+
+#: machinebook.py:181
+msgid "la ficha tiene errores: corrígelos antes de actualizarla desde un log."
+msgstr ""
+
+#: machinebook.py:209
+msgid "No se ha encontrado ningún ajuste ($130=651…). Pega lo que UGS muestra al conectar o al escribir $$ en su consola, o escribe los valores uno por línea."
+msgstr ""
+
+#: machinebook.py:211
+msgid "El log no tiene los datos mínimos."
+msgstr ""
+
+#: machines.py:38 machines.py:50 tools.py:34 tools.py:45
+msgid "texto libre"
+msgstr ""
+
+#: machines.py:39
+msgid "[X, Y, Z] en mm ($130, $131, $132): obligatorio"
+msgstr ""
+
+#: machines.py:40
+msgid "mm/min en XY ($110 y $111; el menor de los dos)"
+msgstr ""
+
+#: machines.py:41
+msgid "mm/min en Z ($112)"
+msgstr ""
+
+#: machines.py:42
+msgid "[X, Y, Z] en mm/s2 ($120, $121, $122): informativo"
+msgstr ""
+
+#: machines.py:43
+msgid "true o false ($20)"
+msgstr ""
+
+#: machines.py:44
+msgid "true o false ($21)"
+msgstr ""
+
+#: machines.py:45
+msgid "true o false ($22): sin homing, $H da error"
+msgstr ""
+
+#: machines.py:46
+msgid "RPM maximas ($30): informativo, el husillo de aqui es on/off"
+msgstr ""
+
+#: machines.py:47
+msgid "true o false ($32): con el modo laser, M3 no arranca un husillo normal"
+msgstr ""
+
+#: machines.py:48
+msgid "texto, p. ej. Grbl 1.1h"
+msgstr ""
+
+#: machines.py:49
+msgid "texto: de donde salieron los datos (log del dia, a mano...)"
+msgstr ""
+
+#: machines.py:54
+msgid "Una ficha por maquina. Obligatorio: recorrido [X, Y, Z] en mm ($130-$132). Resto opcional: nombre, avance_max (mm/min en XY), avance_max_z, aceleracion [X, Y, Z], limites_blandos, limites_duros, homing, laser (true o false), husillo_max, firmware, origen, notas. Lo que falte no se comprueba. Se rellena con Maquinas... > Importar de un log (lo que UGS muestra al conectar)."
+msgstr ""
+
+#: machines.py:70
+#, python-brace-format
+msgid "{where} debe ser una lista de tres números [X, Y, Z] (hay {v!r})."
+msgstr ""
+
+#: machines.py:71
+#, python-brace-format
+msgid "{where}, cada valor"
+msgstr ""
+
+#: machines.py:76
+#, python-brace-format
+msgid "{where} debe ser true o false (hay {v!r})."
+msgstr ""
+
+#: machines.py:82 tools.py:66
+#, python-brace-format
+msgid "{source}, ficha '{ident}'"
+msgstr ""
+
+#: machines.py:84
+#, python-brace-format
+msgid "{where}: debe ser un objeto {{...}} con los campos de la máquina."
+msgstr ""
+
+#: machines.py:87
+#, python-brace-format
+msgid "{where}: falta el campo obligatorio 'recorrido' ([X, Y, Z] en mm: $130-$132). Sin él no se sabe lo que cabe."
+msgstr ""
+
+#: machines.py:89
+#, python-brace-format
+msgid "{where}: 'recorrido'"
+msgstr ""
+
+#: machines.py:92 tools.py:83
+#, python-brace-format
+msgid "{where}: '{key}' debe ser texto."
+msgstr ""
+
+#: machines.py:99
+#, python-brace-format
+msgid "{where}: 'aceleracion'"
+msgstr ""
+
+#: machines.py:107
+msgid "máquina"
+msgstr ""
+
+#: machines.py:115
+#, python-brace-format
+msgid "No existe el archivo de máquinas {path}."
+msgstr ""
+
+#: machines.py:168
+#, python-brace-format
+msgid "No hay ninguna máquina '{ident}'. Máquinas: {known}.{suggest}"
+msgstr ""
+
+#: machines.py:184
+msgid "No hay ninguna ficha de máquina: impórtala de un log (Máquinas… en la ventana)."
+msgstr ""
+
+#: machines.py:185
+#, python-brace-format
+msgid "Hay varias máquinas ({join}) y no se ha elegido ninguna."
+msgstr ""
+
+#: machines.py:195
+msgid " mm"
+msgstr ""
+
+#: machines.py:212
+msgid "recorrido (mm)"
+msgstr ""
+
+#: machines.py:213
+msgid "avance máx. XY (mm/min)"
+msgstr ""
+
+#: machines.py:214
+msgid "avance máx. Z (mm/min)"
+msgstr ""
+
+#: machines.py:215
+msgid "aceleración (mm/s²)"
+msgstr ""
+
+#: machines.py:216 machines.py:245
+msgid "límites blandos"
+msgstr ""
+
+#: machines.py:217 machines.py:245
+msgid "límites duros"
+msgstr ""
+
+#: machines.py:219
+msgid "husillo máx. (RPM)"
+msgstr ""
+
+#: gui/job_panel.py:308 machines.py:220 machines.py:246
+msgid "modo láser"
+msgstr ""
+
+#: machines.py:243
+msgid "avance máx. X"
+msgstr ""
+
+#: machines.py:243
+msgid "avance máx. Y"
+msgstr ""
+
+#: machines.py:243
+msgid "avance máx. Z"
+msgstr ""
+
+#: machines.py:243
+msgid "aceleración X"
+msgstr ""
+
+#: machines.py:244
+msgid "aceleración Y"
+msgstr ""
+
+#: machines.py:244
+msgid "aceleración Z"
+msgstr ""
+
+#: machines.py:244
+msgid "recorrido X"
+msgstr ""
+
+#: machines.py:244
+msgid "recorrido Y"
+msgstr ""
+
+#: machines.py:245
+msgid "recorrido Z"
+msgstr ""
+
+#: machines.py:245
+msgid "husillo máx."
+msgstr ""
+
+#: machines.py:284
+#, python-brace-format
+msgid "${key} ({name}) sale dos veces con valores distintos ({n} y {n2}): ¿hay dos logs mezclados?"
+msgstr ""
+
+#: machines.py:289 machines.py:294
+#, python-brace-format
+msgid "Grbl {group}"
+msgstr ""
+
+#: machines.py:298
+#, python-brace-format
+msgid "Falta {missing}: sin el recorrido no se sabe lo que cabe en la máquina."
+msgstr ""
+
+#: machines.py:301
+#, python-brace-format
+msgid "${key} ({SETTING_NAMES}) debe ser 0 o 1 (hay {n})."
+msgstr ""
+
+#: machines.py:306
+#, python-brace-format
+msgid "${key} ({SETTING_NAMES}) debe ser mayor que 0 (hay {n})."
+msgstr ""
+
+#: machines.py:308
+#, python-brace-format
+msgid "El avance máximo de X ({n}) y el de Y ({n2}) difieren: la ficha usa el menor."
+msgstr ""
+
+#: machines.py:311
+msgid "No aparece: "
+msgstr ""
+
+#: machines.py:311
+msgid ". Lo que falte queda «sin dato» y no se comprueba."
+msgstr ""
+
+#: machines.py:336
+#, python-brace-format
+msgid "Firmware: {firmware}"
+msgstr ""
+
+#: machines.py:338
+#, python-brace-format
+msgid "Recorrido: {n} × {n2} × {n3} mm"
+msgstr ""
+
+#: machines.py:341
+msgid "Avances máximos (mm/min): "
+msgstr ""
+
+#: machines.py:344
+msgid "Aceleración (mm/s²): "
+msgstr ""
+
+#: machines.py:349
+#, python-brace-format
+msgid "Husillo máx.: {n} RPM"
+msgstr ""
+
+#: gui/group_dialog.py:12 oprows.py:18
+msgid "Corte"
+msgstr ""
+
+#: gui/group_dialog.py:12 gui/theme.py:26 oprows.py:18
+msgid "Taladro"
+msgstr ""
+
+#: gui/group_dialog.py:13 oprows.py:18
+msgid "Ignorar"
+msgstr ""
+
+#: gui/theme.py:26 oprows.py:18
+msgid "Vaciado"
+msgstr ""
+
+#: oprows.py:50
+#, python-brace-format
+msgid "trazo {stroke} + relleno {fill}"
+msgstr ""
+
+#: oprows.py:52
+#, python-brace-format
+msgid "trazo {stroke}"
+msgstr ""
+
+#: oprows.py:54
+#, python-brace-format
+msgid "relleno {fill}"
+msgstr ""
+
+#: gui/canvas.py:234 gui/main_window.py:898 oprows.py:55 pipeline.py:360
+msgid "sin color"
+msgstr ""
+
+#: oprows.py:120
+#, python-brace-format
+msgid "operacion {index} ('{name}'): falta la profundidad (escribela en Prof. o marca Pasante)."
+msgstr ""
+
+#: oprows.py:160 project.py:902
+msgid "tabla de operaciones"
+msgstr ""
+
+#: oprows.py:164
+msgid "no hay ninguna operacion activa en la tabla (todo esta en Ignorar)."
+msgstr ""
+
+#: oprows.py:197
+#, python-brace-format
+msgid "no se puede escribir {v!r} en TOML"
+msgstr ""
+
+#: oprows.py:202
+msgid "# Receta de trabajo generada por cnc_app: que operacion es cada color del dibujo."
+msgstr ""
+
+#: oprows.py:203
+msgid "# Se puede editar a mano y abrir otra vez con Receta > Abrir receta (ver receta_ejemplo.toml)."
+msgstr ""
+
+#: ordering.py:63
+msgid "shapes y sides deben tener la misma longitud."
+msgstr ""
+
+#: pipeline.py:77
+#, python-brace-format
+msgid "nivel de mensaje desconocido: {level!r}"
+msgstr ""
+
+#: pipeline.py:147
+#, python-brace-format
+msgid "{len} resto(s) sin sentido descartado(s) (lineas de menos de 0,5 mm): "
+msgstr ""
+
+#: pipeline.py:171
+#, python-brace-format
+msgid "giro de {spec:g} grados"
+msgstr ""
+
+#: pipeline.py:178
+msgid "dibujo apaisado: se gira 90 grados antihorario"
+msgstr ""
+
+#: pipeline.py:179
+msgid "dibujo ya vertical: no se gira"
+msgstr ""
+
+#: pipeline.py:185
+msgid "cabe en el recorrido: no se gira"
+msgstr ""
+
+#: pipeline.py:188
+#, python-brace-format
+msgid "no cabe tal cual ({w0:.0f} x {h0:.0f} mm en {tx:g} x {ty:g}): se gira 90 grados antihorario"
+msgstr ""
+
+#: pipeline.py:189
+#, python-brace-format
+msgid "no cabe ni girado ({w0:.0f} x {h0:.0f} mm y {w1:.0f} x {h1:.0f} mm en {tx:g} x {ty:g})"
+msgstr ""
+
+#: pipeline.py:256
+msgid "Giro: "
+msgstr ""
+
+#: pipeline.py:267
+#, python-brace-format
+msgid "Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda"
+msgstr ""
+
+#: pipeline.py:273
+#, python-brace-format
+msgid "Sin tablero: el cero queda {m:g} mm por fuera de la esquina inferior izquierda de lo que se corta"
+msgstr ""
+
+#: pipeline.py:277
+#, python-brace-format
+msgid "Dibujo movido {offset:g}, {offset2:g} mm respecto al cero"
+msgstr ""
+
+#: pipeline.py:284
+#, python-brace-format
+msgid "Tablero supuesto: {b:.1f} x {b2:.1f} mm (del cero a lo que se corta mas {origin_margin:g} mm); sirve para calcular la sujecion"
+msgstr ""
+
+#: pipeline.py:296
+#, python-brace-format
+msgid "{depth:g} mm"
+msgstr ""
+
+#: pipeline.py:358
+#, python-brace-format
+msgid "Ignoradas por la receta: {len} forma(s)"
+msgstr ""
+
+#: pipeline.py:361
+#, python-brace-format
+msgid "{len} forma(s) sin operacion en la receta, no se cortan (colores: {join})"
+msgstr ""
+
+#: pipeline.py:364
+msgid "la receta no encuentra ninguna forma que cortar"
+msgstr ""
+
+#: pipeline.py:366
+msgid "no hay ninguna forma que cortar"
+msgstr ""
+
+#: pipeline.py:384
+msgid "faltan el avance de corte y el de bajada (feed y entrada)"
+msgstr ""
+
+#: pipeline.py:408
+#, python-brace-format
+msgid " (y {v} operacion(es) mas)"
+msgstr ""
+
+#: pipeline.py:422
+#, python-brace-format
+msgid "El G-code no pasa la verificacion: {p}"
+msgstr ""
+
+#: pipeline.py:429
+msgid "una sola pasada"
+msgstr ""
+
+#: pipeline.py:430
+#, python-brace-format
+msgid "pasadas de hasta {stepdown:g} mm{tag}"
+msgstr ""
+
+#: pipeline.py:431
+#, python-brace-format
+msgid "Fresa: {tool_label} | feed {feed:g}{tag} | entrada {plunge:g}{tag2} | {how}"
+msgstr ""
+
+#: pipeline.py:433
+#, python-brace-format
+msgid "Fresa: {tool_label} | receta {source}"
+msgstr ""
+
+#: pipeline.py:437
+#, python-brace-format
+msgid "  {name}: {kind}, {n} forma(s), {fmt_depth}"
+msgstr ""
+
+#: pipeline.py:438
+#, python-brace-format
+msgid "  {name}: sin formas en este trabajo"
+msgstr ""
+
+#: pipeline.py:443
+#, python-brace-format
+msgid "Puentes desactivados: {count} forma(s) con puentes puestos a mano se cortan sin ellos."
+msgstr ""
+
+#: pipeline.py:447
+#, python-brace-format
+msgid "Operaciones: {counts}; profundidad total {depth:g} mm en {n_passes} pasada(s)"
+msgstr ""
+
+#: pipeline.py:449
+#, python-brace-format
+msgid "Operaciones generadas: {len}; profundidad maxima {v:.1f} mm"
+msgstr ""
+
+#: pipeline.py:453
+#, python-brace-format
+msgid "de {width:g} mm de ancho y {height:g} mm de alto"
+msgstr ""
+
+#: pipeline.py:454
+msgid "de varios tamaños"
+msgstr ""
+
+#: pipeline.py:455
+#, python-brace-format
+msgid "Puentes: {count} en {pieces} forma(s), {size}"
+msgstr ""
+
+#: pipeline.py:463
+#, python-brace-format
+msgid "No cabe en la maquina: la trayectoria mide {size:.1f} mm en {axis} y el recorrido es de {travel:g} mm (faltan {v:.1f} mm)."
+msgstr ""
+
+#: pipeline.py:466
+#, python-brace-format
+msgid "Trayectoria en {axis}: {size:.1f} mm de {travel:g} mm de recorrido -> "
+msgstr ""
+
+#: pipeline.py:467
+#, python-brace-format
+msgid "margen total {room:.1f} mm"
+msgstr ""
+
+#: pipeline.py:467
+#, python-brace-format
+msgid "NO CABE (faltan {v:.1f} mm)"
+msgstr ""
+
+#: pipeline.py:473
+#, python-brace-format
+msgid "La trayectoria se sale del tablero {side} {v:.1f} mm: parte de la pieza queda fuera del material."
+msgstr ""
+
+#: pipeline.py:476
+#, python-brace-format
+msgid "la trayectoria se sale del tablero {side} {v:.1f} mm: parte de una pieza queda fuera del material. Mueve el dibujo hacia dentro con --offset DX,DY (por ejemplo --offset {flag}, que deja unos {OVERHANG_SLACK} mm de holgura)"
+msgstr ""
+
+#: pocket.py:38
+msgid "El vaciado requiere un Polygon (o MultiPolygon)."
+msgstr ""
+
+#: pocket.py:40 toolpath.py:124
+msgid "La forma esta vacia o se cruza consigo misma."
+msgstr ""
+
+#: pocket.py:43
+msgid "La fresa es demasiado grande para este vaciado."
+msgstr ""
+
+#: pocket.py:165
+msgid "stepover debe estar en (0, 1] (fraccion del diametro)."
+msgstr ""
+
+#: pocket.py:175
+#, python-brace-format
+msgid "strategy desconocida: {strategy!r} (offset o zigzag)."
+msgstr ""
+
+#: post_grbl.py:86
+msgid "Movimiento de corte sin avance definido."
+msgstr ""
+
+#: post_grbl.py:98
+msgid "Codigo final definido por el usuario"
+msgstr ""
+
+#: project.py:51
+#, python-brace-format
+msgid "La trayectoria se sale del tablero {side} {amount:.1f} mm: parte de una pieza queda fuera del material."
+msgstr ""
+
+#: project.py:139
+#, python-brace-format
+msgid "el giro debe ser uno de {join} (hay {text!r})."
+msgstr ""
+
+#: project.py:146
+#, python-brace-format
+msgid "{what} debe ser mayor que 0."
+msgstr ""
+
+#: project.py:292
+#, python-brace-format
+msgid "la forma {i!r} no existe o no se puede elegir."
+msgstr ""
+
+#: project.py:335
+msgid "el grupo necesita un nombre."
+msgstr ""
+
+#: project.py:337
+#, python-brace-format
+msgid "la operacion del grupo debe ser una de {join} (hay {action!r})."
+msgstr ""
+
+#: gui/group_dialog.py:30 gui/main_window.py:939 project.py:341
+msgid "Grupo nuevo"
+msgstr ""
+
+#: project.py:353
+msgid "ese grupo no existe."
+msgstr ""
+
+#: gui/main_window.py:950 gui/ops_panel.py:82 project.py:355
+msgid "Mover a grupo"
+msgstr ""
+
+#: gui/main_window.py:333 gui/main_window.py:962 project.py:363
+msgid "Quitar del grupo"
+msgstr ""
+
+#: project.py:370
+msgid "Interiores"
+msgstr ""
+
+#: project.py:370
+msgid "Líneas"
+msgstr ""
+
+#: project.py:370 project.py:467
+msgid "líneas"
+msgstr ""
+
+#: project.py:371
+msgid "Exteriores"
+msgstr ""
+
+#: project.py:372
+msgid "interiores (huecos)"
+msgstr ""
+
+#: project.py:372
+msgid "líneas abiertas"
+msgstr ""
+
+#: project.py:372
+msgid "exteriores (piezas)"
+msgstr ""
+
+#: project.py:418
+msgid "abre un dibujo antes de separar cortes."
+msgstr ""
+
+#: project.py:422
+msgid "no hay ninguna fila de Corte en «Auto» con interiores y exteriores que separar."
+msgstr ""
+
+#: project.py:424
+msgid "hay varias filas que se pueden separar: elige una en la tabla."
+msgstr ""
+
+#: project.py:429
+msgid "esa fila no existe."
+msgstr ""
+
+#: project.py:431
+#, python-brace-format
+msgid "«{title}» es un {lower}: solo se separan las filas de Corte."
+msgstr ""
+
+#: project.py:433
+#, python-brace-format
+msgid "«{title}» ya tiene el lado fijado: ponla en «Auto» si quieres separarla."
+msgstr ""
+
+#: project.py:438
+msgid "ninguna forma"
+msgstr ""
+
+#: project.py:439
+#, python-brace-format
+msgid "«{title}» solo tiene {what}: no hay nada que separar."
+msgstr ""
+
+#: gui/main_window.py:335 gui/main_window.py:978 project.py:442
+msgid "Separar interiores y exteriores"
+msgstr ""
+
+#: project.py:467
+msgid "taladros"
+msgstr ""
+
+#: project.py:467
+msgid "pozos"
+msgstr ""
+
+#: project.py:467
+msgid "interiores"
+msgstr ""
+
+#: project.py:467
+msgid "exteriores"
+msgstr ""
+
+#: project.py:509
+#, python-brace-format
+msgid "«{n}» ({lo_name}) va después de «{tn}» ({t_name})"
+msgstr ""
+
+#: project.py:511
+#, python-brace-format
+msgid " (y {v} más)"
+msgstr ""
+
+#: project.py:512
+#, python-brace-format
+msgid "El orden de las filas no es el correcto: tiene que ser taladros, pozos, interiores, líneas y exteriores. {examples}{more}."
+msgstr ""
+
+#: project.py:515
+#, python-brace-format
+msgid "{head} Una fila que mezcla interiores y exteriores no se puede ordenar con otras: sepárala con «Separar interiores y exteriores» y pulsa «Ordenar»."
+msgstr ""
+
+#: project.py:517
+#, python-brace-format
+msgid "{head} Pulsa «Ordenar» para ponerlas bien."
+msgstr ""
+
+#: project.py:598
+#, python-brace-format
+msgid "{holes} forma(s) se cortarían por fuera siendo huecos"
+msgstr ""
+
+#: project.py:600
+#, python-brace-format
+msgid "{pieces} forma(s) se cortarían por dentro siendo piezas"
+msgstr ""
+
+#: project.py:601
+#, python-brace-format
+msgid "«{name}» está en «Auto», que solo mira el anidamiento entre las formas de su fila: {join} según el dibujo entero. Pon «Por dentro» o «Por fuera» en esa fila (o usa «Separar interiores y exteriores»)."
+msgstr ""
+
+#: project.py:626
+msgid "los puentes están desactivados: marca «Poner puentes» en los ajustes del trabajo."
+msgstr ""
+
+#: project.py:629
+msgid "esa forma no se corta."
+msgstr ""
+
+#: project.py:635
+msgid "los puentes son de los cortes: la fila de esa forma no es un corte."
+msgstr ""
+
+#: project.py:637
+msgid "la fila de esa forma no corta de lado a lado: no necesita puentes."
+msgstr ""
+
+#: project.py:716
+msgid "abre un dibujo o crea uno nuevo antes de dibujar."
+msgstr ""
+
+#: project.py:724
+msgid "ese color es la etiqueta de un grupo de formas: elige otro para la forma nueva."
+msgstr ""
+
+#: project.py:815
+#, python-brace-format
+msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan las ediciones hechas con las herramientas de dibujo."
+msgstr ""
+
+#: project.py:826
+#, python-brace-format
+msgid "No se pudo rehacer la edicion {n} de {len} del trabajo guardado ({e}): se descartan ella y las siguientes."
+msgstr ""
+
+#: project.py:840
+msgid "Dibujo completo"
+msgstr ""
+
+#: project.py:841
+#, python-brace-format
+msgid "Tablero {number} ({width:.0f} x {height:.0f} mm)"
+msgstr ""
+
+#: project.py:848
+#, python-brace-format
+msgid "no existe el tablero {number}"
+msgstr ""
+
+#: project.py:882
+#, python-brace-format
+msgid "No se aplica la receta del archivo de configuracion: {e}"
+msgstr ""
+
+#: project.py:883
+#, python-brace-format
+msgid "Receta del archivo de configuracion: {name}"
+msgstr ""
+
+#: project.py:911
+msgid "elige una fresa (una ficha o un diametro en mm)."
+msgstr ""
+
+#: project.py:920
+msgid "el diametro de la fresa debe ser un numero mayor que 0."
+msgstr ""
+
+#: project.py:946
+#, python-brace-format
+msgid "{job:g} (trabajo)"
+msgstr ""
+
+#: project.py:948
+#, python-brace-format
+msgid "{card:g} (ficha)"
+msgstr ""
+
+#: project.py:950
+#, python-brace-format
+msgid "{v:g} (ficha)"
+msgstr ""
+
+#: project.py:969
+msgid "falta el grosor del material."
+msgstr ""
+
+#: project.py:971
+msgid "el grosor del material debe ser mayor que 0."
+msgstr ""
+
+#: project.py:973
+msgid "el margen no puede ser negativo."
+msgstr ""
+
+#: project.py:975
+msgid "el margen del cero no puede ser negativo."
+msgstr ""
+
+#: project.py:977
+msgid "la Z de aproximacion debe ser mayor que 0 y no mayor que la Z segura."
+msgstr ""
+
+#: project.py:987
+msgid "el avance de corte"
+msgstr ""
+
+#: project.py:987
+msgid "el avance de bajada"
+msgstr ""
+
+#: project.py:987
+msgid "la pasada"
+msgstr ""
+
+#: project.py:997
+msgid "falta el avance de corte: rellenalo o ponlo en la ficha de la fresa."
+msgstr ""
+
+#: project.py:999
+msgid "falta el avance de bajada: rellenalo o ponlo en la ficha de la fresa."
+msgstr ""
+
+#: project.py:1024
+msgid "El dibujo esta vacio: dibuja algo con el menu Dibujo (o abre un SVG)."
+msgstr ""
+
+#: project.py:1039
+#, python-brace-format
+msgid "Ignoradas en la tabla: {ignored} forma(s)"
+msgstr ""
+
+#: project.py:1100
+msgid "_marcas"
+msgstr ""
+
+#: project.py:1123
+msgid "no hay ningun tablero marcado para generar."
+msgstr ""
+
+#: project.py:1131
+msgid "no se pudo generar"
+msgstr ""
+
+#: gui/main_window.py:1514 gui/main_window.py:1518 project.py:1132
+#, python-brace-format
+msgid "Tablero {n}: "
+msgstr ""
+
+#: project.py:1139
+#, python-brace-format
+msgid "el G-code tiene un caracter que no es ASCII ({text!r}); GRBL no lo admite: revisa el codigo final."
+msgstr ""
+
+#: project.py:1149
+#, python-brace-format
+msgid "_tablero{number}"
+msgstr ""
+
+#: project.py:1191
+msgid "el archivo de trabajo no es de esta version de la aplicación."
+msgstr ""
+
+#: project.py:1195
+msgid "el trabajo es de un dibujo nuevo (sin SVG) y hay un SVG abierto, o al reves."
+msgstr ""
+
+#: project.py:1229
+msgid "el trabajo"
+msgstr ""
+
+#: project.py:1231
+msgid "La ficha de la maquina guardada con el trabajo no se puede leer: se usa la de maquinas.json."
+msgstr ""
+
+#: project.py:1241
+#, python-brace-format
+msgid "La maquina «{ident}» del trabajo no esta en maquinas.json: se usa la ficha guardada con el trabajo ({name}, recorrido {travel_text}). Guardala en Maquinas... si es la tuya."
+msgstr ""
+
+#: project.py:1247
+#, python-brace-format
+msgid "La ficha de la maquina «{ident}» ha cambiado desde que se guardo el trabajo ("
+msgstr ""
+
+#: project.py:1248
+msgid "): se usa la de ahora."
+msgstr ""
+
+#: project.py:1260
+#, python-brace-format
+msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan los grupos de formas."
+msgstr ""
+
+#: project.py:1281
+#, python-brace-format
+msgid "{skipped} grupo(s) de formas del trabajo guardado no valen y se descartan."
+msgstr ""
+
+#: project.py:1331
+#, python-brace-format
+msgid "No encuentro herramientas.json (busque en {cwd} y en {folder}): escribe el diametro de la fresa a mano."
+msgstr ""
+
+#: project.py:1341
+#, python-brace-format
+msgid "No encuentro maquinas.json (busque en {cwd} y en {folder}): sin una ficha de maquina no se genera nada. Creala con Maquinas... > Nueva desde un log."
+msgstr ""
+
+#: recipe.py:123
+#, python-brace-format
+msgid "{where} debe ser un color como \"#e63c24\" (hay {value!r})."
+msgstr ""
+
+#: recipe.py:126
+#, python-brace-format
+msgid "{where}: no entiendo el color {value!r}; usa \"#rrggbb\"."
+msgstr ""
+
+#: recipe.py:135
+#, python-brace-format
+msgid "{where}: '{key}' debe ser un numero (hay {v!r})."
+msgstr ""
+
+#: recipe.py:137
+#, python-brace-format
+msgid "{where}: '{key}' debe ser mayor que 0 (hay {v!r})."
+msgstr ""
+
+#: recipe.py:145
+#, python-brace-format
+msgid " Quisiste decir '{close}'?"
+msgstr ""
+
+#: recipe.py:146
+#, python-brace-format
+msgid "{where}: clave desconocida '{key}'.{hint} Claves validas: {join}."
+msgstr ""
+
+#: recipe.py:153
+#, python-brace-format
+msgid "{source}: 'titulo' debe ser texto."
+msgstr ""
+
+#: recipe.py:158
+#, python-brace-format
+msgid "{source}: 'ignorar' debe ser una lista de colores."
+msgstr ""
+
+#: recipe.py:159
+#, python-brace-format
+msgid "{source}: 'ignorar'"
+msgstr ""
+
+#: recipe.py:163
+#, python-brace-format
+msgid "{source}: hace falta al menos una operacion ([[operacion]])."
+msgstr ""
+
+#: recipe.py:166
+#, python-brace-format
+msgid "operacion {n}"
+msgstr ""
+
+#: recipe.py:167
+#, python-brace-format
+msgid "{source}: operacion {n}"
+msgstr ""
+
+#: recipe.py:170
+#, python-brace-format
+msgid "{where}: 'nombre' debe ser texto."
+msgstr ""
+
+#: recipe.py:173
+#, python-brace-format
+msgid "{where}: 'tipo' debe ser uno de {join} (hay {kind!r})."
+msgstr ""
+
+#: recipe.py:174
+#, python-brace-format
+msgid "{where}: 'trazo'"
+msgstr ""
+
+#: recipe.py:175
+#, python-brace-format
+msgid "{where}: 'relleno'"
+msgstr ""
+
+#: recipe.py:177
+#, python-brace-format
+msgid "{where}: indica que formas son con 'trazo' (color de trazo) y/o 'relleno'."
+msgstr ""
+
+#: recipe.py:180
+#, python-brace-format
+msgid "{where}: el color {c} esta en 'ignorar' y en esta operacion."
+msgstr ""
+
+#: recipe.py:183
+#, python-brace-format
+msgid "{where}: 'lado' debe ser uno de {join} (hay {side!r})."
+msgstr ""
+
+#: recipe.py:185
+#, python-brace-format
+msgid "{where}: 'lado' solo vale en operaciones de corte."
+msgstr ""
+
+#: recipe.py:187
+#, python-brace-format
+msgid "{where}: 'stepover' solo vale en vaciados."
+msgstr ""
+
+#: recipe.py:190
+#, python-brace-format
+msgid "{where}: 'pasante' debe ser true o false (hay {through!r})."
+msgstr ""
+
+#: recipe.py:193
+#, python-brace-format
+msgid "{where}: 'pasante' y 'profundidad' se excluyen."
+msgstr ""
+
+#: recipe.py:198
+#, python-brace-format
+msgid "{where}: falta 'profundidad' (mm desde la superficie) o 'pasante = true'."
+msgstr ""
+
+#: recipe.py:201
+#, python-brace-format
+msgid "{where}: 'puentes' debe ser true o false (hay {tabs!r})."
+msgstr ""
+
+#: recipe.py:203
+#, python-brace-format
+msgid "{where}: 'puentes' solo vale en operaciones de corte."
+msgstr ""
+
+#: recipe.py:205
+#, python-brace-format
+msgid "{where}: los puentes solo valen en cortes pasantes."
+msgstr ""
+
+#: recipe.py:209
+#, python-brace-format, python-format
+msgid "{where}: 'stepover' va en % del diametro, hasta 100 (hay {stepover:g})."
+msgstr ""
+
+#: recipe.py:219
+#, python-brace-format
+msgid "{source}: hay dos operaciones con el nombre '{name}'."
+msgstr ""
+
+#: recipe.py:226
+msgid "archivo de receta"
+msgstr ""
+
+#: recipe.py:268
+#, python-brace-format
+msgid "cerca de X {x:.0f}, Y {y:.0f} mm"
+msgstr ""
+
+#: recipe.py:330
+#, python-brace-format
+msgid "La operacion '{name}' no tiene {what}: ponlo en la receta ('{field_name}'), en el trabajo o en la ficha de la fresa."
+msgstr ""
+
+#: recipe.py:338
+msgid "avance de corte"
+msgstr ""
+
+#: recipe.py:339
+msgid "avance de bajada"
+msgstr ""
+
+#: recipe.py:344
+#, python-brace-format
+msgid "Operacion '{name}': {e}"
+msgstr ""
+
+#: recipe.py:352
+#, python-brace-format
+msgid "La operacion '{name}' corta 'por {side}' una forma abierta ({where}); usa lado = \"linea\"."
+msgstr ""
+
+#: recipe.py:369
+#, python-brace-format
+msgid "'{name}': {count} forma(s) tienen puentes puestos a mano pero esta operación no corta de lado a lado: se cortan sin ellos (la primera, {where})."
+msgstr ""
+
+#: recipe.py:373
+#, python-brace-format
+msgid "'{name}': {count} pieza(s) son demasiado pequeñas para llevar puentes de {width:g} mm y se cortan sin ellos (la primera, {where})."
+msgstr ""
+
+#: recipe.py:379
+#, python-brace-format
+msgid "La operacion '{name}' (vaciado) tiene una forma abierta ({where})."
+msgstr ""
+
+#: recipe.py:390
+#, python-brace-format
+msgid "La operacion '{name}' (taladro) tiene una forma abierta ({where})."
+msgstr ""
+
+#: recipe.py:395
+#, python-brace-format
+msgid "'{name}': un circulo de {size:.2f} mm ({where}) se taladra con la fresa de {diameter:g} mm, que hace un agujero de {diameter:g} mm; para otro diametro usa tipo = \"vaciado\"."
+msgstr ""
+
+#: recipe.py:406
+msgid "La receta no encuentra ninguna forma que cortar en este dibujo."
+msgstr ""
+
+#: records.py:39
+#, python-brace-format
+msgid "{where} debe ser un número mayor que 0 (hay {v!r})."
+msgstr ""
+
+#: records.py:45
+#, python-brace-format
+msgid " ¿Quisiste decir '{close}'?"
+msgstr ""
+
+#: records.py:53
+#, python-brace-format
+msgid "{where}: campo(s) desconocido(s) {join}.{hints} Campos válidos: {join2}."
+msgstr ""
+
+#: records.py:61
+#, python-brace-format
+msgid "la clave '{key}' está repetida (se pisarían los datos de una ficha)."
+msgstr ""
+
+#: records.py:74
+#, python-brace-format
+msgid "{source}: JSON inválido en la línea {lineno}, columna {colno}: {msg}."
+msgstr ""
+
+#: records.py:79
+#, python-brace-format
+msgid "{source}: debe contener un objeto con la clave '{key}'."
+msgstr ""
+
+#: records.py:82
+#, python-brace-format
+msgid "{source}: clave(s) desconocida(s) {join} (solo '{key}')."
+msgstr ""
+
+#: records.py:86
+#, python-brace-format
+msgid "{source}: falta la clave '{key}' con una ficha por {noun}."
+msgstr ""
+
+#: records.py:90
+#, python-brace-format
+msgid "{source}: el identificador '{ident}' no vale: empieza por una letra y usa solo letras, números, '_', '-' o '.'{hint}."
+msgstr ""
+
+#: records.py:141
+#, python-brace-format
+msgid "hay otra ficha con el identificador '{ident}'."
+msgstr ""
+
+#: gui/record_dialog.py:198 records.py:151
+msgid "(sin identificador)"
+msgstr ""
+
+#: records.py:181
+msgid "_copia"
+msgstr ""
+
+#: records.py:217
+msgid "falta el identificador de la ficha."
+msgstr ""
+
+#: safety.py:41
+#, python-brace-format
+msgid "el margen en el sufridor ({mm} mm) pasa del maximo de {mm2} mm: con 0,2 mm basta si el sufridor esta recien planeado y 0,4 mm asegura el corte aunque haya imperfecciones debajo de la pieza."
+msgstr ""
+
+#: safety.py:48
+#, python-brace-format
+msgid "el grosor del material ({mm} mm) pasa de {mm2} mm, que no se puede cortar con estas fresas. ¿Es un error al escribirlo?"
+msgstr ""
+
+#: safety.py:56
+#, python-brace-format
+msgid "Grosor de {mm} mm: pasa de {mm2} mm (el maximo es {mm3} mm)."
+msgstr ""
+
+#: safety.py:91
+#, python-brace-format
+msgid "Operacion {i}: la pasada seria de {mm} mm y el maximo es {mm2} mm (2 x el diametro de {mm3} mm). Pon una pasada menor en la ficha de la fresa, en los ajustes o en la fila de la tabla (sin pasada, se corta de una sola vez)."
+msgstr ""
+
+#: safety.py:101
+#, python-brace-format
+msgid "La maquina «{v}» no tiene homing ($22=0) y se pide terminar con Home ($H): GRBL daria error. Quita «Home al terminar», o corrige la ficha si la maquina si lo tiene."
+msgstr ""
+
+#: safety.py:114
+#, python-brace-format
+msgid "No cabe en Z: la fresa baja {mm} mm y sube hasta {mm2} mm sobre la superficie ({mm3} mm en total) y el recorrido de Z de la maquina «{name}» es de {mm4} mm."
+msgstr ""
+
+#: safety.py:120
+#, python-brace-format
+msgid "La maquina «{name}» tiene el modo laser ($32=1): con el, GRBL apaga el husillo en cada movimiento rapido (G0) y lo vuelve a encender al cortar. Pon $32=0 en la maquina (y en la ficha), o quita el arranque del husillo del G-code."
+msgstr ""
+
+#: svg_import.py:57
+#, python-brace-format
+msgid "Pagina: {page_size:.1f} x {page_size2:.1f} mm"
+msgstr ""
+
+#: svg_import.py:58
+#, python-brace-format
+msgid "Formas: {len} ({closed} cerradas, {v} abiertas)"
+msgstr ""
+
+#: svg_import.py:60
+msgid "(sin trazo)"
+msgstr ""
+
+#: svg_import.py:61
+msgid "Colores de trazo: "
+msgstr ""
+
+#: svg_import.py:62
+msgid "(sin capa)"
+msgstr ""
+
+#: svg_import.py:63
+msgid "Capas: "
+msgstr ""
+
+#: svg_import.py:65
+msgid "Ignorados: "
+msgstr ""
+
+#: svg_import.py:66
+#, python-brace-format
+msgid "AVISO: {w}"
+msgstr ""
+
+#: svg_import.py:180
+msgid "El SVG no declara tamano de pagina valido; se usa el viewBox."
+msgstr ""
+
+#: svg_import.py:200
+#, python-brace-format
+msgid "Forma sin area ignorada ({name})."
+msgstr ""
+
+#: svg_import.py:205
+#, python-brace-format
+msgid "{name} (cerca de X {x:.0f}, Y {y:.0f} mm de la pagina)"
+msgstr ""
+
+#: svg_import.py:213
+#, python-brace-format
+msgid "La forma {name} tenia un cruce minimo y se ha reparado."
+msgstr ""
+
+#: svg_import.py:215
+#, python-brace-format
+msgid "La forma {name} se cruza consigo misma."
+msgstr ""
+
+#: svg_import.py:238
+#, python-brace-format
+msgid "{duplicates} forma(s) duplicada(s) (mismo contorno encima de otro)."
+msgstr ""
+
+#: svg_import.py:240
+msgid "No se ha encontrado ninguna forma."
+msgstr ""
+
+#: svg_import.py:274
+#, python-brace-format
+msgid "origin desconocido: {origin!r}"
+msgstr ""
+
+#: tabs.py:54
+msgid "la anchura del puente"
+msgstr ""
+
+#: tabs.py:54
+msgid "la altura del puente"
+msgstr ""
+
+#: tabs.py:55
+msgid "los mm de perímetro por puente"
+msgstr ""
+
+#: tabs.py:57
+#, python-brace-format
+msgid "{name} debe ser un número mayor que 0 (hay {value!r})."
+msgstr ""
+
+#: tabs.py:59
+msgid "los puentes mínimos por pieza deben ser un número entero, 1 o más."
+msgstr ""
+
+#: tabs.py:61
+msgid "la distancia libre de esquina no puede ser negativa."
+msgstr ""
+
+#: tabs.py:122
+#, python-brace-format
+msgid "los puentes deben ser una lista de a lo sumo {MAX_TABS}."
+msgstr ""
+
+#: tabs.py:131
+#, python-brace-format
+msgid "un puente necesita posición (0 a 1), ancho y alto mayores que 0 (hay {item!r})."
+msgstr ""
+
+#: tabs.py:298
+msgid "un puente ocupa todo el contorno: es demasiado ancho para esta pieza."
+msgstr ""
+
+#: tabs.py:307
+msgid "los puentes ocupan todo el contorno: son demasiado anchos para esta pieza."
+msgstr ""
+
+#: timing.py:63
+msgid "la duracion no puede ser negativa"
+msgstr ""
+
+#: timing.py:66
+#, python-brace-format
+msgid "{total} s"
+msgstr ""
+
+#: timing.py:70
+#, python-brace-format
+msgid "{hours} h {minutes:02d} min"
+msgstr ""
+
+#: timing.py:71
+#, python-brace-format
+msgid "{minutes} min"
+msgstr ""
+
+#: timing.py:124
+msgid "el G-code lleva arcos (G2/G3): se cuentan como rectas"
+msgstr ""
+
+#: timing.py:127
+msgid "el G-code usa pulgadas o coordenadas relativas: la estimacion no vale"
+msgstr ""
+
+#: timing.py:154
+msgid "hay cortes sin avance (F) definido: no se cuentan"
+msgstr ""
+
+#: timing.py:219
+#, python-brace-format
+msgid "la ficha no dice el avance maximo: se supone {DEFAULT_MAX_FEED:g} mm/min"
+msgstr ""
+
+#: timing.py:224
+msgid "la ficha no tiene aceleraciones: es el tiempo a velocidad constante, que se queda corto"
+msgstr ""
+
+#: timing.py:255
+#, python-brace-format
+msgid "unos {text} de maquina"
+msgstr ""
+
+#: timing.py:256
+#, python-brace-format
+msgid "sin contar {pauses} pausa(s) M0"
+msgstr ""
+
+#: toolbook.py:15
+msgid "Fresa plana (end mill)"
+msgstr ""
+
+#: toolbook.py:15
+msgid "De bola (ball)"
+msgstr ""
+
+#: toolbook.py:15
+msgid "En V"
+msgstr ""
+
+#: toolbook.py:26
+msgid "el identificador debe empezar por una letra y usar solo letras, números, '_', '-' o '.' (un número solo se tomaría por un diámetro)."
+msgstr ""
+
+#: toolbook.py:56
+#, python-brace-format
+msgid "'{key}' debe ser un número entero (hay {text!r})."
+msgstr ""
+
+#: toolbook.py:89
+msgid "De momento solo las fresas planas (end mill) generan trayectorias; esta ficha se guarda como datos."
+msgstr ""
+
+#: toolbook.py:92
+#, python-brace-format
+msgid "Sin {join}: habrá que escribirlo en cada trabajo."
+msgstr ""
+
+#: toolbook.py:94
+msgid "Sin longitud útil: la aplicación no puede avisar si un corte es más hondo que el filo."
+msgstr ""
+
+#: toolbook.py:96
+msgid "Sin profundidad de pasada: corta todo el grosor de una vez, salvo que el trabajo diga otra."
+msgstr ""
+
+#: gui/job_panel.py:30 toolbook.py:111
+#, python-brace-format
+msgid "{ident} — {name} (Ø{diameter:g} mm)"
+msgstr ""
+
+#: gui/job_panel.py:30 toolbook.py:113
+#, python-brace-format
+msgid "{ident} (Ø{diameter:g} mm)"
+msgstr ""
+
+#: toolpath.py:50
+msgid "El grosor del material debe ser > 0."
+msgstr ""
+
+#: toolpath.py:54
+msgid "La profundidad extra en el sufridor no puede ser negativa."
+msgstr ""
+
+#: toolpath.py:57
+#, python-brace-format
+msgid "Extra en el sufridor ({extra:g} mm) por encima del limite ({max_spoilboard_extra:g} mm)."
+msgstr ""
+
+#: toolpath.py:61
+msgid "Una operacion no pasante necesita depth > 0."
+msgstr ""
+
+#: toolpath.py:64
+#, python-brace-format
+msgid "Profundidad {depth:g} mm mayor que el grosor del material ({thickness:g} mm); si quieres cortar del todo usa through=True."
+msgstr ""
+
+#: toolpath.py:73
+msgid "stepdown debe ser > 0."
+msgstr ""
+
+#: toolpath.py:112
+msgid "Con side='on' la forma debe ser Polygon o LineString."
+msgstr ""
+
+#: toolpath.py:115
+#, python-brace-format
+msgid "side desconocido: {side!r}"
+msgstr ""
+
+#: toolpath.py:122
+msgid "outside/inside requieren una forma cerrada."
+msgstr ""
+
+#: toolpath.py:129
+msgid "La fresa es demasiado grande para este contorno."
+msgstr ""
+
+#: toolpath.py:184
+msgid "los puentes solo valen en cortes pasantes."
+msgstr ""
+
+#: toolpath.py:187
+#, python-brace-format
+msgid "un puente de {height:g} mm de alto no cabe en un material de {thickness:g} mm."
+msgstr ""
+
+#: tools.py:35
+msgid "endmill | ball | v"
+msgstr ""
+
+#: tools.py:36
+msgid "mm (en una V, el diametro maximo de corte)"
+msgstr ""
+
+#: tools.py:37
+msgid "numero de filos"
+msgstr ""
+
+#: tools.py:38
+msgid "mm de filo util"
+msgstr ""
+
+#: tools.py:39
+msgid "grados incluidos de la V (solo tipo v)"
+msgstr ""
+
+#: tools.py:40
+msgid "RPM aconsejadas (informativo: el variador se ajusta a mano)"
+msgstr ""
+
+#: tools.py:41
+msgid "mm por pasada"
+msgstr ""
+
+#: tools.py:42
+msgid "mm/min de corte"
+msgstr ""
+
+#: tools.py:43
+msgid "mm/min de bajada"
+msgstr ""
+
+#: tools.py:44
+#, python-format
+msgid "% del diametro entre pasadas (p. ej. 40)"
+msgstr ""
+
+#: tools.py:49
+#, python-format
+msgid "Una ficha por fresa. Obligatorio: diametro (mm). Resto opcional: nombre, tipo (endmill | ball | v; la v necesita angulo en grados), flautas, longitud_util (mm), rpm (aconsejadas; solo informativo, el variador se ajusta a mano), profundidad_pasada (mm), feed (mm/min de corte), entrada (mm/min de bajada), stepover (% del diametro, p. ej. 40), notas. Lo que falte se pide por linea de comandos. Para distintos materiales, duplica la ficha con otro nombre (em4_mdf, em4_contra...)."
+msgstr ""
+
+#: tools.py:68
+#, python-brace-format
+msgid "{where}: debe ser un objeto {{...}} con los campos de la fresa."
+msgstr ""
+
+#: tools.py:71
+#, python-brace-format
+msgid "{where}: falta el campo obligatorio 'diametro' (mm)."
+msgstr ""
+
+#: tools.py:76
+#, python-brace-format
+msgid "{where}: 'tipo' debe ser uno de {join} (hay {get!r})."
+msgstr ""
+
+#: tools.py:79
+#, python-brace-format
+msgid "{where}: 'diametro'"
+msgstr ""
+
+#: tools.py:90
+#, python-brace-format
+msgid "{where}: 'flautas' debe ser un numero entero >= 1 (hay {n!r})."
+msgstr ""
+
+#: tools.py:99
+#, python-brace-format
+msgid "{where}: 'angulo' solo tiene sentido en fresas de tipo v."
+msgstr ""
+
+#: tools.py:102
+#, python-brace-format
+msgid "{where}: 'angulo' debe estar entre 0 y 180 grados (hay {a!r})."
+msgstr ""
+
+#: tools.py:105
+#, python-brace-format
+msgid "{where}: una fresa de tipo v necesita 'angulo' (grados incluidos, p. ej. 90)."
+msgstr ""
+
+#: tools.py:110
+#, python-brace-format, python-format
+msgid "{where}: 'stepover' debe estar entre 0 y 100 (% del diametro) (hay {s!r})."
+msgstr ""
+
+#: tools.py:113
+#, python-brace-format
+msgid "{where}: 'stepover' va en porcentaje del diametro (p. ej. 40 para el 40 %), no como fraccion (hay {s!r})."
+msgstr ""
+
+#: tools.py:122
+msgid "fresa"
+msgstr ""
+
+#: tools.py:123
+msgid " (un número solo se interpreta como un diámetro)"
+msgstr ""
+
+#: tools.py:131
+#, python-brace-format
+msgid "No existe el archivo de fresas {path}."
+msgstr ""
+
+#: tools.py:171
+#, python-brace-format
+msgid "No hay ninguna ficha '{ident}'. Fichas: {known}.{suggest}"
+msgstr ""
+

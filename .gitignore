@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Compilación del programa para Windows (el .exe va en Releases, no en el repositorio)
+build/
+dist/
+dist_onefile/
+
+# Copias de seguridad que escribe el propio programa al guardar fichas
+*.bak
+
+# Salidas de los ejemplos (se vuelven a generar con los ejemplo_*.py)
+desde_svg.nc
+rectangulo_exterior.nc
+trabajo_completo.nc

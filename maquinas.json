@@ -1,0 +1,20 @@
+{
+  "_ayuda": "Una ficha por maquina. Obligatorio: recorrido [X, Y, Z] en mm ($130-$132). Resto opcional: nombre, avance_max (mm/min en XY), avance_max_z, aceleracion [X, Y, Z], limites_blandos, limites_duros, homing, laser (true o false), husillo_max, firmware, origen, notas. Lo que falte no se comprueba. Se rellena con Maquinas... > Importar de un log (lo que UGS muestra al conectar).",
+  "maquinas": {
+    "emulador": {
+      "nombre": "Emulador GRBL (ESP32)",
+      "recorrido": [700, 1017, 100],
+      "avance_max": 3600,
+      "avance_max_z": 3600,
+      "aceleracion": [500, 500, 100],
+      "limites_blandos": false,
+      "limites_duros": false,
+      "homing": false,
+      "husillo_max": 10000,
+      "laser": false,
+      "firmware": "Grbl 1.1",
+      "origen": "log de arranque del emulador",
+      "notas": "X subido a 700"
+    }
+  }
+}

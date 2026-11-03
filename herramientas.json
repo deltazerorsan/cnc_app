@@ -1,0 +1,19 @@
+{
+  "_ayuda": "Una ficha por fresa. Obligatorio: diametro (mm). Resto opcional: nombre, tipo (endmill | ball | v; la v necesita angulo en grados), flautas, longitud_util (mm), rpm (aconsejadas; solo informativo, el variador se ajusta a mano), profundidad_pasada (mm), feed (mm/min de corte), entrada (mm/min de bajada), stepover (% del diametro, p. ej. 40), notas. Lo que falte se pide por linea de comandos. Para distintos materiales, duplica la ficha con otro nombre (em4_mdf, em4_contra...).",
+  "herramientas": {
+    "em4": {
+      "nombre": "End mill 4 mm",
+      "tipo": "endmill",
+      "diametro": 4,
+      "feed": 300,
+      "entrada": 200,
+      "notas": "feed y entrada: los usados en la placa de 6 mm (una sola pasada). Completar: flautas, longitud_util, rpm, profundidad_pasada, stepover."
+    },
+    "em3175": {
+      "nombre": "End mill 3,175 mm (1/8 pulgada)",
+      "tipo": "endmill",
+      "diametro": 3.175,
+      "notas": "Pendiente de completar: feed, entrada, flautas, longitud_util, rpm, profundidad_pasada, stepover."
+    }
+  }
+}

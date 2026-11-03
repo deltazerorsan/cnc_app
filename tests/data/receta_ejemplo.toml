@@ -1,0 +1,57 @@
+# Receta de trabajo: que operacion es cada color del dibujo. Se abre en la ventana con Receta > Abrir receta.
+#
+# Las operaciones se cortan en el orden en que estan escritas. Cada forma va a la primera operacion que
+# encaje con su color. Los valores que una operacion no indica salen del avance y la pasada del trabajo y,
+# si no, de la ficha de la fresa (herramientas.json).
+#
+# Claves de cada [[operacion]]:
+#   nombre        texto libre (sale en el resumen)
+#   tipo          corte | vaciado | taladro
+#   trazo         color de trazo de las formas (#rrggbb)      }  al menos uno de los dos;
+#   relleno       color de relleno de las formas (#rrggbb)    }  si van los dos, deben cumplirse ambos
+#   lado          solo corte: auto (pieza si no esta dentro de otra, hueco si lo esta) | fuera | dentro | linea
+#   pasante       true = hasta el fondo (grosor + margen). Un corte sin profundidad es pasante
+#   profundidad   mm desde la superficie (en vez de pasante)
+#   pasada        profundidad maxima por pasada (en un taladro, el picoteo); sin ella y sin dato en la ficha, una pasada
+#   avance        mm/min de corte en XY
+#   entrada       mm/min de bajada en Z
+#   stepover      solo vaciado: % del diametro entre pasadas (p. ej. 40)
+#   puentes       solo corte pasante: true = deja puentes (tabs) en las piezas y los huecos que corta
+#
+# En un vaciado, las formas del mismo color que quedan dentro de otra son islas que no se tocan.
+# Un taladro (tipo = "taladro") es una bajada en el centro de cada circulo y hace un agujero del diametro de la
+# fresa; para agujeros mas grandes que la fresa usa tipo = "vaciado" (la fresa recorre el borde).
+
+titulo = "Tablero con taladros, pozos y cortes (valores de unos .nc de referencia)"
+
+# colores que no se cortan: guias, cotas, notas
+ignorar = ["#ffcc00"]
+
+[[operacion]]
+nombre = "Taladros de 5 mm"      # circulos negros rellenos, sin trazo
+tipo = "vaciado"
+relleno = "#000000"
+profundidad = 10
+pasada = 5.1
+avance = 600
+entrada = 400
+stepover = 60
+
+[[operacion]]
+nombre = "Pozos de 3 mm"
+tipo = "vaciado"
+trazo = "#e63c24"
+profundidad = 3
+avance = 1200
+entrada = 300
+stepover = 60
+
+[[operacion]]
+nombre = "Cortes pasantes"
+tipo = "corte"
+trazo = "#ff0000"
+lado = "auto"
+pasante = true
+pasada = 6.5
+avance = 900
+entrada = 300

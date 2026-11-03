@@ -1,6 +1,6 @@
 # Quick start
 
-Resumen de una página para empezar. El detalle de cada función (puentes, recetas, tableros, fichas, sujeción, tiempos…) está en el **manual de usuario**, `Manual_cnc_app.docx`.
+Resumen de una página para empezar. El detalle de cada función (puentes, recetas, tableros, fichas, sujeción, tiempos…) está en el **manual de usuario**, [`Manual_cnc_app_ES.pdf`](docs/Manual_cnc_app_ES.pdf).
 
 ## Qué necesitas
 

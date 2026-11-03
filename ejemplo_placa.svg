@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ejemplo: pagina de 120 x 80 mm, viewBox en centesimas de mm, estilos por clase -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120mm" height="80mm" viewBox="0 0 12000 8000">
+ <defs>
+  <style type="text/css">
+   .fil0 {fill:none}
+   .str0 {stroke:#000000;stroke-width:10}
+   .str1 {stroke:#0000FF;stroke-width:10}
+   .str2 {stroke:#FF0000;stroke-width:10}
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <!-- Contorno de la placa -->
+  <rect class="fil0 str0" x="0" y="0" width="12000" height="8000"/>
+  <!-- Cuatro taladros de 10 mm -->
+  <circle class="fil0 str0" cx="1500" cy="1500" r="500"/>
+  <circle class="fil0 str0" cx="10500" cy="1500" r="500"/>
+  <circle class="fil0 str0" cx="10500" cy="6500" r="500"/>
+  <circle class="fil0 str0" cx="1500" cy="6500" r="500"/>
+  <!-- Vaciado central con esquinas redondeadas -->
+  <rect class="fil0 str1" x="3000" y="2000" width="6000" height="3000" rx="500" ry="500"/>
+  <!-- Nota: cota dibujada en rojo (se descarta por color) -->
+  <path class="fil0 str2" d="M0 7500 L12000 7500"/>
+  <text x="5800" y="7400" style="fill:#ff0000;font-size:300px">120</text>
+ </g>
+</svg>

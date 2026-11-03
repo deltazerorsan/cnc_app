@@ -1,0 +1,41 @@
+# Valores por defecto de la ventana de cnc_app.
+#
+# Cada clave es el nombre de un ajuste del trabajo con _ en vez de espacios (safe_z = Z segura). Se lee de la
+# carpeta desde la que se lanza el programa y, si no esta ahi, de la carpeta del programa.
+#
+# Las claves que empiezan por # estan desactivadas: quita el # para activarlas.
+
+# El disenador trabaja en apaisado y la maquina esta en vertical (recorrido 651 x 1011 mm): "auto" gira
+# el dibujo 90 grados antihorario (el giro de -90 que se haria a mano en una maquina vertical) solo si no cabe
+# tal cual y si cabe girado. Un numero fijo ("rotate = 0") manda sobre "auto".
+rotate = "auto"
+
+# --- fresa y material ---
+# tool = "em4"              # ficha de herramientas.json (o un diametro en mm)
+# tools_file = "herramientas.json"
+# thickness = 6.0           # grosor habitual del material (mm)
+margin = 0.4                # mm extra dentro del sufridor en los cortes pasantes
+
+# --- parametros de corte (si faltan, salen de la ficha de la fresa) ---
+# feed = 300.0
+# plunge = 200.0
+# stepdown = 2.0
+
+# --- puentes (las filas con puentes = true en la receta o la casilla Puentes de la tabla) ---
+# tab_width = 6.0           # mm del puente que queda; la fresa se levanta ese ancho mas su diametro
+# tab_height = 2.0          # mm de material que queda sobre el fondo del tablero
+# tab_spacing = 150.0       # un puente por cada tantos mm de perimetro de la pieza (minimo dos)
+
+# --- que se corta ---
+# stock_color = "#2b2a29"   # color del contorno del tablero (no se corta; el cero es su esquina)
+# exclude_color = ["#ff0000", "#0000ff"]   # cotas, notas...
+# origin_margin = 4.0       # sin tablero: el cero queda a estos mm por fuera de la esquina inferior izquierda de lo que se corta
+# receta = "receta_ejemplo.toml"   # que operacion es cada color del dibujo (taladros, pozos, cortes); ver el manual
+
+# --- g-code de salida ---
+# safe_z = 5.0
+# clearance_z = 1.0
+# pause_at_start = false    # M0 antes de arrancar el husillo
+# home_at_end = false       # $H al terminar
+# return_to_origin = false
+# no_spindle = false
