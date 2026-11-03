@@ -1,8 +1,8 @@
 # Third-party components / Componentes de terceros
 
-The `LICENSE` of cnc_app (PolyForm Noncommercial 1.0.0) covers only cnc_app's own code. The components below keep their own licenses, which are not changed by it; the noncommercial restriction does not apply to them.
+The `LICENSE` of cnc_app (GNU GPL v3 or later) covers cnc_app's own code. The components below keep their own licenses, which are not changed by it.
 
-*La `LICENSE` de cnc_app (PolyForm Noncommercial 1.0.0) cubre solo el código propio de cnc_app. Los componentes de abajo conservan sus propias licencias, que ella no modifica; la restricción de uso no comercial no se aplica a ellos.*
+*La `LICENSE` de cnc_app (GNU GPL v3 o posterior) cubre el código propio de cnc_app. Los componentes de abajo conservan sus propias licencias, que ella no modifica.*
 
 | Component | License | Where it is used |
 |---|---|---|
