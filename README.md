@@ -21,6 +21,16 @@ cnc_app nace en un taller, de la necesidad de tener funciones concretas que el t
 - **Sin ánimo de ser exhaustiva.** Cubre la mayor parte del trabajo habitual, no todos los casos; lo excepcional se resuelve fuera.
   - *Not meant to be exhaustive. It covers most of the usual work, not every case; the exceptional is handled elsewhere.*
 
+## Licencia y aviso / License and disclaimer
+
+cnc_app se publica bajo la licencia **PolyForm Noncommercial 1.0.0** ([LICENSE](LICENSE)): se puede usar, estudiar, modificar y compartir para **fines no comerciales** (personales, de aficionado, educativos, de investigación, entidades sin ánimo de lucro). El **uso comercial no está permitido**. Por esa restricción el código es *source-available* (se puede leer y modificar), no "open source" en el sentido estricto de la OSI. Las bibliotecas que lleva conservan sus licencias ([THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
+
+**Aviso.** Se entrega **tal cual, sin garantía de ningún tipo y a tu propio riesgo**. Una CNC puede dañar material, herramientas y máquina, y causar lesiones. Revisa siempre el G-code antes de ejecutarlo (aunque cnc_app lo compruebe), prueba primero sin husillo o con un emulador y no dejes la máquina sin vigilancia. El autor no se hace responsable de los daños derivados de su uso.
+
+*cnc_app is released under the **PolyForm Noncommercial 1.0.0** license ([LICENSE](LICENSE)): it may be used, studied, modified and shared for **noncommercial purposes** (personal, hobby, educational, research, nonprofit organizations). **Commercial use is not permitted.** Because of that restriction the code is source-available (it can be read and modified), not "open source" in the strict OSI sense. The libraries it includes keep their own licenses ([THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).*
+
+***Disclaimer.** Provided **as is, without warranty of any kind and at your own risk**. A CNC machine can damage material, tools and the machine itself, and can cause injury. Always review the G-code before running it (even though cnc_app checks it), test first with the spindle off or with an emulator, and never leave the machine unattended. The author accepts no responsibility for damage arising from its use.*
+
 Para empezar a usarla, ver [QUICK_START_ES.md](QUICK_START_ES.md).
 
 *To get started, see [QUICK_START_EN.md](QUICK_START_EN.md).*
