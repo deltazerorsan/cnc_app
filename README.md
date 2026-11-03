@@ -21,6 +21,14 @@ cnc_app nace en un taller, de la necesidad de tener funciones concretas que el t
 - **Sin ánimo de ser exhaustiva.** Cubre la mayor parte del trabajo habitual, no todos los casos; lo excepcional se resuelve fuera.
   - *Not meant to be exhaustive. It covers most of the usual work, not every case; the exceptional is handled elsewhere.*
 
+## Descarga y documentación / Download and documentation
+
+**Windows, sin instalar Python:** descarga `cnc_app_<versión>_windows.zip` de [Releases](https://github.com/deltazerorsan/cnc_app/releases), descomprímelo y ejecuta `cnc_app.exe`. El código fuente corre con Python 3.11+ (`pip install -r requirements.txt`, `python cnc_gui.py`).
+
+*Windows, no Python needed: download `cnc_app_<version>_windows.zip` from [Releases](https://github.com/deltazerorsan/cnc_app/releases), unzip it and run `cnc_app.exe`. The source runs with Python 3.11+ (`pip install -r requirements.txt`, `python cnc_gui.py`).*
+
+Manual de usuario / User manual: [ES](docs/Manual_cnc_app_ES.pdf) · [EN](docs/Manual_cnc_app_EN.pdf). Documentación técnica / Technical documentation: [ES](docs/TECHNICAL_ES.md) · [EN](docs/TECHNICAL_EN.md). Capturas de pantalla (con errores intencionados, que explican más que una captura "bonita") / Screenshots (with intentional errors, which explain more than a "pretty" one): [ES](docs/captura_ES.png) · [EN](docs/screenshot_EN.png).
+
 ## Licencia y aviso / License and disclaimer
 
 cnc_app es **software libre y de código abierto**, publicado bajo la licencia **GNU GPL, versión 3 o posterior** ([LICENSE](LICENSE)). Copyright (C) 2026 deltazerorsan. Se puede **usar en trabajos comerciales** (el G-code que genera es tuyo, sin restricciones), estudiar, modificar y compartir. Si distribuyes copias del código o del programa compilado, con o sin cobrar, tienes que ofrecer el código fuente completo, con tus cambios, bajo esta misma licencia y conservar el aviso de copyright: no se puede convertir en software de código cerrado. Las bibliotecas que lleva conservan sus licencias ([THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
