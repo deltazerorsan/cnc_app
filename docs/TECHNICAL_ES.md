@@ -2,7 +2,7 @@
 
 Pasa dibujos vectoriales (SVG) a G-code GRBL 1.1 (MKS DLC32), con una ventana (PySide6). Cubre el trabajo habitual de taller: contornos, taladros, pozos con islas, tableros y su orden de corte. Enviar, hacer Home, poner el cero y previsualizar sigue siendo cosa de UGS (Universal G-code Sender).
 
-Para usarla, ver [README](../README.md), [QUICK_START_ES](../QUICK_START_ES.md) / [QUICK_START_EN](../QUICK_START_EN.md) y el manual de usuario (`Manual_cnc_app_ES.pdf`, `Manual_cnc_app_EN.pdf`) en esta carpeta. Este documento está en español.
+Para usarla, ver [README](../README.md), [QUICK_START_ES](../QUICK_START_ES.md) / [QUICK_START_EN](../QUICK_START_EN.md) y el manual de usuario (`Manual_cnc_app_ES.pdf`, `Manual_cnc_app_EN.pdf`) en esta carpeta. Este documento está en español; la versión en inglés es [TECHNICAL_EN.md](TECHNICAL_EN.md).
 
 ## Uso rapido
 
