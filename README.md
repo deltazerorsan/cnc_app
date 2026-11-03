@@ -16,8 +16,8 @@ cnc_app nace en un taller, de la necesidad de tener funciones concretas que el t
   - *Operator experience. Decisions come from working with the machine: what is cut first, what is checked before starting, and which warnings prevent ruining expensive material.*
 - **Corte 2D.** Contornos, taladros y vaciados sobre tablero. No es una herramienta 3D.
   - *2D cutting. Contours, drilling and pockets on a board. It is not a 3D tool.*
-- **Hecha con IA, guiada por la funcionalidad.** Se ha construido con ayuda de inteligencia artificial y se ha dirigido por lo que el trabajo necesita más que por la técnica. Cada función se ha comprobado con pruebas automáticas y con un emulador de máquina y UGS antes de llegar a la máquina real.
-  - *Built with AI, guided by functionality. It was built with the help of artificial intelligence and steered by what the work needs rather than by technique. Every function has been checked with automated tests and with a machine emulator and UGS before reaching the real machine.*
+- **Hecha con IA, guiada por la funcionalidad.** Se ha construido con ayuda de Claude (Anthropic), un asistente de inteligencia artificial, y se ha dirigido por lo que el trabajo necesita más que por la técnica. Cada función se ha comprobado con pruebas automáticas y con un emulador de máquina y UGS antes de llegar a la máquina real.
+  - *Built with AI, guided by functionality. It was built with the help of Claude (Anthropic), an artificial intelligence assistant, and steered by what the work needs rather than by technique. Every function has been checked with automated tests and with a machine emulator and UGS before reaching the real machine.*
 - **Sin ánimo de ser exhaustiva.** Cubre la mayor parte del trabajo habitual, no todos los casos; lo excepcional se resuelve fuera.
   - *Not meant to be exhaustive. It covers most of the usual work, not every case; the exceptional is handled elsewhere.*
 
