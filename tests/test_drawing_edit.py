@@ -332,7 +332,7 @@ def test_mirroring_about_a_vertical_and_a_horizontal_axis():
     base = [rect(10, 0, 20, 10), line((10, 0), (30, 5))]
     res = apply_edit(base, de.mirror_edit([0, 1], "vertical", 0))
     assert res.shapes[0].shape.bounds == pytest.approx((-30, 0, -10, 10)) and res.shapes[0].shape.exterior.is_ccw
-    assert list(res.shapes[1].shape.coords) == pytest.approx([(-10, 0), (-30, 5)])
+    assert [c for xy in res.shapes[1].shape.coords for c in xy] == pytest.approx([-10, 0, -30, 5])
     res = apply_edit(base, de.mirror_edit([0], "horizontal", 20))
     assert res.shapes[0].shape.bounds == pytest.approx((10, 30, 30, 40))
     res = apply_edit(base, de.mirror_edit([0], "vertical", 20))                # el eje pasa por el centro: queda donde estaba

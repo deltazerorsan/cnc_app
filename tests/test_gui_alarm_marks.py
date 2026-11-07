@@ -85,7 +85,7 @@ def items(w, kind="alarm"):
 def test_the_machine_view_circles_each_problem_where_the_plan_says(win):
     marks = win.last_plan.result.marks
     assert win.canvas.mode == "machine" and len(marks) == 2 == win.canvas.alarm_item_count()
-    assert [(it.pos().x(), it.pos().y()) for it in items(win)] == pytest.approx([(m.x, m.y) for m in marks])
+    assert [c for it in items(win) for c in (it.pos().x(), it.pos().y())] == pytest.approx([c for m in marks for c in (m.x, m.y)])
     for it, m in zip(items(win), marks):
         assert it.toolTip() == m.text and f"X{m.x:.1f} Y{m.y:.1f}" in it.toolTip()
         assert it.scene() is win.canvas._scene

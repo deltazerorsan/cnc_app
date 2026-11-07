@@ -113,7 +113,7 @@ def test_resizing_a_rebuilt_rectangle_or_circle_keeps_the_bridge_on_the_same_sid
     assert len(out.tabs) == 2
     got = sorted(along(out.shape, t.at) for t in out.tabs)
     want = sorted([(first[0] * 2, first[1] / 2), (second[0] * 2, second[1] / 2)])     # el mismo sitio relativo en la caja nueva
-    assert got == pytest.approx(want, abs=1e-6)
+    assert [c for xy in got for c in xy] == pytest.approx([c for xy in want for c in xy], abs=1e-6)
     circle = [ImportedShape(de.make_circle(0, 0, 10, stroke=BLACK).shape, True, BLACK, kind="circle", tabs=(Tab(0.25, 6, 2),))]
     cx, cy = where(circle[0])
     bigger = de.apply_edit(circle, de.measures_edit([0], -20, -20, 40, 40)).shapes[0]

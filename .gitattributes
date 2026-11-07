@@ -1,0 +1,2 @@
+# El script de Linux tiene que llegar con saltos de linea LF aunque se toque desde Windows
+*.sh text eol=lf

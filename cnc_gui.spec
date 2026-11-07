@@ -1,19 +1,23 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Empaquetado con PyInstaller en UN SOLO archivo autocontenido (en Windows: build_windows_onefile.bat):
+# Empaquetado con PyInstaller en UN SOLO archivo autocontenido (en Windows: build_windows_onefile.bat; en Linux: build_linux.sh):
 #   pyinstaller --noconfirm --clean cnc_gui.spec
 # El catalogo del ingles (locales/en/LC_MESSAGES/cnc_app.mo) va dentro del programa; el español es el texto del propio codigo.
 # Los archivos que se editan a mano (herramientas.json, maquinas.json, cnc_app.toml, recetas) NO van dentro del programa: se copian
 # junto a cnc_app.exe, que es donde los busca `app_dir()`.
 import os
 import re
+import sys
 
-
-from PyInstaller.utils.win32.versioninfo import (FixedFileInfo, StringFileInfo, StringStruct, StringTable, VarFileInfo,
-                                                 VarStruct, VSVersionInfo)
+if sys.platform == "win32":          # el recurso de version solo existe en Windows (en Linux ni siquiera esta instalado `pefile`)
+    from PyInstaller.utils.win32.versioninfo import (FixedFileInfo, StringFileInfo, StringStruct, StringTable, VarFileInfo,
+                                                     VarStruct, VSVersionInfo)
 
 
 def _version_resource():
-    """La version de cnc/__init__.py como recurso de Windows: se ve en Propiedades -> Detalles del exe (clic derecho)."""
+    """La version de cnc/__init__.py como recurso de Windows: se ve en Propiedades -> Detalles del exe (clic derecho).
+    En otros sistemas no hay recurso (None)."""
+    if sys.platform != "win32":
+        return None
     text = open(os.path.join(SPECPATH, "cnc", "__init__.py"), encoding="utf-8").read()
     version = re.search(r'__version__\s*=\s*"(\d+(?:\.\d+){0,3})"', text).group(1)
     numbers = (list(map(int, version.split("."))) + [0, 0, 0, 0])[:4]
