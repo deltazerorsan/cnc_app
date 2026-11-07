@@ -5,6 +5,9 @@
       "nombre": "End mill 4 mm",
       "tipo": "endmill",
       "diametro": 4,
+      "flautas": 2,
+      "longitud_util": 22,
+      "profundidad_pasada": 4,
       "feed": 300,
       "entrada": 200,
       "notas": "feed y entrada: los usados en la placa de 6 mm (una sola pasada). Completar: flautas, longitud_util, rpm, profundidad_pasada, stepover."
@@ -13,6 +16,11 @@
       "nombre": "End mill 3,175 mm (1/8 pulgada)",
       "tipo": "endmill",
       "diametro": 3.175,
+      "flautas": 2,
+      "longitud_util": 22,
+      "feed": 300,
+      "entrada": 300,
+      "stepover": 40,
       "notas": "Pendiente de completar: feed, entrada, flautas, longitud_util, rpm, profundidad_pasada, stepover."
     }
   }

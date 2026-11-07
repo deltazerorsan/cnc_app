@@ -456,6 +456,24 @@ def test_startup_reads_config_tools_and_default_recipe_from_the_folders(tmp_path
     assert startup_project(cwd, app)[0].general.thickness == 6
 
 
+def test_startup_packaged_program_reads_tools_from_the_program_folder(tmp_path, monkeypatch):
+    """Empaquetado, las fichas son las de junto al programa aunque se lance desde otra carpeta (el editor guarda ahi)."""
+    import sys
+    from cnc.project import startup_project
+    app, cwd = tmp_path / "app", tmp_path / "cwd"
+    app.mkdir(), cwd.mkdir()
+    for folder, ident in ((app, "del_programa"), (cwd, "de_la_carpeta")):
+        (folder / "herramientas.json").write_text(
+            '{"herramientas": {"%s": {"diametro": 4}}}' % ident, encoding="utf-8")
+        (folder / "maquinas.json").write_text(SHIPPED_MACHINES.read_text(encoding="utf-8"), encoding="utf-8")
+    assert list(startup_project(cwd, app)[0].tools) == ["de_la_carpeta"]          # desde el codigo fuente manda la actual
+    assert startup_project(cwd, app)[0].machines_path == cwd / "maquinas.json"
+    monkeypatch.setattr(sys, "frozen", True, raising=False)
+    project = startup_project(cwd, app)[0]
+    assert list(project.tools) == ["del_programa"] and project.tools_path == app / "herramientas.json"
+    assert project.machines_path == app / "maquinas.json"
+
+
 def test_startup_problems_are_messages_not_exceptions(tmp_path):
     from cnc.project import startup_project
     project, notes = startup_project(tmp_path, tmp_path)

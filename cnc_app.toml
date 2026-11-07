@@ -1,7 +1,7 @@
 # Valores por defecto de la ventana de cnc_app.
 #
 # Cada clave es el nombre de un ajuste del trabajo con _ en vez de espacios (safe_z = Z segura). Se lee de la
-# carpeta desde la que se lanza el programa y, si no esta ahi, de la carpeta del programa.
+# carpeta desde la que se lanza el programa y, si no esta ahi, de la carpeta del programa (herramientas.json y maquinas.json, en el programa empaquetado, siempre de la carpeta del programa).
 #
 # Las claves que empiezan por # estan desactivadas: quita el # para activarlas.
 

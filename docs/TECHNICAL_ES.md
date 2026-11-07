@@ -229,7 +229,7 @@ En la vista *Dibujo*, los puentes salen sobre el contorno de cada forma (ámbar 
 
 ## Valores por defecto: `cnc_app.toml`
 
-Se lee de la carpeta desde la que lanzas el programa y, si no esta, de la carpeta del programa. Cada clave es el nombre de un ajuste con `_` (`safe_z` = Z segura). Tiene comentarios con todas las opciones posibles. Prioridad: **lo que pongas en la ventana > cnc_app.toml > valor por defecto**. El que se entrega activa `rotate = "auto"` y `margin = 0.4`.
+Se lee de la carpeta desde la que lanzas el programa y, si no esta, de la carpeta del programa. (El `herramientas.json` y el `maquinas.json` del programa empaquetado se leen siempre de la carpeta del programa, para que los editores «Fichas…» y «Máquinas…» guarden siempre en el mismo archivo.) Cada clave es el nombre de un ajuste con `_` (`safe_z` = Z segura). Tiene comentarios con todas las opciones posibles. Prioridad: **lo que pongas en la ventana > cnc_app.toml > valor por defecto**. El que se entrega activa `rotate = "auto"` y `margin = 0.4`.
 
 ## Convenciones
 

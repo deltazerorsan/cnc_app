@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from dataclasses import asdict, dataclass, field, fields, replace
 from pathlib import Path
 from typing import Optional, Sequence, Union
@@ -1326,7 +1327,11 @@ def startup_project(cwd, folder) -> tuple[Project, list[Message]]:
         except ConfigError as e:
             notes.append(Message(str(e), "error"))
     tools: dict = {}
-    tools_path = find_tools_file(cfg.get("tools_file"), [Path(cwd), Path(folder)])
+    # Empaquetado (.exe / binario de Linux) las fichas de fresas y de maquinas son las que hay junto al programa, se lance
+    # desde donde se lance: asi los editores "Fichas..." y "Maquinas..." guardan siempre en el mismo archivo. Desde el
+    # codigo fuente, primero la carpeta actual.
+    data_folders = [Path(folder), Path(cwd)] if getattr(sys, "frozen", False) else [Path(cwd), Path(folder)]
+    tools_path = find_tools_file(cfg.get("tools_file"), data_folders)
     if tools_path is None:
         notes.append(Message(_("No encuentro herramientas.json (busque en {cwd} y en {folder}): escribe el diametro de la fresa "
                                "a mano.", cwd=cwd, folder=folder), "warning"))
@@ -1336,7 +1341,7 @@ def startup_project(cwd, folder) -> tuple[Project, list[Message]]:
         except ToolsFileError as e:
             notes.append(Message(str(e), "error"))
     machines: dict = {}
-    machines_path = find_machines_file(cfg.get("machines_file"), [Path(cwd), Path(folder)])
+    machines_path = find_machines_file(cfg.get("machines_file"), data_folders)
     if machines_path is None:
         notes.append(Message(_("No encuentro maquinas.json (busque en {cwd} y en {folder}): sin una ficha de maquina no se "
                                "genera nada. Creala con Maquinas... > Nueva desde un log.", cwd=cwd, folder=folder), "error",
