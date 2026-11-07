@@ -10,9 +10,22 @@ from .model import ContourOp, DrillOp, Job, PocketOp, resolved
 from .pocket import pocket_moves
 from .post_grbl import PostOptions, _comment, to_gcode
 from shapely.geometry import Polygon
+from shapely.ops import nearest_points
 
 from .toolpath import Move, op_moves, total_depth, unreachable
 from .i18n import _
+
+MAX_MARKS = 20     # mas sitios con problema que estos no se senalan uno a uno: se avisa del exceso (ver generate_gcode)
+
+
+@dataclass(frozen=True)
+class AlarmMark:
+    """Donde esta un aviso de espacio, para senalarlo en la vista de maquina (mm de maquina, los mismos X e Y del G-code)."""
+    kind: str                       # "reach": la fresa no llega (punto agudo o zona estrecha) | "gap": dos piezas muy juntas
+    x: float
+    y: float
+    text: str                       # lo que dice al pasar el raton
+    line: Optional[tuple] = None    # "gap": los dos puntos mas cercanos de las piezas, ((x1, y1), (x2, y2))
 
 
 @dataclass
@@ -23,6 +36,9 @@ class GcodeResult:
     bounds: Optional[tuple] = None   # (minx, miny, maxx, maxy) de la trayectoria, en mm
     op_moves: list = field(default_factory=list)   # movimientos de cada operacion, en orden (para previsualizar)
     alarms: list = field(default_factory=list)     # avisos que ademas hay que confirmar a mano (zonas sin cortar, piezas juntas)
+    marks: list = field(default_factory=list)      # AlarmMark: donde esta cada aviso de espacio (vacia si hay demasiados)
+    excess: int = 0                                # si hay mas de MAX_MARKS sitios con problema: cuantos son (y no hay marcas)
+    excess_text: str = ""                          # el aviso unico que sustituye a los de cada sitio
 
 
 def _moves_for(op, job: Job) -> list[Move]:
@@ -36,8 +52,25 @@ def _moves_for(op, job: Job) -> list[Move]:
     raise TypeError(_("Tipo de operacion desconocido: {name}", name=type(op).__name__))
 
 
-def _reach_warning(i: int, op, tool_diameter: float) -> Optional[str]:
-    """Aviso si la fresa no alcanza zonas gruesas (>2 mm) de la forma de la operacion."""
+def _spot(x: float, y: float) -> str:
+    return f"X{x:.1f} Y{y:.1f}"
+
+
+def _where(spots: list[str]) -> str:
+    """'Donde: X.. Y..; X.. Y.. y N mas.': el sitio de cada problema, para el aviso de texto (hasta tres)."""
+    shown = spots[:3]
+    text = "; ".join(shown)
+    if len(spots) > len(shown):
+        text += " " + _("y {n} mas", n=len(spots) - len(shown))
+    return _("Donde: {places}.", places=text)
+
+
+def reach_findings(i: int, op, tool_diameter: float) -> tuple[Optional[str], list[AlarmMark]]:
+    """Aviso (y donde esta) si la fresa no alcanza zonas gruesas (>2 mm) de la forma de la operacion.
+
+    El sitio de cada problema es el centro de cada zona gruesa que queda sin cortar (la sobrante despues de quitar 1 mm
+    por todo su borde): la fina que rodea el contorno, por el redondeo de la fresa, no es un problema ni se senala.
+    """
     radius = tool_diameter / 2
     if isinstance(op, ContourOp) and op.side in ("outside", "inside"):
         shape = op.shape
@@ -46,23 +79,38 @@ def _reach_warning(i: int, op, tool_diameter: float) -> Optional[str]:
     elif isinstance(op, PocketOp):
         poly, mode = op.shape, "inside"
     else:
-        return None
+        return None, []
     if poly.is_empty or not poly.is_valid:
-        return None
+        return None, []
     left = unreachable(poly, mode, radius)
-    if left.buffer(-1.0).is_empty:
-        return None
-    return (
+    core = left.buffer(-1.0)
+    if core.is_empty:
+        return None, []
+    centres = [c.centroid for c in getattr(core, "geoms", [core]) if not c.is_empty]
+    text = (
         _("Operacion {i}: unos {area:.0f} mm2 de la forma no se pueden cortar con una fresa de "
           "{tool_diameter:g} mm (zonas mas estrechas que la fresa o esquinas muy agudas).", i=i, area=left.area, tool_diameter=tool_diameter)
     )
+    marks = [AlarmMark("reach", c.x, c.y,
+                       _("Operacion {i}: la fresa de {tool_diameter:g} mm no llega a esta zona (esquina muy aguda o zona mas "
+                         "estrecha que la fresa) en {spot}.", i=i, tool_diameter=tool_diameter, spot=_spot(c.x, c.y)))
+             for c in centres]
+    if marks:
+        text += " " + _where([_spot(m.x, m.y) for m in marks])
+    return text, marks
 
 
-def _spacing_warnings(job: Job) -> list[str]:
-    """Piezas (contorno 'outside') mas cerca entre si que el diametro de la fresa.
+def _reach_warning(i: int, op, tool_diameter: float) -> Optional[str]:
+    """Solo el texto de `reach_findings`."""
+    return reach_findings(i, op, tool_diameter)[0]
 
-    Si la fresa no cabe entre dos piezas, al cortar una se come parte de la otra.
-    Las piezas contenidas dentro de otra (islas de un hueco) no se comparan aqui.
+
+def spacing_findings(job: Job) -> list[tuple[str, AlarmMark]]:
+    """Piezas (contorno 'outside') mas cerca entre si que el diametro de la fresa: el aviso de cada pareja y donde esta.
+
+    Si la fresa no cabe entre dos piezas, al cortar una se come parte de la otra. El sitio es el punto medio de los dos
+    puntos mas cercanos de las piezas (donde el hueco es menor). Las piezas contenidas dentro de otra (islas de un
+    hueco) no se comparan aqui.
     """
     d_tool = job.tool.diameter
     pieces = [
@@ -76,11 +124,24 @@ def _spacing_warnings(job: Job) -> list[str]:
             continue
         gap = a.distance(b)
         if gap < d_tool - 1e-6:
-            out.append(
+            p, q = nearest_points(a, b)
+            x, y = (p.x + q.x) / 2, (p.y + q.y) / 2
+            text = (
                 _("Operaciones {i} y {j}: las piezas estan a {gap:.1f} mm y una fresa de {d_tool:g} mm no cabe "
                   "entre ellas (cortaria parte de la otra pieza).", i=i, j=j, gap=gap, d_tool=d_tool)
+                + " " + _where([_spot(x, y)])
             )
+            mark = AlarmMark("gap", x, y,
+                             _("Operaciones {i} y {j}: aqui las piezas estan a {gap:.1f} mm y una fresa de {d_tool:g} mm no "
+                               "cabe entre ellas, en {spot}.", i=i, j=j, gap=gap, d_tool=d_tool, spot=_spot(x, y)),
+                             line=((p.x, p.y), (q.x, q.y)))
+            out.append((text, mark))
     return out
+
+
+def _spacing_warnings(job: Job) -> list[str]:
+    """Solo los textos de `spacing_findings`."""
+    return [text for text, mark in spacing_findings(job)]
 
 
 _KIND_NAMES = {"ball": _("de bola (ball)"), "vbit": _("en V")}
@@ -136,6 +197,8 @@ def generate_gcode(job: Job, post: Optional[PostOptions] = None) -> GcodeResult:
     moves: list[Move] = []
     per_op: list[list[Move]] = []
     alarms: list[str] = []
+    found: list[str] = []                    # los avisos de espacio (zonas sin cortar, piezas juntas), con su sitio en `marks`
+    marks: list[AlarmMark] = []
     for i, raw_op in enumerate(job.operations, start=1):
         op = resolved(raw_op, job.tool)  # stepdown, feeds y stepover: de la operacion, si no de la fresa
         flute = job.tool.flute_length
@@ -156,14 +219,28 @@ def generate_gcode(job: Job, post: Optional[PostOptions] = None) -> GcodeResult:
         op_list = _moves_for(op, job)
         moves += op_list
         per_op.append(op_list)
-        reach = _reach_warning(i, op, job.tool.diameter)
+        reach, reach_marks = reach_findings(i, op, job.tool.diameter)
         if reach:
-            warnings.append(reach)
-            alarms.append(reach)
+            found.append(reach)
+            marks += reach_marks
 
-    spacing = _spacing_warnings(job)
-    warnings += spacing
-    alarms += spacing
+    for text, mark in spacing_findings(job):
+        found.append(text)
+        marks.append(mark)
+
+    excess, excess_text = 0, ""
+    if len(marks) > MAX_MARKS:
+        # Demasiados sitios: no se senalan uno a uno (ni se llena la lista de avisos) sino que se avisa del exceso. Un
+        # dibujo asi no es para esta fresa, y eso hay que decirlo claro antes de generar.
+        excess = len(marks)
+        excess_text = _("DEMASIADAS ZONAS CON PROBLEMA para una fresa de {tool_diameter:g} mm: {count} sitios donde la fresa "
+                        "no llega (esquinas muy agudas o zonas estrechas) o donde las piezas estan mas juntas que la fresa, "
+                        "mas de los {limit} que se senalan. No se marcan una a una: con esta fresa el trabajo saldria con "
+                        "muchas zonas sin cortar o con piezas dañadas. Revisa el dibujo o prueba con otra fresa antes de "
+                        "generar.", tool_diameter=job.tool.diameter, count=excess, limit=MAX_MARKS)
+        found, marks = [excess_text], []
+    warnings += found
+    alarms += found
 
     xs = [m.x for m in moves if m.x is not None]
     ys = [m.y for m in moves if m.y is not None]
@@ -188,4 +265,5 @@ def generate_gcode(job: Job, post: Optional[PostOptions] = None) -> GcodeResult:
     ]
     text = to_gcode(moves, comments=comments, safe_z=job.safe_z, opts=post)
     bounds = (min(xs), min(ys), max(xs), max(ys))
-    return GcodeResult(text=text, min_z=min_z, warnings=warnings, bounds=bounds, op_moves=per_op, alarms=alarms)
+    return GcodeResult(text=text, min_z=min_z, warnings=warnings, bounds=bounds, op_moves=per_op, alarms=alarms,
+                       marks=marks, excess=excess, excess_text=excess_text)

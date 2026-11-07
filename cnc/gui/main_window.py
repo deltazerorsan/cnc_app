@@ -1216,6 +1216,8 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
         if self.view == "machine":
             kinds = [k for k in theme.KIND_COLORS if any(op.kind == k for op in self.last_previews)]
             parts = [_("<span style='color:{KIND_COLORS}'>■</span> {KIND_LABELS}", KIND_COLORS=theme.KIND_COLORS[k], KIND_LABELS=theme.KIND_LABELS[k]) for k in kinds]
+            if getattr(getattr(self.last_plan, "result", None), "marks", None):
+                parts.append(_("<span style='color:{ERROR}'>◯</span> falta de espacio o punto agudo", ERROR=theme.ERROR))
         elif self.canvas.frame_text():
             parts = [_("<span style='color:{MACHINE}'>● ● ●</span> {frame_text} <span style='color:{ERROR}'>+</span> "
                        "cero", MACHINE=theme.MACHINE, frame_text=self.canvas.frame_text(), ERROR=theme.ERROR)]
@@ -1519,6 +1521,12 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
             self._error(_("No se puede generar"), "\n".join((_("Tablero {n}: ", n=n) if n is not None else "") + why
                                                          for n, why in blocked))
             return []
+        many = [(n, p.result.excess_text) for n, p in plans if p.result.excess]
+        if many and confirm:                              # un dibujo que no es para esta fresa: no se genera sin decirlo claro
+            what = "\n\n".join((_("Tablero {n}: ", n=n) if n is not None else "") + text for n, text in many)
+            if QMessageBox.warning(self, _("Demasiadas zonas con problema"), what + "\n\n" + _("¿Generar de todos modos?"),
+                                   QMessageBox.Yes | QMessageBox.No, QMessageBox.No) != QMessageBox.Yes:
+                return []
         if confirm and cl.ENABLED:                        # desconectada de momento: ver cnc/checklist.py
             if not self._run_checklist(build_checklist(plans)):
                 return []

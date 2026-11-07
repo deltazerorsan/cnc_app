@@ -455,7 +455,7 @@ def plan_job(shapes: Sequence[ImportedShape], stock: Sequence[ImportedShape], se
         msg.append(Message(_("Puentes: {count} en {pieces} forma(s), {size}", count=sum(len(op.tabs) for op in bridged),
                              pieces=len(bridged), size=size)))
     for w in [*notes, *result.warnings]:
-        msg.append(Message(w, "warning"))
+        msg.append(Message(w, "warning", severe=bool(result.excess_text) and w == result.excess_text))
     minx, miny, maxx, maxy = result.bounds
     for axis, size, travel in (("X", maxx - minx, job.machine.travel[0]), ("Y", maxy - miny, job.machine.travel[1])):
         room = travel - size

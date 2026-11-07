@@ -134,6 +134,7 @@ class Canvas(QGraphicsView):
         self._rapid_items: list = []
         self._travel_items: list = []
         self._hold_items: list = []                          # zona libre y puntos de sujecion
+        self._alarm_items: list = []                         # circulos de los avisos de espacio (vista de maquina)
         self._ghost: Optional[QGraphicsEllipseItem] = None
         self.hold_mode = False
         self._frame: tuple = ()                              # esquinas del recorrido de la maquina sobre el dibujo (mm)
@@ -226,6 +227,7 @@ class Canvas(QGraphicsView):
         self._outlines, self._hit_tree, self._hit_ids = {}, None, []
         self._rapid_items, self._travel_items = [], []
         self._hold_items, self._ghost = [], None
+        self._alarm_items = []
         self._frame_items = []
         self.tools.scene_cleared()
 
@@ -453,7 +455,54 @@ class Canvas(QGraphicsView):
         zi.setZValue(10)
         zi.setToolTip(_("Cero de la pieza (X0 Y0)"))
         self._scene.addItem(zi)
+        self.set_alarm_layer(getattr(getattr(plan, "result", None), "marks", None) or ())
         self._set_scene_rect(self._scene.itemsBoundingRect(), state)
+
+    # --- avisos de espacio ------------------------------------------------------------------------------------------
+    def clear_alarm_layer(self) -> None:
+        for it in self._alarm_items:
+            if it.scene() is self._scene:
+                self._scene.removeItem(it)
+        self._alarm_items = []
+
+    def set_alarm_layer(self, marks) -> None:
+        """Un circulo rojo sobre cada sitio donde la fresa no llega (punto agudo, zona estrecha) o no cabe entre dos piezas,
+        con el sitio al pasar el raton; entre piezas, ademas, la raya de los dos puntos mas cercanos. Solo en la vista de
+        maquina. Son solo una señal: no se pulsan ni mueven la vista (el raton pasa de largo y sigue arrastrando)."""
+        self.clear_alarm_layer()
+        if self.mode != "machine":
+            return
+        for m in marks:
+            if m.line:
+                (x1, y1), (x2, y2) = m.line
+                path = QPainterPath()
+                path.moveTo(x1, y1)
+                path.lineTo(x2, y2)
+                seg = QGraphicsPathItem(path)
+                pen = _pen(theme.ERROR, 2.0)
+                pen.setCosmetic(True)
+                seg.setPen(pen)
+                seg.setZValue(14)
+                seg.setAcceptedMouseButtons(Qt.NoButton)
+                seg.setData(ITEM_KIND, "alarm-line")
+                self._scene.addItem(seg)
+                self._alarm_items.append(seg)
+            ring = QGraphicsEllipseItem(QRectF(-12, -12, 24, 24))
+            ring.setFlag(ring.GraphicsItemFlag.ItemIgnoresTransformations, True)    # del mismo tamaño con cualquier zoom
+            ring.setPos(m.x, m.y)
+            fill = QColor(theme.ERROR)
+            fill.setAlpha(45)
+            ring.setBrush(QBrush(fill))
+            ring.setPen(QPen(QColor(theme.ERROR), 2.5))
+            ring.setZValue(15)
+            ring.setAcceptedMouseButtons(Qt.NoButton)
+            ring.setToolTip(m.text)
+            ring.setData(ITEM_KIND, "alarm")
+            self._scene.addItem(ring)
+            self._alarm_items.append(ring)
+
+    def alarm_item_count(self) -> int:
+        return sum(1 for it in self._alarm_items if it.data(ITEM_KIND) == "alarm")
 
     # --- contorno de la maquina ---------------------------------------------------------------------------------------
     @staticmethod
