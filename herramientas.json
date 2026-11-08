@@ -7,10 +7,9 @@
       "diametro": 4,
       "flautas": 2,
       "longitud_util": 22,
-      "profundidad_pasada": 4,
       "feed": 300,
       "entrada": 200,
-      "notas": "feed y entrada: los usados en la placa de 6 mm (una sola pasada). Completar: flautas, longitud_util, rpm, profundidad_pasada, stepover."
+      "notas": "feed y entrada: los usados en la placa de 6 mm (una sola pasada); sin profundidad_pasada para que ese trabajo siga saliendo en una pasada. Completar: rpm, stepover."
     },
     "em3175": {
       "nombre": "End mill 3,175 mm (1/8 pulgada)",
@@ -21,7 +20,7 @@
       "feed": 300,
       "entrada": 300,
       "stepover": 40,
-      "notas": "Pendiente de completar: feed, entrada, flautas, longitud_util, rpm, profundidad_pasada, stepover."
+      "notas": "Pendiente de completar: rpm, profundidad_pasada."
     }
   }
 }

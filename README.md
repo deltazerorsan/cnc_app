@@ -25,7 +25,11 @@ cnc_app nace en un taller, de la necesidad de tener funciones concretas que el t
 
 **Windows, sin instalar Python:** descarga `cnc_app_<versión>_windows.zip` de [Releases](https://github.com/deltazerorsan/cnc_app/releases), descomprímelo y ejecuta `cnc_app.exe`. El código fuente corre con Python 3.11+ (`pip install -r requirements.txt`, `python cnc_gui.py`).
 
+**Linux (Ubuntu 24.04 / Mint 22 o posterior), sin instalar Python:** descarga `cnc_app_<versión>_linux.tar.gz` de [Releases](https://github.com/deltazerorsan/cnc_app/releases), descomprímelo (`tar xzf cnc_app_<versión>_linux.tar.gz`) y ejecuta `./cnc_app`; si no abre, instala `libxcb-cursor0` (`sudo apt install libxcb-cursor0`). Para compilarlo tú: `bash build_linux.sh`.
+
 *Windows, no Python needed: download `cnc_app_<version>_windows.zip` from [Releases](https://github.com/deltazerorsan/cnc_app/releases), unzip it and run `cnc_app.exe`. The source runs with Python 3.11+ (`pip install -r requirements.txt`, `python cnc_gui.py`).*
+
+*Linux (Ubuntu 24.04 / Mint 22 or later), no Python needed: download `cnc_app_<version>_linux.tar.gz` from [Releases](https://github.com/deltazerorsan/cnc_app/releases), unpack it (`tar xzf cnc_app_<version>_linux.tar.gz`) and run `./cnc_app`; if it does not open, install `libxcb-cursor0` (`sudo apt install libxcb-cursor0`). To build it yourself: `bash build_linux.sh`.*
 
 Manual de usuario / User manual: [ES](docs/Manual_cnc_app_ES.pdf) · [EN](docs/Manual_cnc_app_EN.pdf). Documentación técnica / Technical documentation: [ES](docs/TECHNICAL_ES.md) · [EN](docs/TECHNICAL_EN.md). Capturas de pantalla (con errores intencionados, que explican más que una captura "bonita") / Screenshots (with intentional errors, which explain more than a "pretty" one): [ES](docs/captura_ES.png) · [EN](docs/screenshot_EN.png).
 
