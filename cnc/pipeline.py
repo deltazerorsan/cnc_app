@@ -38,9 +38,15 @@ SIDE_ORDER = {"inside": 0, "on": 1, "outside": 2}
 
 
 def app_dir() -> Path:
-    """Carpeta del programa: junto al .exe si va empaquetado con PyInstaller, si no junto a `svg_a_gcode.py`."""
+    """Carpeta del programa: junto al .exe si va empaquetado con PyInstaller, si no junto a `svg_a_gcode.py`.
+    En macOS el ejecutable vive dentro de `cnc_app.app/Contents/MacOS/`; la carpeta del programa es la que contiene
+    el `.app`, para que los archivos editables se queden a su lado y no dentro del paquete."""
     if getattr(sys, "frozen", False):
-        return Path(sys.executable).parent
+        exe = Path(sys.executable)
+        if sys.platform == "darwin" and len(exe.parents) > 3 and exe.parent.name == "MacOS" \
+                and exe.parents[1].name == "Contents" and exe.parents[2].suffix == ".app":
+            return exe.parents[3]
+        return exe.parent
     return Path(__file__).resolve().parent.parent
 
 

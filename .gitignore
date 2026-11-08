@@ -8,6 +8,8 @@ build/
 dist/
 dist_onefile/
 dist_linux/
+dist_macos/
+.macos-build/
 build_linux/
 .venv-linux/
 
