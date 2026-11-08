@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cnc_app VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-07 12:49+0100\n"
+"POT-Creation-Date: 2026-11-08 22:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,7 +157,7 @@ msgid " mm/min"
 msgstr ""
 
 #: checklist.py:129 gui/machines_dialog.py:208 gui/machines_dialog.py:210
-#: machinebook.py:25 machines.py:199 machines.py:203 machines.py:207
+#: machinebook.py:25 machines.py:201 machines.py:205 machines.py:209
 msgid "sin dato"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Giro"
 msgstr ""
 
-#: checklist.py:157 pipeline.py:171 pipeline.py:190
+#: checklist.py:157 pipeline.py:177 pipeline.py:196
 msgid "sin giro"
 msgstr ""
 
@@ -342,7 +342,12 @@ msgstr ""
 msgid "No existe el {what} {path}."
 msgstr ""
 
-#: config.py:49
+#: config.py:47 machines.py:117 tools.py:133
+#, python-brace-format
+msgid "No se puede leer {path}: {e}"
+msgstr ""
+
+#: config.py:51
 #, python-brace-format
 msgid "{name}: TOML invalido: {e}"
 msgstr ""
@@ -571,7 +576,7 @@ msgstr ""
 msgid "{what} tiene que ser un numero entero de {minimum} a {MAX_NEW} (hay {value!r})."
 msgstr ""
 
-#: drawing_edit.py:80 project.py:340
+#: drawing_edit.py:80 project.py:341
 msgid "no hay ninguna forma elegida."
 msgstr ""
 
@@ -897,7 +902,7 @@ msgstr ""
 msgid "El radio de las esquinas baja de {r:g} a {kept:g} mm: con ese tamano no cabe."
 msgstr ""
 
-#: drawing_edit.py:734 gui/bridge_layer.py:158 project.py:632
+#: drawing_edit.py:734 gui/bridge_layer.py:158 project.py:633
 msgid "los puentes solo se ponen en formas cerradas."
 msgstr ""
 
@@ -1151,7 +1156,7 @@ msgstr ""
 msgid "Fresa {tool_label} | {len} operacion(es)"
 msgstr ""
 
-#: generate.py:262 pipeline.py:440
+#: generate.py:262 pipeline.py:446
 #, python-brace-format
 msgid "RPM aconsejadas (variador): {rpm:g}"
 msgstr ""
@@ -4126,11 +4131,11 @@ msgstr ""
 msgid "Punto {i} de {n}"
 msgstr ""
 
-#: machinebook.py:25 machines.py:199
+#: machinebook.py:25 machines.py:201
 msgid "sí"
 msgstr ""
 
-#: machinebook.py:25 machines.py:199
+#: machinebook.py:25 machines.py:201
 msgid "no"
 msgstr ""
 
@@ -4193,7 +4198,7 @@ msgid "{ident} ({size} mm)"
 msgstr ""
 
 #: machinebook.py:166 machinebook.py:189 machinebook.py:194 machinebook.py:214
-#: machines.py:315
+#: machines.py:317
 msgid "log pegado"
 msgstr ""
 
@@ -4320,153 +4325,153 @@ msgstr ""
 msgid "No existe el archivo de máquinas {path}."
 msgstr ""
 
-#: machines.py:168
+#: machines.py:170
 #, python-brace-format
 msgid "No hay ninguna máquina '{ident}'. Máquinas: {known}.{suggest}"
 msgstr ""
 
-#: machines.py:184
+#: machines.py:186
 msgid "No hay ninguna ficha de máquina: impórtala de un log (Máquinas… en la ventana)."
 msgstr ""
 
-#: machines.py:185
+#: machines.py:187
 #, python-brace-format
 msgid "Hay varias máquinas ({join}) y no se ha elegido ninguna."
 msgstr ""
 
-#: machines.py:195
+#: machines.py:197
 msgid " mm"
 msgstr ""
 
-#: machines.py:212
+#: machines.py:214
 msgid "recorrido (mm)"
 msgstr ""
 
-#: machines.py:213
+#: machines.py:215
 msgid "avance máx. XY (mm/min)"
 msgstr ""
 
-#: machines.py:214
+#: machines.py:216
 msgid "avance máx. Z (mm/min)"
 msgstr ""
 
-#: machines.py:215
+#: machines.py:217
 msgid "aceleración (mm/s²)"
 msgstr ""
 
-#: machines.py:216 machines.py:245
+#: machines.py:218 machines.py:247
 msgid "límites blandos"
 msgstr ""
 
-#: machines.py:217 machines.py:245
+#: machines.py:219 machines.py:247
 msgid "límites duros"
 msgstr ""
 
-#: machines.py:219
+#: machines.py:221
 msgid "husillo máx. (RPM)"
 msgstr ""
 
-#: gui/job_panel.py:308 machines.py:220 machines.py:246
+#: gui/job_panel.py:308 machines.py:222 machines.py:248
 msgid "modo láser"
 msgstr ""
 
-#: machines.py:243
+#: machines.py:245
 msgid "avance máx. X"
 msgstr ""
 
-#: machines.py:243
+#: machines.py:245
 msgid "avance máx. Y"
 msgstr ""
 
-#: machines.py:243
+#: machines.py:245
 msgid "avance máx. Z"
 msgstr ""
 
-#: machines.py:243
+#: machines.py:245
 msgid "aceleración X"
 msgstr ""
 
-#: machines.py:244
+#: machines.py:246
 msgid "aceleración Y"
 msgstr ""
 
-#: machines.py:244
+#: machines.py:246
 msgid "aceleración Z"
 msgstr ""
 
-#: machines.py:244
+#: machines.py:246
 msgid "recorrido X"
 msgstr ""
 
-#: machines.py:244
+#: machines.py:246
 msgid "recorrido Y"
 msgstr ""
 
-#: machines.py:245
+#: machines.py:247
 msgid "recorrido Z"
 msgstr ""
 
-#: machines.py:245
+#: machines.py:247
 msgid "husillo máx."
 msgstr ""
 
-#: machines.py:284
+#: machines.py:286
 #, python-brace-format
 msgid "${key} ({name}) sale dos veces con valores distintos ({n} y {n2}): ¿hay dos logs mezclados?"
 msgstr ""
 
-#: machines.py:289 machines.py:294
+#: machines.py:291 machines.py:296
 #, python-brace-format
 msgid "Grbl {group}"
 msgstr ""
 
-#: machines.py:298
+#: machines.py:300
 #, python-brace-format
 msgid "Falta {missing}: sin el recorrido no se sabe lo que cabe en la máquina."
 msgstr ""
 
-#: machines.py:301
+#: machines.py:303
 #, python-brace-format
 msgid "${key} ({SETTING_NAMES}) debe ser 0 o 1 (hay {n})."
 msgstr ""
 
-#: machines.py:306
+#: machines.py:308
 #, python-brace-format
 msgid "${key} ({SETTING_NAMES}) debe ser mayor que 0 (hay {n})."
 msgstr ""
 
-#: machines.py:308
+#: machines.py:310
 #, python-brace-format
 msgid "El avance máximo de X ({n}) y el de Y ({n2}) difieren: la ficha usa el menor."
 msgstr ""
 
-#: machines.py:311
+#: machines.py:313
 msgid "No aparece: "
 msgstr ""
 
-#: machines.py:311
+#: machines.py:313
 msgid ". Lo que falte queda «sin dato» y no se comprueba."
-msgstr ""
-
-#: machines.py:336
-#, python-brace-format
-msgid "Firmware: {firmware}"
 msgstr ""
 
 #: machines.py:338
 #, python-brace-format
+msgid "Firmware: {firmware}"
+msgstr ""
+
+#: machines.py:340
+#, python-brace-format
 msgid "Recorrido: {n} × {n2} × {n3} mm"
 msgstr ""
 
-#: machines.py:341
+#: machines.py:343
 msgid "Avances máximos (mm/min): "
 msgstr ""
 
-#: machines.py:344
+#: machines.py:346
 msgid "Aceleración (mm/s²): "
 msgstr ""
 
-#: machines.py:349
+#: machines.py:351
 #, python-brace-format
 msgid "Husillo máx.: {n} RPM"
 msgstr ""
@@ -4502,7 +4507,7 @@ msgstr ""
 msgid "relleno {fill}"
 msgstr ""
 
-#: gui/canvas.py:294 gui/main_window.py:899 oprows.py:55 pipeline.py:360
+#: gui/canvas.py:294 gui/main_window.py:899 oprows.py:55 pipeline.py:366
 msgid "sin color"
 msgstr ""
 
@@ -4511,7 +4516,7 @@ msgstr ""
 msgid "operacion {index} ('{name}'): falta la profundidad (escribela en Prof. o marca Pasante)."
 msgstr ""
 
-#: oprows.py:160 project.py:902
+#: oprows.py:160 project.py:903
 msgid "tabla de operaciones"
 msgstr ""
 
@@ -4536,188 +4541,188 @@ msgstr ""
 msgid "shapes y sides deben tener la misma longitud."
 msgstr ""
 
-#: pipeline.py:77
+#: pipeline.py:83
 #, python-brace-format
 msgid "nivel de mensaje desconocido: {level!r}"
 msgstr ""
 
-#: pipeline.py:147
+#: pipeline.py:153
 #, python-brace-format
 msgid "{len} resto(s) sin sentido descartado(s) (lineas de menos de 0,5 mm): "
 msgstr ""
 
-#: pipeline.py:171
+#: pipeline.py:177
 #, python-brace-format
 msgid "giro de {spec:g} grados"
 msgstr ""
 
-#: pipeline.py:178
+#: pipeline.py:184
 msgid "dibujo apaisado: se gira 90 grados antihorario"
 msgstr ""
 
-#: pipeline.py:179
+#: pipeline.py:185
 msgid "dibujo ya vertical: no se gira"
 msgstr ""
 
-#: pipeline.py:185
+#: pipeline.py:191
 msgid "cabe en el recorrido: no se gira"
 msgstr ""
 
-#: pipeline.py:188
+#: pipeline.py:194
 #, python-brace-format
 msgid "no cabe tal cual ({w0:.0f} x {h0:.0f} mm en {tx:g} x {ty:g}): se gira 90 grados antihorario"
 msgstr ""
 
-#: pipeline.py:189
+#: pipeline.py:195
 #, python-brace-format
 msgid "no cabe ni girado ({w0:.0f} x {h0:.0f} mm y {w1:.0f} x {h1:.0f} mm en {tx:g} x {ty:g})"
 msgstr ""
 
-#: pipeline.py:256
+#: pipeline.py:262
 msgid "Giro: "
-msgstr ""
-
-#: pipeline.py:267
-#, python-brace-format
-msgid "Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda"
 msgstr ""
 
 #: pipeline.py:273
 #, python-brace-format
+msgid "Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda"
+msgstr ""
+
+#: pipeline.py:279
+#, python-brace-format
 msgid "Sin tablero: el cero queda {m:g} mm por fuera de la esquina inferior izquierda de lo que se corta"
 msgstr ""
 
-#: pipeline.py:277
+#: pipeline.py:283
 #, python-brace-format
 msgid "Dibujo movido {offset:g}, {offset2:g} mm respecto al cero"
 msgstr ""
 
-#: pipeline.py:284
+#: pipeline.py:290
 #, python-brace-format
 msgid "Tablero supuesto: {b:.1f} x {b2:.1f} mm (del cero a lo que se corta mas {origin_margin:g} mm); sirve para calcular la sujecion"
 msgstr ""
 
-#: pipeline.py:296
+#: pipeline.py:302
 #, python-brace-format
 msgid "{depth:g} mm"
 msgstr ""
 
-#: pipeline.py:358
+#: pipeline.py:364
 #, python-brace-format
 msgid "Ignoradas por la receta: {len} forma(s)"
 msgstr ""
 
-#: pipeline.py:361
+#: pipeline.py:367
 #, python-brace-format
 msgid "{len} forma(s) sin operacion en la receta, no se cortan (colores: {join})"
 msgstr ""
 
-#: pipeline.py:364
+#: pipeline.py:370
 msgid "la receta no encuentra ninguna forma que cortar"
 msgstr ""
 
-#: pipeline.py:366
+#: pipeline.py:372
 msgid "no hay ninguna forma que cortar"
 msgstr ""
 
-#: pipeline.py:384
+#: pipeline.py:390
 msgid "faltan el avance de corte y el de bajada (feed y entrada)"
 msgstr ""
 
-#: pipeline.py:408
+#: pipeline.py:414
 #, python-brace-format
 msgid " (y {v} operacion(es) mas)"
 msgstr ""
 
-#: pipeline.py:422
+#: pipeline.py:428
 #, python-brace-format
 msgid "El G-code no pasa la verificacion: {p}"
 msgstr ""
 
-#: pipeline.py:429
+#: pipeline.py:435
 msgid "una sola pasada"
 msgstr ""
 
-#: pipeline.py:430
+#: pipeline.py:436
 #, python-brace-format
 msgid "pasadas de hasta {stepdown:g} mm{tag}"
 msgstr ""
 
-#: pipeline.py:431
+#: pipeline.py:437
 #, python-brace-format
 msgid "Fresa: {tool_label} | feed {feed:g}{tag} | entrada {plunge:g}{tag2} | {how}"
 msgstr ""
 
-#: pipeline.py:433
+#: pipeline.py:439
 #, python-brace-format
 msgid "Fresa: {tool_label} | receta {source}"
 msgstr ""
 
-#: pipeline.py:437
+#: pipeline.py:443
 #, python-brace-format
 msgid "  {name}: {kind}, {n} forma(s), {fmt_depth}"
 msgstr ""
 
-#: pipeline.py:438
+#: pipeline.py:444
 #, python-brace-format
 msgid "  {name}: sin formas en este trabajo"
 msgstr ""
 
-#: pipeline.py:443
+#: pipeline.py:449
 #, python-brace-format
 msgid "Puentes desactivados: {count} forma(s) con puentes puestos a mano se cortan sin ellos."
 msgstr ""
 
-#: pipeline.py:447
+#: pipeline.py:453
 #, python-brace-format
 msgid "Operaciones: {counts}; profundidad total {depth:g} mm en {n_passes} pasada(s)"
 msgstr ""
 
-#: pipeline.py:449
+#: pipeline.py:455
 #, python-brace-format
 msgid "Operaciones generadas: {len}; profundidad maxima {v:.1f} mm"
 msgstr ""
 
-#: pipeline.py:453
+#: pipeline.py:459
 #, python-brace-format
 msgid "de {width:g} mm de ancho y {height:g} mm de alto"
 msgstr ""
 
-#: pipeline.py:454
+#: pipeline.py:460
 msgid "de varios tamaños"
 msgstr ""
 
-#: pipeline.py:455
+#: pipeline.py:461
 #, python-brace-format
 msgid "Puentes: {count} en {pieces} forma(s), {size}"
 msgstr ""
 
-#: pipeline.py:463
+#: pipeline.py:469
 #, python-brace-format
 msgid "No cabe en la maquina: la trayectoria mide {size:.1f} mm en {axis} y el recorrido es de {travel:g} mm (faltan {v:.1f} mm)."
 msgstr ""
 
-#: pipeline.py:466
+#: pipeline.py:472
 #, python-brace-format
 msgid "Trayectoria en {axis}: {size:.1f} mm de {travel:g} mm de recorrido -> "
 msgstr ""
 
-#: pipeline.py:467
+#: pipeline.py:473
 #, python-brace-format
 msgid "margen total {room:.1f} mm"
 msgstr ""
 
-#: pipeline.py:467
+#: pipeline.py:473
 #, python-brace-format
 msgid "NO CABE (faltan {v:.1f} mm)"
 msgstr ""
 
-#: pipeline.py:473
+#: pipeline.py:479
 #, python-brace-format
 msgid "La trayectoria se sale del tablero {side} {v:.1f} mm: parte de la pieza queda fuera del material."
 msgstr ""
 
-#: pipeline.py:476
+#: pipeline.py:482
 #, python-brace-format
 msgid "la trayectoria se sale del tablero {side} {v:.1f} mm: parte de una pieza queda fuera del material. Mueve el dibujo hacia dentro con --offset DX,DY (por ejemplo --offset {flag}, que deja unos {OVERHANG_SLACK} mm de holgura)"
 msgstr ""
@@ -4751,378 +4756,378 @@ msgstr ""
 msgid "Codigo final definido por el usuario"
 msgstr ""
 
-#: project.py:51
+#: project.py:52
 #, python-brace-format
 msgid "La trayectoria se sale del tablero {side} {amount:.1f} mm: parte de una pieza queda fuera del material."
 msgstr ""
 
-#: project.py:139
+#: project.py:140
 #, python-brace-format
 msgid "el giro debe ser uno de {join} (hay {text!r})."
 msgstr ""
 
-#: project.py:146
+#: project.py:147
 #, python-brace-format
 msgid "{what} debe ser mayor que 0."
 msgstr ""
 
-#: project.py:292
+#: project.py:293
 #, python-brace-format
 msgid "la forma {i!r} no existe o no se puede elegir."
 msgstr ""
 
-#: project.py:335
+#: project.py:336
 msgid "el grupo necesita un nombre."
 msgstr ""
 
-#: project.py:337
+#: project.py:338
 #, python-brace-format
 msgid "la operacion del grupo debe ser una de {join} (hay {action!r})."
 msgstr ""
 
-#: gui/group_dialog.py:30 gui/main_window.py:940 project.py:341
+#: gui/group_dialog.py:30 gui/main_window.py:940 project.py:342
 msgid "Grupo nuevo"
 msgstr ""
 
-#: project.py:353
+#: project.py:354
 msgid "ese grupo no existe."
 msgstr ""
 
-#: gui/main_window.py:951 gui/ops_panel.py:82 project.py:355
+#: gui/main_window.py:951 gui/ops_panel.py:82 project.py:356
 msgid "Mover a grupo"
 msgstr ""
 
-#: gui/main_window.py:333 gui/main_window.py:963 project.py:363
+#: gui/main_window.py:333 gui/main_window.py:963 project.py:364
 msgid "Quitar del grupo"
 msgstr ""
 
-#: project.py:370
+#: project.py:371
 msgid "Interiores"
 msgstr ""
 
-#: project.py:370
+#: project.py:371
 msgid "Líneas"
 msgstr ""
 
-#: project.py:370 project.py:467
+#: project.py:371 project.py:468
 msgid "líneas"
 msgstr ""
 
-#: project.py:371
+#: project.py:372
 msgid "Exteriores"
 msgstr ""
 
-#: project.py:372
+#: project.py:373
 msgid "interiores (huecos)"
 msgstr ""
 
-#: project.py:372
+#: project.py:373
 msgid "líneas abiertas"
 msgstr ""
 
-#: project.py:372
+#: project.py:373
 msgid "exteriores (piezas)"
 msgstr ""
 
-#: project.py:418
+#: project.py:419
 msgid "abre un dibujo antes de separar cortes."
 msgstr ""
 
-#: project.py:422
+#: project.py:423
 msgid "no hay ninguna fila de Corte en «Auto» con interiores y exteriores que separar."
 msgstr ""
 
-#: project.py:424
+#: project.py:425
 msgid "hay varias filas que se pueden separar: elige una en la tabla."
 msgstr ""
 
-#: project.py:429
+#: project.py:430
 msgid "esa fila no existe."
 msgstr ""
 
-#: project.py:431
+#: project.py:432
 #, python-brace-format
 msgid "«{title}» es un {lower}: solo se separan las filas de Corte."
 msgstr ""
 
-#: project.py:433
+#: project.py:434
 #, python-brace-format
 msgid "«{title}» ya tiene el lado fijado: ponla en «Auto» si quieres separarla."
 msgstr ""
 
-#: project.py:438
+#: project.py:439
 msgid "ninguna forma"
 msgstr ""
 
-#: project.py:439
+#: project.py:440
 #, python-brace-format
 msgid "«{title}» solo tiene {what}: no hay nada que separar."
 msgstr ""
 
-#: gui/main_window.py:335 gui/main_window.py:979 project.py:442
+#: gui/main_window.py:335 gui/main_window.py:979 project.py:443
 msgid "Separar interiores y exteriores"
 msgstr ""
 
-#: project.py:467
+#: project.py:468
 msgid "taladros"
 msgstr ""
 
-#: project.py:467
+#: project.py:468
 msgid "pozos"
 msgstr ""
 
-#: project.py:467
+#: project.py:468
 msgid "interiores"
 msgstr ""
 
-#: project.py:467
+#: project.py:468
 msgid "exteriores"
 msgstr ""
 
-#: project.py:509
+#: project.py:510
 #, python-brace-format
 msgid "«{n}» ({lo_name}) va después de «{tn}» ({t_name})"
 msgstr ""
 
-#: project.py:511
+#: project.py:512
 #, python-brace-format
 msgid " (y {v} más)"
 msgstr ""
 
-#: project.py:512
+#: project.py:513
 #, python-brace-format
 msgid "El orden de las filas no es el correcto: tiene que ser taladros, pozos, interiores, líneas y exteriores. {examples}{more}."
 msgstr ""
 
-#: project.py:515
+#: project.py:516
 #, python-brace-format
 msgid "{head} Una fila que mezcla interiores y exteriores no se puede ordenar con otras: sepárala con «Separar interiores y exteriores» y pulsa «Ordenar»."
 msgstr ""
 
-#: project.py:517
+#: project.py:518
 #, python-brace-format
 msgid "{head} Pulsa «Ordenar» para ponerlas bien."
 msgstr ""
 
-#: project.py:598
+#: project.py:599
 #, python-brace-format
 msgid "{holes} forma(s) se cortarían por fuera siendo huecos"
 msgstr ""
 
-#: project.py:600
+#: project.py:601
 #, python-brace-format
 msgid "{pieces} forma(s) se cortarían por dentro siendo piezas"
 msgstr ""
 
-#: project.py:601
+#: project.py:602
 #, python-brace-format
 msgid "«{name}» está en «Auto», que solo mira el anidamiento entre las formas de su fila: {join} según el dibujo entero. Pon «Por dentro» o «Por fuera» en esa fila (o usa «Separar interiores y exteriores»)."
 msgstr ""
 
-#: project.py:626
+#: project.py:627
 msgid "los puentes están desactivados: marca «Poner puentes» en los ajustes del trabajo."
 msgstr ""
 
-#: project.py:629
+#: project.py:630
 msgid "esa forma no se corta."
 msgstr ""
 
-#: project.py:635
+#: project.py:636
 msgid "los puentes son de los cortes: la fila de esa forma no es un corte."
 msgstr ""
 
-#: project.py:637
+#: project.py:638
 msgid "la fila de esa forma no corta de lado a lado: no necesita puentes."
 msgstr ""
 
-#: project.py:716
+#: project.py:717
 msgid "abre un dibujo o crea uno nuevo antes de dibujar."
 msgstr ""
 
-#: project.py:724
+#: project.py:725
 msgid "ese color es la etiqueta de un grupo de formas: elige otro para la forma nueva."
 msgstr ""
 
-#: project.py:815
+#: project.py:816
 #, python-brace-format
 msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan las ediciones hechas con las herramientas de dibujo."
 msgstr ""
 
-#: project.py:826
+#: project.py:827
 #, python-brace-format
 msgid "No se pudo rehacer la edicion {n} de {len} del trabajo guardado ({e}): se descartan ella y las siguientes."
 msgstr ""
 
-#: project.py:840
+#: project.py:841
 msgid "Dibujo completo"
 msgstr ""
 
-#: project.py:841
+#: project.py:842
 #, python-brace-format
 msgid "Tablero {number} ({width:.0f} x {height:.0f} mm)"
 msgstr ""
 
-#: project.py:848
+#: project.py:849
 #, python-brace-format
 msgid "no existe el tablero {number}"
 msgstr ""
 
-#: project.py:882
+#: project.py:883
 #, python-brace-format
 msgid "No se aplica la receta del archivo de configuracion: {e}"
 msgstr ""
 
-#: project.py:883
+#: project.py:884
 #, python-brace-format
 msgid "Receta del archivo de configuracion: {name}"
 msgstr ""
 
-#: project.py:911
+#: project.py:912
 msgid "elige una fresa (una ficha o un diametro en mm)."
 msgstr ""
 
-#: project.py:920
+#: project.py:921
 msgid "el diametro de la fresa debe ser un numero mayor que 0."
 msgstr ""
 
-#: project.py:946
+#: project.py:947
 #, python-brace-format
 msgid "{job:g} (trabajo)"
 msgstr ""
 
-#: project.py:948
+#: project.py:949
 #, python-brace-format
 msgid "{card:g} (ficha)"
 msgstr ""
 
-#: project.py:950
+#: project.py:951
 #, python-brace-format
 msgid "{v:g} (ficha)"
 msgstr ""
 
-#: project.py:969
+#: project.py:970
 msgid "falta el grosor del material."
 msgstr ""
 
-#: project.py:971
+#: project.py:972
 msgid "el grosor del material debe ser mayor que 0."
 msgstr ""
 
-#: project.py:973
+#: project.py:974
 msgid "el margen no puede ser negativo."
 msgstr ""
 
-#: project.py:975
+#: project.py:976
 msgid "el margen del cero no puede ser negativo."
 msgstr ""
 
-#: project.py:977
+#: project.py:978
 msgid "la Z de aproximacion debe ser mayor que 0 y no mayor que la Z segura."
 msgstr ""
 
-#: project.py:987
+#: project.py:988
 msgid "el avance de corte"
 msgstr ""
 
-#: project.py:987
+#: project.py:988
 msgid "el avance de bajada"
 msgstr ""
 
-#: project.py:987
+#: project.py:988
 msgid "la pasada"
 msgstr ""
 
-#: project.py:997
+#: project.py:998
 msgid "falta el avance de corte: rellenalo o ponlo en la ficha de la fresa."
 msgstr ""
 
-#: project.py:999
+#: project.py:1000
 msgid "falta el avance de bajada: rellenalo o ponlo en la ficha de la fresa."
 msgstr ""
 
-#: project.py:1024
+#: project.py:1025
 msgid "El dibujo esta vacio: dibuja algo con el menu Dibujo (o abre un SVG)."
 msgstr ""
 
-#: project.py:1039
+#: project.py:1040
 #, python-brace-format
 msgid "Ignoradas en la tabla: {ignored} forma(s)"
 msgstr ""
 
-#: project.py:1100
+#: project.py:1101
 msgid "_marcas"
 msgstr ""
 
-#: project.py:1123
+#: project.py:1124
 msgid "no hay ningun tablero marcado para generar."
 msgstr ""
 
-#: project.py:1131
+#: project.py:1132
 msgid "no se pudo generar"
 msgstr ""
 
 #: gui/main_window.py:1517 gui/main_window.py:1521 gui/main_window.py:1526
-#: project.py:1132
+#: project.py:1133
 #, python-brace-format
 msgid "Tablero {n}: "
 msgstr ""
 
-#: project.py:1139
+#: project.py:1140
 #, python-brace-format
 msgid "el G-code tiene un caracter que no es ASCII ({text!r}); GRBL no lo admite: revisa el codigo final."
 msgstr ""
 
-#: project.py:1149
+#: project.py:1150
 #, python-brace-format
 msgid "_tablero{number}"
 msgstr ""
 
-#: project.py:1191
+#: project.py:1192
 msgid "el archivo de trabajo no es de esta version de la aplicación."
 msgstr ""
 
-#: project.py:1195
+#: project.py:1196
 msgid "el trabajo es de un dibujo nuevo (sin SVG) y hay un SVG abierto, o al reves."
 msgstr ""
 
-#: project.py:1229
+#: project.py:1230
 msgid "el trabajo"
 msgstr ""
 
-#: project.py:1231
+#: project.py:1232
 msgid "La ficha de la maquina guardada con el trabajo no se puede leer: se usa la de maquinas.json."
 msgstr ""
 
-#: project.py:1241
+#: project.py:1242
 #, python-brace-format
 msgid "La maquina «{ident}» del trabajo no esta en maquinas.json: se usa la ficha guardada con el trabajo ({name}, recorrido {travel_text}). Guardala en Maquinas... si es la tuya."
 msgstr ""
 
-#: project.py:1247
+#: project.py:1248
 #, python-brace-format
 msgid "La ficha de la maquina «{ident}» ha cambiado desde que se guardo el trabajo ("
 msgstr ""
 
-#: project.py:1248
+#: project.py:1249
 msgid "): se usa la de ahora."
 msgstr ""
 
-#: project.py:1260
+#: project.py:1261
 #, python-brace-format
 msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan los grupos de formas."
 msgstr ""
 
-#: project.py:1281
+#: project.py:1282
 #, python-brace-format
 msgid "{skipped} grupo(s) de formas del trabajo guardado no valen y se descartan."
 msgstr ""
 
-#: project.py:1331
+#: project.py:1336
 #, python-brace-format
 msgid "No encuentro herramientas.json (busque en {cwd} y en {folder}): escribe el diametro de la fresa a mano."
 msgstr ""
 
-#: project.py:1341
+#: project.py:1346
 #, python-brace-format
 msgid "No encuentro maquinas.json (busque en {cwd} y en {folder}): sin una ficha de maquina no se genera nada. Creala con Maquinas... > Nueva desde un log."
 msgstr ""
@@ -5805,7 +5810,7 @@ msgstr ""
 msgid "No existe el archivo de fresas {path}."
 msgstr ""
 
-#: tools.py:171
+#: tools.py:173
 #, python-brace-format
 msgid "No hay ninguna ficha '{ident}'. Fichas: {known}.{suggest}"
 msgstr ""

@@ -11,7 +11,7 @@ Lee `docs/TECHNICAL_ES.md`: la sección *Contenido* es el mapa de módulos y *Co
 - Pruebas sin pantalla: `QT_QPA_PLATFORM=offscreen python -m pytest -q`. La suite entera tarda de 20 a 30 minutos con 2 núcleos; para iterar, ejecuta solo los ficheros afectados, y antes de dar algo por bueno, la suite completa. `conftest.py` aísla las pruebas del `cnc_app.toml` real del usuario.
 - No uses `pytest.approx` con listas de tuplas (el pytest reciente no lo admite): compara las listas aplanadas.
 - Idiomas: los textos nuevos van con `_("...")`. Después, `python i18n_tool.py all`, traduce lo que salga en `missing` y sube `.pot`, `.po` y `.mo`.
-- Compilar un solo archivo (PyInstaller no compila entre sistemas): en Windows, `build_windows_onefile.bat`; en Linux, `bash build_linux.sh` (con `--tests` pasa antes las pruebas). Comprobación sin ventana del programa compilado: `cnc_app --autotest dibujo.svg salida.txt`.
+- Compilar un solo archivo (PyInstaller no compila entre sistemas): en Windows, `build_windows_onefile.bat`; en Linux, `bash build_linux.sh` (con `--tests` pasa antes las pruebas); en macOS, `bash build_macos.sh` (una vez en cada tipo de Mac, Intel y Apple Silicon; necesita las Command Line Tools de Apple). Comprobación sin ventana del programa compilado: `cnc_app --autotest dibujo.svg salida.txt`.
 - La versión está en `cnc/__init__.py` (el exe la lleva en sus propiedades). Súbela cuando cambie algo que el usuario vea.
 
 ## Convenciones del proyecto

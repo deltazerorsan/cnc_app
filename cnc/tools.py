@@ -129,6 +129,8 @@ def load_tools(path: Union[str, Path]) -> dict[str, Tool]:
         text = path.read_text(encoding="utf-8-sig")  # admite el BOM que anaden algunos editores de Windows
     except FileNotFoundError:
         raise ToolsFileError(_("No existe el archivo de fresas {path}.", path=path)) from None
+    except OSError as e:
+        raise ToolsFileError(_("No se puede leer {path}: {e}", path=path, e=e.strerror or e)) from None
     return parse_tools(text, path.name)
 
 

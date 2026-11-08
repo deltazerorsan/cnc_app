@@ -113,6 +113,8 @@ def load_machines(path: Union[str, Path]) -> dict[str, MachineProfile]:
         text = path.read_text(encoding="utf-8-sig")
     except FileNotFoundError:
         raise MachinesFileError(_("No existe el archivo de máquinas {path}.", path=path)) from None
+    except OSError as e:
+        raise MachinesFileError(_("No se puede leer {path}: {e}", path=path, e=e.strerror or e)) from None
     return parse_machines(text, path.name)
 
 

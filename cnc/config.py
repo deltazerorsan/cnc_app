@@ -43,6 +43,8 @@ def read_config(path: Path, what: str = _("archivo de configuracion")) -> dict:
         text = path.read_text(encoding="utf-8-sig")
     except FileNotFoundError:
         raise ConfigError(_("No existe el {what} {path}.", what=what, path=path)) from None
+    except OSError as e:                      # p. ej. macOS sin permiso para leer un disco externo o una carpeta protegida
+        raise ConfigError(_("No se puede leer {path}: {e}", path=path, e=e.strerror or e)) from None
     try:
         return _toml.loads(text)
     except _toml.TOMLDecodeError as e:
