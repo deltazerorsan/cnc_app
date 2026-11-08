@@ -671,7 +671,7 @@ def test_a_screw_leaves_less_free_zone_on_a_real_board():
 
 
 def test_no_analysis_without_a_valid_plan_or_without_a_board():
-    p = project("pvc_negro_3_y_5mm.svg", tool="em3175", thickness=3.0)       # la 3,175 aun no tiene feed
+    p = project("pvc_negro_3_y_5mm.svg", tool="3.175", thickness=3.0)        # una fresa escrita por su diametro no trae feed
     plan = p.plan(1)
     assert not plan.ok and analyse_plan(plan, []) is None
     assert analyse_plan(None, []) is None
