@@ -355,7 +355,23 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
         m.addAction(self.act_wheel)
         m = self.menuBar().addMenu(_("A&yuda"))
         self._build_language_menu(m)
-        act(m, _("Acerca de…"), self.about)
+        act(m, _("Acerca de…"), self.about).setMenuRole(QAction.MenuRole.AboutRole)
+        self._pin_menu_roles()
+
+    def _pin_menu_roles(self) -> None:
+        """Ninguna acción del menú va a donde no debe en macOS. Allí, cada acción sin papel explícito pasa al menú de la
+        aplicación si su texto EMPIEZA por «Quit», «Exit», «Config», «Options»…: «Quitar la elección», «Quitar del grupo» o
+        «Quitar todos» se colaban como «Salir» (casi siempre desactivadas, y el menú de la aplicación quedaba apagado).
+        Lo que no tiene papel se queda donde está (NoRole); solo «Salir» y «Acerca de» llevan el suyo, puesto al crearlas."""
+        def walk(menu) -> None:
+            for action in menu.actions():
+                if action.menu() is not None:
+                    walk(action.menu())
+                elif action.menuRole() == QAction.MenuRole.TextHeuristicRole:
+                    action.setMenuRole(QAction.MenuRole.NoRole)
+        for top in self.menuBar().actions():
+            if top.menu() is not None:
+                walk(top.menu())
 
     def _build_language_menu(self, menu) -> None:
         """Ayuda → Idioma: Automático (el del sistema), Español o English. Vale desde el siguiente arranque."""
