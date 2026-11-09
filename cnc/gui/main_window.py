@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import sys
 import traceback
 from dataclasses import replace
 from pathlib import Path
@@ -313,8 +314,12 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
         act(m, _("Carpetas de trabajos y G-code…"), self.open_folders_dialog)
         m.addSeparator()
         self.act_generate = act(m, _("Generar G-code…"), self.generate, "Ctrl+G")
-        m.addSeparator()
-        act(m, _("Salir"), self.close, "Ctrl+Q")
+        if sys.platform != "darwin":                      # en macOS «Salir» pasa al menú de la aplicación y no queda nada debajo
+            m.addSeparator()
+        quit_action = act(m, _("Salir"), self.close, "Ctrl+Q")
+        # Sin el papel de «Salir», macOS pone el suyo en el menú de la aplicación, desactivado, con el atajo ⌘Q: ni el menú ni
+        # ⌘Q cerraban la ventana. Con el papel, esta acción ocupa su sitio (en los demás sistemas no cambia nada).
+        quit_action.setMenuRole(QAction.MenuRole.QuitRole)
         m = self.menuBar().addMenu(_("&Edición"))
         self.act_undo = act(m, _("Deshacer"), self.undo, "Ctrl+Z")
         self.act_redo = act(m, _("Rehacer"), self.redo, "Ctrl+Y")
