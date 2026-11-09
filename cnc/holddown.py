@@ -200,12 +200,20 @@ def zones_key(zones: Zones) -> tuple:
 def build_zones(board, previews, radius: float) -> Zones:
     lines, closed_polys, drills = [], [], []
     for op in previews:
+        bridges = [LineString(br) for br in getattr(op, "bridges", []) if len(br) >= 2]
         for pl in op.cuts:
             if len(pl) < 2:
                 continue
             lines.append(LineString(pl))
-            if op.kind in ("hueco", "pieza", "linea"):
+            if op.kind in ("hueco", "pieza", "linea") and not bridges:
                 closed_polys.extend((loop, op.kind) for loop in _loops(pl))
+        # Los puentes son tramos del contorno que la fresa recorre levantada: ahi la pieza sigue unida al tablero, pero la fresa
+        # pasa (a media altura) y un tornillo daria en ella, asi que cuentan como corte; y cierran el contorno: sin ellos, un
+        # contorno con puentes eran trozos abiertos y la pieza se tomaba por desecho (se proponia sujetar encima de ella).
+        lines.extend(bridges)
+        if bridges and op.kind in ("hueco", "pieza", "linea"):
+            ring = unary_union([LineString(pl) for pl in op.cuts if len(pl) >= 2] + bridges)
+            closed_polys.extend((g, op.kind) for g in polygonize(ring) if g.area > MIN_AREA)
         for x, y, _z in op.drills:
             drills.append(Point(x, y))
     axis = unary_union(lines + drills) if (lines or drills) else Polygon()

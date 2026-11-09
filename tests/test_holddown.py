@@ -979,3 +979,40 @@ def test_a_node_close_to_a_cut_moves_to_where_there_is_twice_the_comfortable_dis
     assert all(abs(p[0] - 152.5) <= 25 for p in left)                       # pero sin irse lejos del nudo
     b = analysis(cut, HoldSettings(cut_clear=0), 610, 1015)                 # sin holgura que pedir, cada punto en su nudo
     assert all(abs(p[0] - 152.5) <= 8 for p in b.suggest() if p[0] < 180)
+
+
+# --- puentes: la pieza sigue siendo pieza -----------------------------------------------------------------------------------
+def piece_with_bridges():
+    """Una pieza de 100 x 60 cuyo contorno lleva dos puentes (tramos que la fresa recorre levantada): los cortes quedan en
+    tres trozos abiertos y los puentes los cierran, como en la previsualizacion de un trabajo real."""
+    x0, y0, x1, y1 = 150, 120, 250, 180
+    top = [(x0, y1), (190, y1)]
+    bridge_top = [(190, y1), (210, y1)]
+    rest = [(210, y1), (x1, y1), (x1, y0), (x0, y0), (x0, 150)]
+    bridge_left = [(x0, 150), (x0, 160)]
+    last = [(x0, 160), (x0, y1)]
+    return OpPreview(1, "pieza", cuts=[top, rest, last], bridges=[bridge_top, bridge_left])
+
+
+def test_a_piece_whose_cut_has_bridges_is_still_a_piece_and_is_never_held():
+    z = build_zones(board(), [piece_with_bridges()], R)
+    assert len(z.pieces) == 1 and len(z.frame) == 1 and z.pieces[0].contains(Point(200, 150))
+    a = HoldAnalysis(z, HoldSettings())
+    assert a.check(200, 150).reason.startswith("dentro de una pieza")
+    assert not any(box(150, 120, 250, 180).contains(Point(p)) for p in a.suggest())
+
+
+def test_without_the_bridges_closing_the_contour_the_piece_would_be_taken_for_scrap():
+    """Lo que pasaba: solo contaban los cortes, que con puentes son trozos abiertos, y el cuerpo de la pieza era marco."""
+    p = piece_with_bridges()
+    z = build_zones(board(), [OpPreview(1, "pieza", cuts=p.cuts)], R)
+    assert not z.pieces and any(f.contains(Point(200, 150)) for f in z.frame)
+
+
+def test_the_tool_passes_over_a_bridge_so_nothing_is_held_on_it():
+    long_bridge = OpPreview(1, "pieza", cuts=[[(150, 120), (150, 180), (250, 180), (250, 120)], [(190, 120), (150, 120)]],
+                            bridges=[[(250, 120), (190, 120)]])                  # puente de 60 mm: la fresa pasa por el
+    a = analysis([long_bridge])
+    assert a.zones.axis.distance(Point(220, 120)) == 0
+    assert a.check(220, 120).reason == "encima del recorrido de la fresa"
+    assert a.check(220, 128).reason != "" and not a.check(220, 128).ok            # y a 8 mm de el, dentro del pasillo o pegado a el
