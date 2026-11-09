@@ -48,6 +48,7 @@ ROW_GAP = 30.0           # mm: puntos cuya Y se parece a esto (de uno al siguien
 MANY_PARTS = 2000        # un trazado con mas segmentos sueltos que esto se ensancha por polilineas largas (ver _buffer)
 GAP_TOL = DEMAND_STEP * 0.75   # lo que puede pasarse el hueco medido en la rejilla sin que sea de verdad un hueco mayor
 CLOSE_TOL = 1e-6
+JOIN_TOL = 1e-4          # mm: extremos de trozos del mismo contorno que se tocan a esta distancia o menos se dan por el mismo punto
 MIN_AREA = 1.0           # mm2: lo mas pequeno que cuenta como trozo
 
 
@@ -139,6 +140,34 @@ def _loops(pl) -> list:
     return [g for g in polygonize(unary_union(LineString(pl))) if g.area > MIN_AREA]
 
 
+def _joined(polylines) -> list:
+    """Las mismas polilineas con los extremos que se tocan puestos exactamente en el mismo punto.
+
+    El recorrido de un contorno con puentes son trozos que acaban donde empieza el siguiente, pero no a la cifra: con varias
+    pasadas el calculo deja diferencias de 0,0000000001 mm (y cuales salen depende del procesador: en un Mac con Apple
+    Silicon salian y en uno con Intel no), y `polygonize` solo cierra un contorno cuyos trozos se tocan exactamente. Un
+    contorno que por eso se tomaba por abierto dejaba a la pieza como desecho, y se proponia sujetar encima de ella. Se
+    juntan los extremos que distan JOIN_TOL o menos (un trozo cuyo final no esta cerca de ningun otro no cambia)."""
+    cells: dict = {}
+    snapped = []
+
+    def anchor(pt):
+        cx, cy = round(pt[0] / JOIN_TOL), round(pt[1] / JOIN_TOL)
+        for i in (cx - 1, cx, cx + 1):
+            for j in (cy - 1, cy, cy + 1):
+                for q in cells.get((i, j), ()):
+                    if abs(q[0] - pt[0]) <= JOIN_TOL and abs(q[1] - pt[1]) <= JOIN_TOL:
+                        return q
+        cells.setdefault((cx, cy), []).append((pt[0], pt[1]))
+        return (pt[0], pt[1])
+
+    for pl in polylines:
+        pts = [tuple(pt) for pt in pl]
+        pts[0], pts[-1] = anchor(pts[0]), anchor(pts[-1])
+        snapped.append(pts)
+    return snapped
+
+
 def _corners(board) -> list:
     """Las esquinas de la plancha: los vertices de su contorno donde este cambia de direccion."""
     out = []
@@ -212,7 +241,8 @@ def build_zones(board, previews, radius: float) -> Zones:
         # contorno con puentes eran trozos abiertos y la pieza se tomaba por desecho (se proponia sujetar encima de ella).
         lines.extend(bridges)
         if bridges and op.kind in ("hueco", "pieza", "linea"):
-            ring = unary_union([LineString(pl) for pl in op.cuts if len(pl) >= 2] + bridges)
+            pieces_of_contour = _joined([pl for pl in op.cuts if len(pl) >= 2] + [br for br in op.bridges if len(br) >= 2])
+            ring = unary_union([LineString(pl) for pl in pieces_of_contour])
             closed_polys.extend((g, op.kind) for g in polygonize(ring) if g.area > MIN_AREA)
         for x, y, _z in op.drills:
             drills.append(Point(x, y))

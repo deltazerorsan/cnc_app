@@ -1009,6 +1009,47 @@ def test_without_the_bridges_closing_the_contour_the_piece_would_be_taken_for_sc
     assert not z.pieces and any(f.contains(Point(200, 150)) for f in z.frame)
 
 
+def test_a_contour_that_does_not_close_to_the_last_digit_is_still_a_piece():
+    """Lo que se vio en un Mac con Apple Silicon: el recorrido de varias pasadas con puentes acababa a 0,0000000001 mm de donde
+    empezo (y los puentes a esa distancia de los cortes), el contorno se tomaba por abierto y se proponia sujetar la pieza."""
+    nudge = 1e-10
+    x0, y0, x1, y1 = 150, 120, 250, 180
+    top = [(x0, y1), (190, y1)]
+    bridge_top = [(190, y1), (210 + nudge, y1)]
+    rest = [(210, y1 - nudge), (x1, y1), (x1, y0), (x0, y0), (x0, 150)]
+    bridge_left = [(x0 - nudge, 150), (x0, 160)]
+    last = [(x0, 160 + nudge), (x0 + nudge, y1 - nudge)]
+    shifted = OpPreview(1, "pieza", cuts=[top, rest, last], bridges=[bridge_top, bridge_left])
+    z = build_zones(board(), [shifted], R)
+    assert len(z.pieces) == 1 and z.pieces[0].contains(Point(200, 150))
+    assert not any(box(150, 120, 250, 180).contains(Point(p)) for p in HoldAnalysis(z, HoldSettings()).suggest())
+
+
+@pytest.mark.parametrize("kind, expected", [("pieza", (1, 0, 1)), ("hueco", (0, 1, 1)), ("linea", (0, 1, 1))])
+def test_a_closed_path_that_ends_a_hair_away_from_where_it_started_still_closes(kind, expected):
+    cut = rect_path(100, 80, 300, 220)
+    cut[-1] = (100 + 1e-10, 80 - 1e-10)
+    assert sizes(analysis([op(kind, cut)]))[0] == expected
+
+
+def test_a_real_piece_cut_in_several_passes_with_bridges_is_not_held_on_its_body():
+    """Una pieza en L con un circulo, cortada con la fresa de 3,175 (varias pasadas) y con puentes: la propuesta era un solo
+    punto, en medio de la pieza."""
+    p = project("pieza_en_l_con_puentes.svg", tool="em3175", thickness=3.0, feed=300.0, plunge=200.0)
+    for row in p.rows:
+        if row.action == "corte":
+            row.tabs = True
+    plan = p.plan(1)
+    assert plan.ok, plan.error
+    prev = preview_ops(plan)
+    assert prev[0].bridges
+    a = analyse_plan(plan, prev, HoldSettings())
+    assert len(a.zones.pieces) == 1
+    pts = a.suggest()
+    assert pts and all(a.check(*pt).ok for pt in pts)
+    assert all(not piece.contains(Point(*pt)) for piece in a.zones.pieces for pt in pts)
+
+
 def test_the_tool_passes_over_a_bridge_so_nothing_is_held_on_it():
     long_bridge = OpPreview(1, "pieza", cuts=[[(150, 120), (150, 180), (250, 180), (250, 120)], [(190, 120), (150, 120)]],
                             bridges=[[(250, 120), (190, 120)]])                  # puente de 60 mm: la fresa pasa por el
