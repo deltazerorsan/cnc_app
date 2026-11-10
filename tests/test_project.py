@@ -139,6 +139,68 @@ def test_toml_round_trip_gives_back_the_same_recipe_and_is_readable(tmp_path):
     assert again.operations[1].stepover == pytest.approx(0.6) and again.operations[0].feed_xy == 900.5
 
 
+# --- grosor, fresa y maquina dentro de la receta ---------------------------------------------------------
+JOB_OPS = {"operacion": [{"nombre": "c", "tipo": "corte", "trazo": RED}]}
+
+
+def test_recipe_job_keys_parse_and_old_recipes_have_none():
+    r = parse_recipe({**JOB_OPS, "grosor": 19, "fresa": "em4", "maquina": "emulador"})
+    assert (r.thickness, r.tool, r.machine) == (19, "em4", "emulador")
+    assert parse_recipe({**JOB_OPS, "fresa": 3.175}).tool == "3.175"
+    old = parse_recipe(JOB_OPS)
+    assert (old.thickness, old.tool, old.machine) == (None, None, None)
+    for bad in ({"grosor": "mucho"}, {"fresa": ""}, {"maquina": 5}, {"fresa": [1]}):
+        with pytest.raises(RecipeError):
+            parse_recipe({**JOB_OPS, **bad})
+
+
+def test_a_recipe_with_job_values_sets_them_and_says_what_changed():
+    p = Project(tools(), machines={"emulador": object()})
+    p.load_svg(BOARDS19)
+    p.general = replace(p.general, tool="vacia", thickness=12.0, machine="")
+    notes = p.apply_recipe(parse_recipe({**JOB_OPS, "grosor": 19, "fresa": "em4", "maquina": "emulador"}))
+    assert (p.general.thickness, p.general.tool, p.general.machine) == (19, "em4", "emulador")
+    assert [n.level for n in notes] == ["info", "info"]
+    assert "19" in notes[0].text and "12" in notes[0].text and "vacia" in notes[1].text
+
+
+def test_a_recipe_naming_an_unknown_tool_or_machine_warns_and_keeps_the_current_ones():
+    p = Project(tools())
+    p.load_svg(BOARDS19)
+    p.general = replace(p.general, tool="em4", machine="")
+    notes = p.apply_recipe(parse_recipe({**JOB_OPS, "fresa": "no_existe", "maquina": "fantasma"}))
+    assert p.general.tool == "em4" and p.general.machine == ""
+    assert [n.level for n in notes] == ["warning", "warning"]
+    assert "no_existe" in notes[0].text and "fantasma" in notes[1].text
+
+
+def test_a_recipe_without_job_values_leaves_the_job_alone():
+    p = Project(tools())
+    p.load_svg(BOARDS19)
+    p.general = replace(p.general, tool="em4", thickness=7.0)
+    assert p.apply_recipe(parse_recipe(JOB_OPS)) == []
+    assert (p.general.tool, p.general.thickness) == ("em4", 7.0)
+
+
+def test_saving_a_recipe_includes_job_values_and_reading_it_back_restores_them(tmp_path):
+    p = Project(tools(), machines={"emulador": object()})
+    p.load_svg(BOARDS19)
+    p.load_recipe_file(RECIPE)
+    p.general = replace(p.general, tool="em4", thickness=19.0, machine="emulador")
+    path = tmp_path / "r.toml"
+    path.write_text(p.recipe_text(), encoding="utf-8")
+    data = tomllib.loads(path.read_text(encoding="utf-8"))
+    assert (data["grosor"], data["fresa"], data["maquina"]) == (19.0, "em4", "emulador")
+    q = Project(tools(), machines={"emulador": object()})
+    q.load_svg(BOARDS19)
+    q.general = replace(q.general, tool="vacia", thickness=3.0, machine="")
+    q.load_recipe_file(path)
+    assert (q.general.tool, q.general.thickness, q.general.machine) == ("em4", 19.0, "emulador")
+    assert len(q.recipe_notes) == 2
+    p.general = replace(p.general, tool="", machine="")
+    assert "fresa" not in tomllib.loads(p.recipe_text()) and "maquina" not in tomllib.loads(p.recipe_text())
+
+
 def test_saving_a_recipe_checks_that_it_can_be_read_back():
     p = Project(tools())
     p.rows = [OpRow(stroke=RED, action="corte"), OpRow(stroke=RED, fill=BLACK, action="ignorar")]

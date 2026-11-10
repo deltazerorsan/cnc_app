@@ -128,8 +128,10 @@ def row_to_dict(row: OpRow, name: str, index: int = 0) -> dict:
     return d
 
 
-def recipe_dict(rows: Sequence[OpRow], title: str = "", ignore: Sequence[str] = ()) -> dict:
-    """Diccionario con la forma del TOML de la receta, de las filas activas (en orden)."""
+def recipe_dict(rows: Sequence[OpRow], title: str = "", ignore: Sequence[str] = (),
+                job: Optional[dict] = None) -> dict:
+    """Diccionario con la forma del TOML de la receta, de las filas activas (en orden). `job` lleva lo que la receta
+    recuerda del trabajo ('grosor', 'fresa', 'maquina'); lo que venga vacio no se escribe."""
     names: dict[str, int] = {}
     ops = []
     for r in rows:
@@ -141,6 +143,9 @@ def recipe_dict(rows: Sequence[OpRow], title: str = "", ignore: Sequence[str] = 
     data: dict = {}
     if title:
         data["titulo"] = title
+    for key in ("grosor", "fresa", "maquina"):
+        if job and job.get(key) not in (None, ""):
+            data[key] = job[key]
     if ignore:
         data["ignorar"] = list(ignore)
     data["operacion"] = ops
@@ -201,7 +206,7 @@ def recipe_to_toml(data: dict) -> str:
     """Texto TOML de un diccionario de receta (`recipe_dict`), en el orden de claves de `receta_ejemplo.toml`."""
     lines = [_("# Receta de trabajo generada por cnc_app: que operacion es cada color del dibujo."),
              _("# Se puede editar a mano y abrir otra vez con Receta > Abrir receta (ver receta_ejemplo.toml)."), ""]
-    for key in ("titulo", "ignorar"):
+    for key in ("titulo", "grosor", "fresa", "maquina", "ignorar"):
         if key in data:
             lines.append(f"{key} = {_toml_value(data[key])}")
     order = ("nombre", "tipo", "trazo", "relleno", "lado", "pasante", "profundidad", "pasada", "avance", "entrada",

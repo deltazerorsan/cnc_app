@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cnc_app VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-08 22:53+0100\n"
+"POT-Creation-Date: 2026-11-10 19:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -576,7 +576,7 @@ msgstr ""
 msgid "{what} tiene que ser un numero entero de {minimum} a {MAX_NEW} (hay {value!r})."
 msgstr ""
 
-#: drawing_edit.py:80 project.py:341
+#: drawing_edit.py:80 project.py:374
 msgid "no hay ninguna forma elegida."
 msgstr ""
 
@@ -902,7 +902,7 @@ msgstr ""
 msgid "El radio de las esquinas baja de {r:g} a {kept:g} mm: con ese tamano no cabe."
 msgstr ""
 
-#: drawing_edit.py:734 gui/bridge_layer.py:158 project.py:633
+#: drawing_edit.py:734 gui/bridge_layer.py:158 project.py:666
 msgid "los puentes solo se ponen en formas cerradas."
 msgstr ""
 
@@ -1649,7 +1649,7 @@ msgstr ""
 msgid "Deshacer: {undo_label}"
 msgstr ""
 
-#: gui/draw_actions.py:260 gui/main_window.py:319
+#: gui/draw_actions.py:260 gui/main_window.py:324
 msgid "Deshacer"
 msgstr ""
 
@@ -1658,7 +1658,7 @@ msgstr ""
 msgid "Rehacer: {redo_label}"
 msgstr ""
 
-#: gui/draw_actions.py:261 gui/main_window.py:320
+#: gui/draw_actions.py:261 gui/main_window.py:325
 msgid "Rehacer"
 msgstr ""
 
@@ -2230,7 +2230,7 @@ msgstr ""
 msgid "Altura de la punta sobre la plancha en la pausa en la que se marca cada punto"
 msgstr ""
 
-#: gui/hold_panel.py:63 gui/main_window.py:271
+#: gui/hold_panel.py:63 gui/main_window.py:272
 msgid "Sujeción"
 msgstr ""
 
@@ -2316,7 +2316,7 @@ msgid ""
 "para marcarlo"
 msgstr ""
 
-#: gui/hold_panel.py:129 gui/main_window.py:1301
+#: gui/hold_panel.py:129 gui/main_window.py:1337
 msgid "Abre un dibujo con tableros para calcular la sujeción."
 msgstr ""
 
@@ -2391,7 +2391,7 @@ msgstr ""
 msgid "elige la máquina"
 msgstr ""
 
-#: gui/job_panel.py:84 gui/main_window.py:311
+#: gui/job_panel.py:84 gui/main_window.py:312
 msgid "Máquinas…"
 msgstr ""
 
@@ -2407,7 +2407,7 @@ msgstr ""
 msgid "Fresa y material"
 msgstr ""
 
-#: gui/job_panel.py:101 gui/main_window.py:194 gui/main_window.py:341
+#: gui/job_panel.py:101 gui/main_window.py:195 gui/main_window.py:346
 msgid "Máquina"
 msgstr ""
 
@@ -2748,289 +2748,289 @@ msgstr ""
 msgid "Origen de los datos"
 msgstr ""
 
-#: gui/main_window.py:163
+#: gui/main_window.py:164
 msgid "Detectar tableros"
 msgstr ""
 
-#: gui/main_window.py:164
+#: gui/main_window.py:165
 msgid "Un rectángulo con dibujo dentro es un tablero y sale en su propio .nc; las elipses agrupan y se descartan"
 msgstr ""
 
-#: gui/main_window.py:166
+#: gui/main_window.py:167
 msgid "Tableros"
 msgstr ""
 
-#: gui/main_window.py:193 gui/main_window.py:340
+#: gui/main_window.py:194 gui/main_window.py:345
 msgid "Dibujo"
 msgstr ""
 
-#: gui/main_window.py:199
+#: gui/main_window.py:200
 msgid "Rápidos"
 msgstr ""
 
-#: gui/main_window.py:201
+#: gui/main_window.py:202
 msgid "Mostrar los desplazamientos en rápido (G0) entre cortes"
 msgstr ""
 
-#: gui/main_window.py:202
+#: gui/main_window.py:203
 msgid "Ajustar"
 msgstr ""
 
-#: gui/main_window.py:203
+#: gui/main_window.py:204
 msgid "Ajustar la vista (doble clic en el dibujo)"
 msgstr ""
 
-#: gui/main_window.py:204
+#: gui/main_window.py:205
 msgid "Rejilla"
 msgstr ""
 
-#: gui/main_window.py:206
+#: gui/main_window.py:207
 msgid "Rejilla con medidas en mm; su paso se adapta al zoom o es el de la cuadrícula del ratón (Dibujo → Dibujar con el ratón → Opciones)"
 msgstr ""
 
-#: gui/main_window.py:208
+#: gui/main_window.py:209
 msgid "Recorrido"
 msgstr ""
 
-#: gui/main_window.py:210
+#: gui/main_window.py:211
 msgid "En el dibujo, el contorno de puntos del recorrido de la máquina elegida, colocado sobre el tablero que se ve con el giro y el cero que tendrá el G-code"
 msgstr ""
 
-#: gui/main_window.py:215
+#: gui/main_window.py:216
 msgid "Rueda del ratón invertida"
 msgstr ""
 
-#: gui/main_window.py:217
+#: gui/main_window.py:218
 msgid "Marcada: girar la rueda hacia delante aleja el dibujo y hacia atrás lo acerca. Sin marcar: al revés."
 msgstr ""
 
-#: gui/main_window.py:238 gui/main_window.py:315
+#: gui/main_window.py:239 gui/main_window.py:316
 msgid "Generar G-code…"
 msgstr ""
 
-#: gui/main_window.py:269
+#: gui/main_window.py:270
 msgid "Operaciones"
 msgstr ""
 
-#: gui/main_window.py:270 gui/main_window.py:1196
+#: gui/main_window.py:271 gui/main_window.py:1232
 msgid "Mensajes"
 msgstr ""
 
-#: gui/main_window.py:292
+#: gui/main_window.py:293
 msgid "Abre un dibujo SVG para empezar (Archivo → Abrir, o arrástralo aquí)."
 msgstr ""
 
-#: gui/main_window.py:305
+#: gui/main_window.py:306
 msgid "&Archivo"
 msgstr ""
 
-#: gui/main_window.py:306
+#: gui/main_window.py:307
 msgid "Abrir dibujo SVG…"
 msgstr ""
 
-#: gui/main_window.py:307
+#: gui/main_window.py:308
 msgid "Abrir trabajo guardado…"
 msgstr ""
 
-#: gui/main_window.py:308
+#: gui/main_window.py:309
 msgid "Guardar trabajo…"
 msgstr ""
 
-#: gui/main_window.py:309
+#: gui/main_window.py:310
 msgid "Fichas de fresas…"
 msgstr ""
 
-#: gui/main_window.py:310
+#: gui/main_window.py:311
 msgid "Recargar fichas de fresas"
 msgstr ""
 
-#: gui/main_window.py:312
+#: gui/main_window.py:313
 msgid "Recargar máquinas"
 msgstr ""
 
-#: gui/main_window.py:313
+#: gui/main_window.py:314
 msgid "Carpetas de trabajos y G-code…"
 msgstr ""
 
-#: gui/main_window.py:317
+#: gui/main_window.py:319
 msgid "Salir"
 msgstr ""
 
-#: gui/main_window.py:318
+#: gui/main_window.py:323
 msgid "&Edición"
 msgstr ""
 
-#: gui/main_window.py:322
+#: gui/main_window.py:327
 msgid "Elegir todos"
 msgstr ""
 
-#: gui/main_window.py:323
+#: gui/main_window.py:328
 msgid "Elegir el tablero actual (con su recuadro)"
 msgstr ""
 
-#: gui/main_window.py:324
+#: gui/main_window.py:329
 msgid "Quitar la elección"
 msgstr ""
 
-#: gui/main_window.py:326
+#: gui/main_window.py:331
 msgid "Borrar lo elegido"
 msgstr ""
 
-#: gui/main_window.py:327
+#: gui/main_window.py:332
 msgid "&Receta"
 msgstr ""
 
-#: gui/main_window.py:328 gui/ops_panel.py:111
+#: gui/main_window.py:333 gui/ops_panel.py:111
 msgid "Abrir receta…"
 msgstr ""
 
-#: gui/main_window.py:329
+#: gui/main_window.py:334
 msgid "Guardar receta como…"
 msgstr ""
 
-#: gui/main_window.py:330
+#: gui/main_window.py:335
 msgid "Restablecer tabla"
 msgstr ""
 
-#: gui/main_window.py:331
+#: gui/main_window.py:336
 msgid "&Formas"
 msgstr ""
 
-#: gui/main_window.py:332
+#: gui/main_window.py:337
 msgid "Grupo nuevo con lo elegido…"
 msgstr ""
 
-#: gui/main_window.py:336
+#: gui/main_window.py:341
 msgid "Ordenar las filas (taladros, pozos, interiores, exteriores)"
 msgstr ""
 
-#: gui/main_window.py:338
+#: gui/main_window.py:343
 msgid "&Ver"
 msgstr ""
 
-#: gui/main_window.py:345
+#: gui/main_window.py:350
 msgid "Ajustar vista"
 msgstr ""
 
-#: gui/main_window.py:351
+#: gui/main_window.py:356
 msgid "A&yuda"
 msgstr ""
 
-#: gui/main_window.py:353
+#: gui/main_window.py:358
 msgid "Acerca de…"
 msgstr ""
 
-#: gui/main_window.py:357
+#: gui/main_window.py:378
 msgid "Idioma"
 msgstr ""
 
-#: gui/main_window.py:361
+#: gui/main_window.py:382
 msgid "Automático (el del sistema)"
 msgstr ""
 
-#: gui/main_window.py:375
+#: gui/main_window.py:396
 msgid "Idioma guardado."
 msgstr ""
 
-#: gui/main_window.py:456
+#: gui/main_window.py:477
 msgid "Abrir dibujo"
 msgstr ""
 
-#: gui/main_window.py:456 gui/main_window.py:546
+#: gui/main_window.py:477 gui/main_window.py:577
 msgid "Dibujo SVG (*.svg);;Todos (*)"
 msgstr ""
 
-#: gui/main_window.py:464
+#: gui/main_window.py:485 gui/main_window.py:555
 msgid "No se pudo abrir el dibujo"
 msgstr ""
 
-#: gui/main_window.py:475
+#: gui/main_window.py:496
 msgid "dibujo nuevo"
 msgstr ""
 
-#: gui/main_window.py:481
+#: gui/main_window.py:502
 #, python-brace-format
 msgid "cnc_app — {drawing_name}"
 msgstr ""
 
-#: gui/main_window.py:492
+#: gui/main_window.py:513
 #, python-brace-format
 msgid "{drawing_name}: {count} combinacion(es) de color, {count2} unidad(es) de trabajo."
 msgstr ""
 
-#: gui/main_window.py:500
+#: gui/main_window.py:521
 msgid "Abrir trabajo"
 msgstr ""
 
-#: gui/main_window.py:501
+#: gui/main_window.py:522
 #, python-brace-format
 msgid "Trabajo cnc_app (*{JOB_SUFFIX});;Todos (*)"
 msgstr ""
 
-#: gui/main_window.py:510
+#: gui/main_window.py:531
 msgid "el archivo de trabajo no tiene el formato esperado."
 msgstr ""
 
-#: gui/main_window.py:512
+#: gui/main_window.py:533
 msgid "No se pudo abrir el trabajo"
 msgstr ""
 
-#: gui/main_window.py:533
+#: gui/main_window.py:564
 msgid "No se pudo aplicar el trabajo"
 msgstr ""
 
-#: gui/main_window.py:537
+#: gui/main_window.py:568
 #, python-brace-format
 msgid "Trabajo {name} abierto."
 msgstr ""
 
-#: gui/main_window.py:545
+#: gui/main_window.py:576
 #, python-brace-format
 msgid "¿Dónde está el dibujo {v}?"
 msgstr ""
 
-#: gui/main_window.py:545
+#: gui/main_window.py:576
 msgid "del trabajo"
 msgstr ""
 
-#: gui/main_window.py:558
+#: gui/main_window.py:589
 msgid "Guardar trabajo"
 msgstr ""
 
-#: gui/main_window.py:558
+#: gui/main_window.py:589
 #, python-brace-format
 msgid "Trabajo cnc_app (*{JOB_SUFFIX})"
 msgstr ""
 
-#: gui/main_window.py:569
+#: gui/main_window.py:600
 msgid "No se pudo guardar el trabajo"
 msgstr ""
 
-#: gui/main_window.py:575
+#: gui/main_window.py:606
 #, python-brace-format
 msgid "cnc_app — {name}"
 msgstr ""
 
-#: gui/main_window.py:576
+#: gui/main_window.py:607
 #, python-brace-format
 msgid "Trabajo guardado en {path}"
 msgstr ""
 
-#: gui/main_window.py:584
+#: gui/main_window.py:615
 msgid "No hay fichas de fresas que cargar."
 msgstr ""
 
-#: gui/main_window.py:586
+#: gui/main_window.py:617
 #, python-brace-format
 msgid "No se recargaron las fichas: {why}"
 msgstr ""
 
-#: gui/main_window.py:592
+#: gui/main_window.py:623
 #, python-brace-format
 msgid "Fichas recargadas: {join}"
 msgstr ""
 
-#: gui/main_window.py:605
+#: gui/main_window.py:636
 #, python-brace-format
 msgid ""
 "{e}\n"
@@ -3038,44 +3038,44 @@ msgid ""
 "Arregla el archivo a mano (o bórralo) antes de abrir el editor: así no se pisa lo que contiene."
 msgstr ""
 
-#: gui/main_window.py:605 gui/tools_dialog.py:32
+#: gui/main_window.py:636 gui/tools_dialog.py:32
 msgid "Fichas de fresas"
 msgstr ""
 
-#: gui/main_window.py:626
+#: gui/main_window.py:657
 #, python-brace-format
 msgid "La fresa elegida pasa a llamarse {renames}."
 msgstr ""
 
-#: gui/main_window.py:628
+#: gui/main_window.py:659
 #, python-brace-format
 msgid "La ficha {tool} ya no existe: elige otra fresa."
 msgstr ""
 
-#: gui/main_window.py:631
+#: gui/main_window.py:662
 #, python-brace-format
 msgid "Fichas guardadas en {path} ({count}).{note}"
 msgstr ""
 
-#: gui/main_window.py:661
+#: gui/main_window.py:692
 msgid "No hay fichas de maquina que cargar."
 msgstr ""
 
-#: gui/main_window.py:663
+#: gui/main_window.py:694
 #, python-brace-format
 msgid "No se recargaron las maquinas: {why}"
 msgstr ""
 
-#: gui/main_window.py:668
+#: gui/main_window.py:699
 #, python-brace-format
 msgid "Maquinas recargadas: {join}"
 msgstr ""
 
-#: gui/main_window.py:681
+#: gui/main_window.py:712
 msgid "Maquinas"
 msgstr ""
 
-#: gui/main_window.py:681
+#: gui/main_window.py:712
 #, python-brace-format
 msgid ""
 "{e}\n"
@@ -3083,396 +3083,396 @@ msgid ""
 "Arregla el archivo a mano (o borralo) antes de abrir el editor: asi no se pisa lo que contiene."
 msgstr ""
 
-#: gui/main_window.py:704
+#: gui/main_window.py:735
 #, python-brace-format
 msgid "La máquina elegida pasa a llamarse {renames}."
 msgstr ""
 
-#: gui/main_window.py:706
+#: gui/main_window.py:737
 #, python-brace-format
 msgid "La máquina {machine} ya no existe: elige otra."
 msgstr ""
 
-#: gui/main_window.py:708
+#: gui/main_window.py:739
 #, python-brace-format
 msgid "Maquinas guardadas en {path} ({count}).{note}"
 msgstr ""
 
-#: gui/main_window.py:714
+#: gui/main_window.py:745
 msgid "Receta"
 msgstr ""
 
-#: gui/main_window.py:714
+#: gui/main_window.py:745
 msgid "Abre primero un dibujo."
 msgstr ""
 
-#: gui/main_window.py:716
+#: gui/main_window.py:747
 msgid "Abrir receta"
 msgstr ""
 
-#: gui/main_window.py:716
+#: gui/main_window.py:747
 msgid "Receta (*.toml);;Todos (*)"
 msgstr ""
 
-#: gui/main_window.py:724
+#: gui/main_window.py:755
 msgid "No se pudo abrir la receta"
 msgstr ""
 
-#: gui/main_window.py:728
+#: gui/main_window.py:761
 #, python-brace-format
 msgid "Receta {name} aplicada a la tabla."
 msgstr ""
 
-#: gui/main_window.py:734
+#: gui/main_window.py:770
 msgid "Guardar receta"
 msgstr ""
 
-#: gui/main_window.py:735
+#: gui/main_window.py:771
 msgid "Receta (*.toml)"
 msgstr ""
 
-#: gui/main_window.py:744
+#: gui/main_window.py:780
 msgid "No se pudo guardar la receta"
 msgstr ""
 
-#: gui/main_window.py:746
+#: gui/main_window.py:782
 #, python-brace-format
 msgid "Receta guardada en {path}."
 msgstr ""
 
-#: gui/main_window.py:772
+#: gui/main_window.py:808
 msgid "Tableros (marca los que se generan)"
 msgstr ""
 
-#: gui/main_window.py:772
+#: gui/main_window.py:808
 msgid "Dibujo sin tableros"
 msgstr ""
 
-#: gui/main_window.py:868
+#: gui/main_window.py:904
 #, python-brace-format
 msgid "Líneas abiertas ({count})"
 msgstr ""
 
-#: gui/main_window.py:870
+#: gui/main_window.py:906
 #, python-brace-format
 msgid "Nivel 0: exteriores ({count})"
 msgstr ""
 
-#: gui/main_window.py:872
+#: gui/main_window.py:908
 #, python-brace-format
 msgid "Nivel {level}: dentro de otro ({count})"
 msgstr ""
 
-#: gui/main_window.py:872
+#: gui/main_window.py:908
 #, python-brace-format
 msgid "Nivel {level} ({count})"
 msgstr ""
 
-#: gui/main_window.py:886
+#: gui/main_window.py:922
 #, python-brace-format
 msgid "{n} forma"
 msgid_plural "{n} formas"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gui/main_window.py:888
+#: gui/main_window.py:924
 #, python-brace-format
 msgid "{n} recuadro de tablero"
 msgid_plural "{n} recuadros de tablero"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gui/main_window.py:891
+#: gui/main_window.py:927
 #, python-brace-format
 msgid "nivel {levels}"
 msgid_plural "niveles {levels}"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gui/main_window.py:893
+#: gui/main_window.py:929
 msgid "con líneas abiertas"
 msgstr ""
 
-#: gui/main_window.py:901
+#: gui/main_window.py:937
 #, python-brace-format
 msgid "ahora en: {where}"
 msgstr ""
 
-#: gui/main_window.py:942
+#: gui/main_window.py:978
 #, python-brace-format
 msgid "{count} forma(s) en el grupo «{name}»: pon su operación y su profundidad en la tabla."
 msgstr ""
 
-#: gui/main_window.py:954
+#: gui/main_window.py:990
 #, python-brace-format
 msgid "{count} forma(s) movidas al grupo «{name}»."
 msgstr ""
 
-#: gui/main_window.py:965
+#: gui/main_window.py:1001
 #, python-brace-format
 msgid "{count} forma(s) vuelven a su color."
 msgstr ""
 
-#: gui/main_window.py:983
+#: gui/main_window.py:1019
 #, python-brace-format
 msgid "Separado en una fila por clase, en el orden de corte: {parts}. Al elegir una fila se marcan sus formas en el dibujo."
 msgstr ""
 
-#: gui/main_window.py:999
+#: gui/main_window.py:1035
 msgid "Filas ordenadas: taladros, pozos, interiores, líneas y exteriores."
 msgstr ""
 
-#: gui/main_window.py:1000
+#: gui/main_window.py:1036
 msgid "Las filas ya estaban en el orden correcto."
 msgstr ""
 
-#: gui/main_window.py:1026
+#: gui/main_window.py:1062
 msgid "No se pudo volver a leer el dibujo"
 msgstr ""
 
-#: gui/main_window.py:1073
+#: gui/main_window.py:1109
 msgid "Todo son cortes pasantes normales: se corta todo junto, como sin receta."
 msgstr ""
 
-#: gui/main_window.py:1076
+#: gui/main_window.py:1112
 #, python-brace-format
 msgid "Receta de {n} operación(es), en el orden de la tabla. Lo que está en Ignorar no se corta."
 msgstr ""
 
-#: gui/main_window.py:1091
+#: gui/main_window.py:1127
 #, python-brace-format
 msgid "<span style='color:{MUTED}'>Calculando…</span>"
 msgstr ""
 
-#: gui/main_window.py:1126
+#: gui/main_window.py:1162
 #, python-brace-format
 msgid "<span style='color:{ERROR}'>✖ Fallo interno al calcular</span>"
 msgstr ""
 
-#: gui/main_window.py:1127
+#: gui/main_window.py:1163
 msgid "Fallo interno de la aplicación al calcular (copia este texto si hay que arreglarlo):\n"
 msgstr ""
 
-#: gui/main_window.py:1174
+#: gui/main_window.py:1210
 #, python-brace-format
 msgid "<span style='color:{ERROR}'>✖ {error}</span>"
 msgstr ""
 
-#: gui/main_window.py:1178
+#: gui/main_window.py:1214
 #, python-brace-format
 msgid "{label}: {count} líneas"
 msgstr ""
 
-#: gui/main_window.py:1178
+#: gui/main_window.py:1214
 #, python-brace-format
 msgid "Z mín {min_z:.1f} mm"
 msgstr ""
 
-#: gui/main_window.py:1179
+#: gui/main_window.py:1215
 #, python-brace-format
 msgid "trayectoria {v:.0f} × {v2:.0f} mm"
 msgstr ""
 
-#: gui/main_window.py:1181
+#: gui/main_window.py:1217
 #, python-brace-format
 msgid "≈ {text} de máquina"
 msgstr ""
 
-#: gui/main_window.py:1185
+#: gui/main_window.py:1221
 #, python-brace-format
 msgid "(y {count} más)"
 msgstr ""
 
-#: gui/main_window.py:1186
+#: gui/main_window.py:1222
 #, python-brace-format
 msgid "No se puede generar: {blockers}"
 msgstr ""
 
-#: gui/main_window.py:1188
+#: gui/main_window.py:1224
 msgid "se confirman al generar"
 msgstr ""
 
-#: gui/main_window.py:1188
+#: gui/main_window.py:1224
 msgid "mira Mensajes"
 msgstr ""
 
-#: gui/main_window.py:1189
+#: gui/main_window.py:1225
 #, python-brace-format
 msgid "{count} alarma(s): {what}"
 msgstr ""
 
-#: gui/main_window.py:1191
+#: gui/main_window.py:1227
 #, python-brace-format
 msgid "{warn} aviso(s)"
 msgstr ""
 
-#: gui/main_window.py:1206
+#: gui/main_window.py:1242
 msgid ""
 "Abre un dibujo SVG\n"
 "(Archivo → Abrir, o arrástralo aquí)"
 msgstr ""
 
-#: gui/main_window.py:1218
+#: gui/main_window.py:1254
 #, python-brace-format
 msgid "<span style='color:{KIND_COLORS}'>■</span> {KIND_LABELS}"
 msgstr ""
 
-#: gui/main_window.py:1220
+#: gui/main_window.py:1256
 #, python-brace-format
 msgid "<span style='color:{ERROR}'>◯</span> falta de espacio o punto agudo"
 msgstr ""
 
-#: gui/main_window.py:1222
+#: gui/main_window.py:1258
 #, python-brace-format
 msgid "<span style='color:{MACHINE}'>● ● ●</span> {frame_text} <span style='color:{ERROR}'>+</span> cero"
 msgstr ""
 
-#: gui/main_window.py:1239 gui/main_window.py:1303
+#: gui/main_window.py:1275 gui/main_window.py:1339
 msgid "Calculando la trayectoria…"
 msgstr ""
 
-#: gui/main_window.py:1241
+#: gui/main_window.py:1277
 #, python-brace-format
 msgid ""
 "Sin trayectoria:\n"
 "{error}"
 msgstr ""
 
-#: gui/main_window.py:1305
+#: gui/main_window.py:1341
 #, python-brace-format
 msgid "No hay trayectoria que respetar: {error}"
 msgstr ""
 
-#: gui/main_window.py:1305
+#: gui/main_window.py:1341
 msgid "sin detalle"
 msgstr ""
 
-#: gui/main_window.py:1307
+#: gui/main_window.py:1343
 msgid "Este dibujo no tiene tablero (un rectángulo con el dibujo dentro) y el cero no está en la esquina inferior izquierda de lo que se corta: sin eso no se sabe dónde está el borde de la plancha."
 msgstr ""
 
-#: gui/main_window.py:1314
+#: gui/main_window.py:1350
 #, python-brace-format
 msgid "Ajuste de sujeción que no vale: {e}"
 msgstr ""
 
-#: gui/main_window.py:1330
+#: gui/main_window.py:1366
 #, python-brace-format
 msgid "<span style='color:{WARN}'>ℹ Sin recuadro: se supone una plancha de {b:.0f} x {b2:.0f} mm, del cero a lo que se corta más {origin_margin:g} mm. Si la tuya es mayor, sube «Cero a (mm) del dibujo» (en Fresa y material).</span>"
 msgstr ""
 
-#: gui/main_window.py:1336
+#: gui/main_window.py:1372
 #, python-brace-format
 msgid "<b>{n} punto(s)</b> editados a mano"
 msgstr ""
 
-#: gui/main_window.py:1336
+#: gui/main_window.py:1372
 #, python-brace-format
 msgid "<b>{n} punto(s)</b> propuestos"
 msgstr ""
 
-#: gui/main_window.py:1338
+#: gui/main_window.py:1374
 #, python-brace-format
 msgid "{bad} no es(son) seguro(s)"
 msgstr ""
 
-#: gui/main_window.py:1342
+#: gui/main_window.py:1378
 #, python-brace-format
 msgid "<span style='color:{ERROR}'>✖ Con estos márgenes no queda sitio libre en la plancha.</span>"
 msgstr ""
 
-#: gui/main_window.py:1344
+#: gui/main_window.py:1380
 #, python-brace-format
 msgid "<span style='color:{WARN}'>⚠ Sin puntos: la plancha queda sin sujetar.</span>"
 msgstr ""
 
-#: gui/main_window.py:1349
+#: gui/main_window.py:1385
 #, python-brace-format
 msgid "<span style='color:{OK}'>✔ Ningún sitio de la plancha a más de {reach:g} mm de un punto (el más lejos: {gap:.0f} mm).</span>"
 msgstr ""
 
-#: gui/main_window.py:1352
+#: gui/main_window.py:1388
 #, python-brace-format
 msgid "<span style='color:{WARN}'>⚠ Hay sitios a {gap:.0f} mm de un punto (alcance {reach:g} mm).</span>"
 msgstr ""
 
-#: gui/main_window.py:1357
+#: gui/main_window.py:1393
 #, python-brace-format
 msgid "Punto {join} más cerca del corte de lo cómodo ({cut_clear:g} mm): un error pequeño al clavar podría dar en el corte."
 msgid_plural "Puntos {join} más cerca del corte de lo cómodo ({cut_clear:g} mm): un error pequeño al clavar podría dar en el corte."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gui/main_window.py:1363
+#: gui/main_window.py:1399
 #, python-brace-format
 msgid "<span style='color:{WARN}'>⚠ Hay {count} punto(s) seguro(s) y el mínimo para una plancha de este tamaño es {need}.</span>"
 msgstr ""
 
-#: gui/main_window.py:1366
+#: gui/main_window.py:1402
 #, python-brace-format
 msgid "<span style='color:{WARN}'>⚠ Solo se han podido proponer {count} punto(s) (el mínimo para una plancha de este tamaño es {need}): no cabe otro a {min_gap:g} mm o más de los demás.</span>"
 msgstr ""
 
-#: gui/main_window.py:1370
+#: gui/main_window.py:1406
 #, python-brace-format
 msgid "<span style='color:{WARN}'>⚠ Hay {count} trozo(s) de desecho grande(s) ({join} cm²) donde no cabe ningún punto con estos márgenes.</span>"
 msgstr ""
 
-#: gui/main_window.py:1395
+#: gui/main_window.py:1431
 #, python-brace-format
 msgid "X{x:g} Y{y:g}: no se puede sujetar ahí, {reason}."
 msgstr ""
 
-#: gui/main_window.py:1399
+#: gui/main_window.py:1435
 #, python-brace-format
 msgid "Punto {v} añadido en X{x:g} Y{y:g}."
 msgstr ""
 
-#: gui/main_window.py:1409
+#: gui/main_window.py:1445
 #, python-brace-format
 msgid "Punto quitado (X{gone:g} Y{gone2:g})."
 msgstr ""
 
-#: gui/main_window.py:1425
+#: gui/main_window.py:1461
 msgid "Vuelven los puntos propuestos para este tablero."
 msgstr ""
 
-#: gui/main_window.py:1432
+#: gui/main_window.py:1468
 #, python-brace-format
 msgid "<span style='color:{ERROR}'>✖ {e}</span>"
 msgstr ""
 
-#: gui/main_window.py:1443
+#: gui/main_window.py:1479
 #, python-brace-format
 msgid "se puede sujetar aquí, pero {warn} (clic para añadir un punto)"
 msgstr ""
 
-#: gui/main_window.py:1444
+#: gui/main_window.py:1480
 msgid "se puede sujetar aquí (clic para añadir un punto)"
 msgstr ""
 
-#: gui/main_window.py:1447
+#: gui/main_window.py:1483
 #, python-brace-format
 msgid "X{x:.1f} Y{y:.1f}: {text}"
 msgstr ""
 
-#: gui/main_window.py:1453
+#: gui/main_window.py:1489
 msgid "Abre la pestaña Sujeción con un dibujo calculado."
 msgstr ""
 
-#: gui/main_window.py:1453 gui/main_window.py:1457
+#: gui/main_window.py:1489 gui/main_window.py:1493
 msgid "Marcas de sujeción"
 msgstr ""
 
-#: gui/main_window.py:1457
+#: gui/main_window.py:1493
 msgid "No hay puntos que marcar."
 msgstr ""
 
-#: gui/main_window.py:1461
+#: gui/main_window.py:1497
 msgid "Puntos que no son seguros"
 msgstr ""
 
-#: gui/main_window.py:1462
+#: gui/main_window.py:1498
 #, python-brace-format
 msgid ""
 "Estos puntos caen donde no se debe sujetar: {points}.\n"
@@ -3480,19 +3480,19 @@ msgid ""
 "¿Generar las marcas igualmente?"
 msgstr ""
 
-#: gui/main_window.py:1471
+#: gui/main_window.py:1507
 msgid "Guardar G-code de marcas"
 msgstr ""
 
-#: gui/main_window.py:1472 gui/main_window.py:1579
+#: gui/main_window.py:1508 gui/main_window.py:1615
 msgid "G-code (*.nc *.gcode *.ngc);;Todos (*)"
 msgstr ""
 
-#: gui/main_window.py:1479
+#: gui/main_window.py:1515
 msgid "Sustituir archivo"
 msgstr ""
 
-#: gui/main_window.py:1479
+#: gui/main_window.py:1515
 #, python-brace-format
 msgid ""
 "Ya existe:\n"
@@ -3501,46 +3501,46 @@ msgid ""
 "¿Sustituirlo?"
 msgstr ""
 
-#: gui/main_window.py:1486
+#: gui/main_window.py:1522
 msgid "No se pudo escribir las marcas"
 msgstr ""
 
-#: gui/main_window.py:1490
+#: gui/main_window.py:1526
 #, python-brace-format
 msgid "Marcas guardadas en {path}: {count} punto(s), de lejos a cerca (de Y mayor a menor)."
 msgstr ""
 
-#: gui/main_window.py:1491
+#: gui/main_window.py:1527
 msgid "En UGS: abre el archivo con el husillo PARADO y ejecútalo; en cada pausa (M0) marca el punto bajo la punta y pulsa Reanudar. Al acabar, retira el puente y clava o atornilla en las marcas."
 msgstr ""
 
-#: gui/main_window.py:1493
+#: gui/main_window.py:1529
 #, python-brace-format
 msgid "Los puntos {join} no son seguros."
 msgstr ""
 
-#: gui/main_window.py:1495
+#: gui/main_window.py:1531
 #, python-brace-format
 msgid "Marcas guardadas en {path}"
 msgstr ""
 
-#: gui/main_window.py:1510 gui/main_window.py:1516 gui/main_window.py:1521
+#: gui/main_window.py:1546 gui/main_window.py:1552 gui/main_window.py:1557
 msgid "No se puede generar"
 msgstr ""
 
-#: gui/main_window.py:1527
+#: gui/main_window.py:1563
 msgid "Demasiadas zonas con problema"
 msgstr ""
 
-#: gui/main_window.py:1527
+#: gui/main_window.py:1563
 msgid "¿Generar de todos modos?"
 msgstr ""
 
-#: gui/main_window.py:1540
+#: gui/main_window.py:1576
 msgid "Sustituir archivos"
 msgstr ""
 
-#: gui/main_window.py:1541
+#: gui/main_window.py:1577
 #, python-brace-format
 msgid ""
 "Ya existe:\n"
@@ -3549,50 +3549,50 @@ msgid ""
 "¿Sustituirlo?"
 msgstr ""
 
-#: gui/main_window.py:1548
+#: gui/main_window.py:1584
 msgid "No se pudo escribir el G-code"
 msgstr ""
 
-#: gui/main_window.py:1551
+#: gui/main_window.py:1587
 #, python-brace-format
 msgid "{path}: {count} líneas, Z mínima {min_z:.3f} mm, ≈ {text} de máquina"
 msgstr ""
 
-#: gui/main_window.py:1553
+#: gui/main_window.py:1589
 #, python-brace-format
 msgid "Tablero {n}: {text}"
 msgstr ""
 
-#: gui/main_window.py:1555
+#: gui/main_window.py:1591
 msgid "G-code generado:"
 msgstr ""
 
-#: gui/main_window.py:1557
+#: gui/main_window.py:1593
 #, python-brace-format
 msgid "G-code generado: {join}"
 msgstr ""
 
-#: gui/main_window.py:1561
+#: gui/main_window.py:1597
 msgid "Avisos:"
 msgstr ""
 
-#: gui/main_window.py:1562
+#: gui/main_window.py:1598
 msgid "G-code generado"
 msgstr ""
 
-#: gui/main_window.py:1562
+#: gui/main_window.py:1598
 msgid "Abre el archivo en UGS para enviarlo."
 msgstr ""
 
-#: gui/main_window.py:1578
+#: gui/main_window.py:1614
 msgid "Guardar G-code (se añade _tablero1, _tablero2… a cada uno)"
 msgstr ""
 
-#: gui/main_window.py:1578
+#: gui/main_window.py:1614
 msgid "Guardar G-code"
 msgstr ""
 
-#: gui/main_window.py:1606
+#: gui/main_window.py:1642
 #, python-brace-format
 msgid ""
 "cnc_app {version}\n"
@@ -3601,7 +3601,7 @@ msgid ""
 "Los envíos a la máquina se hacen con UGS."
 msgstr ""
 
-#: gui/main_window.py:1666
+#: gui/main_window.py:1702
 #, python-brace-format
 msgid "No se abrió {name}: solo se abren dibujos .svg y trabajos {JOB_SUFFIX}."
 msgstr ""
@@ -3998,135 +3998,135 @@ msgstr ""
 msgid "Tipo"
 msgstr ""
 
-#: holddown.py:68
+#: holddown.py:69
 msgid "Clavo de clavadora (cabeza 2 mm)"
 msgstr ""
 
-#: holddown.py:69
+#: holddown.py:70
 msgid "Tirafondo (hasta 6 mm)"
 msgstr ""
 
-#: holddown.py:89
+#: holddown.py:90
 #, python-brace-format
 msgid "tipo de sujecion desconocido '{kind}' (hay: {join})."
 msgstr ""
 
-#: holddown.py:91
+#: holddown.py:92
 msgid "el alcance debe ser mayor que 0."
 msgstr ""
 
-#: holddown.py:92
+#: holddown.py:93
 msgid "la separacion minima"
 msgstr ""
 
-#: holddown.py:92
+#: holddown.py:93
 msgid "la distancia a las esquinas"
 msgstr ""
 
-#: holddown.py:93
+#: holddown.py:94
 msgid "la distancia a los cortes"
 msgstr ""
 
-#: holddown.py:93
+#: holddown.py:94
 msgid "la fila del borde inferior"
 msgstr ""
 
-#: holddown.py:95
+#: holddown.py:96
 #, python-brace-format
 msgid "{name} no puede ser negativa."
 msgstr ""
 
-#: holddown.py:97
+#: holddown.py:98
 msgid "repartir en filas y columnas es si o no."
 msgstr ""
 
-#: holddown.py:99
+#: holddown.py:100
 msgid "el minimo de puntos debe ser un numero entero, 0 o mas."
 msgstr ""
 
-#: holddown.py:100
+#: holddown.py:101
 msgid "margen al corte"
 msgstr ""
 
-#: holddown.py:100
+#: holddown.py:101
 msgid "margen al borde"
 msgstr ""
 
-#: holddown.py:102
+#: holddown.py:103
 #, python-brace-format
 msgid "el {name} no puede ser negativo."
 msgstr ""
 
-#: holddown.py:104
+#: holddown.py:105
 msgid "la altura de marcado no puede ser negativa."
 msgstr ""
 
-#: holddown.py:386
+#: holddown.py:424
 #, python-brace-format
 msgid "a {d_cut:.1f} mm del corte (lo comodo es {cut_clear:g} o mas)"
 msgstr ""
 
-#: holddown.py:389
+#: holddown.py:427
 msgid "fuera de la plancha"
 msgstr ""
 
-#: holddown.py:392
+#: holddown.py:430
 #, python-brace-format
 msgid "a {d_edge:.1f} mm del borde de la plancha (minimo {edge:g})"
 msgstr ""
 
-#: holddown.py:395
+#: holddown.py:433
 msgid "encima del recorrido de la fresa"
 msgstr ""
 
-#: holddown.py:398
+#: holddown.py:436
 msgid "dentro de una pieza (las piezas no se clavan)"
 msgstr ""
 
-#: holddown.py:401
+#: holddown.py:439
 msgid "en un desecho que se suelta al cortar: no sujeta nada"
 msgstr ""
 
-#: holddown.py:403
+#: holddown.py:441
 #, python-brace-format
 msgid "a {d_cut:.1f} mm del corte (minimo {kerf:g})"
 msgstr ""
 
-#: holddown.py:404
+#: holddown.py:442
 msgid "demasiado cerca del corte"
 msgstr ""
 
-#: holddown.py:633
+#: holddown.py:671
 msgid "no hay puntos que marcar."
 msgstr ""
 
-#: holddown.py:636
+#: holddown.py:674
 msgid "Marcas de sujecion"
 msgstr ""
 
-#: holddown.py:637
+#: holddown.py:675
 #, python-brace-format
 msgid "{n} puntos"
 msgstr ""
 
-#: holddown.py:637
+#: holddown.py:675
 msgid "; el husillo no arranca"
 msgstr ""
 
-#: holddown.py:638
+#: holddown.py:676
 msgid "Orden: de lejos a cerca (Y mayor primero), cada fila de izquierda a derecha"
 msgstr ""
 
-#: holddown.py:639
+#: holddown.py:677
 msgid "En cada pausa (M0) marca el punto bajo la punta y pulsa Reanudar en UGS"
 msgstr ""
 
-#: holddown.py:644
+#: holddown.py:682
 #, python-brace-format
 msgid "Punto {i} de {n} - es el {v} de la ventana"
 msgstr ""
 
-#: holddown.py:645
+#: holddown.py:683
 #, python-brace-format
 msgid "Punto {i} de {n}"
 msgstr ""
@@ -4507,7 +4507,7 @@ msgstr ""
 msgid "relleno {fill}"
 msgstr ""
 
-#: gui/canvas.py:294 gui/main_window.py:899 oprows.py:55 pipeline.py:366
+#: gui/canvas.py:294 gui/main_window.py:935 oprows.py:55 pipeline.py:366
 msgid "sin color"
 msgstr ""
 
@@ -4516,24 +4516,24 @@ msgstr ""
 msgid "operacion {index} ('{name}'): falta la profundidad (escribela en Prof. o marca Pasante)."
 msgstr ""
 
-#: oprows.py:160 project.py:903
+#: oprows.py:165 project.py:984
 msgid "tabla de operaciones"
 msgstr ""
 
-#: oprows.py:164
+#: oprows.py:169
 msgid "no hay ninguna operacion activa en la tabla (todo esta en Ignorar)."
 msgstr ""
 
-#: oprows.py:197
+#: oprows.py:202
 #, python-brace-format
 msgid "no se puede escribir {v!r} en TOML"
 msgstr ""
 
-#: oprows.py:202
+#: oprows.py:207
 msgid "# Receta de trabajo generada por cnc_app: que operacion es cada color del dibujo."
 msgstr ""
 
-#: oprows.py:203
+#: oprows.py:208
 msgid "# Se puede editar a mano y abrir otra vez con Receta > Abrir receta (ver receta_ejemplo.toml)."
 msgstr ""
 
@@ -4756,585 +4756,615 @@ msgstr ""
 msgid "Codigo final definido por el usuario"
 msgstr ""
 
-#: project.py:52
+#: project.py:55
 #, python-brace-format
 msgid "La trayectoria se sale del tablero {side} {amount:.1f} mm: parte de una pieza queda fuera del material."
 msgstr ""
 
-#: project.py:140
+#: project.py:143
 #, python-brace-format
 msgid "el giro debe ser uno de {join} (hay {text!r})."
 msgstr ""
 
-#: project.py:147
+#: project.py:150
 #, python-brace-format
 msgid "{what} debe ser mayor que 0."
 msgstr ""
 
-#: project.py:293
+#: project.py:326
 #, python-brace-format
 msgid "la forma {i!r} no existe o no se puede elegir."
 msgstr ""
 
-#: project.py:336
+#: project.py:369
 msgid "el grupo necesita un nombre."
 msgstr ""
 
-#: project.py:338
+#: project.py:371
 #, python-brace-format
 msgid "la operacion del grupo debe ser una de {join} (hay {action!r})."
 msgstr ""
 
-#: gui/group_dialog.py:30 gui/main_window.py:940 project.py:342
+#: gui/group_dialog.py:30 gui/main_window.py:976 project.py:375
 msgid "Grupo nuevo"
 msgstr ""
 
-#: project.py:354
+#: project.py:387
 msgid "ese grupo no existe."
 msgstr ""
 
-#: gui/main_window.py:951 gui/ops_panel.py:82 project.py:356
+#: gui/main_window.py:987 gui/ops_panel.py:82 project.py:389
 msgid "Mover a grupo"
 msgstr ""
 
-#: gui/main_window.py:333 gui/main_window.py:963 project.py:364
+#: gui/main_window.py:338 gui/main_window.py:999 project.py:397
 msgid "Quitar del grupo"
 msgstr ""
 
-#: project.py:371
+#: project.py:404
 msgid "Interiores"
 msgstr ""
 
-#: project.py:371
+#: project.py:404
 msgid "Líneas"
 msgstr ""
 
-#: project.py:371 project.py:468
+#: project.py:404 project.py:501
 msgid "líneas"
 msgstr ""
 
-#: project.py:372
+#: project.py:405
 msgid "Exteriores"
 msgstr ""
 
-#: project.py:373
+#: project.py:406
 msgid "interiores (huecos)"
 msgstr ""
 
-#: project.py:373
+#: project.py:406
 msgid "líneas abiertas"
 msgstr ""
 
-#: project.py:373
+#: project.py:406
 msgid "exteriores (piezas)"
 msgstr ""
 
-#: project.py:419
+#: project.py:452
 msgid "abre un dibujo antes de separar cortes."
 msgstr ""
 
-#: project.py:423
+#: project.py:456
 msgid "no hay ninguna fila de Corte en «Auto» con interiores y exteriores que separar."
 msgstr ""
 
-#: project.py:425
+#: project.py:458
 msgid "hay varias filas que se pueden separar: elige una en la tabla."
 msgstr ""
 
-#: project.py:430
+#: project.py:463
 msgid "esa fila no existe."
 msgstr ""
 
-#: project.py:432
+#: project.py:465
 #, python-brace-format
 msgid "«{title}» es un {lower}: solo se separan las filas de Corte."
 msgstr ""
 
-#: project.py:434
+#: project.py:467
 #, python-brace-format
 msgid "«{title}» ya tiene el lado fijado: ponla en «Auto» si quieres separarla."
 msgstr ""
 
-#: project.py:439
+#: project.py:472
 msgid "ninguna forma"
 msgstr ""
 
-#: project.py:440
+#: project.py:473
 #, python-brace-format
 msgid "«{title}» solo tiene {what}: no hay nada que separar."
 msgstr ""
 
-#: gui/main_window.py:335 gui/main_window.py:979 project.py:443
+#: gui/main_window.py:340 gui/main_window.py:1015 project.py:476
 msgid "Separar interiores y exteriores"
 msgstr ""
 
-#: project.py:468
+#: project.py:501
 msgid "taladros"
 msgstr ""
 
-#: project.py:468
+#: project.py:501
 msgid "pozos"
 msgstr ""
 
-#: project.py:468
+#: project.py:501
 msgid "interiores"
 msgstr ""
 
-#: project.py:468
+#: project.py:501
 msgid "exteriores"
 msgstr ""
 
-#: project.py:510
+#: project.py:543
 #, python-brace-format
 msgid "«{n}» ({lo_name}) va después de «{tn}» ({t_name})"
 msgstr ""
 
-#: project.py:512
+#: project.py:545
 #, python-brace-format
 msgid " (y {v} más)"
 msgstr ""
 
-#: project.py:513
+#: project.py:546
 #, python-brace-format
 msgid "El orden de las filas no es el correcto: tiene que ser taladros, pozos, interiores, líneas y exteriores. {examples}{more}."
 msgstr ""
 
-#: project.py:516
+#: project.py:549
 #, python-brace-format
 msgid "{head} Una fila que mezcla interiores y exteriores no se puede ordenar con otras: sepárala con «Separar interiores y exteriores» y pulsa «Ordenar»."
 msgstr ""
 
-#: project.py:518
+#: project.py:551
 #, python-brace-format
 msgid "{head} Pulsa «Ordenar» para ponerlas bien."
 msgstr ""
 
-#: project.py:599
+#: project.py:632
 #, python-brace-format
 msgid "{holes} forma(s) se cortarían por fuera siendo huecos"
 msgstr ""
 
-#: project.py:601
+#: project.py:634
 #, python-brace-format
 msgid "{pieces} forma(s) se cortarían por dentro siendo piezas"
 msgstr ""
 
-#: project.py:602
+#: project.py:635
 #, python-brace-format
 msgid "«{name}» está en «Auto», que solo mira el anidamiento entre las formas de su fila: {join} según el dibujo entero. Pon «Por dentro» o «Por fuera» en esa fila (o usa «Separar interiores y exteriores»)."
 msgstr ""
 
-#: project.py:627
+#: project.py:660
 msgid "los puentes están desactivados: marca «Poner puentes» en los ajustes del trabajo."
 msgstr ""
 
-#: project.py:630
+#: project.py:663
 msgid "esa forma no se corta."
 msgstr ""
 
-#: project.py:636
+#: project.py:669
 msgid "los puentes son de los cortes: la fila de esa forma no es un corte."
 msgstr ""
 
-#: project.py:638
+#: project.py:671
 msgid "la fila de esa forma no corta de lado a lado: no necesita puentes."
 msgstr ""
 
-#: project.py:717
+#: project.py:750
 msgid "abre un dibujo o crea uno nuevo antes de dibujar."
 msgstr ""
 
-#: project.py:725
+#: project.py:758
 msgid "ese color es la etiqueta de un grupo de formas: elige otro para la forma nueva."
-msgstr ""
-
-#: project.py:816
-#, python-brace-format
-msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan las ediciones hechas con las herramientas de dibujo."
-msgstr ""
-
-#: project.py:827
-#, python-brace-format
-msgid "No se pudo rehacer la edicion {n} de {len} del trabajo guardado ({e}): se descartan ella y las siguientes."
-msgstr ""
-
-#: project.py:841
-msgid "Dibujo completo"
-msgstr ""
-
-#: project.py:842
-#, python-brace-format
-msgid "Tablero {number} ({width:.0f} x {height:.0f} mm)"
 msgstr ""
 
 #: project.py:849
 #, python-brace-format
+msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan las ediciones hechas con las herramientas de dibujo."
+msgstr ""
+
+#: project.py:860
+#, python-brace-format
+msgid "No se pudo rehacer la edicion {n} de {len} del trabajo guardado ({e}): se descartan ella y las siguientes."
+msgstr ""
+
+#: project.py:874
+msgid "Dibujo completo"
+msgstr ""
+
+#: project.py:875
+#, python-brace-format
+msgid "Tablero {number} ({width:.0f} x {height:.0f} mm)"
+msgstr ""
+
+#: project.py:882
+#, python-brace-format
 msgid "no existe el tablero {number}"
 msgstr ""
 
-#: project.py:883
+#: project.py:916
 #, python-brace-format
 msgid "No se aplica la receta del archivo de configuracion: {e}"
 msgstr ""
 
-#: project.py:884
+#: project.py:917
 #, python-brace-format
 msgid "Receta del archivo de configuracion: {name}"
 msgstr ""
 
-#: project.py:912
-msgid "elige una fresa (una ficha o un diametro en mm)."
-msgstr ""
-
-#: project.py:921
-msgid "el diametro de la fresa debe ser un numero mayor que 0."
+#: project.py:936
+#, python-brace-format
+msgid "La receta fija el grosor en {new:g} mm (estaba en {old:g} mm)."
 msgstr ""
 
 #: project.py:947
 #, python-brace-format
+msgid "La receta pide la fresa «{tool}», que no está en las fichas: se deja la fresa que había."
+msgstr ""
+
+#: project.py:956
+#, python-brace-format
+msgid "La receta cambia la fresa a «{new}» (era «{old}»)."
+msgstr ""
+
+#: project.py:961
+#, python-brace-format
+msgid "La receta cambia la máquina a «{new}» (era «{old}»)."
+msgstr ""
+
+#: project.py:964
+#, python-brace-format
+msgid "La receta pide la máquina «{machine}», que no está en las fichas: se deja la máquina que había."
+msgstr ""
+
+#: project.py:993
+msgid "elige una fresa (una ficha o un diametro en mm)."
+msgstr ""
+
+#: project.py:1002
+msgid "el diametro de la fresa debe ser un numero mayor que 0."
+msgstr ""
+
+#: project.py:1028
+#, python-brace-format
 msgid "{job:g} (trabajo)"
 msgstr ""
 
-#: project.py:949
+#: project.py:1030
 #, python-brace-format
 msgid "{card:g} (ficha)"
 msgstr ""
 
-#: project.py:951
+#: project.py:1032
 #, python-brace-format
 msgid "{v:g} (ficha)"
 msgstr ""
 
-#: project.py:970
+#: project.py:1051
 msgid "falta el grosor del material."
 msgstr ""
 
-#: project.py:972
+#: project.py:1053
 msgid "el grosor del material debe ser mayor que 0."
 msgstr ""
 
-#: project.py:974
+#: project.py:1055
 msgid "el margen no puede ser negativo."
 msgstr ""
 
-#: project.py:976
+#: project.py:1057
 msgid "el margen del cero no puede ser negativo."
 msgstr ""
 
-#: project.py:978
+#: project.py:1059
 msgid "la Z de aproximacion debe ser mayor que 0 y no mayor que la Z segura."
 msgstr ""
 
-#: project.py:988
+#: project.py:1069
 msgid "el avance de corte"
 msgstr ""
 
-#: project.py:988
+#: project.py:1069
 msgid "el avance de bajada"
 msgstr ""
 
-#: project.py:988
+#: project.py:1069
 msgid "la pasada"
 msgstr ""
 
-#: project.py:998
+#: project.py:1079
 msgid "falta el avance de corte: rellenalo o ponlo en la ficha de la fresa."
 msgstr ""
 
-#: project.py:1000
+#: project.py:1081
 msgid "falta el avance de bajada: rellenalo o ponlo en la ficha de la fresa."
 msgstr ""
 
-#: project.py:1025
+#: project.py:1106
 msgid "El dibujo esta vacio: dibuja algo con el menu Dibujo (o abre un SVG)."
 msgstr ""
 
-#: project.py:1040
+#: project.py:1121
 #, python-brace-format
 msgid "Ignoradas en la tabla: {ignored} forma(s)"
 msgstr ""
 
-#: project.py:1101
+#: project.py:1182
 msgid "_marcas"
 msgstr ""
 
-#: project.py:1124
+#: project.py:1205
 msgid "no hay ningun tablero marcado para generar."
 msgstr ""
 
-#: project.py:1132
+#: project.py:1213
 msgid "no se pudo generar"
 msgstr ""
 
-#: gui/main_window.py:1517 gui/main_window.py:1521 gui/main_window.py:1526
-#: project.py:1133
+#: gui/main_window.py:1553 gui/main_window.py:1557 gui/main_window.py:1562
+#: project.py:1214
 #, python-brace-format
 msgid "Tablero {n}: "
 msgstr ""
 
-#: project.py:1140
+#: project.py:1221
 #, python-brace-format
 msgid "el G-code tiene un caracter que no es ASCII ({text!r}); GRBL no lo admite: revisa el codigo final."
 msgstr ""
 
-#: project.py:1150
+#: project.py:1231
 #, python-brace-format
 msgid "_tablero{number}"
 msgstr ""
 
-#: project.py:1192
+#: project.py:1276
 msgid "el archivo de trabajo no es de esta version de la aplicación."
 msgstr ""
 
-#: project.py:1196
+#: project.py:1280
 msgid "el trabajo es de un dibujo nuevo (sin SVG) y hay un SVG abierto, o al reves."
 msgstr ""
 
-#: project.py:1230
+#: project.py:1314
 msgid "el trabajo"
 msgstr ""
 
-#: project.py:1232
+#: project.py:1316
 msgid "La ficha de la maquina guardada con el trabajo no se puede leer: se usa la de maquinas.json."
 msgstr ""
 
-#: project.py:1242
+#: project.py:1326
 #, python-brace-format
 msgid "La maquina «{ident}» del trabajo no esta en maquinas.json: se usa la ficha guardada con el trabajo ({name}, recorrido {travel_text}). Guardala en Maquinas... si es la tuya."
 msgstr ""
 
-#: project.py:1248
+#: project.py:1332
 #, python-brace-format
 msgid "La ficha de la maquina «{ident}» ha cambiado desde que se guardo el trabajo ("
 msgstr ""
 
-#: project.py:1249
+#: project.py:1333
 msgid "): se usa la de ahora."
 msgstr ""
 
-#: project.py:1261
+#: project.py:1345
 #, python-brace-format
 msgid "El dibujo ha cambiado desde que se guardo el trabajo (tenia {total} formas y ahora tiene {len}): se descartan los grupos de formas."
 msgstr ""
 
-#: project.py:1282
+#: project.py:1366
 #, python-brace-format
 msgid "{skipped} grupo(s) de formas del trabajo guardado no valen y se descartan."
 msgstr ""
 
-#: project.py:1336
+#: project.py:1420
 #, python-brace-format
 msgid "No encuentro herramientas.json (busque en {cwd} y en {folder}): escribe el diametro de la fresa a mano."
 msgstr ""
 
-#: project.py:1346
+#: project.py:1430
 #, python-brace-format
 msgid "No encuentro maquinas.json (busque en {cwd} y en {folder}): sin una ficha de maquina no se genera nada. Creala con Maquinas... > Nueva desde un log."
 msgstr ""
 
-#: recipe.py:123
+#: recipe.py:126
 #, python-brace-format
 msgid "{where} debe ser un color como \"#e63c24\" (hay {value!r})."
 msgstr ""
 
-#: recipe.py:126
+#: recipe.py:129
 #, python-brace-format
 msgid "{where}: no entiendo el color {value!r}; usa \"#rrggbb\"."
 msgstr ""
 
-#: recipe.py:135
+#: recipe.py:138
 #, python-brace-format
 msgid "{where}: '{key}' debe ser un numero (hay {v!r})."
 msgstr ""
 
-#: recipe.py:137
+#: recipe.py:140 recipe.py:151
 #, python-brace-format
 msgid "{where}: '{key}' debe ser mayor que 0 (hay {v!r})."
 msgstr ""
 
-#: recipe.py:145
+#: recipe.py:154
+#, python-brace-format
+msgid "{where}: '{key}' debe ser un texto no vacio (hay {v!r})."
+msgstr ""
+
+#: recipe.py:162
 #, python-brace-format
 msgid " Quisiste decir '{close}'?"
 msgstr ""
 
-#: recipe.py:146
+#: recipe.py:163
 #, python-brace-format
 msgid "{where}: clave desconocida '{key}'.{hint} Claves validas: {join}."
 msgstr ""
 
-#: recipe.py:153
+#: recipe.py:170
 #, python-brace-format
 msgid "{source}: 'titulo' debe ser texto."
 msgstr ""
 
-#: recipe.py:158
+#: recipe.py:178
 #, python-brace-format
 msgid "{source}: 'ignorar' debe ser una lista de colores."
 msgstr ""
 
-#: recipe.py:159
+#: recipe.py:179
 #, python-brace-format
 msgid "{source}: 'ignorar'"
 msgstr ""
 
-#: recipe.py:163
+#: recipe.py:183
 #, python-brace-format
 msgid "{source}: hace falta al menos una operacion ([[operacion]])."
 msgstr ""
 
-#: recipe.py:166
+#: recipe.py:186
 #, python-brace-format
 msgid "operacion {n}"
 msgstr ""
 
-#: recipe.py:167
+#: recipe.py:187
 #, python-brace-format
 msgid "{source}: operacion {n}"
 msgstr ""
 
-#: recipe.py:170
+#: recipe.py:190
 #, python-brace-format
 msgid "{where}: 'nombre' debe ser texto."
 msgstr ""
 
-#: recipe.py:173
+#: recipe.py:193
 #, python-brace-format
 msgid "{where}: 'tipo' debe ser uno de {join} (hay {kind!r})."
 msgstr ""
 
-#: recipe.py:174
+#: recipe.py:194
 #, python-brace-format
 msgid "{where}: 'trazo'"
 msgstr ""
 
-#: recipe.py:175
+#: recipe.py:195
 #, python-brace-format
 msgid "{where}: 'relleno'"
 msgstr ""
 
-#: recipe.py:177
+#: recipe.py:197
 #, python-brace-format
 msgid "{where}: indica que formas son con 'trazo' (color de trazo) y/o 'relleno'."
 msgstr ""
 
-#: recipe.py:180
+#: recipe.py:200
 #, python-brace-format
 msgid "{where}: el color {c} esta en 'ignorar' y en esta operacion."
 msgstr ""
 
-#: recipe.py:183
+#: recipe.py:203
 #, python-brace-format
 msgid "{where}: 'lado' debe ser uno de {join} (hay {side!r})."
 msgstr ""
 
-#: recipe.py:185
+#: recipe.py:205
 #, python-brace-format
 msgid "{where}: 'lado' solo vale en operaciones de corte."
 msgstr ""
 
-#: recipe.py:187
+#: recipe.py:207
 #, python-brace-format
 msgid "{where}: 'stepover' solo vale en vaciados."
 msgstr ""
 
-#: recipe.py:190
+#: recipe.py:210
 #, python-brace-format
 msgid "{where}: 'pasante' debe ser true o false (hay {through!r})."
 msgstr ""
 
-#: recipe.py:193
+#: recipe.py:213
 #, python-brace-format
 msgid "{where}: 'pasante' y 'profundidad' se excluyen."
 msgstr ""
 
-#: recipe.py:198
+#: recipe.py:218
 #, python-brace-format
 msgid "{where}: falta 'profundidad' (mm desde la superficie) o 'pasante = true'."
 msgstr ""
 
-#: recipe.py:201
+#: recipe.py:221
 #, python-brace-format
 msgid "{where}: 'puentes' debe ser true o false (hay {tabs!r})."
 msgstr ""
 
-#: recipe.py:203
+#: recipe.py:223
 #, python-brace-format
 msgid "{where}: 'puentes' solo vale en operaciones de corte."
 msgstr ""
 
-#: recipe.py:205
+#: recipe.py:225
 #, python-brace-format
 msgid "{where}: los puentes solo valen en cortes pasantes."
 msgstr ""
 
-#: recipe.py:209
+#: recipe.py:229
 #, python-brace-format, python-format
 msgid "{where}: 'stepover' va en % del diametro, hasta 100 (hay {stepover:g})."
 msgstr ""
 
-#: recipe.py:219
+#: recipe.py:239
 #, python-brace-format
 msgid "{source}: hay dos operaciones con el nombre '{name}'."
 msgstr ""
 
-#: recipe.py:226
+#: recipe.py:247
 msgid "archivo de receta"
 msgstr ""
 
-#: recipe.py:268
+#: recipe.py:289
 #, python-brace-format
 msgid "cerca de X {x:.0f}, Y {y:.0f} mm"
 msgstr ""
 
-#: recipe.py:330
+#: recipe.py:351
 #, python-brace-format
 msgid "La operacion '{name}' no tiene {what}: ponlo en la receta ('{field_name}'), en el trabajo o en la ficha de la fresa."
 msgstr ""
 
-#: recipe.py:338
+#: recipe.py:359
 msgid "avance de corte"
 msgstr ""
 
-#: recipe.py:339
+#: recipe.py:360
 msgid "avance de bajada"
 msgstr ""
 
-#: recipe.py:344
+#: recipe.py:365
 #, python-brace-format
 msgid "Operacion '{name}': {e}"
 msgstr ""
 
-#: recipe.py:352
+#: recipe.py:373
 #, python-brace-format
 msgid "La operacion '{name}' corta 'por {side}' una forma abierta ({where}); usa lado = \"linea\"."
 msgstr ""
 
-#: recipe.py:369
+#: recipe.py:390
 #, python-brace-format
 msgid "'{name}': {count} forma(s) tienen puentes puestos a mano pero esta operación no corta de lado a lado: se cortan sin ellos (la primera, {where})."
 msgstr ""
 
-#: recipe.py:373
+#: recipe.py:394
 #, python-brace-format
 msgid "'{name}': {count} pieza(s) son demasiado pequeñas para llevar puentes de {width:g} mm y se cortan sin ellos (la primera, {where})."
 msgstr ""
 
-#: recipe.py:379
+#: recipe.py:400
 #, python-brace-format
 msgid "La operacion '{name}' (vaciado) tiene una forma abierta ({where})."
 msgstr ""
 
-#: recipe.py:390
+#: recipe.py:411
 #, python-brace-format
 msgid "La operacion '{name}' (taladro) tiene una forma abierta ({where})."
 msgstr ""
 
-#: recipe.py:395
+#: recipe.py:416
 #, python-brace-format
 msgid "'{name}': un circulo de {size:.2f} mm ({where}) se taladra con la fresa de {diameter:g} mm, que hace un agujero de {diameter:g} mm; para otro diametro usa tipo = \"vaciado\"."
 msgstr ""
 
-#: recipe.py:406
+#: recipe.py:427
 msgid "La receta no encuentra ninguna forma que cortar en este dibujo."
 msgstr ""
 

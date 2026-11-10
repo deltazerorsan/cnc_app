@@ -39,7 +39,7 @@ from .i18n import _
 
 KINDS = ("corte", "vaciado", "taladro")
 SIDES = {"auto": None, "fuera": "outside", "dentro": "inside", "linea": "on"}
-TOP_KEYS = {"titulo", "ignorar", "operacion"}
+TOP_KEYS = {"titulo", "grosor", "fresa", "maquina", "ignorar", "operacion"}
 OP_KEYS = {"nombre", "tipo", "trazo", "relleno", "lado", "profundidad", "pasante", "pasada", "avance", "entrada",
            "stepover", "puentes"}
 DIAMETER_TOL = 0.05   # mm: un taladro cuyo circulo difiere mas que esto de la fresa avisa
@@ -76,6 +76,9 @@ class Recipe:
     ignore: list[str] = field(default_factory=list)
     title: str = ""
     source: str = ""
+    thickness: Optional[float] = None    # grosor del material (mm), si la receta lo fija
+    tool: Optional[str] = None           # ficha de fresa (id de herramientas.json) o diametro en mm, si la receta la fija
+    machine: Optional[str] = None        # ficha de maquina (id de maquinas.json), si la receta la fija
 
 
 @dataclass
@@ -138,6 +141,20 @@ def _number(raw: dict, key: str, where: str, *, positive=True) -> Optional[float
     return float(v)
 
 
+def _text_or_number(raw: dict, key: str, where: str, *, number_ok: bool) -> Optional[str]:
+    """Una clave de texto (un id de ficha); la fresa tambien puede ser un numero: el diametro en mm."""
+    if key not in raw:
+        return None
+    v = raw[key]
+    if number_ok and not isinstance(v, bool) and isinstance(v, (int, float)):
+        if not math.isfinite(v) or not v > 0:
+            raise RecipeError(_("{where}: '{key}' debe ser mayor que 0 (hay {v!r}).", where=where, key=key, v=v))
+        return f"{v:g}"
+    if not isinstance(v, str) or not v.strip():
+        raise RecipeError(_("{where}: '{key}' debe ser un texto no vacio (hay {v!r}).", where=where, key=key, v=v))
+    return v.strip()
+
+
 def _check_keys(raw: dict, allowed: set, where: str) -> None:
     for key in raw:
         if key not in allowed:
@@ -151,6 +168,9 @@ def parse_recipe(data: dict, source: str = "receta") -> Recipe:
     title = data.get("titulo", "")
     if not isinstance(title, str):
         raise RecipeError(_("{source}: 'titulo' debe ser texto.", source=source))
+    thickness = _number(data, "grosor", source)
+    tool = _text_or_number(data, "fresa", source, number_ok=True)
+    machine = _text_or_number(data, "maquina", source, number_ok=False)
     ignore_raw = data.get("ignorar", [])
     if isinstance(ignore_raw, str):
         ignore_raw = [ignore_raw]
@@ -217,7 +237,8 @@ def parse_recipe(data: dict, source: str = "receta") -> Recipe:
     for name in set(names):
         if names.count(name) > 1:
             raise RecipeError(_("{source}: hay dos operaciones con el nombre '{name}'.", source=source, name=name))
-    return Recipe(operations=ops, ignore=ignore, title=title, source=source)
+    return Recipe(operations=ops, ignore=ignore, title=title, source=source, thickness=thickness, tool=tool,
+                  machine=machine)
 
 
 def load_recipe(path) -> Recipe:

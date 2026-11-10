@@ -5,9 +5,12 @@ cuando hace falta receta, como se llaman los archivos) esta aqui para poder prob
 """
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sys
+import tempfile
+import zlib
 from dataclasses import asdict, dataclass, field, fields, replace
 from pathlib import Path
 from typing import Optional, Sequence, Union
@@ -187,6 +190,8 @@ class Project:
         self.drawing: Optional[Drawing] = None
         self.rows: list[OpRow] = []
         self.title = ""
+        self.recipe_notes: list[Message] = []
+        self.svg_source: Optional[bytes] = None         # el SVG abierto, byte a byte, para guardarlo dentro del trabajo
         self.exclude_colors: list[str] = []
         self.recipe_file: str = ""
         self.use_boards = True          # convencion de tableros (un rectangulo con formas dentro es un tablero)
@@ -213,13 +218,41 @@ class Project:
         self.sort_rows()
         self.overrides = {b.number: BoardOverrides() for b in self.drawing.layout.boards}
         self.hold_points = {}
+        try:
+            self.svg_source = Path(path).read_bytes()          # el SVG tal como se leyo: va dentro del trabajo al guardarlo
+        except OSError:
+            self.svg_source = None
         return self.drawing
+
+    def load_svg_text(self, content: bytes, original, *, ppi: float = 96.0) -> Drawing:
+        """Abre un SVG que viene incrustado en un trabajo. Se lee de una copia temporal y el dibujo queda con el nombre
+        y la carpeta del original (los .nc salen con ese nombre), exista o no ya ese archivo."""
+        original = Path(original)
+        with tempfile.TemporaryDirectory() as tmp:
+            copy = Path(tmp) / (original.name or "dibujo.svg")
+            copy.write_bytes(content)
+            self.load_svg(copy, ppi=ppi)
+        self.rename(original)
+        self.svg_source = content
+        return self.drawing
+
+    @staticmethod
+    def embedded_svg(data: dict) -> Optional[tuple[bytes, str]]:
+        """El SVG que lleva un trabajo guardado: (contenido, nombre), o None si no lo lleva (trabajos de antes)."""
+        raw = data.get("svg_incrustado") if isinstance(data, dict) else None
+        if not isinstance(raw, dict):
+            return None
+        try:
+            return zlib.decompress(base64.b64decode(raw["zlib_base64"])), str(raw.get("nombre") or "")
+        except (KeyError, ValueError, zlib.error, TypeError):
+            return None
 
     def new_drawing(self, folder=".", name: str = "dibujo_nuevo.svg") -> Drawing:
         """Un dibujo vacio para dibujarlo desde cero con las herramientas de dibujo (no hay SVG: se guarda en el trabajo)."""
         excluded = {str(c).lower() for c in self.exclude_colors}
         self.drawing = Drawing(Path(folder) / name, SvgImport([], (0.0, 0.0)), [], [], BoardLayout(), [], excluded, [])
         self.base, self.edits, self.scratch, self._undo, self._redo = self.drawing, [], True, [], []
+        self.svg_source = None
         self.assign, self.load_notes = {}, []
         self.rows = []
         self.overrides = {}
@@ -881,25 +914,73 @@ class Project:
             self.load_recipe_file(self.default_recipe)
         except ProjectError as e:
             return Message(_("No se aplica la receta del archivo de configuracion: {e}", e=e), "warning")
-        return Message(_("Receta del archivo de configuracion: {name}", name=Path(self.default_recipe).name))
+        text = _("Receta del archivo de configuracion: {name}", name=Path(self.default_recipe).name)
+        notes = [n.text for n in self.recipe_notes]
+        return Message(" ".join([text] + notes), "warning" if any(n.level == "warning" for n in self.recipe_notes) else "info")
 
-    def apply_recipe(self, recipe: Recipe, source: str = "") -> None:
-        """Una receta es de colores: no toca los grupos de vectores (siguen como estaban, al final de la tabla)."""
+    def apply_recipe(self, recipe: Recipe, source: str = "") -> list[Message]:
+        """Una receta es de colores: no toca los grupos de vectores (siguen como estaban, al final de la tabla).
+        Si la receta lleva grosor, fresa o maquina, tambien los pone en el trabajo; devuelve los avisos de lo que
+        cambia o no se pudo aplicar (una fresa o una maquina que no esta en sus fichas no se aplica, y se avisa)."""
         self.rows = rows_from_recipe(recipe, [r for r in self.rows if not r.group]) + [r for r in self.rows if r.group]
         self.title = recipe.title
         self.recipe_file = source
+        return self._apply_job_values(recipe)
+
+    def _apply_job_values(self, recipe: Recipe) -> list[Message]:
+        g = self.general
+        notes: list[Message] = []
+        changes: dict = {}
+        if recipe.thickness is not None:
+            if g.thickness is not None and abs(g.thickness - recipe.thickness) > 1e-9:
+                notes.append(Message(_("La receta fija el grosor en {new:g} mm (estaba en {old:g} mm).",
+                                       new=recipe.thickness, old=g.thickness)))
+            changes["thickness"] = recipe.thickness
+        if recipe.tool is not None:
+            try:
+                if not float(recipe.tool.replace(",", ".")) > 0:
+                    raise ValueError
+            except ValueError:
+                try:
+                    get_tool(self.tools, recipe.tool)
+                except ToolsFileError:
+                    notes.append(Message(_("La receta pide la fresa «{tool}», que no está en las fichas: se deja la fresa "
+                                           "que había.", tool=recipe.tool), "warning"))
+                    recipe_tool = None
+                else:
+                    recipe_tool = recipe.tool
+            else:
+                recipe_tool = recipe.tool
+            if recipe_tool is not None:
+                if (g.tool or "").strip() and g.tool.strip() != recipe_tool:
+                    notes.append(Message(_("La receta cambia la fresa a «{new}» (era «{old}»).", new=recipe_tool, old=g.tool.strip())))
+                changes["tool"] = recipe_tool
+        if recipe.machine is not None:
+            if recipe.machine in self.machines:
+                if (g.machine or "").strip() and g.machine.strip() != recipe.machine:
+                    notes.append(Message(_("La receta cambia la máquina a «{new}» (era «{old}»).", new=recipe.machine, old=g.machine.strip())))
+                changes["machine"] = recipe.machine
+            else:
+                notes.append(Message(_("La receta pide la máquina «{machine}», que no está en las fichas: se deja la máquina que "
+                                       "había.", machine=recipe.machine), "warning"))
+        if changes:
+            self.general = replace(g, **changes)
+        return notes
 
     def load_recipe_file(self, path) -> Recipe:
+        """Lee y aplica una receta. Los avisos de grosor, fresa y maquina quedan en `recipe_notes`."""
         try:
             recipe = load_recipe(path)
         except RecipeError as e:
             raise ProjectError(str(e)) from None
-        self.apply_recipe(recipe, str(path))
+        self.recipe_notes = self.apply_recipe(recipe, str(path))
         return recipe
 
     def recipe_text(self) -> str:
         try:
-            data = recipe_dict(self.rows, self.title, ignored_colors(self.rows))
+            g = self.general
+            data = recipe_dict(self.rows, self.title, ignored_colors(self.rows),
+                               job={"grosor": g.thickness, "fresa": (g.tool or "").strip(), "maquina": (g.machine or "").strip()})
             parse_recipe(data, _("tabla de operaciones"))                 # que lo que se guarda se pueda volver a leer
         except RecipeError as e:
             raise ProjectError(str(e)) from None
@@ -1176,6 +1257,9 @@ class Project:
                          "puntos": {HOLD_WHOLE if n is None else str(n): [list(p) for p in pts]
                                     for n, pts in self.hold_points.items()}},
         }
+        if self.svg_source and not self.scratch:        # el trabajo lleva su dibujo: se puede rehacer el .nc sin el SVG
+            data["svg_incrustado"] = {"nombre": self.drawing.path.name,
+                                      "zlib_base64": base64.b64encode(zlib.compress(self.svg_source, 9)).decode("ascii")}
         if ident:                           # cada trabajo lleva su maquina: el id y la ficha tal como era al guardarlo
             data["maquina"] = {"id": ident, "ficha": machine_to_dict(self.machines[ident], ident)}
         if self.edits or self.scratch:

@@ -365,10 +365,37 @@ def test_a_job_whose_drawing_moved_is_found_next_to_the_job_file(job19, qtbot, t
     job = tmp_path / "t.cncjob"
     job19.save_job(job)
     data = job.read_text(encoding="utf-8").replace(str(svg).replace("\\", "\\\\"), "/ya/no/esta/tableros_19mm.svg")
-    job.write_text(data, encoding="utf-8")
+    import json
+    raw = json.loads(data)
+    raw.pop("svg_incrustado")                                   # un trabajo de antes: no lleva el dibujo dentro
+    job.write_text(json.dumps(raw), encoding="utf-8")
     other = MainWindow(Project(tools()), [], use_settings=False)
     qtbot.addWidget(other)
     assert other.open_job(job) and other.project.drawing.path == svg
+
+
+def test_a_job_carries_its_drawing_and_opens_without_the_svg(job19, qtbot, tmp_path, monkeypatch):
+    import shutil
+    from PySide6.QtWidgets import QFileDialog
+    monkeypatch.setattr(QFileDialog, "getOpenFileName", staticmethod(lambda *a, **k: ("", "")))   # si preguntara, falla
+    pick_tool(job19)
+    svg = tmp_path / "tableros_19mm.svg"
+    shutil.copy(BOARDS19, svg)
+    job19.open_svg(svg, apply_default_recipe=False)
+    job19.load_recipe(RECIPE)
+    first = job19.project.plan(1).text
+    job = tmp_path / "t.cncjob"
+    assert job19.save_job(job)
+    svg.unlink()                                                # el SVG ya no existe en ningun sitio
+    other = MainWindow(Project(tools()), [], use_settings=False)
+    qtbot.addWidget(other)
+    assert other.open_job(job)                                  # y no pregunta dónde está: el trabajo lo lleva dentro
+    assert other.project.drawing.path == svg and other.project.svg_source == BOARDS19.read_bytes()
+    assert other.project.plan(1).text == first
+    again = tmp_path / "otra" / "copia.cncjob"
+    again.parent.mkdir()
+    assert other.save_job(again)                                # al guardar de nuevo sigue llevándolo
+    assert Project.embedded_svg(__import__("json").loads(again.read_text(encoding="utf-8")))[0] == BOARDS19.read_bytes()
 
 
 def test_turning_board_detection_off_rereads_the_drawing_and_keeps_the_settings(tmp_path, win):

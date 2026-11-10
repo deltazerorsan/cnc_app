@@ -534,8 +534,9 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
             return False
         edicion = data.get("edicion")
         scratch = isinstance(edicion, dict) and bool(edicion.get("nuevo"))
-        svg = None if scratch else self._find_svg(data.get("svg", ""), path)
-        if svg is None and not scratch:
+        embedded = None if scratch else self.project.embedded_svg(data)     # el dibujo va dentro del trabajo (los de antes no)
+        svg = None if scratch or embedded else self._find_svg(data.get("svg", ""), path)
+        if svg is None and not scratch and not embedded:
             return False
         use_boards = bool(data.get("detectar_tableros", True))              # antes de leer el dibujo: cambia sus tableros
         self.project.use_boards = use_boards
@@ -546,6 +547,15 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
             self.project.new_drawing(path.parent, path.with_suffix(".svg").name)         # sin SVG: el dibujo sale de las ediciones
             self.job_path = None
             self._after_drawing_loaded()
+        elif embedded:
+            original = Path(data.get("svg") or "") if data.get("svg") else path.with_name(embedded[1] or path.stem + ".svg")
+            try:
+                self.project.load_svg_text(embedded[0], original)
+            except Exception as e:
+                self._error(_("No se pudo abrir el dibujo"), f"{path.name}: {e}")
+                return False
+            self._remember_folder(path)
+            self.job_path = None
         elif not self.open_svg(svg, apply_default_recipe=False):
             return False
         try:
@@ -745,8 +755,13 @@ class MainWindow(FolderActions, DrawActions, QMainWindow):
             self._error(_("No se pudo abrir la receta"), str(e))
             return False
         self.ops.bind(self.project.rows)
+        self.job.refresh()                                  # la receta puede traer grosor, fresa o maquina
         self.refresh_all()
-        self.statusBar().showMessage(_("Receta {name} aplicada a la tabla.", name=Path(path).name))
+        notes = self.project.recipe_notes
+        text = _("Receta {name} aplicada a la tabla.", name=Path(path).name)
+        self.statusBar().showMessage(" ".join([text] + [n.text for n in notes]))
+        if notes and self.settings is not None:
+            QMessageBox.information(self, "cnc_app", "\n\n".join([text] + [n.text for n in notes]))
         return True
 
     def save_recipe_dialog(self) -> None:
