@@ -51,7 +51,8 @@ EXCLUDES = [
     "setuptools", "pkg_resources", "yaml", "psutil", "charset_normalizer",
     "ssl", "_ssl", "_hashlib",                          # OpenSSL: no hay red; hashlib usa sin el sus propios algoritmos
 ]
-UNUSED_PLUGINS = ("/plugins/imageformats/", "/plugins/tls/", "/plugins/iconengines/")   # no se abren imagenes ni hay red
+UNUSED_PLUGINS = ("/plugins/imageformats/", "/plugins/tls/", "/plugins/iconengines/",   # no se abren imagenes ni hay red
+                  "/qtsvg.framework/")                                               # el SVG de Qt en macOS (en los demas, qt6svg)
 # OpenGL por software, otra forma de pintar la ventana, el SVG de Qt y el OpenSSL que usaria el plugin de red cifrada
 UNUSED_FILES = ("opengl32sw", "qdirect2d", "qt6svg", "libqt6svg", "libcrypto-3-x64", "libssl-3-x64")
 
