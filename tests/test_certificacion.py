@@ -135,6 +135,30 @@ def test_verifier_flags_unknown_codes_and_cutting_in_air():
     assert any("por encima de la superficie" in m for m in r.issues)
 
 
+def test_verifier_flags_a_cut_with_the_spindle_off_only_if_the_program_starts_it():
+    # el husillo se para a medio corte: el aviso sale una vez, con su linea y en su sitio entre los demas
+    long_line = "(" + "x" * 80 + ")\n"
+    early = long_line + GOOD.replace("G1 X10 F300\n", "G1 X10 F300\nM5\nG1 X20\nG1 X30 Z-2\nM3 S20000\n")
+    issues = analyze(early).issues
+    assert len(issues) == 3 and "caracteres" in issues[0] and "rampa" in issues[2]
+    assert issues[1] == "linea 10: corte con el husillo apagado"
+    # el M3 llega despues del corte: cuenta igual (el programa si arranca el husillo)
+    late = "G21 G90\nG0 Z5\nG0 X0 Y0\nG1 Z-3 F200\nG1 X10 F300\nG0 Z5\nM3 S20000\nM5\nM30\n"
+    assert analyze(late).issues == ["linea 5: corte con el husillo apagado"]
+    # sin ningun M3 el husillo se maneja a mano: no hay nada que avisar
+    assert analyze(late.replace("M3 S20000\nM5\n", "")).ok
+
+
+def test_verifier_reads_the_program_format_and_any_other_the_same():
+    """Las lineas como las escribe el programa («G1 X10 Y5») van por un camino rapido: da lo mismo que el general."""
+    plain = GOOD.replace("G1 X10 F300", "G1 X10 Y-.5 F300\nG1 X12. Y3")
+    loose = plain.replace("G1 X10 Y-.5 F300", "g1x10 y-.5  F300").replace("G1 X12. Y3", "G1  X12.Y3")
+    a, b = analyze(plain), analyze(loose)
+    assert a.ok and b.ok and vars(a) == vars(b) and a.cut_segments[-1] == ((10.0, -0.5), (12.0, 3.0))
+    for bad in ("G1 X1e3 F300", "G1 X10 Y F300", "G1 X10 W3 F300", "G1 X1_0 F300"):       # lo que no es letra + numero, se dice
+        assert analyze(GOOD.replace("G1 X10 F300", bad)).unknown, bad
+
+
 def test_verifier_cli_exit_code(tmp_path, capsys):
     f = tmp_path / "a.nc"
     f.write_text(GOOD)

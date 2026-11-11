@@ -7,12 +7,13 @@ Ademas se puede crear una ficha desde el log de arranque (`import_log`), que es 
 from __future__ import annotations
 
 from dataclasses import replace
+from functools import partial
 from typing import Optional
 
 from .machines import (MachinesFileError, ParsedLog, differences, machine_from_log, machine_to_dict, n, parse_log,
                        parse_machine, save_machines)
 from .model import MachineProfile
-from .records import Editor, Entry, require_ident
+from .records import Editor, Entry, edit_error, form_number, require_ident
 from .i18n import _
 
 # Las casillas del formulario, en el orden en que se ensenan. Los tres numeros de un recorrido o una aceleracion son
@@ -58,12 +59,7 @@ def machine_to_form(machine: MachineProfile, ident: str = "") -> dict[str, str]:
     return form
 
 
-def _number(key: str, text: str):
-    try:
-        value = float(text.replace(",", "."))
-    except ValueError:
-        raise MachineEditError(_("'{key}' debe ser un número (hay {text!r}).", key=key, text=text)) from None
-    return int(value) if value.is_integer() else value
+_number = partial(form_number, error=MachineEditError)
 
 
 def _flag(key: str, text: str) -> bool:
@@ -114,10 +110,9 @@ def build_machine(ident: str, form: dict[str, str]) -> MachineProfile:
     check_ident(ident)
     raw = form_to_raw(form)
     try:
-        machine = parse_machine(ident, raw, "ficha")
+        return parse_machine(ident, raw, "ficha")
     except MachinesFileError as e:
-        raise MachineEditError(str(e).split(": ", 1)[-1]) from None
-    return machine
+        raise edit_error(e, MachineEditError) from None
 
 
 def advice(machine: MachineProfile) -> list[str]:
@@ -221,4 +216,4 @@ def machine_from_log_checked(text: str, name: str = "", source: str = _("log peg
     try:
         return replace(parse_machine("log", machine_to_dict(machine), "log"), name=machine.name)
     except MachinesFileError as e:
-        raise MachineEditError(str(e).split(": ", 1)[-1]) from None
+        raise edit_error(e, MachineEditError) from None

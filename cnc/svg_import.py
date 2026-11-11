@@ -73,11 +73,47 @@ def _hex(color) -> Optional[str]:
     return color.hex
 
 
+def _bezier(seg):
+    """La curva de Bezier como funcion t -> (x, y), o None si el segmento no lo es (un arco).
+
+    Es la cuenta de `seg.point(t)` de svgelements, que monta un array de numpy por cada punto: asi un dibujo con muchas
+    curvas se abre unas diez veces antes. Las operaciones van EN EL MISMO ORDEN que alli, para que cada punto salga
+    igual hasta la ultima cifra: una diferencia en la cifra 13 basta para que el desfase de la fresa (shapely) ponga
+    algun vertice de mas o de menos, y el G-code de un dibujo ya no seria, linea a linea, el de siempre."""
+    if isinstance(seg, se.CubicBezier):
+        (x0, y0), (x1, y1), (x2, y2), (x3, y3) = ((p.x, p.y) for p in (seg.start, seg.control1, seg.control2, seg.end))
+
+        def cubic(t):
+            t3 = t * t * t
+            u = 1 - t
+            u3 = u * u * u
+            t2u = t * t * u
+            u2t = u * u * t
+            return (u3 * x0 + 3 * (u2t * x1 + t2u * x2) + t3 * x3, u3 * y0 + 3 * (u2t * y1 + t2u * y2) + t3 * y3)
+        return cubic
+    if isinstance(seg, se.QuadraticBezier):
+        (x0, y0), (x1, y1), (x2, y2) = ((p.x, p.y) for p in (seg.start, seg.control, seg.end))
+
+        def quadratic(t):
+            u = 1 - t
+            t2 = t * t
+            u2 = u * u
+            ut = u * t
+            return (u2 * x0 + 2 * ut * x1 + t2 * x2, u2 * y0 + 2 * ut * y1 + t2 * y2)
+        return quadratic
+    return None
+
+
 def _flatten_segment(seg, tol_px: float, out: list) -> None:
     """Anade los puntos del segmento (sin repetir el inicial)."""
     if isinstance(seg, (se.Line, se.Close)):
         out.append((seg.end.x, seg.end.y))
         return
+    point = _bezier(seg)
+    if point is None:                              # un arco: lo calcula svgelements
+        def point(t):
+            q = seg.point(t)
+            return (q.x, q.y)
 
     def sag(p0, pm, p1) -> float:  # distancia de pm a la cuerda p0-p1
         dx, dy = p1[0] - p0[0], p1[1] - p0[1]
@@ -88,16 +124,14 @@ def _flatten_segment(seg, tol_px: float, out: list) -> None:
 
     def rec(t0, p0, t1, p1, depth):
         tm = (t0 + t1) / 2
-        q = seg.point(tm)
-        pm = (q.x, q.y)
+        pm = point(tm)
         if depth >= MAX_SUBDIVISIONS or (depth >= MIN_SUBDIVISIONS and sag(p0, pm, p1) <= tol_px):
             out.append(p1)
             return
         rec(t0, p0, tm, pm, depth + 1)
         rec(tm, pm, t1, p1, depth + 1)
 
-    a, b = seg.point(0.0), seg.point(1.0)
-    rec(0.0, (a.x, a.y), 1.0, (b.x, b.y), 0)
+    rec(0.0, point(0.0), 1.0, point(1.0), 0)
 
 
 def _subpaths(shape, tol_px: float):
@@ -247,6 +281,12 @@ def import_svg(
     )
 
 
+def bounds_of(shapes: Sequence[ImportedShape]) -> tuple[float, float, float, float]:
+    """La caja (minx, miny, maxx, maxy) que contiene todas las formas."""
+    boxes = [s.shape.bounds for s in shapes]
+    return (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
+
+
 def place(
     shapes: Sequence[ImportedShape],
     origin: str = "bbox_bottom_left",
@@ -263,9 +303,7 @@ def place(
     shapes = list(shapes)
     if origin == "page_bottom_left" or not shapes:
         return shapes
-    bounds = [s.shape.bounds for s in (list(reference) if reference else shapes)]
-    minx, miny = min(b[0] for b in bounds), min(b[1] for b in bounds)
-    maxx, maxy = max(b[2] for b in bounds), max(b[3] for b in bounds)
+    minx, miny, maxx, maxy = bounds_of(reference or shapes)
     if origin == "bbox_bottom_left":
         dx, dy = -minx, -miny
     elif origin == "center":
@@ -284,9 +322,8 @@ def rotate(shapes: Sequence[ImportedShape], degrees: float) -> list[ImportedShap
     shapes = list(shapes)
     if not shapes or degrees % 360 == 0:
         return shapes
-    bounds = [s.shape.bounds for s in shapes]
-    cx = (min(b[0] for b in bounds) + max(b[2] for b in bounds)) / 2
-    cy = (min(b[1] for b in bounds) + max(b[3] for b in bounds)) / 2
+    minx, miny, maxx, maxy = bounds_of(shapes)
+    cx, cy = (minx + maxx) / 2, (miny + maxy) / 2
     return [replace(s, shape=affinity.rotate(s.shape, degrees, origin=(cx, cy))) for s in shapes]
 
 

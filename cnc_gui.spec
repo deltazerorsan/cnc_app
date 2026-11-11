@@ -41,6 +41,30 @@ def _version_resource():
             VarFileInfo([VarStruct("Translation", [0x409, 1200])])])
 
 
+# Lo que PyInstaller recoge por si acaso y este programa no usa. Quitarlo deja el exe de Windows en unos 36 MB en vez de
+# 57, y son unos 50 MB menos que descomprimir en cada arranque. Si algun dia hace falta algo de esto (abrir imagenes, pedir
+# algo por https...), se quita de aqui; `cnc_app --autotest` dice si el programa compilado sigue entero.
+EXCLUDES = [
+    "matplotlib", "scipy", "tkinter", "pytest", "IPython", "PySide6.QtQml", "PySide6.QtQuick",
+    "PIL",                                              # lo importa svgelements solo para las imagenes de un SVG: no se usan
+    "PySide6.QtSvg", "PySide6.QtOpenGL",
+    "setuptools", "pkg_resources", "yaml", "psutil", "charset_normalizer",
+    "ssl", "_ssl", "_hashlib",                          # OpenSSL: no hay red; hashlib usa sin el sus propios algoritmos
+]
+UNUSED_PLUGINS = ("/plugins/imageformats/", "/plugins/tls/", "/plugins/iconengines/")   # no se abren imagenes ni hay red
+# OpenGL por software, otra forma de pintar la ventana, el SVG de Qt y el OpenSSL que usaria el plugin de red cifrada
+UNUSED_FILES = ("opengl32sw", "qdirect2d", "qt6svg", "libqt6svg", "libcrypto-3-x64", "libssl-3-x64")
+
+
+def _unused(dest: str) -> bool:
+    """Si sobra un archivo de los que recoge PyInstaller (`dest` es su ruta dentro del programa)."""
+    path = dest.replace("\\", "/").lower()
+    name = path.rsplit("/", 1)[-1]
+    if "/translations/" in path:                        # catalogos de Qt: solo se carga el español (cnc/gui/app.py)
+        return not name.startswith("qtbase_es.")
+    return any(p in path for p in UNUSED_PLUGINS) or name.startswith(UNUSED_FILES)
+
+
 a = Analysis(
     ["cnc_gui.py"],
     pathex=[],
@@ -49,9 +73,11 @@ a = Analysis(
     hiddenimports=[],
     hookspath=[],
     runtime_hooks=[],
-    excludes=["matplotlib", "scipy", "tkinter", "pytest", "IPython", "PySide6.QtQml", "PySide6.QtQuick"],
+    excludes=EXCLUDES,
     noarchive=False,
 )
+a.binaries = [entry for entry in a.binaries if not _unused(entry[0])]
+a.datas = [entry for entry in a.datas if not _unused(entry[0])]
 pyz = PYZ(a.pure)
 if sys.platform == "darwin":
     exe = EXE(

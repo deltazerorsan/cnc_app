@@ -1002,6 +1002,19 @@ def test_a_piece_whose_cut_has_bridges_is_still_a_piece_and_is_never_held():
     assert not any(box(150, 120, 250, 180).contains(Point(p)) for p in a.suggest())
 
 
+def test_zones_come_from_the_outline_and_are_the_same_as_from_every_pass():
+    """La sujecion mira la trayectoria en planta (`outline`: cada vuelta una vez); sale lo mismo que con todas las pasadas."""
+    ring = rect_path(100, 80, 300, 220)
+    every_pass = OpPreview(1, "pieza", cuts=[ring + ring[1:] * 3])
+    in_plan = OpPreview(1, "pieza", cuts=[ring + ring[1:] * 3], outline=[ring])
+    a, b = build_zones(board(), [every_pass], R), build_zones(board(), [in_plan], R)
+    assert len(a.pieces) == len(b.pieces) == 1 and a.pieces[0].symmetric_difference(b.pieces[0]).area < 1e-6
+    assert a.frame_union.symmetric_difference(b.frame_union).area < 1e-6
+    assert b.axis.length == pytest.approx(2 * (200 + 140))                          # una vuelta, no cuatro
+    elsewhere = OpPreview(1, "pieza", cuts=[ring], outline=[rect_path(10, 10, 60, 60)])
+    assert build_zones(board(), [elsewhere], R).pieces[0].contains(Point(35, 35))   # manda `outline` cuando lo hay
+
+
 def test_without_the_bridges_closing_the_contour_the_piece_would_be_taken_for_scrap():
     """Lo que pasaba: solo contaban los cortes, que con puentes son trozos abiertos, y el cuerpo de la pieza era marco."""
     p = piece_with_bridges()

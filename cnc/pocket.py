@@ -16,6 +16,7 @@ Cobertura: toda la region queda a menos de un radio de algun recorrido, asi que 
 from __future__ import annotations
 
 import math
+from functools import lru_cache
 
 from shapely import affinity
 from shapely.geometry import LinearRing, LineString, Polygon
@@ -158,22 +159,29 @@ def offset_rings(area, step: float, tool_radius: float, climb: bool = True):
     return out
 
 
+@lru_cache(maxsize=256)
+def _planned(shape, tool_radius: float, stepover: float, climb: bool, strategy: str, angle: float) -> tuple:
+    """Los recorridos de un vaciado. Con memoria, porque calcularlos es lo caro y cada vaciado los pide dos veces: para
+    ordenarlos por donde empiezan (`entry_point`) y para generarlos (`pocket_moves`). Solo dependen de lo que entra."""
+    area = pocket_area(shape, tool_radius)
+    step = stepover * 2 * tool_radius
+    rings = finishing_rings(area, climb)
+    if rings_cover(shape, rings, tool_radius):
+        return tuple(rings)
+    if strategy == "offset":
+        paths = offset_rings(area, step, tool_radius, climb)
+        return (bottom_left_start(paths[0]), *paths[1:])      # el primero, como es habitual; el resto, al mas cercano
+    if strategy != "zigzag":
+        raise ValueError(_("strategy desconocida: {strategy!r} (offset o zigzag).", strategy=strategy))
+    return (*([a, b] for a, b in raster_segments(area, step, angle)), *rings)
+
+
 def plan_paths(op: PocketOp, tool_radius: float) -> list[list[tuple[float, float]]]:
-    """Recorridos de cada nivel (los cerrados repiten su primer punto al final)."""
+    """Recorridos de cada nivel (los cerrados repiten su primer punto al final). Son para leer: no se modifican."""
     op = resolved(op)
     if not 0 < op.stepover <= 1:
         raise ValueError(_("stepover debe estar en (0, 1] (fraccion del diametro)."))
-    area = pocket_area(op.shape, tool_radius)
-    step = op.stepover * 2 * tool_radius
-    rings = finishing_rings(area, op.climb)
-    if rings_cover(op.shape, rings, tool_radius):
-        return rings
-    if op.strategy == "offset":
-        paths = offset_rings(area, step, tool_radius, op.climb)
-        return [bottom_left_start(paths[0])] + paths[1:]      # el primero, como es habitual; el resto, al mas cercano
-    if op.strategy != "zigzag":
-        raise ValueError(_("strategy desconocida: {strategy!r} (offset o zigzag).", strategy=op.strategy))
-    return [[a, b] for a, b in raster_segments(area, step, op.angle)] + rings
+    return list(_planned(op.shape, tool_radius, op.stepover, op.climb, op.strategy, op.angle))
 
 
 def _start_nearest(ring, pos):

@@ -50,6 +50,27 @@ def test_cubic_bezier_flattening_respects_tolerance():
     assert len(s.shape.coords) > 8
 
 
+def test_bezier_points_are_the_ones_svgelements_gives():
+    """Las curvas se calculan aqui (svgelements tarda diez veces mas en cada punto) y tiene que salir lo mismo hasta la
+    ultima cifra: con una diferencia en la cifra 13 el desfase de la fresa ya pone vertices de mas o de menos y cambia el
+    G-code de los dibujos con curvas."""
+    import svgelements as se
+
+    from cnc.svg_import import _bezier, _flatten_segment
+    path = se.Path("M 3.1 4.7 C 30.3 -8.9 5.2 40.6 60.1 22.3 Q 80.7 -10.3 95.9 30.1 A 20 12 15 0 1 130 40 L 140 40 "
+                   "C 141.37 52.811 163.09 47.3 170.513 61.07 Q 181.9 70.33 177.7 93.21")
+    __, cubic, quadratic, arc, line, cubic2, quadratic2 = path
+    for seg in (cubic, quadratic, cubic2, quadratic2):
+        curve = _bezier(seg)
+        for t in [k / 512 for k in range(513)] + [0.1, 0.3, 0.77]:
+            assert curve(t) == (seg.point(t).x, seg.point(t).y), t
+        assert curve(0.0) == (seg.start.x, seg.start.y) and curve(1.0) == (seg.end.x, seg.end.y)
+    assert _bezier(arc) is None and _bezier(line) is None          # un arco lo sigue calculando svgelements
+    out: list = []
+    _flatten_segment(arc, 0.01, out)
+    assert len(out) > 8 and out[-1] == pytest.approx((130, 40))
+
+
 def test_arc_command():
     r = import_svg(svg('<path d="M 20 50 A 10 10 0 1 1 40 50 A 10 10 0 1 1 20 50 Z"/>'), tolerance=0.01)
     (s,) = r.shapes

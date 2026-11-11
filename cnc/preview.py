@@ -18,6 +18,8 @@ class OpPreview:
     index: int                                     # numero de operacion (empieza en 1, como en los avisos)
     kind: str                                      # hueco | pieza | linea | vaciado | taladro
     cuts: list = field(default_factory=list)       # polilineas [(x, y), ...] cortadas a avance
+    outline: list = field(default_factory=list)    # lo mismo que `cuts` visto en planta: cada vuelta una sola vez, aunque se
+                                                   # repita en cada pasada (para pintar y para la sujecion; ver `outline_of`)
     bridges: list = field(default_factory=list)    # polilineas [(x, y), ...] que la fresa recorre levantada sobre un puente
     rapids: list = field(default_factory=list)     # tramos [(x0, y0), (x1, y1)] en G0 con desplazamiento XY
     drills: list = field(default_factory=list)     # (x, y, z) de cada bajada sin desplazamiento (taladros)
@@ -39,6 +41,22 @@ def op_kind(op) -> str:
     raise TypeError(_("Tipo de operacion desconocido: {name}", name=type(op).__name__))
 
 
+def outline_of(op) -> list:
+    """Las lineas de corte de una operacion en planta, sin repetir las pasadas (`cuts` si la vista previa no las trae)."""
+    return getattr(op, "outline", None) or op.cuts
+
+
+def _unique(lines: list, key=tuple) -> list:
+    """Las mismas lineas sin las repetidas (la primera de cada una, en su orden)."""
+    seen, out = set(), []
+    for line in lines:
+        k = key(line)
+        if k not in seen:
+            seen.add(k)
+            out.append(line)
+    return out
+
+
 def preview_moves(moves, index: int = 1, kind: str = "pieza", start: tuple = (None, None, None)) -> OpPreview:
     """`start` es donde estaba la fresa antes de la operacion (la anterior acaba ahi): sin ello, el primer
     desplazamiento en rapido de la operacion no se podria dibujar."""
@@ -46,6 +64,8 @@ def preview_moves(moves, index: int = 1, kind: str = "pieza", start: tuple = (No
     x, y, z = start
     current: list = []
     bridge: list = []
+    lap: list = []                                     # la vuelta en curso: como `current`, pero acaba en cada bajada
+    laps: list = []
     for m in moves:
         nx = m.x if m.x is not None else x
         ny = m.y if m.y is not None else y
@@ -56,30 +76,32 @@ def preview_moves(moves, index: int = 1, kind: str = "pieza", start: tuple = (No
         if m.rapid:
             if moved_xy:
                 out.rapids.append([(x, y), (nx, ny)])
-            current, bridge = [], []
+            current, bridge, lap = [], [], []
         elif m.tab and moved_xy:                       # sobre un puente: cada pasada repite el mismo tramo, se dibuja una vez
             if not bridge:
                 bridge = [(x, y)]
                 out.bridges.append(bridge)
             bridge.append((nx, ny))
-            current = []
+            current, lap = [], []
         elif moved_xy and nz is not None and nz <= EPS:
             bridge = []
             if not current:
                 current = [(x, y)]
                 out.cuts.append(current)
             current.append((nx, ny))
-        elif kind == "taladro" and not moved_xy and nz is not None and z is not None and nz < z - EPS and nz < 0:
-            out.drills.append((nx, ny, nz))            # bajada en vertical a avance: un taladro (o un picoteo)
+            if not lap:
+                lap = [(x, y)]
+                laps.append(lap)
+            lap.append((nx, ny))
+        elif not moved_xy:
+            lap = []                                   # cambia de Z sin moverse (baja a otra pasada): empieza otra vuelta
+            if kind == "taladro" and nz is not None and z is not None and nz < z - EPS and nz < 0:
+                out.drills.append((nx, ny, nz))        # bajada en vertical a avance: un taladro (o un picoteo)
         x, y, z = nx, ny, nz
     out.end = (x, y, z)
-    seen, unique = set(), []
-    for line in out.bridges:                           # cada pasada profunda repite los mismos puentes
-        key = tuple((round(px, 3), round(py, 3)) for px, py in line)
-        if key not in seen:
-            seen.add(key)
-            unique.append(line)
-    out.bridges = unique
+    # cada pasada profunda repite los mismos puentes, y cada pasada repite la misma vuelta: en planta, una vez
+    out.bridges = _unique(out.bridges, lambda line: tuple((round(px, 3), round(py, 3)) for px, py in line))
+    out.outline = _unique(laps)
     return out
 
 

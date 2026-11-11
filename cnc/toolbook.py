@@ -8,7 +8,7 @@ from __future__ import annotations
 from typing import Optional, Union
 
 from .model import Tool
-from .records import Editor, Entry, require_ident
+from .records import Editor, Entry, edit_error, form_number, require_ident
 from .tools import FIELDS, ToolsFileError, parse_tool, save_tools, tool_to_dict
 from .i18n import _
 
@@ -47,15 +47,10 @@ def tool_to_form(tool: Tool, ident: str = "") -> dict[str, str]:
 
 
 def _number(key: str, text: str) -> Union[int, float]:
-    try:
-        value = float(text.replace(",", "."))
-    except ValueError:
-        raise ToolEditError(_("'{key}' debe ser un número (hay {text!r}).", key=key, text=text)) from None
-    if key in INTEGER_FIELDS:
-        if not value.is_integer():
-            raise ToolEditError(_("'{key}' debe ser un número entero (hay {text!r}).", key=key, text=text))
-        return int(value)
-    return int(value) if value.is_integer() else value
+    value = form_number(key, text, ToolEditError)
+    if key in INTEGER_FIELDS and not isinstance(value, int):
+        raise ToolEditError(_("'{key}' debe ser un número entero (hay {text!r}).", key=key, text=text))
+    return value
 
 
 def form_to_raw(form: dict[str, str]) -> dict:
@@ -79,7 +74,7 @@ def build_tool(ident: str, form: dict[str, str]) -> Tool:
     try:
         return parse_tool(ident, raw, "ficha")
     except ToolsFileError as e:
-        raise ToolEditError(str(e).split(": ", 1)[-1]) from None
+        raise edit_error(e, ToolEditError) from None
 
 
 def advice(tool: Tool) -> list[str]:

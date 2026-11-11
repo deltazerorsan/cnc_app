@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cnc_app VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-10 19:56+0100\n"
+"POT-Creation-Date: 2026-11-11 09:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -89,7 +89,7 @@ msgstr "a {width:g} mm bridge does not fit in a {length:g} mm outline."
 msgid "Lo he mirado y sigo adelante."
 msgstr "I have looked at it and I am going ahead."
 
-#: checklist.py:67 gui/canvas.py:269
+#: checklist.py:67 gui/canvas.py:281
 #, python-brace-format
 msgid "Tablero {number}"
 msgstr "Board {number}"
@@ -161,7 +161,7 @@ msgid " mm/min"
 msgstr " mm/min"
 
 #: checklist.py:129 gui/machines_dialog.py:208 gui/machines_dialog.py:210
-#: machinebook.py:25 machines.py:201 machines.py:205 machines.py:209
+#: machinebook.py:26 machines.py:201 machines.py:205 machines.py:209
 msgid "sin dato"
 msgstr "no data"
 
@@ -245,7 +245,7 @@ msgstr "{n} degrees counterclockwise"
 msgid "Giro"
 msgstr "Rotation"
 
-#: checklist.py:157 pipeline.py:177 pipeline.py:196
+#: checklist.py:157 pipeline.py:177 pipeline.py:194
 msgid "sin giro"
 msgstr "no rotation"
 
@@ -332,26 +332,21 @@ msgstr " ({n} RPM recommended)."
 msgid "El husillo NO lo arranca la aplicación: lo arranco yo antes de empezar, y {adjust}."
 msgstr "The spindle is NOT started by the application: I start it myself before beginning, and {adjust}."
 
-#: config.py:36
+#: config.py:29
 msgid "archivo de configuracion"
 msgstr "configuration file"
 
-#: config.py:40
-#, python-brace-format
-msgid "No se puede leer {name}: hace falta Python 3.11 o superior, o `pip install tomli`."
-msgstr "{name} cannot be read: Python 3.11 or higher is needed, or `pip install tomli`."
-
-#: config.py:45
+#: config.py:34
 #, python-brace-format
 msgid "No existe el {what} {path}."
 msgstr "The {what} {path} does not exist."
 
-#: config.py:47 machines.py:117 tools.py:133
+#: config.py:36 machines.py:117 tools.py:133
 #, python-brace-format
 msgid "No se puede leer {path}: {e}"
 msgstr "Cannot read {path}: {e}"
 
-#: config.py:51
+#: config.py:40
 #, python-brace-format
 msgid "{name}: TOML invalido: {e}"
 msgstr "{name}: invalid TOML: {e}"
@@ -1046,7 +1041,7 @@ msgstr "The jobs folder ({s}) {why}"
 msgid "La carpeta de G-code ({s}) {why}"
 msgstr "The G-code folder ({s}) {why}"
 
-#: generate.py:52 preview.py:39
+#: generate.py:52 preview.py:41
 #, python-brace-format
 msgid "Tipo de operacion desconocido: {name}"
 msgstr "Unknown operation type: {name}"
@@ -1160,7 +1155,7 @@ msgstr "Material {thickness:g} mm | spoilboard extra {spoilboard_extra:g} mm | Z
 msgid "Fresa {tool_label} | {len} operacion(es)"
 msgstr "Tool {tool_label} | {len} operation(s)"
 
-#: generate.py:262 pipeline.py:446
+#: generate.py:262 pipeline.py:442
 #, python-brace-format
 msgid "RPM aconsejadas (variador): {rpm:g}"
 msgstr "Recommended RPM (speed controller): {rpm:g}"
@@ -1335,61 +1330,61 @@ msgstr "Click to put a bridge here"
 msgid "Puente: posición {position:g} de {length:g} mm · ancho {width:g} · alto {height:g} mm"
 msgstr "Bridge: position {position:g} of {length:g} mm · width {width:g} · height {height:g} mm"
 
-#: gui/canvas.py:266
+#: gui/canvas.py:278
 #, python-brace-format
 msgid "Tablero {number}: {width:.0f} x {height:.0f} mm"
 msgstr "Board {number}: {width:.0f} x {height:.0f} mm"
 
-#: gui/canvas.py:294
+#: gui/canvas.py:306
 #, python-brace-format
 msgid "{v} (forma {i})"
 msgstr "{v} (shape {i})"
 
-#: gui/canvas.py:294 gui/main_window.py:935 oprows.py:55 pipeline.py:366
+#: gui/canvas.py:306 gui/main_window.py:935 oprows.py:55 pipeline.py:362
 msgid "sin color"
 msgstr "no color"
 
-#: gui/canvas.py:325
+#: gui/canvas.py:337
 #, python-brace-format
 msgid "{count} puente(s), {how}"
 msgstr "{count} bridge(s), {how}"
 
-#: gui/canvas.py:325
+#: gui/canvas.py:337
 msgid "puestos a mano"
 msgstr "put by hand"
 
-#: gui/canvas.py:325
+#: gui/canvas.py:337
 msgid "automáticos"
 msgstr "automatic"
 
-#: gui/canvas.py:373
+#: gui/canvas.py:380
 msgid "Cero del dibujo (X0 Y0)"
 msgstr "Drawing zero (X0 Y0)"
 
-#: gui/canvas.py:375
+#: gui/canvas.py:381
 msgid "Dibujo vacío: usa el menú Dibujo para añadir formas"
 msgstr "Empty drawing: use the Draw menu to add shapes"
 
-#: gui/canvas.py:395
+#: gui/canvas.py:401
 #, python-brace-format
 msgid "Recorrido de la máquina {travel:g} x {travel2:g} mm desde el cero"
 msgstr "Machine travel {travel:g} x {travel2:g} mm from zero"
 
-#: gui/canvas.py:406
+#: gui/canvas.py:412
 msgid "Tablero supuesto: del cero a lo que se corta más el mismo margen (el dibujo no trae recuadro)"
 msgstr "Assumed board: from zero to what is cut plus the same margin (the drawing has no frame)"
 
-#: gui/canvas.py:431
+#: gui/canvas.py:437
 #, python-brace-format
 msgid "Operación {index}: {lower}, hasta Z {z_min:.2f} mm"
 msgstr "Operation {index}: {lower}, down to Z {z_min:.2f} mm"
 
-#: gui/canvas.py:439
+#: gui/canvas.py:445
 #, python-brace-format
 msgid "Operación {index}: {count} puente(s). La fresa pasa por encima y deja ese tramo sin cortar."
 msgstr "Operation {index}: {count} tab(s). The cutter lifts over them and leaves that stretch uncut."
 
-#: gui/canvas.py:447
+#: gui/canvas.py:453
 #, python-brace-format
 msgid "Operación {index}: taladro hasta Z {z_min:.2f} mm"
 msgstr "Operation {index}: drill down to Z {z_min:.2f} mm"
@@ -1398,49 +1393,49 @@ msgstr "Operation {index}: drill down to Z {z_min:.2f} mm"
 msgid "Cero de la pieza (X0 Y0)"
 msgstr "Part zero (X0 Y0)"
 
-#: gui/canvas.py:511
+#: gui/canvas.py:512
 #, python-brace-format
 msgid "{travel:g} x {travel2:g} mm"
 msgstr "{travel:g} x {travel2:g} mm"
 
-#: gui/canvas.py:512
+#: gui/canvas.py:513
 #, python-brace-format
 msgid "Máquina {name} · {size}"
 msgstr "Machine {name} · {size}"
 
-#: gui/canvas.py:512
+#: gui/canvas.py:513
 #, python-brace-format
 msgid "Máquina · {size}"
 msgstr "Machine · {size}"
 
-#: gui/canvas.py:543
+#: gui/canvas.py:544
 #, python-brace-format
 msgid "{v}: hasta donde llega la fresa desde el cero (cruz roja) con el giro y la colocación que tendrá el G-code"
 msgstr "{v}: how far the tool reaches from zero (red cross) with the rotation and placement the G-code will have"
 
-#: gui/canvas.py:544
+#: gui/canvas.py:545
 msgid "Recorrido de la máquina"
 msgstr "Machine travel"
 
-#: gui/canvas.py:556
+#: gui/canvas.py:548
 msgid "Cero de la máquina (X0 Y0) para este tablero"
 msgstr "Machine zero (X0 Y0) for this board"
 
-#: gui/canvas.py:613
+#: gui/canvas.py:609
 #, python-brace-format
 msgid "rejilla {label} mm"
 msgstr "grid {label} mm"
 
-#: gui/canvas.py:648
+#: gui/canvas.py:644
 msgid "Zona donde se puede sujetar"
 msgstr "Area where it can be clamped"
 
-#: gui/canvas.py:661
+#: gui/canvas.py:657
 #, python-brace-format
 msgid "Punto {v}: X{x:.1f} Y{y:.1f}"
 msgstr "Point {v}: X{x:.1f} Y{y:.1f}"
 
-#: gui/canvas.py:661
+#: gui/canvas.py:657
 msgid " (no es seguro)"
 msgstr " (not safe)"
 
@@ -2405,12 +2400,12 @@ msgstr ""
 msgid "Interruptor general de los puentes. Apagado, el G-code sale sin ninguno: ni los que proponen las filas ni los puestos a mano (quedan guardados y vuelven al encenderlo). Se recuerda en este PC."
 msgstr "Master switch for tabs. When it is off the G-code has none: neither the ones the rows ask for nor the ones placed by hand (those stay saved and come back when it is switched on). It is remembered on this PC."
 
-#: gui/job_panel.py:30 toolbook.py:111
+#: gui/job_panel.py:30 toolbook.py:106
 #, python-brace-format
 msgid "{ident} — {name} (Ø{diameter:g} mm)"
 msgstr "{ident} — {name} (Ø{diameter:g} mm)"
 
-#: gui/job_panel.py:30 toolbook.py:113
+#: gui/job_panel.py:30 toolbook.py:108
 #, python-brace-format
 msgid "{ident} (Ø{diameter:g} mm)"
 msgstr "{ident} (Ø{diameter:g} mm)"
@@ -4097,224 +4092,219 @@ msgstr "The short name of the profile, the one shown in the list. Starts with a 
 msgid "Tipo"
 msgstr "Type"
 
-#: holddown.py:69
+#: holddown.py:70
 msgid "Clavo de clavadora (cabeza 2 mm)"
 msgstr "Nail-gun nail (2 mm head)"
 
-#: holddown.py:70
+#: holddown.py:71
 msgid "Tirafondo (hasta 6 mm)"
 msgstr "Lag screw (up to 6 mm)"
 
-#: holddown.py:90
+#: holddown.py:91
 #, python-brace-format
 msgid "tipo de sujecion desconocido '{kind}' (hay: {join})."
 msgstr "unknown hold-down type '{kind}' (there are: {join})."
 
-#: holddown.py:92
+#: holddown.py:93
 msgid "el alcance debe ser mayor que 0."
 msgstr "the reach must be greater than 0."
 
-#: holddown.py:93
+#: holddown.py:94
 msgid "la separacion minima"
 msgstr "the minimum spacing"
 
-#: holddown.py:93
+#: holddown.py:94
 msgid "la distancia a las esquinas"
 msgstr "the distance to corners"
 
-#: holddown.py:94
+#: holddown.py:95
 msgid "la distancia a los cortes"
 msgstr "the distance to the cuts"
 
-#: holddown.py:94
+#: holddown.py:95
 msgid "la fila del borde inferior"
 msgstr "the bottom edge row"
 
-#: holddown.py:96
+#: holddown.py:97
 #, python-brace-format
 msgid "{name} no puede ser negativa."
 msgstr "{name} cannot be negative."
 
-#: holddown.py:98
+#: holddown.py:99
 msgid "repartir en filas y columnas es si o no."
 msgstr "spreading in rows and columns is yes or no."
 
-#: holddown.py:100
+#: holddown.py:101
 msgid "el minimo de puntos debe ser un numero entero, 0 o mas."
 msgstr "the minimum number of points must be a whole number, 0 or more."
 
-#: holddown.py:101
+#: holddown.py:102
 msgid "margen al corte"
 msgstr "margin to the cut"
 
-#: holddown.py:101
+#: holddown.py:102
 msgid "margen al borde"
 msgstr "margin to the edge"
 
-#: holddown.py:103
+#: holddown.py:104
 #, python-brace-format
 msgid "el {name} no puede ser negativo."
 msgstr "the {name} cannot be negative."
 
-#: holddown.py:105
+#: holddown.py:106
 msgid "la altura de marcado no puede ser negativa."
 msgstr "the marking height cannot be negative."
 
-#: holddown.py:424
+#: holddown.py:427
 #, python-brace-format
 msgid "a {d_cut:.1f} mm del corte (lo comodo es {cut_clear:g} o mas)"
 msgstr "at {d_cut:.1f} mm from the cut (comfortable is {cut_clear:g} or more)"
 
-#: holddown.py:427
+#: holddown.py:430
 msgid "fuera de la plancha"
 msgstr "outside the sheet"
 
-#: holddown.py:430
+#: holddown.py:433
 #, python-brace-format
 msgid "a {d_edge:.1f} mm del borde de la plancha (minimo {edge:g})"
 msgstr "at {d_edge:.1f} mm from the edge of the sheet (minimum {edge:g})"
 
-#: holddown.py:433
+#: holddown.py:436
 msgid "encima del recorrido de la fresa"
 msgstr "on top of the tool path"
 
-#: holddown.py:436
+#: holddown.py:439
 msgid "dentro de una pieza (las piezas no se clavan)"
 msgstr "inside a part (parts are not nailed)"
 
-#: holddown.py:439
+#: holddown.py:442
 msgid "en un desecho que se suelta al cortar: no sujeta nada"
 msgstr "on waste that comes loose when cutting: it holds nothing"
 
-#: holddown.py:441
+#: holddown.py:444
 #, python-brace-format
 msgid "a {d_cut:.1f} mm del corte (minimo {kerf:g})"
 msgstr "at {d_cut:.1f} mm from the cut (minimum {kerf:g})"
 
-#: holddown.py:442
+#: holddown.py:445
 msgid "demasiado cerca del corte"
 msgstr "too close to the cut"
 
-#: holddown.py:671
+#: holddown.py:674
 msgid "no hay puntos que marcar."
 msgstr "there are no points to mark."
 
-#: holddown.py:674
+#: holddown.py:677
 msgid "Marcas de sujecion"
 msgstr "Hold-down marks"
 
-#: holddown.py:675
+#: holddown.py:678
 #, python-brace-format
 msgid "{n} puntos"
 msgstr "{n} points"
 
-#: holddown.py:675
+#: holddown.py:678
 msgid "; el husillo no arranca"
 msgstr "; the spindle does not start"
 
-#: holddown.py:676
+#: holddown.py:679
 msgid "Orden: de lejos a cerca (Y mayor primero), cada fila de izquierda a derecha"
 msgstr "Order: from far to near (largest Y first), each row from left to right"
 
-#: holddown.py:677
+#: holddown.py:680
 msgid "En cada pausa (M0) marca el punto bajo la punta y pulsa Reanudar en UGS"
 msgstr "At each pause (M0) mark the point under the tip and press Resume in UGS"
 
-#: holddown.py:682
+#: holddown.py:685
 #, python-brace-format
 msgid "Punto {i} de {n} - es el {v} de la ventana"
 msgstr "Point {i} of {n} - it is number {v} in the window"
 
-#: holddown.py:683
+#: holddown.py:686
 #, python-brace-format
 msgid "Punto {i} de {n}"
 msgstr "Point {i} of {n}"
 
-#: machinebook.py:25 machines.py:201
+#: machinebook.py:26 machines.py:201
 msgid "sí"
 msgstr "yes"
 
-#: machinebook.py:25 machines.py:201
+#: machinebook.py:26 machines.py:201
 msgid "no"
 msgstr "no"
 
-#: machinebook.py:34
+#: machinebook.py:35
 msgid "el identificador debe empezar por una letra y usar solo letras, números, '_', '-' o '.'."
 msgstr "the identifier must start with a letter and use only letters, numbers, '_', '-' or '.'."
 
-#: machinebook.py:65 toolbook.py:53
-#, python-brace-format
-msgid "'{key}' debe ser un número (hay {text!r})."
-msgstr "'{key}' must be a number (got {text!r})."
-
-#: machinebook.py:75
+#: machinebook.py:71
 #, python-brace-format
 msgid "'{key}' debe ser sí, no o sin dato (hay {text!r})."
 msgstr "'{key}' must be yes, no or no data (got {text!r})."
 
-#: machinebook.py:82
+#: machinebook.py:78
 #, python-brace-format
 msgid "falta {article} {label} (X, Y y Z: $130, $131, $132). Sin él no se sabe lo que cabe."
 msgstr "the {label} is missing (X, Y and Z: $130, $131, $132). Without it, what fits is unknown."
 
-#: machinebook.py:86
+#: machinebook.py:82
 #, python-brace-format
 msgid "{article} {label} tiene que tener las tres casillas (X, Y y Z); falta {missing}."
 msgstr "the {label} must have all three boxes (X, Y and Z); {missing} is missing."
 
-#: machinebook.py:97
+#: machinebook.py:93
 msgid "recorrido"
 msgstr "travel"
 
-#: machinebook.py:98
+#: machinebook.py:94
 msgid "aceleración"
 msgstr "acceleration"
 
-#: machinebook.py:127
+#: machinebook.py:122
 msgid "Sin avance máximo (XY o Z): la aplicación no avisa si un trabajo pide más de lo que la máquina da."
 msgstr "No maximum feed (XY or Z): the application does not warn if a job asks for more than the machine gives."
 
-#: machinebook.py:129
+#: machinebook.py:124
 msgid "Sin dato de homing: no se puede avisar de que «Home» fallaría en una máquina sin él."
 msgstr "No homing data: it cannot warn that “Home” would fail on a machine without it."
 
-#: machinebook.py:131
+#: machinebook.py:126
 msgid "Sin homing: la lista de comprobación no manda hacer Home y el cero se marca a mano."
 msgstr "No homing: the checklist does not ask to Home and zero is marked by hand."
 
-#: machinebook.py:133
+#: machinebook.py:128
 msgid "Sin dato del modo láser ($32): no se puede avisar de que M3 no arrancaría el husillo."
 msgstr "No laser mode data ($32): it cannot warn that M3 would not start the spindle."
 
-#: machinebook.py:150
+#: machinebook.py:145
 #, python-brace-format
 msgid "{ident} — {name} ({size} mm)"
 msgstr "{ident} — {name} ({size} mm)"
 
-#: machinebook.py:151
+#: machinebook.py:146
 #, python-brace-format
 msgid "{ident} ({size} mm)"
 msgstr "{ident} ({size} mm)"
 
-#: machinebook.py:166 machinebook.py:189 machinebook.py:194 machinebook.py:214
+#: machinebook.py:161 machinebook.py:184 machinebook.py:189 machinebook.py:209
 #: machines.py:317
 msgid "log pegado"
 msgstr "log pasted"
 
-#: machinebook.py:173
+#: machinebook.py:168
 #, python-brace-format
 msgid "ya hay una ficha con el identificador '{ident}'."
 msgstr "there is already a profile with the identifier '{ident}'."
 
-#: machinebook.py:181
+#: machinebook.py:176
 msgid "la ficha tiene errores: corrígelos antes de actualizarla desde un log."
 msgstr "the profile has errors: fix them before updating it from a log."
 
-#: machinebook.py:209
+#: machinebook.py:204
 msgid "No se ha encontrado ningún ajuste ($130=651…). Pega lo que UGS muestra al conectar o al escribir $$ en su consola, o escribe los valores uno por línea."
 msgstr "No setting was found ($130=651…). Paste what UGS shows when connecting or when typing $$ in its console, or type the values one per line."
 
-#: machinebook.py:211
+#: machinebook.py:206
 msgid "El log no tiene los datos mínimos."
 msgstr "The log does not have the minimum data."
 
@@ -4616,12 +4606,12 @@ msgstr "# It can be edited by hand and opened again with Recipe > Open recipe (s
 msgid "shapes y sides deben tener la misma longitud."
 msgstr "shapes and sides must have the same length."
 
-#: pipeline.py:83
+#: pipeline.py:84
 #, python-brace-format
 msgid "nivel de mensaje desconocido: {level!r}"
 msgstr "unknown message level: {level!r}"
 
-#: pipeline.py:153
+#: pipeline.py:154
 #, python-brace-format
 msgid "{len} resto(s) sin sentido descartado(s) (lineas de menos de 0,5 mm): "
 msgstr "{len} meaningless leftover(s) discarded (lines shorter than 0.5 mm): "
@@ -4631,203 +4621,203 @@ msgstr "{len} meaningless leftover(s) discarded (lines shorter than 0.5 mm): "
 msgid "giro de {spec:g} grados"
 msgstr "rotation of {spec:g} degrees"
 
-#: pipeline.py:184
+#: pipeline.py:182
 msgid "dibujo apaisado: se gira 90 grados antihorario"
 msgstr "landscape drawing: rotated 90 degrees counterclockwise"
 
-#: pipeline.py:185
+#: pipeline.py:183
 msgid "dibujo ya vertical: no se gira"
 msgstr "drawing already vertical: not rotated"
 
-#: pipeline.py:191
+#: pipeline.py:189
 msgid "cabe en el recorrido: no se gira"
 msgstr "fits in the travel: not rotated"
 
-#: pipeline.py:194
+#: pipeline.py:192
 #, python-brace-format
 msgid "no cabe tal cual ({w0:.0f} x {h0:.0f} mm en {tx:g} x {ty:g}): se gira 90 grados antihorario"
 msgstr "does not fit as is ({w0:.0f} x {h0:.0f} mm in {tx:g} x {ty:g}): rotated 90 degrees counterclockwise"
 
-#: pipeline.py:195
+#: pipeline.py:193
 #, python-brace-format
 msgid "no cabe ni girado ({w0:.0f} x {h0:.0f} mm y {w1:.0f} x {h1:.0f} mm en {tx:g} x {ty:g})"
 msgstr "does not fit even rotated ({w0:.0f} x {h0:.0f} mm and {w1:.0f} x {h1:.0f} mm in {tx:g} x {ty:g})"
 
-#: pipeline.py:262
+#: pipeline.py:259
 msgid "Giro: "
 msgstr "Rotation: "
 
-#: pipeline.py:273
+#: pipeline.py:269
 #, python-brace-format
 msgid "Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda"
 msgstr "Board: {v:.1f} x {v2:.1f} mm; zero is its bottom-left corner"
 
-#: pipeline.py:279
+#: pipeline.py:275
 #, python-brace-format
 msgid "Sin tablero: el cero queda {m:g} mm por fuera de la esquina inferior izquierda de lo que se corta"
 msgstr "No board: zero is {m:g} mm outside the bottom-left corner of what is cut"
 
-#: pipeline.py:283
+#: pipeline.py:279
 #, python-brace-format
 msgid "Dibujo movido {offset:g}, {offset2:g} mm respecto al cero"
 msgstr "Drawing moved {offset:g}, {offset2:g} mm relative to zero"
 
-#: pipeline.py:290
+#: pipeline.py:286
 #, python-brace-format
 msgid "Tablero supuesto: {b:.1f} x {b2:.1f} mm (del cero a lo que se corta mas {origin_margin:g} mm); sirve para calcular la sujecion"
 msgstr "Assumed board: {b:.1f} x {b2:.1f} mm (from zero to what is cut plus {origin_margin:g} mm); it is used to calculate the hold-down"
 
-#: pipeline.py:302
+#: pipeline.py:298
 #, python-brace-format
 msgid "{depth:g} mm"
 msgstr "{depth:g} mm"
 
-#: pipeline.py:364
+#: pipeline.py:360
 #, python-brace-format
 msgid "Ignoradas por la receta: {len} forma(s)"
 msgstr "Ignored by the recipe: {len} shape(s)"
 
-#: pipeline.py:367
+#: pipeline.py:363
 #, python-brace-format
 msgid "{len} forma(s) sin operacion en la receta, no se cortan (colores: {join})"
 msgstr "{len} shape(s) without an operation in the recipe, not cut (colors: {join})"
 
-#: pipeline.py:370
+#: pipeline.py:366
 msgid "la receta no encuentra ninguna forma que cortar"
 msgstr "the recipe finds no shape to cut"
 
-#: pipeline.py:372
+#: pipeline.py:368
 msgid "no hay ninguna forma que cortar"
 msgstr "there is no shape to cut"
 
-#: pipeline.py:390
+#: pipeline.py:386
 msgid "faltan el avance de corte y el de bajada (feed y entrada)"
 msgstr "the cutting feed and the plunge feed are missing (feed and entry)"
 
-#: pipeline.py:414
+#: pipeline.py:410
 #, python-brace-format
 msgid " (y {v} operacion(es) mas)"
 msgstr " (and {v} more operation(s))"
 
-#: pipeline.py:428
+#: pipeline.py:424
 #, python-brace-format
 msgid "El G-code no pasa la verificacion: {p}"
 msgstr "The G-code does not pass verification: {p}"
 
-#: pipeline.py:435
+#: pipeline.py:431
 msgid "una sola pasada"
 msgstr "a single pass"
 
-#: pipeline.py:436
+#: pipeline.py:432
 #, python-brace-format
 msgid "pasadas de hasta {stepdown:g} mm{tag}"
 msgstr "passes of up to {stepdown:g} mm{tag}"
 
-#: pipeline.py:437
+#: pipeline.py:433
 #, python-brace-format
 msgid "Fresa: {tool_label} | feed {feed:g}{tag} | entrada {plunge:g}{tag2} | {how}"
 msgstr "Tool: {tool_label} | feed {feed:g}{tag} | plunge {plunge:g}{tag2} | {how}"
 
-#: pipeline.py:439
+#: pipeline.py:435
 #, python-brace-format
 msgid "Fresa: {tool_label} | receta {source}"
 msgstr "Tool: {tool_label} | recipe {source}"
 
-#: pipeline.py:443
+#: pipeline.py:439
 #, python-brace-format
 msgid "  {name}: {kind}, {n} forma(s), {fmt_depth}"
 msgstr "  {name}: {kind}, {n} shape(s), {fmt_depth}"
 
-#: pipeline.py:444
+#: pipeline.py:440
 #, python-brace-format
 msgid "  {name}: sin formas en este trabajo"
 msgstr "  {name}: no shapes in this job"
 
-#: pipeline.py:449
+#: pipeline.py:445
 #, python-brace-format
 msgid "Puentes desactivados: {count} forma(s) con puentes puestos a mano se cortan sin ellos."
 msgstr "Tabs are switched off: {count} shape(s) with hand-placed bridges are cut without them."
 
-#: pipeline.py:453
+#: pipeline.py:449
 #, python-brace-format
 msgid "Operaciones: {counts}; profundidad total {depth:g} mm en {n_passes} pasada(s)"
 msgstr "Operations: {counts}; total depth {depth:g} mm in {n_passes} pass(es)"
 
-#: pipeline.py:455
+#: pipeline.py:451
 #, python-brace-format
 msgid "Operaciones generadas: {len}; profundidad maxima {v:.1f} mm"
 msgstr "Operations generated: {len}; maximum depth {v:.1f} mm"
 
-#: pipeline.py:459
+#: pipeline.py:455
 #, python-brace-format
 msgid "de {width:g} mm de ancho y {height:g} mm de alto"
 msgstr "{width:g} mm wide and {height:g} mm high"
 
-#: pipeline.py:460
+#: pipeline.py:456
 msgid "de varios tamaños"
 msgstr "of several sizes"
 
-#: pipeline.py:461
+#: pipeline.py:457
 #, python-brace-format
 msgid "Puentes: {count} en {pieces} forma(s), {size}"
 msgstr "Tabs: {count} on {pieces} shape(s), {size}"
 
-#: pipeline.py:469
+#: pipeline.py:465
 #, python-brace-format
 msgid "No cabe en la maquina: la trayectoria mide {size:.1f} mm en {axis} y el recorrido es de {travel:g} mm (faltan {v:.1f} mm)."
 msgstr "It does not fit in the machine: the toolpath measures {size:.1f} mm in {axis} and the travel is {travel:g} mm ({v:.1f} mm short)."
 
-#: pipeline.py:472
+#: pipeline.py:468
 #, python-brace-format
 msgid "Trayectoria en {axis}: {size:.1f} mm de {travel:g} mm de recorrido -> "
 msgstr "Toolpath in {axis}: {size:.1f} mm of {travel:g} mm of travel -> "
 
-#: pipeline.py:473
+#: pipeline.py:469
 #, python-brace-format
 msgid "margen total {room:.1f} mm"
 msgstr "total margin {room:.1f} mm"
 
-#: pipeline.py:473
+#: pipeline.py:469
 #, python-brace-format
 msgid "NO CABE (faltan {v:.1f} mm)"
 msgstr "DOES NOT FIT ({v:.1f} mm short)"
 
-#: pipeline.py:479
+#: pipeline.py:475
 #, python-brace-format
 msgid "La trayectoria se sale del tablero {side} {v:.1f} mm: parte de la pieza queda fuera del material."
 msgstr "The toolpath goes outside the board {side} {v:.1f} mm: part of the piece is left outside the material."
 
-#: pipeline.py:482
+#: pipeline.py:478
 #, python-brace-format
 msgid "la trayectoria se sale del tablero {side} {v:.1f} mm: parte de una pieza queda fuera del material. Mueve el dibujo hacia dentro con --offset DX,DY (por ejemplo --offset {flag}, que deja unos {OVERHANG_SLACK} mm de holgura)"
 msgstr "the toolpath goes outside the board {side} {v:.1f} mm: part of a piece is left outside the material. Move the drawing into the board with --offset DX,DY (for example --offset {flag}, which leaves about {OVERHANG_SLACK} mm of slack)"
 
-#: pocket.py:38
+#: pocket.py:39
 msgid "El vaciado requiere un Polygon (o MultiPolygon)."
 msgstr "The pocket requires a Polygon (or MultiPolygon)."
 
-#: pocket.py:40 toolpath.py:124
+#: pocket.py:41 toolpath.py:124
 msgid "La forma esta vacia o se cruza consigo misma."
 msgstr "The shape is empty or crosses itself."
 
-#: pocket.py:43
+#: pocket.py:44
 msgid "La fresa es demasiado grande para este vaciado."
 msgstr "The tool is too large for this pocket."
-
-#: pocket.py:165
-msgid "stepover debe estar en (0, 1] (fraccion del diametro)."
-msgstr "stepover must be in (0, 1] (fraction of the diameter)."
 
 #: pocket.py:175
 #, python-brace-format
 msgid "strategy desconocida: {strategy!r} (offset o zigzag)."
 msgstr "unknown strategy: {strategy!r} (offset or zigzag)."
 
-#: post_grbl.py:86
+#: pocket.py:183
+msgid "stepover debe estar en (0, 1] (fraccion del diametro)."
+msgstr "stepover must be in (0, 1] (fraction of the diameter)."
+
+#: post_grbl.py:85
 msgid "Movimiento de corte sin avance definido."
 msgstr "Cutting move without a defined feed."
 
-#: post_grbl.py:98
+#: post_grbl.py:97
 msgid "Codigo final definido por el usuario"
 msgstr "End code defined by the user"
 
@@ -5475,7 +5465,12 @@ msgstr "there is another profile with the identifier '{ident}'."
 msgid "_copia"
 msgstr "_copy"
 
-#: records.py:217
+#: records.py:219
+#, python-brace-format
+msgid "'{key}' debe ser un número (hay {text!r})."
+msgstr "'{key}' must be a number (got {text!r})."
+
+#: records.py:231
 msgid "falta el identificador de la ficha."
 msgstr "the profile identifier is missing."
 
@@ -5549,40 +5544,40 @@ msgstr "Ignored: "
 msgid "AVISO: {w}"
 msgstr "WARNING: {w}"
 
-#: svg_import.py:180
+#: svg_import.py:214
 msgid "El SVG no declara tamano de pagina valido; se usa el viewBox."
 msgstr "The SVG does not declare a valid page size; the viewBox is used."
 
-#: svg_import.py:200
+#: svg_import.py:234
 #, python-brace-format
 msgid "Forma sin area ignorada ({name})."
 msgstr "Shape with no area ignored ({name})."
 
-#: svg_import.py:205
+#: svg_import.py:239
 #, python-brace-format
 msgid "{name} (cerca de X {x:.0f}, Y {y:.0f} mm de la pagina)"
 msgstr "{name} (near X {x:.0f}, Y {y:.0f} mm of the page)"
 
-#: svg_import.py:213
+#: svg_import.py:247
 #, python-brace-format
 msgid "La forma {name} tenia un cruce minimo y se ha reparado."
 msgstr "The shape {name} had a minimal crossing and has been repaired."
 
-#: svg_import.py:215
+#: svg_import.py:249
 #, python-brace-format
 msgid "La forma {name} se cruza consigo misma."
 msgstr "The shape {name} crosses itself."
 
-#: svg_import.py:238
+#: svg_import.py:272
 #, python-brace-format
 msgid "{duplicates} forma(s) duplicada(s) (mismo contorno encima de otro)."
 msgstr "{duplicates} duplicate shape(s) (the same outline on top of another)."
 
-#: svg_import.py:240
+#: svg_import.py:274
 msgid "No se ha encontrado ninguna forma."
 msgstr "No shape was found."
 
-#: svg_import.py:274
+#: svg_import.py:312
 #, python-brace-format
 msgid "origin desconocido: {origin!r}"
 msgstr "unknown origin: {origin!r}"
@@ -5630,52 +5625,52 @@ msgstr "a tab fills the whole outline: it is too wide for this piece."
 msgid "los puentes ocupan todo el contorno: son demasiado anchos para esta pieza."
 msgstr "the tabs fill the whole outline: they are too wide for this piece."
 
-#: timing.py:63
+#: timing.py:64
 msgid "la duracion no puede ser negativa"
 msgstr "the duration cannot be negative"
 
-#: timing.py:66
+#: timing.py:67
 #, python-brace-format
 msgid "{total} s"
 msgstr "{total} s"
 
-#: timing.py:70
+#: timing.py:71
 #, python-brace-format
 msgid "{hours} h {minutes:02d} min"
 msgstr "{hours} h {minutes:02d} min"
 
-#: timing.py:71
+#: timing.py:72
 #, python-brace-format
 msgid "{minutes} min"
 msgstr "{minutes} min"
 
-#: timing.py:124
+#: timing.py:123
 msgid "el G-code lleva arcos (G2/G3): se cuentan como rectas"
 msgstr "the G-code has arcs (G2/G3): they are counted as straight lines"
 
-#: timing.py:127
+#: timing.py:126
 msgid "el G-code usa pulgadas o coordenadas relativas: la estimacion no vale"
 msgstr "the G-code uses inches or relative coordinates: the estimate is not valid"
 
-#: timing.py:154
+#: timing.py:153
 msgid "hay cortes sin avance (F) definido: no se cuentan"
 msgstr "there are cuts with no feed (F) defined: they are not counted"
 
-#: timing.py:219
+#: timing.py:218
 #, python-brace-format
 msgid "la ficha no dice el avance maximo: se supone {DEFAULT_MAX_FEED:g} mm/min"
 msgstr "the profile does not state the maximum feed: {DEFAULT_MAX_FEED:g} mm/min is assumed"
 
-#: timing.py:224
+#: timing.py:223
 msgid "la ficha no tiene aceleraciones: es el tiempo a velocidad constante, que se queda corto"
 msgstr "the profile has no accelerations: this is the time at constant speed, which falls short"
 
-#: timing.py:255
+#: timing.py:254
 #, python-brace-format
 msgid "unos {text} de maquina"
 msgstr "about {text} of machine time"
 
-#: timing.py:256
+#: timing.py:255
 #, python-brace-format
 msgid "sin contar {pauses} pausa(s) M0"
 msgstr "not counting {pauses} M0 pause(s)"
@@ -5696,25 +5691,25 @@ msgstr "V-bit"
 msgid "el identificador debe empezar por una letra y usar solo letras, números, '_', '-' o '.' (un número solo se tomaría por un diámetro)."
 msgstr "the identifier must start with a letter and use only letters, numbers, '_', '-' or '.' (a lone number would be taken for a diameter)."
 
-#: toolbook.py:56
+#: toolbook.py:52
 #, python-brace-format
 msgid "'{key}' debe ser un número entero (hay {text!r})."
 msgstr "'{key}' must be an integer (got {text!r})."
 
-#: toolbook.py:89
+#: toolbook.py:84
 msgid "De momento solo las fresas planas (end mill) generan trayectorias; esta ficha se guarda como datos."
 msgstr "For now only flat end mills (end mill) generate toolpaths; this profile is saved as data."
 
-#: toolbook.py:92
+#: toolbook.py:87
 #, python-brace-format
 msgid "Sin {join}: habrá que escribirlo en cada trabajo."
 msgstr "Without {join}: it will have to be written in every job."
 
-#: toolbook.py:94
+#: toolbook.py:89
 msgid "Sin longitud útil: la aplicación no puede avisar si un corte es más hondo que el filo."
 msgstr "Without a useful length: the application cannot warn if a cut is deeper than the flute."
 
-#: toolbook.py:96
+#: toolbook.py:91
 msgid "Sin profundidad de pasada: corta todo el grosor de una vez, salvo que el trabajo diga otra."
 msgstr "Without a pass depth: it cuts the whole thickness at once, unless the job says otherwise."
 

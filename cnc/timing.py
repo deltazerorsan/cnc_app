@@ -25,12 +25,13 @@ import math
 import re
 from dataclasses import dataclass, field
 from typing import Optional, Sequence
+
+from .verify_nc import code_of
 from .i18n import _
 
 JUNCTION_DEVIATION = 0.010           # mm ($11): el de serie de GRBL y el de la maquina del taller
 DEFAULT_MAX_FEED = 3600.0            # mm/min, si la ficha no dice el avance maximo
 _WORD = re.compile(r"([A-Za-z])\s*([-+]?\d*\.?\d+)")
-_COMMENT = re.compile(r"\(.*?\)")
 _STOPS = {0, 2, 3, 5, 30}            # M que sincronizan: pausa, fin, husillo y fin del programa
 _EPS = 1e-9
 
@@ -104,9 +105,7 @@ def _parse(text: str, max_xy: float, max_z: float):
     pauses = 0
     notes: set = set()
     for raw in text.splitlines():
-        if "(" in raw:
-            raw = _COMMENT.sub("", raw)
-        code = raw.split(";")[0].strip()
+        code = code_of(raw)
         if not code or code[0] == "$":
             continue
         words = _words(code)

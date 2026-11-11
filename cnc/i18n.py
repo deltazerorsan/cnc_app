@@ -156,12 +156,17 @@ def N_(msgid: str) -> str:
     return msgid
 
 
-def number(value: float, decimals: int = 3, strip: bool = True) -> str:
-    """Un numero como texto con el separador decimal del idioma. `strip`: sin ceros ni punto sobrantes (2,5 y no 2,500)."""
-    text = f"{value:.{decimals}f}"
+def plain_number(value: float, decimals: int = 3, strip: bool = True) -> str:
+    """Un numero como texto con punto decimal (el del G-code). `strip`: sin ceros ni punto sobrantes (2.5 y no 2.500)."""
+    text = "%.*f" % (decimals, value)
     if strip and "." in text:
         text = text.rstrip("0").rstrip(".")
-    text = "0" if text in ("", "-0") else text
+    return "0" if text in ("", "-0") else text
+
+
+def number(value: float, decimals: int = 3, strip: bool = True) -> str:
+    """Un numero como texto con el separador decimal del idioma (coma en español)."""
+    text = plain_number(value, decimals, strip)
     return text.replace(".", ",") if _language == "es" else text
 
 

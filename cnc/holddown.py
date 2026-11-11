@@ -24,6 +24,7 @@ from shapely.geometry import LineString, Point, Polygon, box
 from shapely.ops import polygonize, unary_union
 
 from .post_grbl import _comment, _num
+from .preview import outline_of
 from .i18n import _
 
 CAND_STEP = 8.0          # mm entre candidatos a punto
@@ -131,6 +132,7 @@ def _closed(pl, tol: float = CLOSE_TOL) -> bool:
 def _loops(pl) -> list:
     """Los poligonos que cierra una polilinea de corte.
 
+    Lo normal es que llegue una sola vuelta (`preview.outline_of`), pero vale tambien el recorrido entero (`cuts`).
     Con varias pasadas seguidas la previsualizacion une todas en una polilinea (la bajada es vertical y no la corta), asi
     que el mismo contorno se recorre dos, tres... veces. `Polygon(pl)` de un contorno recorrido un numero PAR de veces no
     tiene interior (cuenta por paridad): las piezas y los huecos dejaban de reconocerse y se proponia sujetar encima de
@@ -230,7 +232,8 @@ def build_zones(board, previews, radius: float) -> Zones:
     lines, closed_polys, drills = [], [], []
     for op in previews:
         bridges = [LineString(br) for br in getattr(op, "bridges", []) if len(br) >= 2]
-        for pl in op.cuts:
+        cuts = outline_of(op)              # en planta: con cada pasada repetida, unir y ensanchar tardaba muchas veces mas
+        for pl in cuts:
             if len(pl) < 2:
                 continue
             lines.append(LineString(pl))
@@ -241,7 +244,7 @@ def build_zones(board, previews, radius: float) -> Zones:
         # contorno con puentes eran trozos abiertos y la pieza se tomaba por desecho (se proponia sujetar encima de ella).
         lines.extend(bridges)
         if bridges and op.kind in ("hueco", "pieza", "linea"):
-            pieces_of_contour = _joined([pl for pl in op.cuts if len(pl) >= 2] + [br for br in op.bridges if len(br) >= 2])
+            pieces_of_contour = _joined([pl for pl in cuts if len(pl) >= 2] + [br for br in op.bridges if len(br) >= 2])
             ring = unary_union([LineString(pl) for pl in pieces_of_contour])
             closed_polys.extend((g, op.kind) for g in polygonize(ring) if g.area > MIN_AREA)
         for x, y, _z in op.drills:

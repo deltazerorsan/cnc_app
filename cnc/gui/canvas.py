@@ -13,6 +13,7 @@ from shapely.geometry import Point, Polygon
 
 from .. import grid as gr
 from ..oprows import shape_key
+from ..preview import outline_of
 from ..svg_import import ImportedShape
 from ..tabs import tab_line
 from . import theme
@@ -88,6 +89,17 @@ def _pen(color: str, width: float = 1.0, style=Qt.SolidLine, alpha: int = 255) -
     pen.setCosmetic(True)                       # el grosor no cambia con el zoom
     pen.setJoinStyle(Qt.RoundJoin)
     return pen
+
+
+def zero_mark(tooltip: str) -> QGraphicsPathItem:
+    """La cruz roja de un cero (X0 Y0), del mismo tamaño con cualquier zoom."""
+    cross = QPainterPath()
+    cross.moveTo(-8, 0), cross.lineTo(8, 0), cross.moveTo(0, -8), cross.lineTo(0, 8)
+    item = QGraphicsPathItem(cross)
+    item.setPen(_pen(theme.ERROR, 1.5))
+    item.setFlag(item.GraphicsItemFlag.ItemIgnoresTransformations, True)
+    item.setToolTip(tooltip)
+    return item
 
 
 def dotted_pen(color: str, width: float = 2.2) -> QPen:
@@ -365,13 +377,7 @@ class Canvas(QGraphicsView):
         page.setBrush(Qt.NoBrush)
         page.setAcceptedMouseButtons(Qt.NoButton)
         self._scene.addItem(page)
-        z = QPainterPath()
-        z.moveTo(-8, 0), z.lineTo(8, 0), z.moveTo(0, -8), z.lineTo(0, 8)
-        zi = QGraphicsPathItem(z)
-        zi.setPen(_pen(theme.ERROR, 1.5))
-        zi.setFlag(zi.GraphicsItemFlag.ItemIgnoresTransformations, True)
-        zi.setToolTip(_("Cero del dibujo (X0 Y0)"))
-        self._scene.addItem(zi)
+        self._scene.addItem(zero_mark(_("Cero del dibujo (X0 Y0)")))
         text = QGraphicsSimpleTextItem(_("Dibujo vacío: usa el menú Dibujo para añadir formas"))
         text.setBrush(QColor(theme.MUTED))
         text.setFlag(text.GraphicsItemFlag.ItemIgnoresTransformations, True)     # no se voltea con la vista (Y hacia arriba)
@@ -425,7 +431,7 @@ class Canvas(QGraphicsView):
             for op in previews:
                 color = theme.KIND_COLORS[op.kind]
                 if op.cuts:
-                    it = QGraphicsPathItem(polyline_path(op.cuts))
+                    it = QGraphicsPathItem(polyline_path(outline_of(op)))      # cada vuelta una vez: las pasadas se pisan
                     it.setPen(_pen(color, 1.3))
                     it.setZValue(3)
                     it.setToolTip(_("Operación {index}: {lower}, hasta Z {z_min:.2f} mm", index=op.index, lower=theme.KIND_LABELS[op.kind].lower(), z_min=op.z_min))
@@ -447,13 +453,8 @@ class Canvas(QGraphicsView):
                     e.setToolTip(_("Operación {index}: taladro hasta Z {z_min:.2f} mm", index=op.index, z_min=op.z_min))
                     self._scene.addItem(e)
         # el cero
-        z = QPainterPath()
-        z.moveTo(-8, 0), z.lineTo(8, 0), z.moveTo(0, -8), z.lineTo(0, 8)
-        zi = QGraphicsPathItem(z)
-        zi.setPen(_pen(theme.ERROR, 1.5))
-        zi.setFlag(zi.GraphicsItemFlag.ItemIgnoresTransformations, True)
+        zi = zero_mark(_("Cero de la pieza (X0 Y0)"))
         zi.setZValue(10)
-        zi.setToolTip(_("Cero de la pieza (X0 Y0)"))
         self._scene.addItem(zi)
         self.set_alarm_layer(getattr(getattr(plan, "result", None), "marks", None) or ())
         self._set_scene_rect(self._scene.itemsBoundingRect(), state)
@@ -544,16 +545,11 @@ class Canvas(QGraphicsView):
                           "tendrá el G-code", v=self._frame_text or _('Recorrido de la máquina')))
         self._scene.addItem(poly)
         self._frame_items.append(poly)
-        zero = QPainterPath()
-        zero.moveTo(-8, 0), zero.lineTo(8, 0), zero.moveTo(0, -8), zero.lineTo(0, 8)
-        mark = QGraphicsPathItem(zero)
-        mark.setPen(_pen(theme.ERROR, 1.5))
-        mark.setFlag(mark.GraphicsItemFlag.ItemIgnoresTransformations, True)
+        mark = zero_mark(_("Cero de la máquina (X0 Y0) para este tablero"))
         mark.setPos(*self._frame[0])
         mark.setZValue(10)
         mark.setAcceptedMouseButtons(Qt.NoButton)
         mark.setData(ITEM_KIND, "frame-zero")
-        mark.setToolTip(_("Cero de la máquina (X0 Y0) para este tablero"))
         self._scene.addItem(mark)
         self._frame_items.append(mark)
         rect = poly.sceneBoundingRect()

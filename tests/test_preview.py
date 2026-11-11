@@ -4,7 +4,7 @@ from shapely.geometry import Point, box
 
 from cnc.model import ContourOp, DrillOp, PocketOp, Tool
 from cnc.pipeline import JobSettings, plan_job
-from cnc.preview import OpPreview, op_kind, preview_moves, preview_ops
+from cnc.preview import OpPreview, op_kind, outline_of, preview_moves, preview_ops
 from cnc.svg_import import ImportedShape
 from cnc.toolpath import Move
 
@@ -34,6 +34,27 @@ def test_a_rapid_ends_the_polyline_and_a_new_cut_starts_another():
              Move(x=9, y=9, rapid=True), Move(z=-2, feed=1), Move(x=12, y=9, feed=1)]
     p = preview_moves(moves, 1)
     assert p.cuts == [[(0, 0), (5, 0)], [(9, 9), (12, 9)]]                         # el primer movimiento no tiene origen
+
+
+def test_outline_has_each_lap_once_however_many_passes():
+    """`cuts` es la trayectoria entera (todas las pasadas); `outline`, lo mismo en planta: cada vuelta una sola vez."""
+    plan = plan_job([shp(box(0, 0, 80, 50))], [], settings(stepdown=2.0))          # 6,4 mm: cuatro pasadas
+    (op,) = preview_ops(plan)
+    (ring,) = op.outline
+    assert ring[0] == ring[-1] and op.cuts == [ring + ring[1:] * 3]                 # la misma vuelta, cuatro veces seguidas
+    assert outline_of(op) == [ring]
+    assert outline_of(OpPreview(1, "pieza", cuts=op.cuts)) == op.cuts               # sin `outline` vale el recorrido entero
+
+
+def test_outline_of_an_open_line_and_of_a_change_of_level_midway():
+    moves = [Move(x=0, y=0, rapid=True), Move(z=-2, feed=300), Move(x=10, y=0, feed=900), Move(z=1, rapid=True),
+             Move(x=0, y=0, rapid=True), Move(z=-4, feed=300), Move(x=10, y=0, feed=900), Move(z=5, rapid=True)]
+    p = preview_moves(moves)
+    assert p.cuts == [[(0, 0), (10, 0)], [(0, 0), (10, 0)]] and p.outline == [[(0, 0), (10, 0)]]     # ida, vuelta en rapido, ida
+    moves = [Move(x=0, y=0, rapid=True), Move(z=-3, feed=300), Move(x=20, y=0, feed=900), Move(z=-6, feed=300),
+             Move(x=20, y=10, feed=900)]
+    p = preview_moves(moves)                           # baja a mitad de camino: dos tramos distintos, no se pierde ninguno
+    assert p.cuts == [[(0, 0), (20, 0), (20, 10)]] and p.outline == [[(0, 0), (20, 0)], [(20, 0), (20, 10)]]
 
 
 def test_cuts_above_the_surface_are_not_cuts():

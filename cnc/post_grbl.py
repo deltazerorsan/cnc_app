@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from typing import Optional, Sequence
 
 from .toolpath import Move
-from .i18n import _
+from .i18n import _, plain_number as _num
 
 
 @dataclass
@@ -26,23 +26,19 @@ class PostOptions:
     decimals: int = 3
 
 
-def _num(v: float, decimals: int = 3) -> str:
-    s = f"{v:.{decimals}f}"
-    if "." in s:
-        s = s.rstrip("0").rstrip(".")
-    return "0" if s in ("", "-0") else s
+def _ascii(text: str) -> str:
+    """El texto sin acentos ni nada que no sea ASCII (GRBL solo admite ASCII)."""
+    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
 
 
 def _comment(text: str) -> str:
-    folded = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
-    clean = " ".join(folded.replace("(", "[").replace(")", "]").replace(";", ",").split())
+    clean = " ".join(_ascii(text).replace("(", "[").replace(")", "]").replace(";", ",").split())
     return f"({clean})"
 
 
 def _end_code_lines(text: str) -> list[str]:
-    """Lineas del codigo final: sin acentos (GRBL solo ASCII), sin lineas vacias."""
-    folded = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
-    return [ln.strip() for ln in folded.splitlines() if ln.strip()]
+    """Lineas del codigo final: sin acentos, sin lineas vacias."""
+    return [ln.strip() for ln in _ascii(text).splitlines() if ln.strip()]
 
 
 def to_gcode(
@@ -64,17 +60,20 @@ def to_gcode(
         if opts.spinup_dwell > 0:
             lines.append(f"G4 P{_num(opts.spinup_dwell, 1)}")
 
-    last: dict[str, Optional[str]] = {"X": None, "Y": None, "Z": z_safe}
+    decimals = opts.decimals
+    value_now: list[Optional[float]] = [None, None, safe_z]         # X, Y, Z: el ultimo numero visto en cada eje...
+    text_now: list[Optional[str]] = [None, None, z_safe]            # ...y como quedo escrito
     feed: Optional[float] = None
     for m in moves:
         words = []
-        for axis, value in (("X", m.x), ("Y", m.y), ("Z", m.z)):
-            if value is None:
+        for i, value in enumerate((m.x, m.y, m.z)):
+            if value is None or value == value_now[i]:              # el mismo numero (la Z de toda una pasada): ni se le da formato
                 continue
-            s = _num(value, opts.decimals)
-            if s != last[axis]:
-                words.append(f"{axis}{s}")
-                last[axis] = s
+            value_now[i] = value
+            s = _num(value, decimals)
+            if s != text_now[i]:
+                words.append("XYZ"[i] + s)
+                text_now[i] = s
         if not words:
             continue
         line = ["G0" if m.rapid else "G1", *words]

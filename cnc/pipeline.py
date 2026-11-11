@@ -27,7 +27,8 @@ from . import safety
 from .ordering import order_cuts
 from .post_grbl import PostOptions
 from .recipe import Built, Recipe, RecipeError, build_operations, classify
-from .svg_import import ImportedShape, SvgImport, import_svg, is_degenerate, place, rotate, shift, suggest_sides
+from .svg_import import (ImportedShape, SvgImport, bounds_of, import_svg, is_degenerate, place, rotate, shift,
+                         suggest_sides)
 from .tabs import TabSettings
 from .timing import TimeEstimate, estimate_for_machine
 from .tools import DEFAULT_TOOLS_FILE
@@ -164,9 +165,8 @@ def toolpath_span(kept, stock, degrees, radius):
     turned = rotate(kept + stock, degrees)
     k, st = turned[: len(kept)], turned[len(kept):]
     k = place(k, "bbox_bottom_left", reference=st or None)
-    xs = [b for s in k for b in (s.shape.bounds[0] - radius, s.shape.bounds[2] + radius)]
-    ys = [b for s in k for b in (s.shape.bounds[1] - radius, s.shape.bounds[3] + radius)]
-    return max(max(xs), 0.0) - min(min(xs), 0.0), max(max(ys), 0.0) - min(min(ys), 0.0)
+    minx, miny, maxx, maxy = bounds_of(k)
+    return (max(maxx + radius, 0.0) - min(minx - radius, 0.0), max(maxy + radius, 0.0) - min(miny - radius, 0.0))
 
 
 def choose_rotation(spec, portrait: bool, kept, stock, tool: Tool, boards_mode: bool,
@@ -176,11 +176,9 @@ def choose_rotation(spec, portrait: bool, kept, stock, tool: Tool, boards_mode: 
         spec = float(spec)
         return spec, (_("sin giro") if spec % 360 == 0 else _("giro de {spec:g} grados", spec=spec))
     portrait = portrait and spec is None
-    ref = stock or kept
-    xs = [b for s in ref for b in (s.shape.bounds[0], s.shape.bounds[2])]
-    ys = [b for s in ref for b in (s.shape.bounds[1], s.shape.bounds[3])]
     if portrait:
-        landscape = (max(xs) - min(xs)) > (max(ys) - min(ys))
+        minx, miny, maxx, maxy = bounds_of(stock or kept)
+        landscape = (maxx - minx) > (maxy - miny)
         return (90.0, _("dibujo apaisado: se gira 90 grados antihorario")) if landscape else (
             0.0, _("dibujo ya vertical: no se gira"))
     if spec == "auto" or (spec is None and boards_mode):
@@ -198,11 +196,10 @@ def choose_rotation(spec, portrait: bool, kept, stock, tool: Tool, boards_mode: 
 
 def overhang(bounds, stock) -> dict:
     """Cuanto se sale la trayectoria del tablero por cada lado (mm; solo los lados donde se sale)."""
-    bx = [b for s in stock for b in (s.shape.bounds[0], s.shape.bounds[2])]
-    by = [b for s in stock for b in (s.shape.bounds[1], s.shape.bounds[3])]
+    left, bottom, right, top = bounds_of(stock)
     minx, miny, maxx, maxy = bounds
-    out = {"por la izquierda": min(bx) - minx, "por abajo": min(by) - miny,
-           "por la derecha": maxx - max(bx), "por arriba": maxy - max(by)}
+    out = {"por la izquierda": left - minx, "por abajo": bottom - miny,
+           "por la derecha": maxx - right, "por arriba": maxy - top}
     return {side: v for side, v in out.items() if v > 0.05}
 
 
@@ -211,8 +208,8 @@ def virtual_stock(kept, margin: float) -> Optional[ImportedShape]:
     mismo margen que separa el cero de la esquina inferior izquierda. None si eso no deja ningun rectangulo."""
     if not kept:
         return None
-    maxx = max(s.shape.bounds[2] for s in kept) + margin
-    maxy = max(s.shape.bounds[3] for s in kept) + margin
+    __, __, maxx, maxy = bounds_of(kept)
+    maxx, maxy = maxx + margin, maxy + margin
     if not (maxx > 0 and maxy > 0):
         return None
     return ImportedShape(box(0.0, 0.0, maxx, maxy), True, kind="rect")
@@ -268,9 +265,8 @@ def lay_out(kept: Sequence[ImportedShape], stock: Sequence[ImportedShape], *, ro
     if stock:
         kept = place(kept, "bbox_bottom_left", reference=stock)
         stock = place(stock, "bbox_bottom_left", reference=stock)
-        bx = [b for s in stock for b in (s.shape.bounds[0], s.shape.bounds[2])]
-        by = [b for s in stock for b in (s.shape.bounds[1], s.shape.bounds[3])]
-        messages.append(Message(_("Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda", v=max(bx) - min(bx), v2=max(by) - min(by))))
+        left, bottom, right, top = bounds_of(stock)
+        messages.append(Message(_("Tablero: {v:.1f} x {v2:.1f} mm; el cero es su esquina inferior izquierda", v=right - left, v2=top - bottom)))
     else:
         kept = place(kept, origin)
         if origin == "bbox_bottom_left" and origin_margin:

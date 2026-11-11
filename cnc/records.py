@@ -211,6 +211,20 @@ class Editor:
         return path
 
 
+def form_number(key: str, text: str, error: type) -> Union[int, float]:
+    """El numero escrito en una casilla (con coma o con punto); entero si no tiene decimales."""
+    try:
+        value = float(text.replace(",", "."))
+    except ValueError:
+        raise error(_("'{key}' debe ser un número (hay {text!r}).", key=key, text=text)) from None
+    return int(value) if value.is_integer() else value
+
+
+def edit_error(e: Exception, error: type) -> Exception:
+    """El error de leer una ficha (`archivo, ficha 'x': motivo`) como error de edicion: solo el motivo."""
+    return error(str(e).split(": ", 1)[-1])
+
+
 def require_ident(ident: str, error: type, rule: str) -> None:
     """Falla si el identificador esta vacio o no sigue `ID`; `rule` es la explicacion de que se admite."""
     if not ident:

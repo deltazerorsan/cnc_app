@@ -22,6 +22,20 @@ KNOWN_G = {0, 1, 4, 17, 21, 54, 90, 94}
 KNOWN_M = {0, 2, 3, 5, 30}   # M0 pausa; M2/M30 fin de programa
 KNOWN_LETTERS = set("GMXYZFSP")
 EPS = 1e-6
+_COMMENT = re.compile(r"\(.*?\)")
+_NUMBER = r"-?(?:\d+\.?\d*|\.\d+)"
+_PLAIN = re.compile(rf"[A-Z]{_NUMBER}(?: [A-Z]{_NUMBER})*")      # como escribe el programa: «G1 X10 Y5.5 F300»
+
+
+def code_of(raw: str) -> str:
+    """La linea sin comentarios `( )`, sin lo que sigue a `;` y sin espacios a los lados."""
+    if "(" in raw:
+        raw = _COMMENT.sub("", raw)
+    return raw.split(";")[0].strip()
+
+
+def _is_m3(code: str) -> bool:
+    return any(l.upper() == "M" and int(float(v)) == 3 for l, v in WORD.findall(code))
 
 
 @dataclass
@@ -65,11 +79,10 @@ class Report:
 
 def analyze(text: str, travel: Optional[tuple] = None, max_feed: float = 3600.0) -> Report:
     r = Report()
-    has_m3 = any(
-        l.upper() == "M" and int(float(v)) == 3
-        for raw in text.splitlines()
-        for l, v in WORD.findall(re.sub(r"\(.*?\)", "", raw).split(";")[0])
-    )
+    # Un corte con el husillo apagado solo es un problema si el programa arranca el husillo en algun sitio (si no, se
+    # maneja a mano). Eso no se sabe hasta el final: se apunta el primero, con su sitio entre los avisos, y se decide alli.
+    has_m3 = False
+    cut_off: Optional[tuple] = None      # (cuantos avisos habia, linea) del primer corte con el husillo apagado
     pos: dict = {"X": None, "Y": None, "Z": None}
     mode: Optional[int] = None
     feed: Optional[float] = None
@@ -90,16 +103,21 @@ def analyze(text: str, travel: Optional[tuple] = None, max_feed: float = 3600.0)
             issue("long", f"linea {n}: {len(raw)} caracteres (GRBL estandar admite 79)")
         if not raw.isascii():
             issue("ascii", f"linea {n}: caracteres no ASCII")
-        code = re.sub(r"\(.*?\)", "", raw).split(";")[0].strip()
+        code = code_of(raw)
         if not code:
             continue
         r.code_lines += 1
         if code.startswith("$"):
             r.system_cmds.append(code)
+            has_m3 = has_m3 or _is_m3(code)
             continue
 
-        words = [(m.group(1).upper(), float(m.group(2))) for m in WORD.finditer(code)]
-        leftover = WORD.sub("", code).strip()
+        if _PLAIN.fullmatch(code):                       # el formato del propio programa: basta con partir por los espacios
+            words = [(w[0], float(w[1:])) for w in code.split(" ")]
+            leftover = ""
+        else:
+            words = [(m.group(1).upper(), float(m.group(2))) for m in WORD.finditer(code)]
+            leftover = WORD.sub("", code).strip()
         if leftover:
             r.unknown.append(f"linea {n}: texto no reconocido {leftover!r}")
         g_words = [int(v) for l, v in words if l == "G"]
@@ -126,6 +144,7 @@ def analyze(text: str, travel: Optional[tuple] = None, max_feed: float = 3600.0)
             elif l == "S":
                 s_value = v
         if 3 in m_words:
+            has_m3 = True
             spindle_on = True
             if s_value is not None:
                 r.spindle_s.add(s_value)
@@ -178,8 +197,8 @@ def analyze(text: str, travel: Optional[tuple] = None, max_feed: float = 3600.0)
                 r.bounds = (min(b[0], *xs), min(b[1], *ys), max(b[2], *xs), max(b[3], *ys))
                 if z_new > EPS:
                     issue("air", f"linea {n}: corte en XY por encima de la superficie (Z={z_new:g})")
-                if has_m3 and not spindle_on:
-                    issue("spindle", f"linea {n}: corte con el husillo apagado")
+                if not spindle_on and cut_off is None:
+                    cut_off = (len(r.issues), n)
                 if abs(dz) > EPS:
                     issue("ramp", f"linea {n}: corte con Z variable (rampa), Z de {pos['Z']:g} a {z_new:g}")
             elif known and abs(dz) > EPS:
@@ -201,6 +220,8 @@ def analyze(text: str, travel: Optional[tuple] = None, max_feed: float = 3600.0)
         r.z_min = z_new if r.z_min is None else min(r.z_min, z_new)
         r.z_max = z_new if r.z_max is None else max(r.z_max, z_new)
 
+    if has_m3 and cut_off is not None:
+        r.issues.insert(cut_off[0], f"linea {cut_off[1]}: corte con el husillo apagado")
     if not r.units_mm:
         issue("units", "no hay G21 (milimetros)")
     if not r.absolute:

@@ -175,6 +175,20 @@ def test_a_whole_board_pocket_with_a_thin_bit_plans_instead_of_crashing():
     assert len([m for m in moves if not m.rapid and m.x is not None]) > 4000        # miles de tramos de corte, sin romperse
 
 
+def test_pocket_paths_are_worked_out_once_per_pocket():
+    """Los recorridos se piden para ordenar los vaciados (por donde empiezan) y otra vez para generarlos: se calculan una vez."""
+    from cnc import pocket
+    pocket._planned.cache_clear()
+    op = PocketOp(shape=box(0, 0, 60, 40), depth=3, stepover=0.4)
+    first = plan_paths(op, 2.0)
+    assert pocket.entry_point(op, 2.0) == first[0][0] and pocket_moves(op, stock(), 2.0, 5.0, 1.0)
+    info = pocket._planned.cache_info()
+    assert (info.misses, info.hits) == (1, 2)
+    assert plan_paths(op, 2.0) == first and plan_paths(op, 2.0) is not first          # la lista es de quien la pide
+    assert plan_paths(op, 1.5) != first and pocket._planned.cache_info().misses == 2  # otra fresa: otros recorridos
+    assert plan_paths(PocketOp(shape=box(0, 0, 60, 41), depth=3, stepover=0.4), 2.0) != first     # y otra forma, tambien
+
+
 def test_unknown_pocket_strategy_is_rejected():
     with pytest.raises(ValueError, match="strategy desconocida"):
         plan_paths(PocketOp(shape=box(0, 0, 40, 40), depth=3, strategy="espiral"), 2.0)

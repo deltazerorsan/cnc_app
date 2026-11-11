@@ -1,23 +1,16 @@
 """Lectura del archivo de configuracion (cnc_app.toml) con los valores por defecto del programa.
 
 TOML en vez de JSON porque admite comentarios, que es lo que hace falta en un archivo que se
-edita a mano. Necesita Python 3.11+ (modulo tomllib) o `pip install tomli`.
+edita a mano. Lo lee `tomllib`, que viene con Python desde la version 3.11 (la minima del programa).
 """
 from __future__ import annotations
 
+import tomllib as _toml
 from pathlib import Path
 from typing import Optional
 from .i18n import _
 
 CONFIG_NAME = "cnc_app.toml"
-
-try:  # Python 3.11+
-    import tomllib as _toml
-except ImportError:  # pragma: no cover - depende de la version de Python
-    try:
-        import tomli as _toml  # type: ignore[no-redef]
-    except ImportError:
-        _toml = None
 
 
 class ConfigError(ValueError):
@@ -35,10 +28,6 @@ def find_config(cwd: Path, script_dir: Path) -> Optional[Path]:
 
 def read_config(path: Path, what: str = _("archivo de configuracion")) -> dict:
     path = Path(path)
-    if _toml is None:
-        raise ConfigError(
-            _("No se puede leer {name}: hace falta Python 3.11 o superior, o `pip install tomli`.", name=path.name)
-        )
     try:
         text = path.read_text(encoding="utf-8-sig")
     except FileNotFoundError:
